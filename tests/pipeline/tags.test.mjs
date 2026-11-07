@@ -26,6 +26,11 @@ describe('tagItem', () => {
     expect(tags).toContain('program-closed');
     expect(tags).not.toContain('program-open');
   });
+  it('rejoins a title cut with … and its excerpt', () => {
+    const tags = t('The ACT nomination process is not yet…', '…open and we are not currently responding.');
+    expect(tags).toContain('program-closed');
+    expect(tags).not.toContain('program-open');
+  });
   it('reads the excerpt too', () => {
     expect(t('Update', 'Minimum matrix score was 120')).toEqual(['points-test']);
   });

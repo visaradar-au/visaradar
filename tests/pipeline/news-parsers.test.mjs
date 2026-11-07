@@ -106,7 +106,29 @@ describe('act', () => {
     checkShape(items, 'act');
     expect(items).toHaveLength(5);
     expect(items[1].url).toBe('https://www.act.gov.au/migration');
-    expect(items[1].excerpt).toMatch(/not yet been confirmed/);
+    expect(items.every((i) => i.published === null)).toBe(true);
+  });
+  it('titles are a short first sentence; excerpts never repeat the title', () => {
+    const items = act.parse(fx('act-home.html'), act.urls.home);
+    for (const i of items) {
+      expect(i.title.length).toBeLessThanOrEqual(90);
+      expect(i.title).not.toMatch(/\s…$/); // cut on a word boundary
+      if (i.excerpt) expect(i.excerpt.startsWith(i.title.replace(/…$/, ''))).toBe(false);
+    }
+    expect(items[1]).toMatchObject({
+      title: '2026-27 allocations: The ACT’s 2026-27 allocation of nomination places have not yet been…',
+    });
+    expect(items[1].excerpt).toMatch(/^…confirmed by the Australian Government\./);
+    // Label dropped when that makes the sentence fit; nothing left for the excerpt.
+    expect(items[3]).toMatchObject({
+      title: 'Information on the most recent Canberra Matrix invitation round of 12 October 2026',
+      excerpt: null,
+    });
+  });
+  it('splitBullet keeps short bullets whole and avoids stranding a few words', () => {
+    expect(act.splitBullet('Short update.')).toEqual({ title: 'Short update', excerpt: null });
+    const s = `${'word '.repeat(18)}end.`; // 94 chars: cutting would strand a few words
+    expect(act.splitBullet(s).title).toBe(s.slice(0, -1));
   });
   it('reads the dated round heading, not the schedule', () => {
     const items = act.parseRoundPage(fx('act-round.html'), act.urls.round);

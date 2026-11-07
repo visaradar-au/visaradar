@@ -47,7 +47,7 @@ export function mergeItems(existing, fresh, nowIso) {
         title: f.title || old.title,
         url: f.url,
         published: f.published ?? old.published,
-        excerpt: f.excerpt ?? old.excerpt,
+        excerpt: f.excerpt, // the source just returned it, so its null is current
         tags: f.tags,
       });
     } else {

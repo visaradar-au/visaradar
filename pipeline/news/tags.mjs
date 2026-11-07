@@ -36,7 +36,8 @@ const RULES = [
 
 /** @param {{title:string, excerpt?:string|null}} item @returns {string[]} */
 export function tagItem({ title, excerpt }) {
-  const text = `${title ?? ''} ${excerpt ?? ''}`.toLowerCase();
+  // A title cut with "…" continues in an excerpt starting with "…": rejoin them.
+  const text = `${title ?? ''} ${excerpt ?? ''}`.replace(/…\s+…/g, ' ').toLowerCase();
   // "not yet open" is a closed signal, so hide it from the open rule.
   const forOpen = text.replace(/\bnot (yet |currently )?open\w*/g, '');
   const tags = RULES.filter(([t, re]) => re.test(t === 'program-open' ? forOpen : text)).map(([t]) => t);
