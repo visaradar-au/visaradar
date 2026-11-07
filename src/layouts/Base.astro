@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import { site } from '../site.config';
+import { href } from '../lib/href';
+import { getMeta } from '../lib/data/eoi';
+import { formatMonth } from '../lib/format';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Extra RSS feed for this page, in addition to the site-wide ones. */
+  feed?: { title: string; path: string };
+}
+const { title, description = site.tagline, feed } = Astro.props;
+const pageTitle = title === site.name ? `${site.name}: ${site.tagline}` : `${title} · ${site.name}`;
+const meta = getMeta();
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const nav = [
+  { path: '/states/', label: 'States' },
+  { path: '/occupations/', label: 'Occupations' },
+  { path: '/news/', label: 'News' },
+  { path: '/rounds/', label: 'Rounds' },
+  { path: '/eoi-check/', label: 'Was I invited?' },
+  { path: '/me/', label: 'Where I stand' },
+];
+const current = (p: string) => path === p || path.startsWith(p);
+---
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} news`} href={href('/news.xml')} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name}: what changed`} href={href('/changes.xml')} />
+    {feed && <link rel="alternate" type="application/rss+xml" title={feed.title} href={href(feed.path)} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href={href('/')} aria-label={`${site.name} home`}>
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <circle cx="12" cy="12" r="9.25" /><circle cx="12" cy="12" r="5" /><path d="M12 12 L19 6" stroke-linecap="round" /><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+          </svg>
+          <span>{site.name}</span>
+        </a>
+        <nav aria-label="Main">
+          <ul>
+            {nav.map((n) => (
+              <li><a href={href(n.path)} aria-current={current(n.path) ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p class="disclaimer"><strong>{site.disclaimer}</strong></p>
+        <p class="small">
+          EOI figures: SkillSelect, as at {meta.latestMonth ? formatMonth(meta.latestMonth) : 'not yet loaded'} (month-end snapshot).
+          {site.name} is independent and not a government site. No accounts, no ads, no tracking.
+        </p>
+        <ul class="plain foot-links small">
+          <li><a href={href('/about/')}>Sources and method</a></li>
+          <li><a href={href('/news.xml')}>News RSS</a></li>
+          <li><a href={href('/changes.xml')}>Changes RSS</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header { background: var(--surface-card); border-bottom: 1px solid var(--line); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-5); padding-block: var(--s-3); }
+  .brand { display: inline-flex; align-items: center; gap: var(--s-2); font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; font-size: var(--text-lg); min-height: 2.75rem; }
+  .brand svg { color: var(--accent); }
+  nav { flex: 1 1 auto; overflow-x: auto; margin-inline: calc(-1 * var(--s-4)); padding-inline: var(--s-4); scrollbar-width: none; }
+  nav ul { list-style: none; display: flex; gap: var(--s-1); margin: 0; padding: 0; }
+  nav a { display: block; padding: var(--s-2) var(--s-3); border-radius: var(--radius-sm); color: var(--ink-2); text-decoration: none; font-size: var(--text-sm); font-weight: 600; white-space: nowrap; }
+  nav a:hover { background: var(--surface-sunk); color: var(--ink); }
+  nav a[aria-current='page'] { color: var(--accent); background: var(--accent-soft); }
+  @media (min-width: 64rem) { nav { flex: 0 1 auto; margin-left: auto; margin-inline-end: 0; overflow: visible; } }
+  main { padding-block: var(--s-5) var(--s-7); }
+  @media (min-width: 48rem) { main { padding-block: var(--s-6) var(--s-8); } }
+  .site-footer { border-top: 1px solid var(--line); background: var(--surface-card); padding-block: var(--s-5); color: var(--ink-2); }
+  .disclaimer { color: var(--ink); }
+  .foot-links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); }
+</style>

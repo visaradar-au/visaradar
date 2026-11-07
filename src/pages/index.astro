@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import AsAt from '../components/AsAt.astro';
+import Term from '../components/Term.astro';
+import Empty from '../components/Empty.astro';
+import ChangeList from '../components/ChangeList.astro';
+import NewsList from '../components/NewsList.astro';
+import StateMap from '../islands/StateMap';
+import HomeProfile from '../islands/HomeProfile';
+import geo from '../data/au-states.json';
+import { site } from '../site.config';
+import { getMapMetrics, getMeta, getSummary } from '../lib/data/eoi';
+import { getChanges, getNews } from '../lib/data/sources';
+import { STATES, monthSeries, lastChange } from '../lib/eoi';
+import { formatCell, formatDelta, formatMonth } from '../lib/format';
+import { href } from '../lib/href';
+import { official } from '../lib/official';
+
+const meta = getMeta();
+const summary = getSummary();
+const months = summary.months;
+const monthLabel = formatMonth(meta.latestMonth);
+const prevMonthLabel = months.length > 1 ? formatMonth(months[months.length - 2]) : '';
+const stateHrefs = Object.fromEntries(STATES.map((s) => [s, href(`/states/${s.toLowerCase()}/`)]));
+const s189 = lastChange(monthSeries(summary.rows, months, '189', 'N/A', 'SUBMITTED'));
+const i189 = lastChange(monthSeries(summary.rows, months, '189', 'N/A', 'INVITED'));
+const l189 = lastChange(monthSeries(summary.rows, months, '189', 'N/A', 'LODGED'));
+const changes = getChanges().slice(0, 8);
+const news = getNews().slice(0, 6);
+---
+<Base title={site.name}>
+  <section class="hero">
+    <h1>Australian skilled migration, by the official numbers</h1>
+    <p class="lede">
+      The SkillSelect <Term k="EOI" /> pool for every state and occupation, with dated news from Home Affairs and the states.
+      Every figure links to its source. No accounts, no ads.
+    </p>
+  </section>
+
+  <HomeProfile client:load monthLabel={monthLabel} />
+
+  <section aria-labelledby="map-title">
+    <h2 id="map-title">States and territories, {monthLabel}</h2>
+    <p class="muted small">
+      Visa <Term k="190" /> needs a state nomination; <Term k="491" /> is regional. One EOI can name several states, so the
+      states are never added up.
+    </p>
+    <StateMap client:load geo={geo} metrics={getMapMetrics()} monthLabel={monthLabel} prevMonthLabel={prevMonthLabel} stateHrefs={stateHrefs} />
+    <AsAt />
+  </section>
+
+  <section aria-labelledby="n189-title">
+    <h2 id="n189-title">Visa 189, national pool</h2>
+    <p class="muted small">Visa <Term k="189" /> has no state, so it is not on the map.</p>
+    <dl class="kv stat-row">
+      <dt>EOIs submitted</dt><dd><strong>{formatCell(s189.current)}</strong> {s189.delta !== null && <span class="muted">{formatDelta(s189.delta)} since {prevMonthLabel}</span>}</dd>
+      <dt>In <Term k="INVITED" label="invited status" /></dt><dd><strong>{formatCell(i189.current)}</strong> {i189.delta !== null && <span class="muted">{formatDelta(i189.delta)}</span>}</dd>
+      <dt>Lodged after invite</dt><dd><strong>{formatCell(l189.current)}</strong> {l189.delta !== null && <span class="muted">{formatDelta(l189.delta)}</span>}</dd>
+    </dl>
+    <AsAt />
+  </section>
+
+  <div class="grid-2">
+    <section aria-labelledby="changes-title">
+      <h2 id="changes-title">What changed</h2>
+      {changes.length ? (
+        <>
+          <ChangeList items={changes} />
+          <p class="small"><a href={href('/changes.xml')}>Follow changes by RSS</a></p>
+        </>
+      ) : (
+        <Empty title="The change log starts soon">
+          <p class="small">
+            We will list each new EOI month, state program opening or closing, new allocation and invitation round here, with
+            the date and a link to the official page. You can already <a href={href('/changes.xml')}>subscribe by RSS</a>.
+          </p>
+          <p class="small">Until then, Home Affairs lists <a href={official.invitationRounds} rel="noopener">invitation rounds</a> and <a href={official.allocations} rel="noopener">state allocations</a>.</p>
+        </Empty>
+      )}
+    </section>
+    <section aria-labelledby="news-title">
+      <h2 id="news-title">Latest news</h2>
+      {news.length ? (
+        <>
+          <NewsList items={news} />
+          <p class="small"><a href={href('/news/')}>All news</a></p>
+        </>
+      ) : (
+        <Empty title="News feed coming soon">
+          <p class="small">
+            One dated feed from Home Affairs and all eight states and territories. Until it starts, see <a href={official.homeAffairsNews} rel="noopener">Home Affairs news</a> or
+            your <a href={href('/states/')}>state's page</a> for its official site.
+          </p>
+        </Empty>
+      )}
+    </section>
+  </div>
+
+  <div class="next">
+    <p>Want to know if your EOI has been invited? There is no public lookup, but there are reliable signs.</p>
+    <a class="btn btn-quiet" href={href('/eoi-check/')}>Read the guide</a>
+  </div>
+</Base>
+
+<style>
+  .hero { margin-bottom: var(--s-5); }
+  .hero h1 { max-width: 40rem; }
+  .stat-row { font-size: var(--text-md); }
+  .stat-row strong { font-size: var(--text-lg); }
+</style>

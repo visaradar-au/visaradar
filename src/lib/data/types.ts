@@ -1,0 +1,110 @@
+// Typed views of the data contracts in docs/DESIGN.md.
+import type { MonthRow, OccRow } from '../eoi';
+
+export interface EoiMeta {
+  source: string;
+  sourceUrl: string;
+  lastReload: string;
+  latestMonth: string;
+  months: string[];
+  fetchedAt: string;
+  notes: string[];
+}
+
+export interface OccupationSummary {
+  code: string;
+  name: string;
+  submitted: number;
+  invited: number;
+}
+
+export interface OccupationDetail {
+  asAt: string;
+  code: string;
+  name: string;
+  rows: OccRow[];
+}
+
+export interface OccupationHistory {
+  code: string;
+  rows: MonthRow[];
+}
+
+export interface EoiSummary {
+  months: string[];
+  rows: MonthRow[];
+}
+
+export type NewsSource = 'homeaffairs' | 'qld' | 'nsw' | 'vic' | 'sa' | 'wa' | 'tas' | 'act' | 'nt';
+export const NEWS_TAGS = [
+  'program-open', 'program-closed', 'allocation', 'round', 'invitations', 'occupation-list',
+  'points-test', 'processing', 'fees', 'policy', 'other',
+] as const;
+export type NewsTag = (typeof NEWS_TAGS)[number];
+
+export interface NewsItem {
+  id: string;
+  source: NewsSource;
+  title: string;
+  url: string;
+  published: string | null;
+  firstSeen: string;
+  tags: NewsTag[];
+  excerpt: string | null;
+}
+
+export interface FetchState {
+  url: string;
+  lastOk: string | null;
+  lastError: string | null;
+  lastStatus: number | null;
+  etag?: string | null;
+  lastModified?: string | null;
+  itemCount: number;
+}
+
+export interface StateProgram {
+  code: string;
+  name: string;
+  site: string;
+  programYear: string;
+  status: 'open' | 'closed' | 'paused' | 'not-yet-open' | 'unknown';
+  model: string | null;
+  opened: string | null;
+  allocations: {
+    '190': number | null;
+    '491': number | null;
+    source: string | null;
+    sourceUrl: string | null;
+    asAt: string | null;
+  };
+  invitedSoFar: { n: number; period: string; source: string; sourceUrl: string; asAt: string } | null;
+  links: { news: string | null; program: string | null; occupationList: string | null };
+  lastVerified: string | null;
+  notes: string | null;
+}
+
+export interface Round {
+  id: string;
+  date: string;
+  scope: string;
+  title: string;
+  invitations: number | null;
+  cutoffs: { occupation: string; code: string; points?: number | null; matrix?: number | null }[];
+  source: string;
+  sourceUrl: string;
+  verified: boolean;
+}
+
+export interface OccupationLists {
+  lists: Record<string, string[]>;
+  sources: Record<string, { url: string; asAt: string }>;
+}
+
+export interface Change {
+  at: string;
+  kind: 'news' | 'eoi-month' | 'state-status' | 'round' | 'allocation';
+  source: string;
+  title: string;
+  url: string;
+}
