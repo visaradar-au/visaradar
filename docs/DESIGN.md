@@ -135,6 +135,9 @@ capped at 500. Powers "What changed" on the home page and `/changes.xml` RSS.
 | `/eoi-check/` | "Has my EOI been invited?" honest guide |
 | `/pathways/` | One card per SkillSelect visa (189, 190, 491, 491F, 188 streams, 132): plain line, official page, latest national pool counts |
 | `/datasets/` | Home Affairs datasets on data.gov.au: last update, files, licence |
+| `/movers/` | Biggest month-on-month moves in invited and lodged status by occupation, state and visa |
+| `/pathways/`, `/datasets/` | Every SkillSelect visa pathway; Home Affairs datasets on data.gov.au |
+| `/occupations/[code]/feed.xml` | Per-occupation RSS of monthly invited/lodged moves |
 | `/about/` | Sources, method, masking, disclaimer, licence attributions |
 
 UX bar: every number has "as at" + source link; dates formatted ("1 Nov 2026"); every table row
