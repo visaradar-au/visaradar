@@ -8,7 +8,7 @@ export const DASHBOARD_URL = `${HOST}/anonap/extensions/hSKLS02_SkillSelect_EOI_
 // Library measure "Count EOIs". It keeps the department's small-cell mask ("<20").
 // Never use the unmasked measure.
 export const MASKED_MEASURE = 'fPpzEmW';
-const UA = 'VisaRadar/0.1 (+https://github.com/visaradar; public data aggregator)';
+const UA = 'VisaRadar/0.1 (public data aggregator)';
 
 async function anonCookie() {
   let url = DASHBOARD_URL;
