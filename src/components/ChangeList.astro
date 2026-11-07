@@ -1,0 +1,22 @@
+---
+import type { Change } from '../lib/data/types';
+import { formatDate } from '../lib/format';
+
+interface Props { items: Change[] }
+const KIND: Record<string, string> = {
+  news: 'News',
+  'eoi-month': 'EOI data',
+  'state-status': 'State program',
+  round: 'Round',
+  allocation: 'Allocation',
+};
+const { items } = Astro.props;
+---
+<ul class="news-list">
+  {items.map((c) => (
+    <li>
+      <span class="meta"><span class="badge plain">{KIND[c.kind] ?? c.kind}</span><time datetime={c.at}>{formatDate(c.at)}</time><span>{c.source}</span></span>
+      <a class="title" href={c.url} rel="noopener">{c.title}</a>
+    </li>
+  ))}
+</ul>

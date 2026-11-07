@@ -1,0 +1,10 @@
+---
+// Inline jargon explanation. Uses the native popover attribute: no JavaScript, works on touch
+// and keyboard, and is valid inside a paragraph.
+import { glossary, type GlossaryKey } from '../lib/glossary';
+import { nextTermId } from '../lib/term-id';
+interface Props { k: GlossaryKey; label?: string }
+const { k, label } = Astro.props;
+const id = nextTermId(k);
+---
+<button type="button" class="term" popovertarget={id} aria-describedby={id}>{label ?? k}</button><span id={id} popover class="term-pop" role="tooltip"><strong>{label ?? k}</strong> {glossary[k]}</span>

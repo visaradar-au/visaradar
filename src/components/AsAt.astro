@@ -1,0 +1,24 @@
+---
+// "As at" + source line. Use under every figure.
+import { getMeta } from '../lib/data/eoi';
+import { formatDate, formatMonth } from '../lib/format';
+
+interface Props {
+  /** Defaults to the SkillSelect EOI data. */
+  date?: string | null;
+  month?: string | null;
+  source?: string;
+  url?: string | null;
+  note?: string;
+}
+const meta = getMeta();
+const { date, note } = Astro.props;
+const month = Astro.props.month === undefined && !date ? meta.latestMonth : Astro.props.month;
+const source = Astro.props.source ?? 'SkillSelect EOI data (Home Affairs / DEWR)';
+const url = Astro.props.url === undefined ? meta.sourceUrl : Astro.props.url;
+const when = month ? `${formatMonth(month)} (month-end snapshot)` : date ? formatDate(date) : 'date not stated';
+---
+<p class="asat">
+  As at {when}. Source: {url ? <a href={url} rel="noopener">{source}</a> : source}.{note && ` ${note}`}
+  {!Astro.props.source && meta.lastReload && ` Published ${formatDate(meta.lastReload)}.`}
+</p>

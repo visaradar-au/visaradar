@@ -1,0 +1,21 @@
+---
+import type { NewsItem } from '../lib/data/types';
+import { NEWS_SOURCES, TAG_LABELS } from '../lib/official';
+import { formatDate } from '../lib/format';
+
+interface Props { items: NewsItem[] }
+const { items } = Astro.props;
+---
+<ul class="news-list">
+  {items.map((n) => (
+    <li>
+      <span class="meta">
+        <span class="badge plain">{NEWS_SOURCES[n.source]?.label ?? n.source}</span>
+        {n.published ? <time datetime={n.published}>{formatDate(n.published)}</time> : <span>First seen {formatDate(n.firstSeen)}</span>}
+        {n.tags.map((t) => <span>{TAG_LABELS[t] ?? t}</span>)}
+      </span>
+      <a class="title" href={n.url} rel="noopener">{n.title}</a>
+      {n.excerpt && <p class="excerpt">{n.excerpt}</p>}
+    </li>
+  ))}
+</ul>

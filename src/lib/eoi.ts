@@ -32,10 +32,10 @@ export const STATE_NAMES: Record<StateCode, string> = {
 };
 
 export const VISA_NAMES: Record<Visa, string> = {
-  '189': 'Skilled Independent (189)',
-  '190': 'Skilled Nominated (190)',
-  '491': 'Skilled Work Regional, state nominated (491)',
-  '491F': 'Skilled Work Regional, family sponsored (491)',
+  '189': '189 Skilled Independent',
+  '190': '190 Skilled Nominated',
+  '491': '491 Regional, state nominated',
+  '491F': '491 Regional, family sponsored',
 };
 
 export function isMasked(c: Cell | null | undefined): c is '<20' {
