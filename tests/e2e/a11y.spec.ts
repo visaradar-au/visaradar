@@ -26,7 +26,7 @@ async function saveProfile(page: Page) {
   await page.addInitScript((p) => localStorage.setItem('visaradar.profile.v1', JSON.stringify(p)), PERSONA);
 }
 
-const PAGES = ['/', '/states/', '/states/qld/', '/occupations/', '/occupations/233512/', '/me/', '/news/', '/rounds/', '/eoi-check/', '/about/'];
+const PAGES = ['/', '/states/', '/states/qld/', '/occupations/', '/occupations/233512/', '/me/', '/news/', '/rounds/', '/eoi-check/', '/about/', '/pathways/', '/datasets/'];
 
 for (const scheme of SCHEMES) {
   test.describe(`${scheme} theme`, () => {

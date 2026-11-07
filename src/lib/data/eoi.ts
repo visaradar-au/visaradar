@@ -1,5 +1,5 @@
 import { readData } from './read';
-import type { EoiMeta, EoiSummary, OccupationDetail, OccupationHistory, OccupationSummary } from './types';
+import type { EoiMeta, EoiSummary, OccupationDetail, OccupationHistory, OccupationSummary, Pathways } from './types';
 import { STATES, poolByPoints, poolTotal, stateMetrics, type Cell, type StateMetric, type Visa } from '../eoi';
 
 export function getMeta(): EoiMeta {
@@ -28,6 +28,10 @@ export function getHistory(code: string): OccupationHistory {
 
 export function getSummary(): EoiSummary {
   return readData<EoiSummary>('eoi/summary.json', { months: [], rows: [] });
+}
+
+export function getPathways(): Pathways | null {
+  return readData<Pathways | null>('eoi/pathways.json', null);
 }
 
 export type MapMetrics = Record<'190' | '491', Record<string, StateMetric>>;

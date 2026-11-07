@@ -16,7 +16,12 @@ export type MonthRow = [string, Visa, string, Status, Cell];
 
 export const STATES = ['ACT', 'NSW', 'NT', 'QLD', 'SA', 'TAS', 'VIC', 'WA'] as const;
 export type StateCode = (typeof STATES)[number];
+/** Visas with occupation, points and state rows: the defaults for every selector. */
 export const VISAS: Visa[] = ['189', '190', '491', '491F'];
+/** Business visas in SkillSelect. They have no occupation or points rows, only national counts (pathways.json). */
+export type BusinessVisa = '132' | '188BI' | '188EV' | '188INV' | '188SIG';
+export type PathwayVisa = Visa | BusinessVisa;
+export const PATHWAY_VISAS: PathwayVisa[] = [...VISAS, '188BI', '188EV', '188INV', '188SIG', '132'];
 /** Visas where the EOI names a state. 189 and 491F are national (state "N/A"). */
 export const STATE_VISAS: Visa[] = ['190', '491'];
 
@@ -36,6 +41,15 @@ export const VISA_NAMES: Record<Visa, string> = {
   '190': '190 Skilled Nominated',
   '491': '491 Regional, state nominated',
   '491F': '491 Regional, family sponsored',
+};
+
+export const PATHWAY_NAMES: Record<PathwayVisa, string> = {
+  ...VISA_NAMES,
+  '132': '132 Business Talent, Significant Business History',
+  '188BI': '188 Business Innovation',
+  '188EV': '188 Entrepreneur',
+  '188INV': '188 Investor',
+  '188SIG': '188 Significant Investor',
 };
 
 export function isMasked(c: Cell | null | undefined): c is '<20' {
