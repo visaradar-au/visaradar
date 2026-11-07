@@ -190,5 +190,41 @@
         "lastError": "HTTP 403"
       }
     }
+  },
+  "legislation": {
+    "url": "https://api.prod.legislation.gov.au/v1/titles?$filter=startswith(name,%27Migration%27)&$orderby=asMadeRegisteredAt%20desc&$top=20&$select=id,name,collection,asMadeRegisteredAt",
+    "lastOk": "2026-11-07T11:36:07.795Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 20,
+    "urls": {
+      "https://api.prod.legislation.gov.au/v1/titles?$filter=startswith(name,%27Migration%27)&$orderby=asMadeRegisteredAt%20desc&$top=20&$select=id,name,collection,asMadeRegisteredAt": {
+        "lastStatus": 200,
+        "etag": null,
+        "lastModified": null,
+        "lastError": null
+      }
+    }
+  },
+  "pm": {
+    "url": "https://www.pm.gov.au/rss.xml",
+    "lastOk": "2026-11-07T11:36:07.795Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": "\"1794031284\"",
+    "lastModified": "Sat, 07 Nov 2026 06:01:24 GMT",
+    "itemCount": 0,
+    "urls": {
+      "https://www.pm.gov.au/rss.xml": {
+        "lastStatus": 200,
+        "etag": "\"1794031284\"",
+        "lastModified": "Sat, 07 Nov 2026 06:01:24 GMT",
+        "lastError": null
+      }
+    }
   }
 }

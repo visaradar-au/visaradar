@@ -21,6 +21,13 @@
     "url": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program"
   },
   {
+    "at": "2026-11-02",
+    "kind": "news",
+    "source": "legislation",
+    "title": "Migration Amendment (Referred Stay (Permanent) (Class DH) Visa) Regulations 2026",
+    "url": "https://www.legislation.gov.au/F2026L01466/asmade"
+  },
+  {
     "at": "2026-11-01T23:30:13.952Z",
     "kind": "eoi-month",
     "source": "skillselect",
@@ -93,9 +100,23 @@
   {
     "at": "2026-10-31",
     "kind": "news",
+    "source": "legislation",
+    "title": "Migration Amendment (2026 Measures No. 1) Regulations 2026",
+    "url": "https://www.legislation.gov.au/F2026L01448/asmade"
+  },
+  {
+    "at": "2026-10-31",
+    "kind": "news",
     "source": "qld",
     "title": "2026-27 SNMP now published",
     "url": "https://migration.qld.gov.au/news/2026-27-queenslands-state-nominated-migration-program-now-published"
+  },
+  {
+    "at": "2026-10-30",
+    "kind": "news",
+    "source": "legislation",
+    "title": "Migration Amendment (Training Visas—Application Requirements) Regulations 2026",
+    "url": "https://www.legislation.gov.au/F2026L01449/asmade"
   },
   {
     "at": "2026-10-22",
@@ -103,6 +124,55 @@
     "source": "sa",
     "title": "South Australia’s General Skilled Migration Program Update",
     "url": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Visitor visa program: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/visitor-visas-granted-pivot-table"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Temporary Work (skilled) visa program: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/visa-temporary-work-skilled"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Working Holiday Maker visa program: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/visa-working-holiday-maker"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Temporary Graduate visa program: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/temporary-graduate-visas"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Student visa program: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/student-visas"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Temporary visa holders in Australia: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/temporary-entrants-visa-holders"
+  },
+  {
+    "at": "2026-10-21",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Overseas Arrivals and Departures: updated 2026-10-21",
+    "url": "https://data.gov.au/data/dataset/overseas-arrivals-and-departures"
   },
   {
     "at": "2026-10-20",
