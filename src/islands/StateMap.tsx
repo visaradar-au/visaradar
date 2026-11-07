@@ -2,6 +2,9 @@ import { useMemo, useRef, useState } from 'preact/hooks';
 import type { Change, StateMetric } from '../lib/eoi';
 import { STATE_NAMES, isMasked, isStateCode, numeric } from '../lib/eoi';
 import { formatCell, formatDelta, formatNumber } from '../lib/format';
+// Imported here, not passed as a prop, so the geometry ships once in the cached JS
+// bundle instead of being serialised into every page's HTML.
+import geoData from '../data/au-states.json';
 
 interface GeoState {
   code: string;
@@ -10,8 +13,9 @@ interface GeoState {
   centroid: number[];
 }
 
+const geo = geoData as { width: number; height: number; states: GeoState[] };
+
 interface Props {
-  geo: { width: number; height: number; states: GeoState[] };
   metrics: Record<'190' | '491', Record<string, StateMetric>>;
   monthLabel: string;
   prevMonthLabel: string;
@@ -49,7 +53,7 @@ function tick(n: number): number {
   return Math.round(n / p) * p;
 }
 
-export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, stateHrefs }: Props) {
+export default function StateMap({ metrics, monthLabel, prevMonthLabel, stateHrefs }: Props) {
   const [visa, setVisa] = useState<MapVisa>('190');
   const [metric, setMetric] = useState<Metric>('submitted');
   const [active, setActive] = useState<string | null>(null);

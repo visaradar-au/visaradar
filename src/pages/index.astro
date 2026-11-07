@@ -8,7 +8,6 @@ import NewsList from '../components/NewsList.astro';
 import TopMovers from '../components/TopMovers.astro';
 import StateMap from '../islands/StateMap';
 import HomeProfile from '../islands/HomeProfile';
-import geo from '../data/au-states.json';
 import { site } from '../site.config';
 import { getMapMetrics, getMeta, getSummary } from '../lib/data/eoi';
 import { getChanges, getNews, getRounds } from '../lib/data/sources';
@@ -103,7 +102,7 @@ const published = meta.lastReload ? formatDate(meta.lastReload) : '';
       Visa <Term k="190" /> needs a state nomination; <Term k="491" /> is regional. One EOI can name several states, so the
       states are never added up.
     </p>
-    <StateMap client:load geo={geo} metrics={mapMetrics} monthLabel={monthLabel} prevMonthLabel={prevMonthLabel} stateHrefs={stateHrefs} />
+    <StateMap client:load metrics={mapMetrics} monthLabel={monthLabel} prevMonthLabel={prevMonthLabel} stateHrefs={stateHrefs} />
     <AsAt />
   </section>
 

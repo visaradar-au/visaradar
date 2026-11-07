@@ -3,6 +3,7 @@
 // Run with `npm run build:map`. Not part of the regular build.
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { encodeRings } from './compact.mjs';
 
 const SERVICE = 'https://geo.abs.gov.au/arcgis/rest/services/ASGS2026/STE/MapServer/1/query';
 const OUT = fileURLToPath(new URL('../../src/data/au-states.json', import.meta.url));
@@ -51,7 +52,8 @@ const states = features
     const paths = rings
       .map((ring) => dedupe(simplify(ring.map(project), TOLERANCE_PX).map(round)))
       .filter((ring) => ring.length > 3);
-    const d = paths.map((r) => 'M' + r.map((p) => p.join(',')).join('L') + 'Z').join('');
+    // Compact encoding: integer pixels, relative commands (see compact.mjs).
+    const d = encodeRings(paths, code === 'ACT' ? 0.3 : 0.7);
     const main = paths.reduce((a, b) => (Math.abs(area(b)) > Math.abs(area(a)) ? b : a));
     return { code, name, d, centroid: centroid(main) };
   })

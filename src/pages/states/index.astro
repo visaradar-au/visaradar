@@ -3,7 +3,6 @@ import Base from '../../layouts/Base.astro';
 import AsAt from '../../components/AsAt.astro';
 import Term from '../../components/Term.astro';
 import StateMap from '../../islands/StateMap';
-import geo from '../../data/au-states.json';
 import { getMapMetrics, getMeta, getSummary } from '../../lib/data/eoi';
 import { getStates } from '../../lib/data/sources';
 import { STATES, STATE_NAMES } from '../../lib/eoi';
@@ -25,7 +24,7 @@ const STATUS: Record<string, [string, string]> = {
     <p class="lede">Each state and territory runs its own nomination program for <Term k="190" /> and <Term k="491" />. Pick one for its program, pool and news.</p>
   </header>
   <h2 class="visually-hidden">Map</h2>
-  <StateMap client:load geo={geo} metrics={metrics} monthLabel={formatMonth(meta.latestMonth)} prevMonthLabel={months.length > 1 ? formatMonth(months[months.length - 2]) : ''} stateHrefs={stateHrefs} />
+  <StateMap client:load metrics={metrics} monthLabel={formatMonth(meta.latestMonth)} prevMonthLabel={months.length > 1 ? formatMonth(months[months.length - 2]) : ''} stateHrefs={stateHrefs} />
   <AsAt />
 
   <h2>Programs at a glance</h2>
