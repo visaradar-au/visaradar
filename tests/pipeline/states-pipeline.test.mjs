@@ -60,6 +60,8 @@ describe('states pipeline (offline)', () => {
     const wa = states.find((s) => s.code === 'WA');
     expect(wa.invitedSoFar).toMatchObject({ n: 2327, byVisa: { 190: 1620, 491: 707 }, source: 'Migration WA', asAt: '2026-11-07' });
     expect(states.find((s) => s.code === 'ACT').invitedSoFar).toMatchObject({ n: 261, asAt: '2026-10-12' });
+    // lastVerified reflects hand-checked facts, not the scrape.
+    expect(states.find((s) => s.code === 'NT').lastVerified).toBeNull();
     // SA fixtures are all 2025-26, so no 2026-27 count.
     expect(states.find((s) => s.code === 'SA').invitedSoFar).toBeNull();
     for (const s of states) {
@@ -115,9 +117,11 @@ describe('build helpers', () => {
     const prev = structuredClone(states);
     prev.find((s) => s.code === 'QLD').status = 'closed';
     prev.find((s) => s.code === 'SA').status = 'closed';
-    prev.find((s) => s.code === 'SA').lastVerified = null;
+    delete prev.find((s) => s.code === 'SA').evidence;
+    prev.find((s) => s.code === 'NT').status = 'closed'; // never hand-verified, still reported
     const ch = diffChanges({ prevStates: prev, states, prevRounds: [{ id: 'x', date: '2020-01' }], rounds: [], nowIso: 'T' });
-    expect(ch).toEqual([expect.objectContaining({ kind: 'state-status', source: 'qld', title: 'Queensland: program open (was closed)' })]);
+    expect(ch.map((c) => c.source)).toEqual(['nt', 'qld']);
+    expect(ch[1]).toMatchObject({ kind: 'state-status', title: 'Queensland: program open (was closed)' });
   });
   it('mergeRounds never drops old rounds and fresh data wins', () => {
     const m = mergeRounds([{ id: 'A', date: '2026-01', scope: 'WA', invitations: 1 }], [{ id: 'A', date: '2026-01', scope: 'WA', invitations: 2 }, { id: 'B', date: '2026-02', scope: 'SA' }]);

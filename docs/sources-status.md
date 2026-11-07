@@ -47,6 +47,11 @@ and recorded in `data/news/fetch-state.json`.
 - NSW "Page updated: …" items are watched program pages, dated by their modified meta. They are
   not news posts.
 - QLD `published` is the sitemap lastmod, which is a modification date, not a publication date.
+  It also runs about 10 hours ahead: the 2026-27 SNMP post shows "Last published: 4:28 pm, Friday,
+  30 October 2026", but its lastmod is `2026-10-31T02:28:12+10:00`. So QLD dates can be one day late.
+  The fix would be to read each recent article's footer (one extra request per item); not done yet.
+- States `lastVerified` is the newest hand-check date in `manual.json`. Scraped counts carry their
+  own `invitedSoFar.asAt`. Manual statuses don't update themselves: re-check them by hand.
 - The first news run adds only items from the last 30 days to `changes.json`. The first states run
   adds only rounds from the current program year.
 - States `statusByVisa` and `evidence` (URL, verified date and quote per value) are additions to the contract.

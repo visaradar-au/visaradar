@@ -50,7 +50,8 @@ export function buildStates(manual, scraped, today, prevStates = []) {
       },
       invitedSoFar: s.invitedSoFar ?? prev?.invitedSoFar ?? m.invitedSoFar ?? null,
       links: m.links,
-      lastVerified: s.invitedSoFar ? today : [prev?.lastVerified, ...verifiedDates].filter(Boolean).sort().pop() ?? null,
+      // Hand-checked facts only; scraped counts carry their own invitedSoFar.asAt.
+      lastVerified: verifiedDates.sort().pop() ?? null,
       evidence: Object.fromEntries(
         ['status', 'statusByVisa', 'model', 'opened', 'allocations']
           .filter((k) => m[k]?.sourceUrl)
@@ -144,8 +145,8 @@ export function diffChanges({ prevStates, states, prevRounds, rounds, nowIso }) 
     const p = prevByCode.get(s.code);
     if (!p) continue;
     const link = s.links?.program ?? s.site;
-    // A seed record (never verified) changing is not news.
-    if (p.lastVerified && p.status !== s.status) {
+    // Seed records (no evidence block) changing is not news.
+    if ('evidence' in p && p.status !== s.status) {
       out.push({ at: nowIso, kind: 'state-status', source: s.code.toLowerCase(), title: `${s.name}: program ${s.status} (was ${p.status})`, url: link });
     }
     for (const v of ['190', '491']) {
