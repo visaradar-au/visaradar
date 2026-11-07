@@ -60,6 +60,16 @@ for (const scheme of SCHEMES) {
       void errors;
     });
 
+    test('home "What changed" list, including SkillSelect entries', async ({ page, errors }) => {
+      await page.goto('/');
+      const list = page.locator('section:has(#changes-title) .news-list, #changes-title ~ * .news-list').first();
+      await expect(list.locator('li').first()).toBeVisible();
+      await expect(list).toContainText('EOI data');
+      const { violations } = await new AxeBuilder({ page }).include('.news-list').analyze();
+      expect(violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').map((v) => v.id)).toEqual([]);
+      void errors;
+    });
+
     test('every map colouring passes, including the change ramp', async ({ page, errors }) => {
       await page.goto('/states/');
       await openTables(page);
