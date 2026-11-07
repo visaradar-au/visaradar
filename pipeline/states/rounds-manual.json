@@ -1,0 +1,4 @@
+{
+  "_about": "Hand-curated rounds confirmed from an official page that the scrapers cannot reach. Each needs sourceUrl, verified date and a verbatim quote. As of 2026-11-07 this is empty: every Home Affairs host (immi.homeaffairs.gov.au, including the SkillSelect invitation rounds page) returns HTTP 403 to VisaRadar, so no 189 or 491 Family round could be confirmed from an official source. Third-party reports (e.g. a 15 Oct 2026 189 round) conflict and are deliberately left out.",
+  "rounds": []
+}

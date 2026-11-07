@@ -1,1 +1,3372 @@
-[]
+[
+  {
+    "id": "ACT-2026-10-12",
+    "date": "2026-10-12",
+    "scope": "ACT",
+    "title": "Canberra Matrix Invitation Round: 12 October 2026",
+    "invitations": 261,
+    "byVisa": {
+      "190": 261,
+      "491": 0
+    },
+    "groups": [
+      {
+        "section": null,
+        "group": "Matrix nominating Doctorate Streamlined Pathway",
+        "counts": {
+          "190": 54,
+          "491": 0
+        },
+        "minScore": {
+          "190": null,
+          "491": null
+        }
+      },
+      {
+        "section": "Canberra residents",
+        "group": "Matrix nominating Small Business Owners",
+        "counts": {
+          "190": 18,
+          "491": 0
+        },
+        "minScore": {
+          "190": 120,
+          "491": null
+        }
+      },
+      {
+        "section": "Canberra residents",
+        "group": "Matrix nominating Critical Skill Occupations",
+        "counts": {
+          "190": 126,
+          "491": 0
+        },
+        "minScore": {
+          "190": null,
+          "491": null
+        }
+      },
+      {
+        "section": "Overseas applicants",
+        "group": "Matrix nominating Critical Skill Occupations",
+        "counts": {
+          "190": 63,
+          "491": 0
+        },
+        "minScore": {
+          "190": null,
+          "491": null
+        }
+      }
+    ],
+    "cutoffs": [
+      {
+        "occupation": "Construction Managers",
+        "code": "1331",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 100,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Engineering Managers",
+        "code": "1332",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Supply, Distribution and Procurement Managers",
+        "code": "1336",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 95,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Child Care Centre Managers",
+        "code": "1341",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 65,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Health and Welfare Services Managers",
+        "code": "1342",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 85,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "ICT Managers",
+        "code": "1351",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 105,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Other Specialist Managers",
+        "code": "1399",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Cafe and Restaurant Managers",
+        "code": "1411",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Hotel and Motel Managers",
+        "code": "1413",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 110,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Accountants",
+        "code": "2211",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 135,
+            "date": "2026-10-01"
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 110,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Auditors, Company Secretaries and Corporate Treasurers",
+        "code": "2212",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 135,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 100,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Archivists, Curators and Records Managers",
+        "code": "2242",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Architects and Landscape Architects",
+        "code": "2321",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 95,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Surveyors and Spatial Scientists",
+        "code": "2322",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 85,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Urban and Regional Planners",
+        "code": "2326",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Civil Engineering Professionals",
+        "code": "2332",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Electrical Engineers",
+        "code": "2333",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 105,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Electronics Engineers",
+        "code": "2334",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": "2026-08-03"
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Industrial, Mechanical and Production Engineers",
+        "code": "2335",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 105,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Other Engineering Professionals",
+        "code": "2339",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 135,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Environmental Scientists",
+        "code": "2343",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Life Scientists",
+        "code": "2345",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Medical Laboratory Scientists",
+        "code": "2346",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Veterinarians",
+        "code": "2347",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Other Natural and Physical Science Professionals",
+        "code": "2349",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Early Childhood (Pre-primary School) Teachers",
+        "code": "2411",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": "2026-08-24"
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Primary School Teachers",
+        "code": "2412",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 100,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 85,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Middle School Teachers / Intermediate School Teachers",
+        "code": "2413",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Secondary School Teachers",
+        "code": "2414",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Special Education Teachers",
+        "code": "2415",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Vocational Education Teachers / Polytechnic Teachers",
+        "code": "2422",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": null,
+          "overseas-491": null,
+          "overseas-190": null
+        }
+      },
+      {
+        "occupation": "Nutrition Professionals",
+        "code": "2511",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 75,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Medical Imaging Professionals",
+        "code": "2512",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Occupational and Environmental Health Professionals",
+        "code": "2513",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 95,
+            "date": "2026-10-08"
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Optometrists and Orthoptists",
+        "code": "2514",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Pharmacists",
+        "code": "2515",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 100,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Other Health Diagnostic and Promotion Professionals",
+        "code": "2519",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 80,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Chiropractors and Osteopaths",
+        "code": "2521",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Complementary Health Therapists",
+        "code": "2522",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 75,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Dental Practitioners",
+        "code": "2523",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Occupational Therapists",
+        "code": "2524",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Physiotherapists",
+        "code": "2525",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Podiatrists",
+        "code": "2526",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Audiologists and Speech Pathologists / Therapists",
+        "code": "2527",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "General Practitioners and Resident Medical Officers",
+        "code": "2531",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Anaesthetists",
+        "code": "2532",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Specialist Physicians",
+        "code": "2533",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Psychiatrists",
+        "code": "2534",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Surgeons",
+        "code": "2535",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Other Medical Practitioners",
+        "code": "2539",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Midwives",
+        "code": "2541",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Nurse Educators and Researchers",
+        "code": "2542",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Nurse Managers",
+        "code": "2543",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Registered Nurses",
+        "code": "2544",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "ICT Business and Systems Analysts",
+        "code": "2611",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 140,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 120,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Software and Applications Programmers",
+        "code": "2613",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": "2026-09-07"
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 105,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Database and Systems Administrators, and ICT Security Specialists",
+        "code": "2621",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": "2026-09-16"
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 105,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Computer Network Professionals",
+        "code": "2631",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 115,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "ICT Support and Test Engineers",
+        "code": "2632",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 135,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 105,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Telecommunications Engineering Professionals",
+        "code": "2633",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": null,
+          "overseas-491": null,
+          "overseas-190": null
+        }
+      },
+      {
+        "occupation": "Solicitors",
+        "code": "2713",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 120,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Counsellors",
+        "code": "2721",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Psychologists",
+        "code": "2723",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Social Workers",
+        "code": "2725",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 85,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Welfare, Recreation and Community Arts Workers",
+        "code": "2726",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 105,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Medical Technicians",
+        "code": "3112",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 80,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Science Technicians",
+        "code": "3114",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Architectural, Building and Surveying Technicians",
+        "code": "3121",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Civil Engineering Draftspersons and Technicians",
+        "code": "3122",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Electrical Engineering Draftspersons and Technicians",
+        "code": "3123",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 105,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Mechanical Engineering Draftspersons and Technicians",
+        "code": "3125",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Other Building and Engineering Technicians",
+        "code": "3129",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "ICT Support Technicians",
+        "code": "3131",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 135,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Telecommunications Technical Specialists",
+        "code": "3132",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 105,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Automotive Electricians",
+        "code": "3211",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Motor Mechanics",
+        "code": "3212",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 110,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Aircraft Maintenance Engineers",
+        "code": "3231",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Metal Fitters and Machinists",
+        "code": "3232",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Precision Metal Trades Workers",
+        "code": "3233",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Panelbeaters",
+        "code": "3241",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Vehicle Body Builders and Trimmers",
+        "code": "3242",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Vehicle Painters",
+        "code": "3243",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Bricklayers and Stonemasons",
+        "code": "3311",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 95,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Carpenters and Joiners",
+        "code": "3312",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 100,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Floor Finishers",
+        "code": "3321",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Painting Trades Workers",
+        "code": "3322",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 115,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 95,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Glaziers",
+        "code": "3331",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Plasterers",
+        "code": "3332",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Roof Tilers",
+        "code": "3333",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Wall and Floor Tilers",
+        "code": "3334",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Plumbers",
+        "code": "3341",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Electricians",
+        "code": "3411",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Airconditioning and Refrigeration Mechanics",
+        "code": "3421",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Electrical Distribution Trades Workers",
+        "code": "3422",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Telecommunications Trades Workers",
+        "code": "3424",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 100,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 100,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Butchers and Smallgoods Makers",
+        "code": "3512",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Chefs",
+        "code": "3513",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 125,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Cook",
+        "code": "3514",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Veterinary Nurses",
+        "code": "3613",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Ambulance Officers and Paramedics",
+        "code": "4111",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Dental Hygienists, Technicians and Therapists",
+        "code": "4112",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 65,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Diversional Therapist",
+        "code": "4113",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 120,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 100,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Enrolled and Mothercraft Nurses",
+        "code": "4114",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 100,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Welfare Support Workers",
+        "code": "4117",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 90,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 80,
+            "date": null
+          }
+        }
+      },
+      {
+        "occupation": "Contract, Program and Project Administrators",
+        "code": "5111",
+        "matrix": {
+          "canberra-491": null,
+          "canberra-190": {
+            "score": 130,
+            "date": null
+          },
+          "overseas-491": null,
+          "overseas-190": {
+            "score": 90,
+            "date": null
+          }
+        }
+      }
+    ],
+    "cutoffsSourceUrl": "https://www.act.gov.au/__data/assets/word_doc/0009/3140487/2026-27-Invitation-Round-Rankings.docx",
+    "source": "ACT Government",
+    "sourceUrl": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+    "verified": true,
+    "notes": "Cut-offs are minimum Canberra Matrix scores per ANZSCO unit group (null = not considered); a date is the tie-break submission date."
+  },
+  {
+    "id": "WA-2026-10",
+    "date": "2026-10",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, October 2026",
+    "invitations": 1227,
+    "byVisa": {
+      "190": 836,
+      "491": 391
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table.",
+    "issuedOn": "2026-10-14"
+  },
+  {
+    "id": "WA-2026-09",
+    "date": "2026-09",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, September 2026",
+    "invitations": 1100,
+    "byVisa": {
+      "190": 784,
+      "491": 316
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "SA-2026-05-21",
+    "date": "2026-05-21",
+    "scope": "SA",
+    "title": "South Australia: Invitations on 21 May 2026",
+    "invitations": 238,
+    "byVisa": {
+      "190": 161,
+      "491": 77
+    },
+    "yearToDate": {
+      "programYear": "2025-26",
+      "v190": 1767,
+      "v491": 1086,
+      "total": 2853
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 2,
+        "v491": 2,
+        "total": 4,
+        "ytd": {
+          "v190": 99,
+          "v491": 37,
+          "total": 136
+        }
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 1,
+        "total": 1,
+        "ytd": {
+          "v190": 0,
+          "v491": 29,
+          "total": 29
+        }
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 3,
+        "v491": 3,
+        "total": 6,
+        "ytd": {
+          "v190": 33,
+          "v491": 107,
+          "total": 140
+        }
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 31,
+        "v491": 10,
+        "total": 41,
+        "ytd": {
+          "v190": 365,
+          "v491": 103,
+          "total": 468
+        }
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 20,
+        "v491": 2,
+        "total": 22,
+        "ytd": {
+          "v190": 157,
+          "v491": 38,
+          "total": 195
+        }
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 59,
+        "v491": 7,
+        "total": 66,
+        "ytd": {
+          "v190": 609,
+          "v491": 30,
+          "total": 639
+        }
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 0,
+        "v491": 6,
+        "total": 6,
+        "ytd": {
+          "v190": 7,
+          "v491": 236,
+          "total": 243
+        }
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 7,
+        "v491": 1,
+        "total": 8,
+        "ytd": {
+          "v190": 66,
+          "v491": 15,
+          "total": 81
+        }
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 2,
+        "v491": 4,
+        "total": 6,
+        "ytd": {
+          "v190": 42,
+          "v491": 145,
+          "total": 187
+        }
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 8,
+        "v491": 21,
+        "total": 29,
+        "ytd": {
+          "v190": 86,
+          "v491": 63,
+          "total": 149
+        }
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 11,
+        "v491": 10,
+        "total": 21,
+        "ytd": {
+          "v190": 152,
+          "v491": 96,
+          "total": 248
+        }
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 18,
+        "v491": 1,
+        "total": 19,
+        "ytd": {
+          "v190": 124,
+          "v491": 15,
+          "total": 139
+        }
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 0,
+          "v491": 21,
+          "total": 21
+        }
+      },
+      {
+        "group": "36 Skilled Animal, Agricultural and Horticultural Workers",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 0,
+          "v491": 4,
+          "total": 4
+        }
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 0,
+        "v491": 9,
+        "total": 9,
+        "ytd": {
+          "v190": 17,
+          "v491": 107,
+          "total": 124
+        }
+      },
+      {
+        "group": "45 Sports and Personal Service Workers",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 1,
+          "v491": 0,
+          "total": 1
+        }
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 9,
+          "v491": 40,
+          "total": 49
+        }
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-late-may-2026",
+    "verified": true
+  },
+  {
+    "id": "SA-2026-05",
+    "date": "2026-05",
+    "scope": "SA",
+    "title": "South Australia: Invitations in May 2026",
+    "invitations": 509,
+    "byVisa": {
+      "190": 295,
+      "491": 214
+    },
+    "yearToDate": {
+      "programYear": "2025-26",
+      "v190": 1606,
+      "v491": 1009,
+      "total": 2615
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 8,
+        "v491": 3,
+        "total": 11,
+        "ytd": {
+          "v190": 97,
+          "v491": 35,
+          "total": 132
+        }
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 2,
+        "total": 2,
+        "ytd": {
+          "v190": 0,
+          "v491": 28,
+          "total": 28
+        }
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 0,
+        "v491": 16,
+        "total": 16,
+        "ytd": {
+          "v190": 30,
+          "v491": 104,
+          "total": 134
+        }
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 57,
+        "v491": 15,
+        "total": 72,
+        "ytd": {
+          "v190": 334,
+          "v491": 93,
+          "total": 427
+        }
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 32,
+        "v491": 17,
+        "total": 49,
+        "ytd": {
+          "v190": 137,
+          "v491": 36,
+          "total": 173
+        }
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 128,
+        "v491": 13,
+        "total": 141,
+        "ytd": {
+          "v190": 550,
+          "v491": 23,
+          "total": 573
+        }
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 0,
+        "v491": 28,
+        "total": 28,
+        "ytd": {
+          "v190": 7,
+          "v491": 230,
+          "total": 237
+        }
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 8,
+        "v491": 2,
+        "total": 10,
+        "ytd": {
+          "v190": 59,
+          "v491": 14,
+          "total": 73
+        }
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 4,
+        "v491": 34,
+        "total": 38,
+        "ytd": {
+          "v190": 40,
+          "v491": 141,
+          "total": 181
+        }
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 29,
+        "v491": 11,
+        "total": 40,
+        "ytd": {
+          "v190": 78,
+          "v491": 42,
+          "total": 120
+        }
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 14,
+        "v491": 30,
+        "total": 44,
+        "ytd": {
+          "v190": 141,
+          "v491": 86,
+          "total": 227
+        }
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 10,
+        "v491": 0,
+        "total": 10,
+        "ytd": {
+          "v190": 106,
+          "v491": 14,
+          "total": 120
+        }
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 2,
+        "total": 2,
+        "ytd": {
+          "v190": 0,
+          "v491": 21,
+          "total": 21
+        }
+      },
+      {
+        "group": "36 Skilled Animal, Agricultural and Horticultural Workers",
+        "v190": 0,
+        "v491": 2,
+        "total": 2,
+        "ytd": {
+          "v190": 0,
+          "v491": 4,
+          "total": 4
+        }
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 3,
+        "v491": 19,
+        "total": 22,
+        "ytd": {
+          "v190": 17,
+          "v491": 98,
+          "total": 115
+        }
+      },
+      {
+        "group": "45 Sports and Personal Service Workers",
+        "v190": 1,
+        "v491": 0,
+        "total": 1,
+        "ytd": {
+          "v190": 1,
+          "v491": 0,
+          "total": 1
+        }
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 0,
+        "v491": 9,
+        "total": 9,
+        "ytd": {
+          "v190": 9,
+          "v491": 40,
+          "total": 49
+        }
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-may-2026",
+    "verified": true
+  },
+  {
+    "id": "WA-2026-05",
+    "date": "2026-05",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, May 2026",
+    "invitations": 206,
+    "byVisa": {
+      "190": 206,
+      "491": 0
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "SA-2026-04",
+    "date": "2026-04",
+    "scope": "SA",
+    "title": "South Australia: Invitations in April 2026",
+    "invitations": 445,
+    "byVisa": {
+      "190": 245,
+      "491": 200
+    },
+    "yearToDate": {
+      "programYear": "2025-26",
+      "v190": 1312,
+      "v491": 819,
+      "total": 2131
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 27,
+        "v491": 8,
+        "total": 35,
+        "ytd": {
+          "v190": 89,
+          "v491": 32,
+          "total": 121
+        }
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 8,
+        "total": 8,
+        "ytd": {
+          "v190": 0,
+          "v491": 26,
+          "total": 26
+        }
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 3,
+        "v491": 20,
+        "total": 23,
+        "ytd": {
+          "v190": 30,
+          "v491": 88,
+          "total": 118
+        }
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 55,
+        "v491": 17,
+        "total": 72,
+        "ytd": {
+          "v190": 277,
+          "v491": 78,
+          "total": 355
+        }
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 25,
+        "v491": 3,
+        "total": 28,
+        "ytd": {
+          "v190": 105,
+          "v491": 19,
+          "total": 124
+        }
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 70,
+        "v491": 9,
+        "total": 79,
+        "ytd": {
+          "v190": 422,
+          "v491": 23,
+          "total": 445
+        }
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 0,
+        "v491": 38,
+        "total": 38,
+        "ytd": {
+          "v190": 7,
+          "v491": 202,
+          "total": 209
+        }
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 9,
+        "v491": 3,
+        "total": 12,
+        "ytd": {
+          "v190": 51,
+          "v491": 12,
+          "total": 63
+        }
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 4,
+        "v491": 25,
+        "total": 29,
+        "ytd": {
+          "v190": 36,
+          "v491": 107,
+          "total": 143
+        }
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 9,
+        "v491": 11,
+        "total": 20,
+        "ytd": {
+          "v190": 49,
+          "v491": 31,
+          "total": 80
+        }
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 22,
+        "v491": 14,
+        "total": 36,
+        "ytd": {
+          "v190": 127,
+          "v491": 56,
+          "total": 183
+        }
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 20,
+        "v491": 6,
+        "total": 26,
+        "ytd": {
+          "v190": 96,
+          "v491": 14,
+          "total": 110
+        }
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 2,
+        "total": 2,
+        "ytd": {
+          "v190": 0,
+          "v491": 19,
+          "total": 19
+        }
+      },
+      {
+        "group": "36 Skilled Animal, Agricultural and Horticultural Workers",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 0,
+          "v491": 2,
+          "total": 2
+        }
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 1,
+        "v491": 21,
+        "total": 22,
+        "ytd": {
+          "v190": 14,
+          "v491": 79,
+          "total": 93
+        }
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 0,
+        "v491": 15,
+        "total": 15,
+        "ytd": {
+          "v190": 9,
+          "v491": 31,
+          "total": 40
+        }
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-april-2026",
+    "verified": true
+  },
+  {
+    "id": "WA-2026-04",
+    "date": "2026-04",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, April 2026",
+    "invitations": 1,
+    "byVisa": {
+      "190": 1,
+      "491": 0
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "SA-2026-03",
+    "date": "2026-03",
+    "scope": "SA",
+    "title": "South Australia: Invitations in March 2026",
+    "invitations": 406,
+    "byVisa": {
+      "190": 242,
+      "491": 164
+    },
+    "yearToDate": {
+      "programYear": "2025-26",
+      "v190": 1067,
+      "v491": 619,
+      "total": 1686
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 18,
+        "v491": 5,
+        "total": 23,
+        "ytd": {
+          "v190": 62,
+          "v491": 24,
+          "total": 86
+        }
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 4,
+        "total": 4,
+        "ytd": {
+          "v190": 0,
+          "v491": 18,
+          "total": 18
+        }
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 1,
+        "v491": 21,
+        "total": 22,
+        "ytd": {
+          "v190": 27,
+          "v491": 68,
+          "total": 95
+        }
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 44,
+        "v491": 9,
+        "total": 53,
+        "ytd": {
+          "v190": 222,
+          "v491": 61,
+          "total": 283
+        }
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 30,
+        "v491": 6,
+        "total": 36,
+        "ytd": {
+          "v190": 80,
+          "v491": 16,
+          "total": 96
+        }
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 96,
+        "v491": 1,
+        "total": 97,
+        "ytd": {
+          "v190": 352,
+          "v491": 14,
+          "total": 366
+        }
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 0,
+        "v491": 42,
+        "total": 42,
+        "ytd": {
+          "v190": 7,
+          "v491": 164,
+          "total": 171
+        }
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 11,
+        "v491": 2,
+        "total": 13,
+        "ytd": {
+          "v190": 42,
+          "v491": 9,
+          "total": 51
+        }
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 9,
+        "v491": 31,
+        "total": 40,
+        "ytd": {
+          "v190": 32,
+          "v491": 82,
+          "total": 114
+        }
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 7,
+        "v491": 3,
+        "total": 10,
+        "ytd": {
+          "v190": 40,
+          "v491": 20,
+          "total": 60
+        }
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 17,
+        "v491": 6,
+        "total": 23,
+        "ytd": {
+          "v190": 105,
+          "v491": 42,
+          "total": 147
+        }
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 8,
+        "v491": 5,
+        "total": 13,
+        "ytd": {
+          "v190": 76,
+          "v491": 8,
+          "total": 84
+        }
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 4,
+        "total": 4,
+        "ytd": {
+          "v190": 0,
+          "v491": 17,
+          "total": 17
+        }
+      },
+      {
+        "group": "36 Skilled Animal, Agricultural and Horticultural Workers",
+        "v190": 0,
+        "v491": 1,
+        "total": 1,
+        "ytd": {
+          "v190": 0,
+          "v491": 2,
+          "total": 2
+        }
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 1,
+        "v491": 14,
+        "total": 15,
+        "ytd": {
+          "v190": 13,
+          "v491": 58,
+          "total": 71
+        }
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 0,
+        "v491": 10,
+        "total": 10,
+        "ytd": {
+          "v190": 9,
+          "v491": 16,
+          "total": 25
+        }
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-march-2026",
+    "verified": true
+  },
+  {
+    "id": "WA-2026-03",
+    "date": "2026-03",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, March 2026",
+    "invitations": 2200,
+    "byVisa": {
+      "190": 1429,
+      "491": 771
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "SA-2026-02",
+    "date": "2026-02",
+    "scope": "SA",
+    "title": "South Australia: Invitations in February 2026",
+    "invitations": 364,
+    "byVisa": {
+      "190": 227,
+      "491": 137
+    },
+    "yearToDate": {
+      "programYear": "2025-26",
+      "v190": 837,
+      "v491": 458,
+      "total": 1295
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 12,
+        "v491": 3,
+        "total": 15,
+        "ytd": {
+          "v190": 44,
+          "v491": 19,
+          "total": 63
+        }
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 5,
+        "total": 5,
+        "ytd": {
+          "v190": 0,
+          "v491": 14,
+          "total": 14
+        }
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 3,
+        "v491": 14,
+        "total": 17,
+        "ytd": {
+          "v190": 26,
+          "v491": 47,
+          "total": 73
+        }
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 62,
+        "v491": 6,
+        "total": 68,
+        "ytd": {
+          "v190": 178,
+          "v491": 52,
+          "total": 230
+        }
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 19,
+        "v491": 3,
+        "total": 22,
+        "ytd": {
+          "v190": 61,
+          "v491": 13,
+          "total": 74
+        }
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 88,
+        "v491": 7,
+        "total": 95,
+        "ytd": {
+          "v190": 256,
+          "v491": 13,
+          "total": 269
+        }
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 0,
+        "v491": 38,
+        "total": 38,
+        "ytd": {
+          "v190": 7,
+          "v491": 122,
+          "total": 129
+        }
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 8,
+        "v491": 3,
+        "total": 11,
+        "ytd": {
+          "v190": 31,
+          "v491": 7,
+          "total": 38
+        }
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 4,
+        "v491": 16,
+        "total": 20,
+        "ytd": {
+          "v190": 23,
+          "v491": 51,
+          "total": 74
+        }
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 9,
+        "v491": 4,
+        "total": 13,
+        "ytd": {
+          "v190": 33,
+          "v491": 17,
+          "total": 50
+        }
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 12,
+        "v491": 23,
+        "total": 35,
+        "ytd": {
+          "v190": 88,
+          "v491": 36,
+          "total": 124
+        }
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 10,
+        "v491": 0,
+        "total": 10,
+        "ytd": {
+          "v190": 69,
+          "v491": 3,
+          "total": 72
+        }
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 4,
+        "total": 4,
+        "ytd": {
+          "v190": 0,
+          "v491": 13,
+          "total": 13
+        }
+      },
+      {
+        "group": "36 Skilled Animal, Agricultural and Horticultural Workers",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 0,
+          "v491": 1,
+          "total": 1
+        }
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 0,
+        "v491": 11,
+        "total": 11,
+        "ytd": {
+          "v190": 12,
+          "v491": 44,
+          "total": 56
+        }
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 0,
+        "v491": 0,
+        "total": 0,
+        "ytd": {
+          "v190": 9,
+          "v491": 6,
+          "total": 15
+        }
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-feb-2026",
+    "verified": true
+  },
+  {
+    "id": "WA-2026-02",
+    "date": "2026-02",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, February 2026",
+    "invitations": 2400,
+    "byVisa": {
+      "190": 1105,
+      "491": 1295
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "SA-2026-01",
+    "date": "2026-01",
+    "scope": "SA",
+    "title": "South Australia: Invitations in January 2026",
+    "invitations": 344,
+    "byVisa": {
+      "190": 235,
+      "491": 109
+    },
+    "yearToDate": {
+      "programYear": "2025-26",
+      "v190": 610,
+      "v491": 321,
+      "total": 931
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 17,
+        "v491": 4,
+        "total": 21,
+        "ytd": {
+          "v190": 32,
+          "v491": 16,
+          "total": 48
+        }
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 1,
+        "total": 1,
+        "ytd": {
+          "v190": 0,
+          "v491": 9,
+          "total": 9
+        }
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 4,
+        "v491": 12,
+        "total": 16,
+        "ytd": {
+          "v190": 23,
+          "v491": 33,
+          "total": 56
+        }
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 51,
+        "v491": 12,
+        "total": 63,
+        "ytd": {
+          "v190": 116,
+          "v491": 46,
+          "total": 162
+        }
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 18,
+        "v491": 4,
+        "total": 22,
+        "ytd": {
+          "v190": 42,
+          "v491": 10,
+          "total": 52
+        }
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 68,
+        "v491": 1,
+        "total": 69,
+        "ytd": {
+          "v190": 168,
+          "v491": 6,
+          "total": 174
+        }
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 1,
+        "v491": 32,
+        "total": 33,
+        "ytd": {
+          "v190": 7,
+          "v491": 84,
+          "total": 91
+        }
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 7,
+        "v491": 2,
+        "total": 9,
+        "ytd": {
+          "v190": 23,
+          "v491": 4,
+          "total": 27
+        }
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 7,
+        "v491": 18,
+        "total": 25,
+        "ytd": {
+          "v190": 19,
+          "v491": 35,
+          "total": 54
+        }
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 10,
+        "v491": 3,
+        "total": 13,
+        "ytd": {
+          "v190": 24,
+          "v491": 13,
+          "total": 37
+        }
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 27,
+        "v491": 3,
+        "total": 30,
+        "ytd": {
+          "v190": 76,
+          "v491": 13,
+          "total": 89
+        }
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 20,
+        "v491": 1,
+        "total": 21,
+        "ytd": {
+          "v190": 59,
+          "v491": 3,
+          "total": 62
+        }
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 3,
+        "total": 3,
+        "ytd": {
+          "v190": 0,
+          "v491": 9,
+          "total": 9
+        }
+      },
+      {
+        "group": "36 Skilled Animal, Agricultural and Horticultural Workers",
+        "v190": 0,
+        "v491": 1,
+        "total": 1,
+        "ytd": {
+          "v190": 0,
+          "v491": 1,
+          "total": 1
+        }
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 5,
+        "v491": 9,
+        "total": 14,
+        "ytd": {
+          "v190": 12,
+          "v491": 33,
+          "total": 45
+        }
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 0,
+        "v491": 3,
+        "total": 3,
+        "ytd": {
+          "v190": 9,
+          "v491": 6,
+          "total": 15
+        }
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-jan-2026",
+    "verified": true
+  },
+  {
+    "id": "WA-2026-01",
+    "date": "2026-01",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, January 2026",
+    "invitations": 1135,
+    "byVisa": {
+      "190": 301,
+      "491": 834
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "SA-2025-12",
+    "date": "2025-12",
+    "scope": "SA",
+    "title": "South Australia: Invitations in December 2025",
+    "invitations": 402,
+    "byVisa": {
+      "190": 257,
+      "491": 145
+    },
+    "yearToDate": null,
+    "otherBlock": {
+      "label": "Interim invitations to 1 November 2025",
+      "v190": 118,
+      "v491": 67,
+      "total": 185
+    },
+    "groups": [
+      {
+        "group": "13 Specialist Managers",
+        "v190": 15,
+        "v491": 11,
+        "total": 26,
+        "ytd": null
+      },
+      {
+        "group": "14 Hospitality, Retail and Service Managers",
+        "v190": 0,
+        "v491": 3,
+        "total": 3,
+        "ytd": null
+      },
+      {
+        "group": "22 Business, Human Resource and Marketing Professionals",
+        "v190": 4,
+        "v491": 12,
+        "total": 16,
+        "ytd": null
+      },
+      {
+        "group": "23 Design, Engineering, Science and Transport Professionals",
+        "v190": 47,
+        "v491": 29,
+        "total": 76,
+        "ytd": null
+      },
+      {
+        "group": "24 Education Professionals",
+        "v190": 24,
+        "v491": 5,
+        "total": 29,
+        "ytd": null
+      },
+      {
+        "group": "25 Health Professionals",
+        "v190": 91,
+        "v491": 4,
+        "total": 95,
+        "ytd": null
+      },
+      {
+        "group": "26 ICT Professionals",
+        "v190": 1,
+        "v491": 41,
+        "total": 42,
+        "ytd": null
+      },
+      {
+        "group": "27 Legal, Social and Welfare Professionals",
+        "v190": 15,
+        "v491": 1,
+        "total": 16,
+        "ytd": null
+      },
+      {
+        "group": "31 Engineering, ICT and Science Technicians",
+        "v190": 7,
+        "v491": 16,
+        "total": 23,
+        "ytd": null
+      },
+      {
+        "group": "32 Automotive and Engineering Trades Workers",
+        "v190": 8,
+        "v491": 7,
+        "total": 15,
+        "ytd": null
+      },
+      {
+        "group": "33 Construction Trades Workers",
+        "v190": 27,
+        "v491": 4,
+        "total": 31,
+        "ytd": null
+      },
+      {
+        "group": "34 Electrotechnology and Telecommunications Trades Workers",
+        "v190": 14,
+        "v491": 0,
+        "total": 14,
+        "ytd": null
+      },
+      {
+        "group": "35 Food Trades Workers",
+        "v190": 0,
+        "v491": 1,
+        "total": 1,
+        "ytd": null
+      },
+      {
+        "group": "41 Health and Welfare Support Workers",
+        "v190": 1,
+        "v491": 10,
+        "total": 11,
+        "ytd": null
+      },
+      {
+        "group": "51 Office Managers and Program Administrators",
+        "v190": 3,
+        "v491": 1,
+        "total": 4,
+        "ytd": null
+      }
+    ],
+    "cutoffs": [],
+    "source": "Migration SA",
+    "sourceUrl": "https://migration.sa.gov.au/news/invitations-issued-dec-2025",
+    "verified": true
+  },
+  {
+    "id": "WA-2025-12",
+    "date": "2025-12",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, December 2025",
+    "invitations": 1800,
+    "byVisa": {
+      "190": 1058,
+      "491": 742
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2025-10",
+    "date": "2025-10",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, October 2025",
+    "invitations": 420,
+    "byVisa": {
+      "190": 235,
+      "491": 185
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2025-06",
+    "date": "2025-06",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, June 2025",
+    "invitations": 320,
+    "byVisa": {
+      "190": 0,
+      "491": 320
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2025-05",
+    "date": "2025-05",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, May 2025",
+    "invitations": 702,
+    "byVisa": {
+      "190": 264,
+      "491": 438
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2025-03",
+    "date": "2025-03",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, March 2025",
+    "invitations": 1867,
+    "byVisa": {
+      "190": 1343,
+      "491": 524
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2025-02",
+    "date": "2025-02",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, February 2025",
+    "invitations": 1483,
+    "byVisa": {
+      "190": 1113,
+      "491": 370
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2024-12",
+    "date": "2024-12",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, December 2024",
+    "invitations": 2995,
+    "byVisa": {
+      "190": 1495,
+      "491": 1500
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2024-11",
+    "date": "2024-11",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, November 2024",
+    "invitations": 1999,
+    "byVisa": {
+      "190": 998,
+      "491": 1001
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2024-10",
+    "date": "2024-10",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, October 2024",
+    "invitations": 800,
+    "byVisa": {
+      "190": 400,
+      "491": 400
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2024-09",
+    "date": "2024-09",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, September 2024",
+    "invitations": 796,
+    "byVisa": {
+      "190": 371,
+      "491": 425
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  },
+  {
+    "id": "WA-2024-08",
+    "date": "2024-08",
+    "scope": "WA",
+    "title": "WA State Nominated Migration Program invitations, August 2024",
+    "invitations": 600,
+    "byVisa": {
+      "190": 300,
+      "491": 300
+    },
+    "cutoffs": [],
+    "source": "Migration WA",
+    "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+    "verified": true,
+    "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table."
+  }
+]

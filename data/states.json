@@ -4,8 +4,12 @@
     "name": "Australian Capital Territory",
     "site": "https://www.act.gov.au/migration",
     "programYear": "2026-27",
-    "status": "unknown",
-    "model": null,
+    "status": "open",
+    "statusByVisa": {
+      "190": "open",
+      "491": "unknown"
+    },
+    "model": "Canberra Matrix: candidates lodge a Matrix; the highest ranked in each occupation are invited in scheduled rounds",
     "opened": null,
     "allocations": {
       "190": null,
@@ -14,14 +18,46 @@
       "sourceUrl": null,
       "asAt": null
     },
-    "invitedSoFar": null,
-    "links": {
-      "news": null,
-      "program": null,
-      "occupationList": null
+    "invitedSoFar": {
+      "n": 261,
+      "byVisa": {
+        "190": 261,
+        "491": 0
+      },
+      "period": "2026-27: rounds of 2026-10-12",
+      "source": "ACT Government",
+      "sourceUrl": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+      "asAt": "2026-10-12"
     },
-    "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "links": {
+      "news": "https://www.act.gov.au/migration",
+      "program": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+      "occupationList": "https://www.act.gov.au/migration/skilled-migrants/act-nominated-migration-program-occupation-list"
+    },
+    "lastVerified": "2026-11-07",
+    "evidence": {
+      "status": {
+        "sourceUrl": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+        "verified": "2026-11-07",
+        "quote": "Canberra Matrix Invitation Round: 12 October 2026 ... Week starting 25 January 2027"
+      },
+      "statusByVisa": {
+        "sourceUrl": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+        "verified": "2026-11-07",
+        "quote": "Week starting 12 October 2026 (Subclass 190 only)"
+      },
+      "model": {
+        "sourceUrl": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+        "verified": "2026-11-07",
+        "quote": "The highest ranked Matrix in each occupation were invited to apply for ACT nomination."
+      },
+      "allocations": {
+        "sourceUrl": "https://www.act.gov.au/migration",
+        "verified": "2026-11-07",
+        "quote": "The ACT’s 2026-27 allocation of nomination places have not yet been confirmed by the Australian Government."
+      }
+    },
+    "notes": "2025-26 allocation (official, ACT round page, read 2026-11-07): 800 places for 190 and 800 for 491, all used by 30 June 2026.\nTentative 2026-27 round schedule (official): weeks starting 12 Oct 2026 (190 only), 25 Jan 2027, 22 Mar 2027, 24 May 2027.\nThe ACT occupation list page is still titled 'October 2025'."
   },
   {
     "code": "NSW",
@@ -29,7 +65,11 @@
     "site": "https://www.nsw.gov.au/visas-and-migration",
     "programYear": "2026-27",
     "status": "unknown",
-    "model": null,
+    "statusByVisa": {
+      "190": "unknown",
+      "491": "closed"
+    },
+    "model": "EOI: NSW invites selected EOIs in invitation rounds; no direct applications for 190",
     "opened": null,
     "allocations": {
       "190": null,
@@ -40,19 +80,37 @@
     },
     "invitedSoFar": null,
     "links": {
-      "news": null,
-      "program": null,
-      "occupationList": null
+      "news": "https://www.nsw.gov.au/visas-and-migration/news-and-updates",
+      "program": "https://www.nsw.gov.au/visas-and-migration/skilled-visas",
+      "occupationList": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists"
     },
-    "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "lastVerified": "2026-11-07",
+    "evidence": {
+      "status": {
+        "sourceUrl": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-nominated-visa-subclass-190",
+        "verified": "2026-11-07",
+        "quote": "NSW holds invitation rounds throughout the financial year."
+      },
+      "statusByVisa": {
+        "sourceUrl": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-work-regional-visa-subclass-491",
+        "verified": "2026-11-07",
+        "quote": "applications are now closed for the current program year, as all available nomination places have been fully allocated."
+      },
+      "model": {
+        "sourceUrl": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-nominated-visa-subclass-190",
+        "verified": "2026-11-07",
+        "quote": "NSW uses a selection-based invitation process ... You cannot directly apply for NSW nomination."
+      }
+    },
+    "notes": "The 190 page (modified 15 Oct 2026) does not say whether 2026-27 invitations have started. The 491 page says applications are closed for 'the current program year' without naming the year.\nNSW does not publish round results or a news feed for 2026-27 (latest news item 27 Sep 2023)."
   },
   {
     "code": "NT",
     "name": "Northern Territory",
-    "site": "https://theterritory.com.au/migrate",
+    "site": "https://theterritory.com.au/",
     "programYear": "2026-27",
     "status": "unknown",
+    "statusByVisa": null,
     "model": null,
     "opened": null,
     "allocations": {
@@ -69,16 +127,18 @@
       "occupationList": null
     },
     "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "evidence": {},
+    "notes": "Not verified: theterritory.com.au returned HTTP 403 to VisaRadar on 2026-11-07, so no official NT page could be read.\nThird-party (unverified): an NT Government media release dated 20 Aug 2026, republished by National Tribune, reports 2026-27 allocations of 850 (190) and 1,000 (491) and applications open from 21 Aug 2026. https://www.nationaltribune.com.au/nt-secures-biggest-skilled-migration-boost-in-nation/"
   },
   {
     "code": "QLD",
     "name": "Queensland",
-    "site": "https://migration.qld.gov.au",
+    "site": "https://migration.qld.gov.au/",
     "programYear": "2026-27",
-    "status": "unknown",
-    "model": null,
-    "opened": null,
+    "status": "open",
+    "statusByVisa": null,
+    "model": "ROI: candidates submit a Registration of Interest on the Migration Queensland website, then may be invited",
+    "opened": "2026-11-06",
     "allocations": {
       "190": null,
       "491": null,
@@ -88,20 +148,38 @@
     },
     "invitedSoFar": null,
     "links": {
-      "news": null,
-      "program": null,
-      "occupationList": null
+      "news": "https://migration.qld.gov.au/news",
+      "program": "https://migration.qld.gov.au/nomination-process/registration-of-interest",
+      "occupationList": "https://migration.qld.gov.au/occupation-lists"
     },
-    "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "lastVerified": "2026-11-07",
+    "evidence": {
+      "status": {
+        "sourceUrl": "https://migration.qld.gov.au/news/2026-27-queenslands-state-nominated-migration-program-now-published",
+        "verified": "2026-11-07",
+        "quote": "Registrations of Interest (ROIs) will open on 6 November 2026."
+      },
+      "model": {
+        "sourceUrl": "https://migration.qld.gov.au/nomination-process/registration-of-interest",
+        "verified": "2026-11-07",
+        "quote": "To be considered for Queensland nomination, you must submit a Registration of Interest (ROI) on the Migration Queensland website."
+      },
+      "opened": {
+        "sourceUrl": "https://migration.qld.gov.au/news/2026-27-queenslands-state-nominated-migration-program-now-published",
+        "verified": "2026-11-07",
+        "quote": "Registrations of Interest (ROIs) will open on 6 November 2026."
+      }
+    },
+    "notes": "All applicants must lodge a new ROI for 2026-27 (official ROI page).\nQueensland does not publish invitation counts or round results."
   },
   {
     "code": "SA",
     "name": "South Australia",
-    "site": "https://migration.sa.gov.au",
+    "site": "https://migration.sa.gov.au/",
     "programYear": "2026-27",
-    "status": "unknown",
-    "model": null,
+    "status": "open",
+    "statusByVisa": null,
+    "model": "Hybrid: onshore candidates submit an ROI; offshore candidates are invited directly from their SkillSelect EOI",
     "opened": null,
     "allocations": {
       "190": null,
@@ -112,21 +190,34 @@
     },
     "invitedSoFar": null,
     "links": {
-      "news": null,
-      "program": null,
-      "occupationList": null
+      "news": "https://migration.sa.gov.au/news",
+      "program": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update",
+      "occupationList": "https://migration.sa.gov.au/before-applying/work-in-sa/occupation-lists/occupations-list"
     },
-    "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "lastVerified": "2026-11-07",
+    "evidence": {
+      "status": {
+        "sourceUrl": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update",
+        "verified": "2026-11-07",
+        "quote": "South Australia is now open for Registrations of Interest (ROI) for individuals living and working in South Australia whose current visas are due to expire by 31 January 2027."
+      },
+      "model": {
+        "sourceUrl": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update",
+        "verified": "2026-11-07",
+        "quote": "Offshore applicants are not required to submit an ROI, as suitable candidates will be invited directly from their EOI lodged in SkillSelect."
+      }
+    },
+    "notes": "The 2026-27 opening was announced in a post dated 22 Oct 2026; the exact opening date is not stated.\n2025-26 allocation (official, SA post of 24 Nov 2025): 1,350 places for 190 and 900 for 491.\nNo 2026-27 'Invitations issued' post yet (checked 2026-11-07)."
   },
   {
     "code": "TAS",
     "name": "Tasmania",
-    "site": "https://www.migration.tas.gov.au",
+    "site": "https://www.migration.tas.gov.au/",
     "programYear": "2026-27",
     "status": "unknown",
+    "statusByVisa": null,
     "model": null,
-    "opened": null,
+    "opened": "2026-08-17",
     "allocations": {
       "190": null,
       "491": null,
@@ -136,19 +227,27 @@
     },
     "invitedSoFar": null,
     "links": {
-      "news": null,
-      "program": null,
+      "news": "https://www.migration.tas.gov.au/news",
+      "program": "https://www.migration.tas.gov.au/news/2024-25_program_open_to_rois",
       "occupationList": null
     },
-    "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "lastVerified": "2026-11-07",
+    "evidence": {
+      "opened": {
+        "sourceUrl": "https://www.migration.tas.gov.au/news",
+        "verified": "2026-11-07",
+        "quote": "Program Update - August 2026 - 2026-27 Program Opening 2026-27 Program Opening - 17 August 2026"
+      }
+    },
+    "notes": "Migration Tasmania answered once on 2026-11-07 (the news list) and then returned HTTP 403, as do its allocation-usage and copyright pages. Current status could not be confirmed.\nSeen in search results only (not fetched): 2026-27 allocation of 1,250 (190) and 800 (491), ROI model with weekly rounds. Unverified.\nThird-party (unverified, migratio.com.au): the 5 Nov 2026 round invited 68 (190) and 28 (491)."
   },
   {
     "code": "VIC",
     "name": "Victoria",
-    "site": "https://liveinmelbourne.vic.gov.au",
+    "site": "https://liveinmelbourne.vic.gov.au/",
     "programYear": "2026-27",
     "status": "unknown",
+    "statusByVisa": null,
     "model": null,
     "opened": null,
     "allocations": {
@@ -160,20 +259,22 @@
     },
     "invitedSoFar": null,
     "links": {
-      "news": null,
-      "program": null,
+      "news": "https://liveinmelbourne.vic.gov.au/news-events/news",
+      "program": "https://liveinmelbourne.vic.gov.au/migrate/skilled-migration-visas/2026-27-skilled-visa-nomination-program",
       "occupationList": null
     },
     "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "evidence": {},
+    "notes": "Not verified: liveinmelbourne.vic.gov.au returned HTTP 403 to VisaRadar on 2026-11-07.\nSeen in search results only (official page, not fetched): 190 ROIs open with 900 places; 491 ROIs closed and places not finalised; ROIs ranked by the Victorian Points Test. Unverified."
   },
   {
     "code": "WA",
     "name": "Western Australia",
-    "site": "https://migration.wa.gov.au",
+    "site": "https://migration.wa.gov.au/",
     "programYear": "2026-27",
-    "status": "unknown",
-    "model": null,
+    "status": "open",
+    "statusByVisa": null,
+    "model": "EOI: WA ranks SkillSelect EOIs and issues invitations, anticipated monthly",
     "opened": null,
     "allocations": {
       "190": null,
@@ -182,13 +283,35 @@
       "sourceUrl": null,
       "asAt": null
     },
-    "invitedSoFar": null,
-    "links": {
-      "news": null,
-      "program": null,
-      "occupationList": null
+    "invitedSoFar": {
+      "n": 2327,
+      "byVisa": {
+        "190": 1620,
+        "491": 707
+      },
+      "period": "2026-27 to date (2026-09 to 2026-10)",
+      "source": "Migration WA",
+      "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+      "asAt": "2026-11-07"
     },
-    "lastVerified": null,
-    "notes": "Seed record. Sources lane fills this in."
+    "links": {
+      "news": "https://migration.wa.gov.au/news",
+      "program": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+      "occupationList": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program"
+    },
+    "lastVerified": "2026-11-07",
+    "evidence": {
+      "status": {
+        "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+        "verified": "2026-11-07",
+        "quote": "2026-27 program year — Invitations issued ... Total to date 2327"
+      },
+      "model": {
+        "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
+        "verified": "2026-11-07",
+        "quote": "Invitations for WA State nomination are anticipated to be issued each month."
+      }
+    },
+    "notes": "The SNMP page does not state a 2026-27 allocation (checked 2026-11-07).\nMigration WA copyright forbids reuse without permission: VisaRadar stores figures and links only."
   }
 ]
