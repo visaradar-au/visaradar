@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import AsAt from '../components/AsAt.astro';
+import Empty from '../components/Empty.astro';
+import { getPathways } from '../lib/data/eoi';
+import { PATHWAY_NAMES, PATHWAY_VISAS, type PathwayVisa } from '../lib/eoi';
+import { formatMonth, formatNumber } from '../lib/format';
+import { href } from '../lib/href';
+import { official } from '../lib/official';
+
+const visaPage = (slug: string) => `https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/${slug}`;
+const biip = 'https://immi.homeaffairs.gov.au/visas/getting-a-visa/biip-closure-and-refunds';
+const v188 = visaPage('business-innovation-and-investment-188');
+
+// One plain line per visa, from the Home Affairs visa pages. No eligibility judgments.
+const CARDS: Record<PathwayVisa, { line: string; url: string; links?: { label: string; url: string }[] }> = {
+  '189': { line: 'Permanent visa for invited skilled workers. No state nomination; Home Affairs invites in national rounds.', url: visaPage('skilled-independent-189') },
+  '190': { line: 'Permanent visa for skilled workers nominated by a state or territory.', url: visaPage('skilled-nominated-190') },
+  '491': { line: 'Provisional visa to live and work in regional Australia, nominated by a state or territory.', url: visaPage('skilled-work-regional-provisional-491') },
+  '491F': { line: 'The same 491 visa, sponsored by an eligible relative living in a designated regional area.', url: visaPage('skilled-work-regional-provisional-491') },
+  '188BI': { line: 'Business Innovation and Investment visa, Business Innovation stream.', url: v188 },
+  '188EV': { line: 'Business Innovation and Investment visa, Entrepreneur stream.', url: v188 },
+  '188INV': { line: 'Business Innovation and Investment visa, Investor stream.', url: v188 },
+  '188SIG': { line: 'Business Innovation and Investment visa, Significant Investor stream.', url: visaPage('business-innovation-and-investment-188/significant-investor-stream') },
+  '132': { line: 'Business Talent (Permanent) visa, Significant Business History stream.', url: visaPage('business-talent-132') },
+};
+const BUSINESS = new Set<PathwayVisa>(['188BI', '188EV', '188INV', '188SIG', '132']);
+const STATUS_ORDER = ['SUBMITTED', 'INVITED', 'LODGED', 'HOLD', 'CLOSED'];
+const STATUS_LABEL: Record<string, string> = { SUBMITTED: 'Submitted', INVITED: 'Invited', LODGED: 'Lodged', HOLD: 'On hold', CLOSED: 'Closed' };
+
+const data = getPathways();
+const latest = data?.asAt ?? null;
+const countsFor = (v: PathwayVisa) => {
+  const rows = (data?.rows ?? []).filter((r) => r[0] === latest && r[1] === v);
+  return STATUS_ORDER.map((st) => ({ st, c: rows.find((r) => r[2] === st)?.[3] ?? null })).filter((x) => x.c != null);
+};
+const show = (c: number | '<20') => (c === '<20' ? '<20' : formatNumber(c));
+---
+<Base title="Visa pathways in SkillSelect" description="Every visa that uses a SkillSelect expression of interest, with the latest pool numbers and a link to the official Home Affairs page.">
+  <h1>Visa pathways in SkillSelect</h1>
+  <p class="lede">These visas use an expression of interest (EOI) in SkillSelect. Each card gives a one-line description, links to the official Home Affairs page and shows how many EOIs SkillSelect reported at the end of the month. Check the official page for who can apply.</p>
+
+  {data ? (
+    <>
+      <ul class="plain pathway-grid">
+        {PATHWAY_VISAS.map((v) => (
+          <li class="panel">
+            <h2>{PATHWAY_NAMES[v]}</h2>
+            <p>{CARDS[v].line}</p>
+            {countsFor(v).length ? (
+              <dl class="counts">
+                {countsFor(v).map(({ st, c }) => <div><dt>{STATUS_LABEL[st] ?? st}</dt><dd>{show(c as number | '<20')}</dd></div>)}
+              </dl>
+            ) : <p class="muted small">No EOIs reported for {formatMonth(latest ?? '')}.</p>}
+            <p class="small">
+              <a href={CARDS[v].url} rel="noopener">Official page<span class="visually-hidden">: {PATHWAY_NAMES[v]}</span></a>
+              {BUSINESS.has(v) && v !== '132' && <> · <a href={biip} rel="noopener">Home Affairs: BIIP closure<span class="visually-hidden"> ({PATHWAY_NAMES[v]})</span></a></>}
+              {!BUSINESS.has(v) && <> · <a href={href('/occupations/')}>By occupation</a></>}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <AsAt note="Counts are EOIs, not people, for the whole country. Counts under 20 are masked and shown as <20. Closed means the EOI is no longer active." />
+      <p class="small muted">Home Affairs says the Business Innovation and Investment (subclass 188) program closed to new applications on 31 July 2024. See its <a href={biip} rel="noopener">closure page</a>. The business visas have no occupation or points data in SkillSelect, so they don't appear on occupation pages or in Where I stand.</p>
+    </>
+  ) : (
+    <Empty title="Pathway numbers not loaded yet" level={2}>
+      <p class="small">See the official <a href={official.skillselect} rel="noopener">SkillSelect page</a>.</p>
+    </Empty>
+  )}
+
+  <div class="next">
+    <p>For 189, 190 and 491, see where an occupation and points score sit in the pool.</p>
+    <a class="btn" href={href('/me/')}>Where I stand</a>
+  </div>
+</Base>
+
+<style>
+  .pathway-grid { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); margin-block: var(--s-5); }
+  .pathway-grid h2 { font-size: var(--text-lg); margin: 0 0 var(--s-2); }
+  .counts { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); margin: var(--s-3) 0; }
+  .counts dt { font-size: var(--text-xs); color: var(--ink-3); }
+  .counts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+</style>
