@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "at": "2026-10-31",
+    "kind": "news",
+    "source": "qld",
+    "title": "2026-27 SNMP now published",
+    "url": "https://migration.qld.gov.au/news/2026-27-queenslands-state-nominated-migration-program-now-published"
+  },
+  {
+    "at": "2026-10-22",
+    "kind": "news",
+    "source": "sa",
+    "title": "South Australia’s General Skilled Migration Program Update",
+    "url": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update"
+  },
+  {
+    "at": "2026-10-20",
+    "kind": "news",
+    "source": "qld",
+    "title": "Queensland opens doors to global talent",
+    "url": "https://migration.qld.gov.au/news/queensland-opens-doors-to-global-talent"
+  },
+  {
+    "at": "2026-10-15",
+    "kind": "news",
+    "source": "nsw",
+    "title": "Page updated: Skilled Nominated visa (subclass 190)",
+    "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-nominated-visa-subclass-190"
+  },
+  {
+    "at": "2026-10-15",
+    "kind": "news",
+    "source": "nsw",
+    "title": "Page updated: NSW Skills Lists",
+    "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists"
+  },
+  {
+    "at": "2026-10-12",
+    "kind": "news",
+    "source": "act",
+    "title": "Canberra Matrix Invitation Round: 12 October 2026",
+    "url": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round"
+  }
+]
