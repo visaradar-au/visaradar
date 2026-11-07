@@ -38,8 +38,10 @@ const countsFor = (v: PathwayVisa) => {
 const show = (c: number | '<20') => (c === '<20' ? '<20' : formatNumber(c));
 ---
 <Base title="Visa pathways in SkillSelect" description="Every visa that uses a SkillSelect expression of interest, with the latest pool numbers and a link to the official Home Affairs page.">
-  <h1>Visa pathways in SkillSelect</h1>
-  <p class="lede">These visas use an expression of interest (EOI) in SkillSelect. Each card gives a one-line description, links to the official Home Affairs page and shows how many EOIs SkillSelect reported at the end of the month. Check the official page for who can apply.</p>
+  <header class="band">
+    <h1>Visa pathways in SkillSelect</h1>
+    <p class="lede">These visas use an expression of interest (EOI) in SkillSelect. Each card gives a one-line description, links to the official Home Affairs page and shows how many EOIs SkillSelect reported at the end of the month. Check the official page for who can apply.</p>
+  </header>
 
   {data ? (
     <>

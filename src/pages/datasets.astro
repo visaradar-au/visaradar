@@ -13,8 +13,10 @@ const formats = (d: (typeof datasets)[number]) => [...new Set(d.resources.map((r
 const licence = (d: (typeof datasets)[number]) => (d.licence.title ?? d.licence.id ?? 'Not stated').replace(/^Creative Commons Attribution/, 'CC BY');
 ---
 <Base title="Home Affairs datasets" description="Department of Home Affairs datasets on data.gov.au, with when each was last updated and its licence.">
-  <h1>Home Affairs datasets</h1>
-  <p class="lede">The Department of Home Affairs publishes visa and migration statistics on data.gov.au. This list shows each dataset, when it was last updated and its licence. We check it every hour. Open a dataset to download its files from data.gov.au.</p>
+  <header class="band">
+    <h1>Home Affairs datasets</h1>
+    <p class="lede">The Department of Home Affairs publishes visa and migration statistics on data.gov.au. This list shows each dataset, when it was last updated and its licence. We check it every hour. Open a dataset to download its files from data.gov.au.</p>
+  </header>
 
   {datasets.length ? (
     <>
