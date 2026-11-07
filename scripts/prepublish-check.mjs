@@ -11,8 +11,9 @@ const CHECKS = [
   { name: 'GitHub token', re: /\bgh[pousr]_[A-Za-z0-9]{30,}\b/ },
   { name: 'AWS key', re: /\bAKIA[0-9A-Z]{16}\b/ },
   { name: 'Slack/Google token', re: /\b(xox[abp]-[A-Za-z0-9-]{10,}|AIza[0-9A-Za-z_-]{35})\b/ },
-  { name: 'Qlik session ticket', re: /qlikTicket=|X-Qlik-Session-[a-z]+=[A-Za-z0-9-]{20,}/ },
-  { name: 'unmasked Qlik measure', re: /cab884b7-bf50-450f-9dd3-9e790051a719/ },
+  // Built from parts so this file doesn't match its own patterns.
+  { name: 'Qlik session ticket', re: new RegExp(['qlik', 'Ticket='].join('') + '|X-Qlik-Session-[a-z]+=[A-Za-z0-9-]{20,}') },
+  { name: 'unmasked Qlik measure', re: new RegExp(['cab884b7', 'bf50-450f-9dd3', '9e790051a719'].join('-')) },
   { name: 'SkillSelect EOI id', re: /\bE00\d{8}\b/ },
   { name: 'Australian phone number', re: /\b04\d{2}[ -]?\d{3}[ -]?\d{3}\b/ },
   { name: 'personal email address', re: /\b[A-Za-z0-9._%+-]+@(gmail|outlook|hotmail|yahoo|icloud)\.com\b/i },
