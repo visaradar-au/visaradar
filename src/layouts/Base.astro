@@ -146,7 +146,9 @@ const current = (p: string) => path === p || path.startsWith(p);
   .brand { display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 750; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; font-size: var(--text-lg); min-height: 2.75rem; }
   .brand:hover { color: var(--ink); text-decoration: none; }
   .wordmark > span { color: var(--accent); }
-  nav[aria-label='Main'] { margin-left: auto; }
+  /* Scrolls sideways rather than overflowing when the header links outgrow a small phone. */
+  nav[aria-label='Main'] { margin-left: auto; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .brand { flex: none; }
   nav ul { list-style: none; display: flex; gap: var(--s-1); margin: 0; padding: 0; }
   nav[aria-label='Main'] a { display: flex; align-items: center; min-height: 2.75rem; padding: 0 var(--s-3); border-radius: 999px; color: var(--ink-2); text-decoration: none; font-size: var(--text-sm); font-weight: 600; white-space: nowrap; }
   nav[aria-label='Main'] a:hover { background: var(--surface-sunk); color: var(--ink); }
