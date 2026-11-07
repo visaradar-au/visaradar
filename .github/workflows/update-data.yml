@@ -1,0 +1,64 @@
+name: Update data and deploy
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # news + state pages (polite: ETag, sitemaps, crawl delays)
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: News and state pages
+        run: npm run pipeline:news && npm run pipeline:states
+        continue-on-error: true
+      - name: SkillSelect EOI data (pulls only when the dashboard reloads)
+        if: github.event_name != 'schedule' || github.event.schedule == '*/30 * * * *'
+        run: node pipeline/skillselect.mjs
+        continue-on-error: true
+      - name: Commit data changes
+        id: commit
+        run: |
+          git config user.name "visaradar-bot"
+          git config user.email "visaradar-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; else
+            git commit -m "data: update $(date -u +%Y-%m-%dT%H:%MZ)" && git push && echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+      - name: Test and build
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        run: npm run test:pipeline && npm run test:unit && npm run build
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        with:
+          path: dist
+    outputs:
+      deploy: ${{ steps.commit.outputs.changed == 'true' || github.event_name != 'schedule' }}
+
+  deploy:
+    needs: update
+    if: needs.update.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
