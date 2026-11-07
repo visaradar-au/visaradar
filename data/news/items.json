@@ -1,1 +1,773 @@
-[]
+[
+  {
+    "id": "dbd63f4f1974",
+    "source": "act",
+    "title": "The new ACT Migration Application portal is now open and available for RCB Support applications and Canberra Matrix submissions.",
+    "url": "https://www.act.gov.au/migration/skilled-migrants/act-migration-application-portal",
+    "published": null,
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-open"
+    ],
+    "excerpt": "The new ACT Migration Application portal is now open and available for RCB Support applications and Canberra Matrix submissions."
+  },
+  {
+    "id": "34055ba93a91",
+    "source": "act",
+    "title": "2026-27 allocations: The ACT’s 2026-27 allocation of nomination places have not yet been confirmed by the Australian Government.…",
+    "url": "https://www.act.gov.au/migration",
+    "published": null,
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation"
+    ],
+    "excerpt": "2026-27 allocations: The ACT’s 2026-27 allocation of nomination places have not yet been confirmed by the Australian Government. Information on the ACT’s allocation of nomination places for the 2026-27 program year will be published once confirmed."
+  },
+  {
+    "id": "b8a71812b550",
+    "source": "act",
+    "title": "Invitation round: Go to Canberra Matrix Invitation Rounds information page to find out more about the next invitation rounds.",
+    "url": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+    "published": null,
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "round",
+      "invitations"
+    ],
+    "excerpt": "Invitation round: Go to Canberra Matrix Invitation Rounds information page to find out more about the next invitation rounds."
+  },
+  {
+    "id": "d37f2d784b9c",
+    "source": "act",
+    "title": "Now available: Information on the most recent Canberra Matrix invitation round of 12 October 2026.",
+    "url": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+    "published": null,
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "round",
+      "invitations"
+    ],
+    "excerpt": "Now available: Information on the most recent Canberra Matrix invitation round of 12 October 2026."
+  },
+  {
+    "id": "71782e2488d8",
+    "source": "act",
+    "title": "National Innovation Visa (subclass 858): The ACT Government nomination process is not yet open and we are not currently responding to…",
+    "url": "https://www.act.gov.au/migration/skilled-migrants/national-innovation-visa-subclass-858",
+    "published": null,
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": "National Innovation Visa (subclass 858): The ACT Government nomination process is not yet open and we are not currently responding to expressions of interest."
+  },
+  {
+    "id": "99ee3fb1b165",
+    "source": "qld",
+    "title": "2026-27 SNMP now published",
+    "url": "https://migration.qld.gov.au/news/2026-27-queenslands-state-nominated-migration-program-now-published",
+    "published": "2026-10-31",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-open",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "780ccf055401",
+    "source": "sa",
+    "title": "South Australia’s General Skilled Migration Program Update",
+    "url": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update",
+    "published": "2026-10-22",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "70d0481467ef",
+    "source": "qld",
+    "title": "Queensland opens doors to global talent",
+    "url": "https://migration.qld.gov.au/news/queensland-opens-doors-to-global-talent",
+    "published": "2026-10-20",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-open"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "d17ba6b2360a",
+    "source": "nsw",
+    "title": "Page updated: Skilled Nominated visa (subclass 190)",
+    "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-nominated-visa-subclass-190",
+    "published": "2026-10-15",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "d51920c60134",
+    "source": "nsw",
+    "title": "Page updated: NSW Skills Lists",
+    "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists",
+    "published": "2026-10-15",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "occupation-list"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "b100598b0133",
+    "source": "act",
+    "title": "Canberra Matrix Invitation Round: 12 October 2026",
+    "url": "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round",
+    "published": "2026-10-12",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation",
+      "round",
+      "invitations",
+      "points-test"
+    ],
+    "excerpt": "The ACT has a fixed number of nomination places available each month (pro-rata against the annual allocation). The highest ranked Matrix in each occupation were invited to apply for ACT nomination. The cut‑off for selection depended on the remaining monthly allocation, the date and time of Matrix submission, occupation cap and demand. The greater the demand for an occupation, the higher the rank of the Matrix score invited."
+  },
+  {
+    "id": "daff3c4fa7bb",
+    "source": "sa",
+    "title": "Extension for Designated Area Migration Agreements (DAMAs)",
+    "url": "https://migration.sa.gov.au/news/extension-for-designated-area-migration-agreements",
+    "published": "2026-09-21",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "d2fbc306c03d",
+    "source": "nsw",
+    "title": "Page updated: Skilled Work Regional visa (subclass 491)",
+    "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-work-regional-visa-subclass-491",
+    "published": "2026-09-04",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "ddb4015a3639",
+    "source": "sa",
+    "title": "Access global talent through the Move to South Australia Roadshow in 2027",
+    "url": "https://migration.sa.gov.au/news/access-global-talent-through-the-move-to-south-australia-roadshow-in-2027",
+    "published": "2026-07-13",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "2dfa73ab1bf2",
+    "source": "wa",
+    "title": "Goldfields employers continue to access the Goldfields DAMA until 31 December 2026",
+    "url": "https://migration.wa.gov.au/news/goldfields-employers-continue-access-goldfields-dama-until-31-december-2026",
+    "published": "2026-07-03",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "079722ba694f",
+    "source": "sa",
+    "title": "Increase to the Temporary Skilled Migration Income Threshold",
+    "url": "https://migration.sa.gov.au/news/tsmit-increase",
+    "published": "2026-07-02",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "70b21cf4ef9b",
+    "source": "sa",
+    "title": "Extension for Designated Area Migration Agreements (DAMAs)",
+    "url": "https://migration.sa.gov.au/news/extension-for-designated-area-migration-agreements-damas",
+    "published": "2026-06-25",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "fc866e4eaa97",
+    "source": "sa",
+    "title": "Registrations of Interest closing 2 June 2026 for the 2025-26 program year",
+    "url": "https://migration.sa.gov.au/news/registrations-of-interest-closing-2-june-2026",
+    "published": "2026-05-29",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "378e4aba4876",
+    "source": "sa",
+    "title": "Invitations issued - Late May 2026",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-late-may-2026",
+    "published": "2026-05-21",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "0643a192c612",
+    "source": "sa",
+    "title": "Invitations issued - May 2026",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-may-2026",
+    "published": "2026-05-01",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "d4a4c1b87fd8",
+    "source": "sa",
+    "title": "Invitations issued - April 2026",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-april-2026",
+    "published": "2026-04-01",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "9f959e4326e6",
+    "source": "sa",
+    "title": "Invitations issued - March 2026",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-march-2026",
+    "published": "2026-03-03",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "da995c6592bf",
+    "source": "sa",
+    "title": "Invitations issued - Feb 2026",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-feb-2026",
+    "published": "2026-02-03",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "a47000308832",
+    "source": "sa",
+    "title": "Invitations issued - Jan 2026",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-jan-2026",
+    "published": "2026-01-06",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "f6ccfb425be7",
+    "source": "qld",
+    "title": "Minor Adjustment to Application Processing Fees",
+    "url": "https://migration.qld.gov.au/news/minor-adjustment-to-application-processing-fees",
+    "published": "2025-12-23",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "processing",
+      "fees"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "6512d6f59c3f",
+    "source": "qld",
+    "title": "Migration Queensland Closure Dates",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-closure-dates",
+    "published": "2025-12-17",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "fdb99a379f67",
+    "source": "wa",
+    "title": "2025-26 State Nomination Migration Program – December invitation round",
+    "url": "https://migration.wa.gov.au/news/2025-26-state-nomination-migration-program-december-invitation-round",
+    "published": "2025-12-08",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "round",
+      "invitations",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "8251687a5278",
+    "source": "sa",
+    "title": "Invitations issued - Dec 2025",
+    "url": "https://migration.sa.gov.au/news/invitations-issued-dec-2025",
+    "published": "2025-12-04",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "dbe68520b9bb",
+    "source": "sa",
+    "title": "Career Compass - Guiding Migrants in the SA Job Market - Dec 2025",
+    "url": "https://migration.sa.gov.au/news/career-compass-guiding-migrants-market-dec-2025",
+    "published": "2025-11-25",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "b024b0440dbb",
+    "source": "sa",
+    "title": "More than 2000 places available for South Australia’s 2025-2026 allocations",
+    "url": "https://migration.sa.gov.au/news/more-than-2000-places-available-for-south-australias-2025-2026-allocations",
+    "published": "2025-11-24",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "3a343cf0ad69",
+    "source": "wa",
+    "title": "State Nomination Migration Program – 2025-26 invitations",
+    "url": "https://migration.wa.gov.au/news/state-nomination-migration-program-2025-26-invitations",
+    "published": "2025-11-24",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "invitations",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "b0954de6daa7",
+    "source": "wa",
+    "title": "Business closure over Christmas and New Year period",
+    "url": "https://migration.wa.gov.au/news/business-closure-over-christmas-new-year-period-1",
+    "published": "2025-11-24",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "02cf1be519cf",
+    "source": "sa",
+    "title": "Career Compass - Guiding Migrants in the SA Job Market",
+    "url": "https://migration.sa.gov.au/news/career-compass-guiding-migrants-in-the-sa-job-market-2",
+    "published": "2025-11-17",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "32fa4f6a9055",
+    "source": "wa",
+    "title": "2025-26 State Nomination Migration Program – additional interim allocation",
+    "url": "https://migration.wa.gov.au/news/2025-26-state-nomination-migration-program-additional-interim-allocation",
+    "published": "2025-11-05",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "d72d3f0977b3",
+    "source": "sa",
+    "title": "Update on Interim Allocations for the 2025-26 Program Year",
+    "url": "https://migration.sa.gov.au/news/update-on-interim-allocations-for-the-2025-26-program-year",
+    "published": "2025-11-03",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "78fc896efe1e",
+    "source": "wa",
+    "title": "2025-26 WA State Nominated Migration program",
+    "url": "https://migration.wa.gov.au/news/2025-26-wa-state-nominated-migration-program",
+    "published": "2025-10-29",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "00060b970a92",
+    "source": "sa",
+    "title": "Career Compass - Guiding Migrants in the SA Job Market",
+    "url": "https://migration.sa.gov.au/news/career-compass-guiding-migrants-in-the-sa-job-market",
+    "published": "2025-10-22",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "bea3045ad964",
+    "source": "wa",
+    "title": "Updates to the Migration WA Portal",
+    "url": "https://migration.wa.gov.au/news/updates-migration-wa-portal",
+    "published": "2025-09-30",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "94db7a5dfd92",
+    "source": "qld",
+    "title": "Holiday Season",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-will-be-closed-for-the-holiday-period",
+    "published": "2025-09-15",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "9eeb4103f32e",
+    "source": "wa",
+    "title": "2025-26 State Nomination Migration Program Interim allocation",
+    "url": "https://migration.wa.gov.au/news/2025-26-state-nomination-migration-program-interim-allocation",
+    "published": "2025-09-08",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "0a555a772286",
+    "source": "wa",
+    "title": "State Nominated Migration Program (SNMP) paused",
+    "url": "https://migration.wa.gov.au/news/state-nominated-migration-program-snmp-paused",
+    "published": "2025-07-01",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "5b3a3501370c",
+    "source": "qld",
+    "title": "2024–25 State Nominated Migration Program Opening",
+    "url": "https://migration.qld.gov.au/news/2024%E2%80%9325-state-nominated-migration-program-opening",
+    "published": "2024-09-23",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-open",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "7bda85f1f5d0",
+    "source": "qld",
+    "title": "Business Innovation and Investment Program – Closed",
+    "url": "https://migration.qld.gov.au/news/2024%E2%80%9325-state-nominated-migration-program-allocation-ad137be7a749a074778aa9f8aef90df4",
+    "published": "2024-07-31",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "70b667a028f8",
+    "source": "qld",
+    "title": "2023 - 24 Program closed",
+    "url": "https://migration.qld.gov.au/news/2023-24-program-closed",
+    "published": "2024-07-31",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "d413dccb8ddb",
+    "source": "qld",
+    "title": "Skilled Work Regional (Provisional) visa (subclass 491) priority processing campaign",
+    "url": "https://migration.qld.gov.au/news/skilled-work-regional-(provisional)-visa-(subclass-491)-priority-processing-campaign",
+    "published": "2024-07-31",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "processing"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "feaccf352b96",
+    "source": "qld",
+    "title": "Important announcement: Migration Queensland program opening for 2023 - 24",
+    "url": "https://migration.qld.gov.au/news/important-announcement-migration-queensland-program-opening-for-2023-24",
+    "published": "2024-07-31",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-open"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "f8e77bb8559b",
+    "source": "qld",
+    "title": "Alternative visa options",
+    "url": "https://migration.qld.gov.au/news/alternative-visa-options",
+    "published": "2024-07-31",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "90c436dada0c",
+    "source": "qld",
+    "title": "2024–25 State Nominated Migration Program Allocation",
+    "url": "https://migration.qld.gov.au/news/2024%E2%80%9325-state-nominated-migration-program-allocation",
+    "published": "2024-07-30",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "bd2f62a2cff3",
+    "source": "wa",
+    "title": "2024-25 State Nominated Migration Program",
+    "url": "https://migration.wa.gov.au/news/2024-25-state-nominated-migration-program",
+    "published": "2024-07-19",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "7ca7229682c9",
+    "source": "qld",
+    "title": "Skilled Migrant Forum",
+    "url": "https://migration.qld.gov.au/news/skilled-migrant-forum",
+    "published": "2024-01-03",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "221709cd6f7f",
+    "source": "qld",
+    "title": "Season's greetings",
+    "url": "https://migration.qld.gov.au/news/season-s-greetings",
+    "published": "2023-12-22",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "a68808290286",
+    "source": "qld",
+    "title": "Migration Queensland welcomes business migrants from Southeast Asia",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-welcomes-southeast-asia-business-migrants",
+    "published": "2023-11-04",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "67972e94c914",
+    "source": "nsw",
+    "title": "NSW will focus on Priority Sectors rather than Skilled Occupation Lists",
+    "url": "https://www.nsw.gov.au/visas-and-migration/news-and-updates/nsw-priority-sectors-focus-over-skilled-occupation-lists",
+    "published": "2023-09-27",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "occupation-list"
+    ],
+    "excerpt": "To better address the evolving skills shortages across the state, NSW is shifting from publishing a list of eligible ANZSCO unit groups to a new sector-focused approach."
+  },
+  {
+    "id": "62a2a558d6cc",
+    "source": "qld",
+    "title": "Announcement: 2023 - 24 skilled and business nomination quota for Queensland",
+    "url": "https://migration.qld.gov.au/news/announcement-2023-24-skilled-and-business-nomination-quota-for-queensland",
+    "published": "2023-09-15",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "allocation"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "3646097b2905",
+    "source": "qld",
+    "title": "2022-23 Program closed - Thank You",
+    "url": "https://migration.qld.gov.au/news/2022-23-program-closing-thank-you",
+    "published": "2023-09-15",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "7f0ba8eb58d8",
+    "source": "nsw",
+    "title": "Important Updates: NSW Business and Skilled Migration Program 2023-24",
+    "url": "https://www.nsw.gov.au/visas-and-migration/news-and-updates/2023-24-program-allocations",
+    "published": "2023-08-24",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": "This update aims to provide you with essential insights into our Program size, approach, and partnership with the Australian Department of Home Affairs. Together, we are working to fill important skill gaps and contribute to Australia's skilled migration landscape."
+  },
+  {
+    "id": "311395198e88",
+    "source": "nsw",
+    "title": "NSW Business and Skilled Migration Programs for 2023-24 Update",
+    "url": "https://www.nsw.gov.au/visas-and-migration/news-and-updates/migration-programs-for-2023-24-update",
+    "published": "2023-08-23",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": "We are in the process of preparing our migration program for 2023-24. Additional information about our Skilled Migration and Business, Innovation, and Investor Programs will be soon available."
+  },
+  {
+    "id": "d8cc85daab91",
+    "source": "qld",
+    "title": "MQ Business Migrants Attend 'Taste of Queensland' 2022",
+    "url": "https://migration.qld.gov.au/news/mq-business-migrants-attend-taste-of-queensland-2022",
+    "published": "2022-11-17",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "68fc4238f889",
+    "source": "qld",
+    "title": "Migration Queensland Events – 2021 and Upcoming Events 2022",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-events-2021-and-upcoming-events-2022",
+    "published": "2022-02-11",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "82bc8e95f8e0",
+    "source": "qld",
+    "title": "Migration Queensland Website Navigation and Special Features",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-website-navigation-and-special-features",
+    "published": "2022-02-11",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "c326b9876cbf",
+    "source": "qld",
+    "title": "Visa Updates from the Department of Home Affairs",
+    "url": "https://migration.qld.gov.au/news/visa-updates-from-the-department-of-home-affairs",
+    "published": "2022-02-11",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "990526fa968c",
+    "source": "qld",
+    "title": "Migration Queensland – No Gift Policy",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-no-gift-policy",
+    "published": "2022-02-11",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "9b4e716b27ef",
+    "source": "qld",
+    "title": "Migration Queensland showcases Burdekin and Townsville opportunities for migrant investment",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-showcases-burdekin-and-townsville-opportunities-for-migrant-investment",
+    "published": "2022-02-11",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  }
+]

@@ -1,1 +1,194 @@
-{}
+{
+  "homeaffairs": {
+    "url": "https://immi.homeaffairs.gov.au/news-media/archive",
+    "lastOk": null,
+    "lastError": "https://immi.homeaffairs.gov.au/news-media/archive: HTTP 403",
+    "lastErrorAt": "2026-11-07T10:20:18.483Z",
+    "lastStatus": 403,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 0,
+    "urls": {
+      "https://immi.homeaffairs.gov.au/news-media/archive": {
+        "lastStatus": 403,
+        "etag": null,
+        "lastModified": null,
+        "lastError": "HTTP 403"
+      }
+    }
+  },
+  "qld": {
+    "url": "https://migration.qld.gov.au/news",
+    "lastOk": "2026-11-07T10:20:18.483Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 23,
+    "urls": {
+      "https://migration.qld.gov.au/news": {
+        "lastStatus": 200,
+        "etag": null,
+        "lastModified": null,
+        "lastError": null
+      },
+      "https://migration.qld.gov.au/sitemap.xml": {
+        "lastStatus": 200,
+        "etag": null,
+        "lastModified": null,
+        "lastError": null
+      }
+    }
+  },
+  "nsw": {
+    "url": "https://www.nsw.gov.au/visas-and-migration/news-and-updates",
+    "lastOk": "2026-11-07T10:20:18.483Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": "W/\"1794046113\"",
+    "lastModified": "Sat, 07 Nov 2026 10:08:33 GMT",
+    "itemCount": 6,
+    "urls": {
+      "https://www.nsw.gov.au/visas-and-migration/news-and-updates": {
+        "lastStatus": 200,
+        "etag": "W/\"1794046113\"",
+        "lastModified": "Sat, 07 Nov 2026 10:08:33 GMT",
+        "lastError": null
+      },
+      "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-nominated-visa-subclass-190": {
+        "lastStatus": 200,
+        "etag": "W/\"1793962082\"",
+        "lastModified": "Fri, 06 Nov 2026 10:48:02 GMT",
+        "lastError": null
+      },
+      "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-work-regional-visa-subclass-491": {
+        "lastStatus": 200,
+        "etag": "W/\"1793994749\"",
+        "lastModified": "Fri, 06 Nov 2026 19:52:29 GMT",
+        "lastError": null
+      },
+      "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists": {
+        "lastStatus": 200,
+        "etag": "W/\"1793984012\"",
+        "lastModified": "Fri, 06 Nov 2026 16:53:32 GMT",
+        "lastError": null
+      }
+    }
+  },
+  "vic": {
+    "url": "https://liveinmelbourne.vic.gov.au/news-events/news",
+    "lastOk": null,
+    "lastError": "https://liveinmelbourne.vic.gov.au/news-events/news: HTTP 403",
+    "lastErrorAt": "2026-11-07T10:20:18.483Z",
+    "lastStatus": 403,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 0,
+    "urls": {
+      "https://liveinmelbourne.vic.gov.au/news-events/news": {
+        "lastStatus": 403,
+        "etag": null,
+        "lastModified": null,
+        "lastError": "HTTP 403"
+      }
+    }
+  },
+  "sa": {
+    "url": "https://migration.sa.gov.au/news",
+    "lastOk": "2026-11-07T10:20:18.483Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": "W/\"6aeab175-38299\"",
+    "lastModified": "Wed, 04 Nov 2026 04:15:49 GMT",
+    "itemCount": 18,
+    "urls": {
+      "https://migration.sa.gov.au/news": {
+        "lastStatus": 200,
+        "etag": "W/\"6aeab175-38299\"",
+        "lastModified": "Wed, 04 Nov 2026 04:15:49 GMT",
+        "lastError": null
+      }
+    }
+  },
+  "wa": {
+    "url": "https://migration.wa.gov.au/news",
+    "lastOk": "2026-11-07T10:20:18.483Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": "W/\"1794040232\"",
+    "lastModified": "Sat, 07 Nov 2026 08:30:32 GMT",
+    "itemCount": 10,
+    "urls": {
+      "https://migration.wa.gov.au/news": {
+        "lastStatus": 200,
+        "etag": "W/\"1794040232\"",
+        "lastModified": "Sat, 07 Nov 2026 08:30:32 GMT",
+        "lastError": null
+      }
+    }
+  },
+  "tas": {
+    "url": "https://www.migration.tas.gov.au/news",
+    "lastOk": null,
+    "lastError": "https://www.migration.tas.gov.au/news: HTTP 403",
+    "lastErrorAt": "2026-11-07T10:20:18.483Z",
+    "lastStatus": 403,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 0,
+    "urls": {
+      "https://www.migration.tas.gov.au/news": {
+        "lastStatus": 403,
+        "etag": null,
+        "lastModified": null,
+        "lastError": "HTTP 403"
+      }
+    }
+  },
+  "act": {
+    "url": "https://www.act.gov.au/migration",
+    "lastOk": "2026-11-07T10:20:18.483Z",
+    "lastError": null,
+    "lastErrorAt": null,
+    "lastStatus": 200,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 6,
+    "urls": {
+      "https://www.act.gov.au/migration": {
+        "lastStatus": 200,
+        "etag": null,
+        "lastModified": null,
+        "lastError": null
+      },
+      "https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round": {
+        "lastStatus": 200,
+        "etag": null,
+        "lastModified": null,
+        "lastError": null
+      }
+    }
+  },
+  "nt": {
+    "url": "https://theterritory.com.au/",
+    "lastOk": null,
+    "lastError": "https://theterritory.com.au/: HTTP 403",
+    "lastErrorAt": "2026-11-07T10:20:18.483Z",
+    "lastStatus": 403,
+    "etag": null,
+    "lastModified": null,
+    "itemCount": 0,
+    "urls": {
+      "https://theterritory.com.au/": {
+        "lastStatus": 403,
+        "etag": null,
+        "lastModified": null,
+        "lastError": "HTTP 403"
+      }
+    }
+  }
+}
