@@ -225,3 +225,13 @@ export function scopesForProfile(profile: Profile): string[] {
   if (!needsState(profile.visa) || !profile.state) return all;
   return [profile.state, ...all.filter((s) => s !== profile.state)];
 }
+
+export function SplitLegend() {
+  return (
+    <ul class="chart-legend split-legend">
+      <li><span class="key split-above" aria-hidden="true" /> Above your score</li>
+      <li><span class="key you" aria-hidden="true" /> At your score</li>
+      <li><span class="key split-below" aria-hidden="true" /> Below</li>
+    </ul>
+  );
+}

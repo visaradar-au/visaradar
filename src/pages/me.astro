@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import AsAt from '../components/AsAt.astro';
+import Term from '../components/Term.astro';
+import MeProfile from '../islands/MeProfile';
+import { getMeta } from '../lib/data/eoi';
+import { formatMonth } from '../lib/format';
+import { href } from '../lib/href';
+
+const meta = getMeta();
+---
+<Base title="Where I stand" description="See how many EOIs sit above and below your points in each state. Kept in your browser only.">
+  <h1>Where I stand</h1>
+  <p class="lede">
+    Enter your occupation, visa, state and points once. We show how many <Term k="EOI" label="EOIs" /> sit above, at and below your
+    score in each state. Your details stay in this browser. We have no accounts and no server that could store them.
+  </p>
+  <p class="small muted">Need your points score? Home Affairs explains the points test on each visa page. This page only takes the number you already have.</p>
+  <MeProfile client:load monthLabel={formatMonth(meta.latestMonth)} />
+  <AsAt />
+  <div class="next">
+    <p>Waiting to hear back? Here is how invitations actually arrive.</p>
+    <a class="btn btn-quiet" href={href('/eoi-check/')}>Has my EOI been invited?</a>
+  </div>
+</Base>
+
+<style is:global>
+  [data-testid='me'] > section + section { margin-top: var(--s-5); }
+  .me-summary { font-size: var(--text-md); margin-bottom: var(--s-4); }
+  .actions-row { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+  .what-changed h3 { margin-top: 0; }
+</style>

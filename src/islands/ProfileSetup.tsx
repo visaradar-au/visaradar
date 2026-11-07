@@ -6,6 +6,8 @@ import { OccupationField, PointsField, StateField, VisaField, matchOccupation, n
 interface Props {
   idPrefix: string;
   initial?: Profile | null;
+  /** Prefill only the occupation, e.g. from an occupation page link. */
+  initialCode?: string;
   /** Show the state field (the /me form does; the home quick setup doesn't). */
   withState?: boolean;
   submitLabel?: string;
@@ -13,9 +15,9 @@ interface Props {
 }
 
 /** The profile form. Saves to localStorage only. */
-export default function ProfileSetup({ idPrefix, initial, withState = false, submitLabel = 'Show where I stand', onSaved }: Props) {
+export default function ProfileSetup({ idPrefix, initial, initialCode, withState = false, submitLabel = 'Show where I stand', onSaved }: Props) {
   const list = useOccupationList();
-  const [occ, setOcc] = useState(initial ? optionLabel(initial.code, initial.name) : '');
+  const [occ, setOcc] = useState(initial ? optionLabel(initial.code, initial.name) : initialCode ?? '');
   const [visa, setVisa] = useState<Visa>(initial?.visa ?? '190');
   const [state, setState] = useState(initial?.state ?? '');
   const [points, setPoints] = useState(initial ? String(initial.points) : '');

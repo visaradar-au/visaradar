@@ -4,6 +4,7 @@ export const official = {
   eoiData:
     'https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html',
   invitationRounds: 'https://immi.homeaffairs.gov.au/visas/working-in-australia/skillselect/invitation-rounds',
+  occupationInstruments: 'https://immi.homeaffairs.gov.au/what-we-do/skilled-migration-program/visa-options/legislative-instruments',
   allocations: 'https://immi.homeaffairs.gov.au/what-we-do/state-and-territory-nomination-allocations',
   planningLevels: 'https://immi.homeaffairs.gov.au/what-we-do/migration-program-planning-levels',
   homeAffairsNews: 'https://immi.homeaffairs.gov.au/news-media/archive',
