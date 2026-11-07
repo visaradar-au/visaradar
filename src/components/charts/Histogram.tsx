@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import type { PoolCell } from '../../lib/eoi';
 import { isMasked } from '../../lib/eoi';
 import { formatCell } from '../../lib/format';
-import { compact, ticks } from './scale';
+import { compact, ticks, useWidth } from './scale';
 
 interface Props {
   axis: number[];
@@ -12,7 +12,6 @@ interface Props {
   label: string;
 }
 
-const W = 640;
 const H = 220;
 const M = { top: 12, right: 8, bottom: 34, left: 44 };
 const MASKED_PX = 6;
@@ -20,6 +19,7 @@ const MASKED_PX = 6;
 /** EOIs by points score. Masked cells show as short hatched stubs, not to scale. */
 export default function Histogram({ axis, pool, you, label }: Props) {
   const [hover, setHover] = useState<number | null>(null);
+  const [ref, W] = useWidth();
   const byScore = new Map(pool.map((c) => [c.score, c.count]));
   const max = Math.max(0, ...pool.map((c) => (isMasked(c.count) ? 0 : c.count)));
   const yTicks = ticks(max);
@@ -29,11 +29,11 @@ export default function Histogram({ axis, pool, you, label }: Props) {
   const band = axis.length ? iw / axis.length : iw;
   const barW = Math.max(2, band - 2); // 2px gap between bars
   const y = (v: number) => M.top + ih - (v / top) * ih;
-  const labelEvery = axis.length > 14 ? 2 : 1;
+  const labelEvery = Math.max(1, Math.ceil((axis.length * 28) / iw));
   const hovered = hover === null ? null : { score: hover, count: byScore.get(hover) ?? 0 };
 
   return (
-    <div>
+    <div ref={ref}>
       <svg class="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
         <defs>
           <pattern id="vr-chart-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">

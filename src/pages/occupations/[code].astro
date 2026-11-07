@@ -19,8 +19,9 @@ const { code } = Astro.params as { code: string };
 const meta = getMeta();
 const occ = getOccupation(code);
 const name = occ?.name ?? getOccupations().find((o) => o.code === code)?.name ?? code;
-const rows = occ?.rows ?? [];
-const history = getHistory(code).rows;
+// Only the statuses the explorer draws, to keep each page small.
+const rows = (occ?.rows ?? []).filter((r) => r[2] === 'SUBMITTED');
+const history = getHistory(code).rows.filter((r) => r[3] !== 'HOLD');
 const stat = getOccupationStats().find((s) => s.code === code);
 const lists = listsFor(code);
 const { sources: listSources, lists: allLists } = getOccupationLists();
@@ -41,6 +42,7 @@ const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
   )}
   <p class="small muted">Counts leave out <Term k="masked" label="masked cells (<20)" />. One EOI can name several states and visas, so these are never added together.</p>
 
+  <h2 class="visually-hidden">Pool by points and trend</h2>
   <OccupationExplorer client:visible code={code} name={name} rows={rows} history={history} months={meta.months} />
   <AsAt />
 
@@ -68,6 +70,7 @@ const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
 </Base>
 
 <style>
-  .crumbs { margin-bottom: var(--s-3); color: var(--ink-3); }
+  .crumbs { margin-bottom: var(--s-2); color: var(--ink-3); }
+  .crumbs a { display: inline-block; padding-block: var(--s-1); }
   .facts { margin-bottom: var(--s-3); font-size: var(--text-md); }
 </style>

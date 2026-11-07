@@ -2,7 +2,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROOT = join(process.cwd(), 'data');
+// VR_DATA_DIR points the build at another data folder (for example a lane's fresh pull) without copying it.
+const ROOT = process.env.VR_DATA_DIR ?? join(process.cwd(), 'data');
 const cache = new Map<string, unknown>();
 
 /** Read a JSON file under data/. Returns `fallback` if it is missing or unreadable. */

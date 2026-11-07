@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/href';
+---
+<Base title="Page not found">
+  <h1>We can't find that page</h1>
+  <p class="lede">The link may be old, or the occupation code may be wrong. Occupation pages use the 6-digit ANZSCO code, such as /occupations/261313/.</p>
+  <div class="next">
+    <p>Try one of these instead.</p>
+    <a class="btn" href={href('/occupations/')}>Search occupations</a>
+    <a class="btn btn-quiet" href={href('/')}>Home</a>
+  </div>
+</Base>

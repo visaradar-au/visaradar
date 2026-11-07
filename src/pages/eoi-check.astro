@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Term from '../components/Term.astro';
+import { href } from '../lib/href';
+import { official } from '../lib/official';
+
+const domains = [
+  ['Queensland', 'migration.qld.gov.au'],
+  ['South Australia', 'migration.sa.gov.au'],
+  ['Western Australia', 'migration.wa.gov.au'],
+  ['Tasmania', 'migration.tas.gov.au'],
+  ['Victoria', 'liveinmelbourne.vic.gov.au'],
+  ['New South Wales', 'nsw.gov.au'],
+  ['ACT', 'act.gov.au'],
+  ['Northern Territory', 'theterritory.com.au'],
+];
+---
+<Base title="Has my EOI been invited?" description="There is no public way to check someone's EOI. Here are the real signs of an invitation and how not to miss them.">
+  <h1>Has my EOI been invited?</h1>
+  <p class="lede">
+    There is no public lookup for an <Term k="EOI" />. Only you, or your agent, can see its status, by logging in to SkillSelect.
+    No website, including this one, can check it for you.
+  </p>
+  <div class="callout warn-box" role="note">
+    <p><strong>Never give your SkillSelect or ImmiAccount login to a website, app or chat group that offers to "track" your EOI.</strong> We will never ask for it.</p>
+  </div>
+
+  <h2>The signs that mean you were invited</h2>
+  <ol class="steps">
+    <li>
+      <h3>Your EOI status changes to INVITED</h3>
+      <p>Log in to <a href={official.skillselect} rel="noopener">SkillSelect</a> and open your EOI. Its status moves from SUBMITTED to INVITED, and the invitation letter appears in its correspondence. The letter tells you which visa you are invited to apply for and the date you must apply by.</p>
+    </li>
+    <li>
+      <h3>SkillSelect emails the address on your EOI</h3>
+      <p>SkillSelect sends a notice to the email address in your EOI when new correspondence is ready. If your agent lodged the EOI with their own email, the notice goes to them.</p>
+    </li>
+    <li>
+      <h3>A state contacts you about nomination</h3>
+      <p>For visas <Term k="190" /> and <Term k="491" />, the state usually writes first, by email, to invite you to apply for nomination. Some states only consider people who registered with them first (a <Term k="ROI" />). Queensland, for example, sends its invitation to the email address on your ROI.</p>
+    </li>
+  </ol>
+
+  <h2>If an agent manages your EOI</h2>
+  <p>Ask your agent, today, to forward any SkillSelect or state email to you the moment it arrives. Invitations come with deadlines, and a message that sits in someone else's inbox costs you days. You can also ask them to add your email as a second contact where the state's form allows it.</p>
+
+  <h2>Make sure the email never lands in spam</h2>
+  <p>Set up a filter now, before anything arrives. Match on the words and senders below, then mark the message as important and never send it to spam.</p>
+  <div class="grid-2">
+    <section class="panel">
+      <h3>Gmail</h3>
+      <ol class="small">
+        <li>Open Gmail on a computer. Click the search options icon at the right of the search bar.</li>
+        <li>In <em>Has the words</em>, paste: <code>SkillSelect OR invitation OR nomination</code></li>
+        <li>Click <em>Create filter</em>.</li>
+        <li>Tick <em>Never send it to Spam</em>, <em>Always mark it as important</em> and <em>Apply the label</em> (make a label such as "Visa").</li>
+        <li>Click <em>Create filter</em>. Repeat with <em>From</em> set to your state's domain from the table below.</li>
+      </ol>
+    </section>
+    <section class="panel">
+      <h3>Outlook</h3>
+      <ol class="small">
+        <li>Go to <em>Settings</em>, then <em>Mail</em>, then <em>Rules</em>, and choose <em>Add new rule</em>.</li>
+        <li>Add a condition: <em>Subject or body includes</em> <code>SkillSelect</code>. Add another for your state's domain under <em>From</em>.</li>
+        <li>Add actions: <em>Mark as importance: High</em> and <em>Move to</em> a folder such as "Visa". Turn on notifications for that folder on your phone.</li>
+        <li>Also add the sender to your <em>Safe senders</em> list so it skips junk.</li>
+      </ol>
+    </section>
+  </div>
+  <div class="table-wrap domains">
+    <table>
+      <caption>State website domains. Senders often use the same domain, but check a real email from them to confirm the address.</caption>
+      <thead><tr><th scope="col">State</th><th scope="col">Website domain</th></tr></thead>
+      <tbody>{domains.map(([s, d]) => <tr><th scope="row">{s}</th><td><code>{d}</code></td></tr>)}</tbody>
+    </table>
+  </div>
+
+  <h2>Is my state inviting people like me?</h2>
+  <p>We can't see your EOI, but we can show what is happening around it:</p>
+  <ul>
+    <li><a href={href('/me/')}>Where I stand</a> shows how many EOIs sit above your points in each state, and what changed since last month.</li>
+    <li>On your <a href={href('/occupations/')}>occupation's page</a>, the invited line shows how many EOIs like yours were in invited status at each month end. A rise means others were invited. It does not tell you about your own EOI.</li>
+    <li>Subscribe to <a href={href('/changes.xml')}>what changed</a> and your state's news feed (on each <a href={href('/states/')}>state page</a>) in any RSS reader, or with an RSS-to-email service.</li>
+  </ul>
+
+  <div class="next">
+    <p>Not sure what an invitation means for your case? A registered migration agent (MARN) or lawyer can tell you.</p>
+    <a class="btn btn-quiet" href={official.marn} rel="noopener">Find a registered agent</a>
+  </div>
+</Base>
+
+<style>
+  .steps { padding-left: var(--s-5); }
+  .steps li { margin-bottom: var(--s-4); }
+  .steps h3 { margin-top: 0; margin-bottom: var(--s-1); }
+  .warn-box { background: var(--warn-soft); color: var(--ink); }
+  code { font-size: 0.9em; background: var(--surface-sunk); padding: 0.05em 0.35em; border-radius: 3px; overflow-wrap: anywhere; }
+  .domains { margin-top: var(--s-4); }
+  .panel ol { padding-left: var(--s-5); margin: 0; }
+  .panel li + li { margin-top: var(--s-2); }
+</style>

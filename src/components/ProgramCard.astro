@@ -1,0 +1,53 @@
+---
+import type { StateProgram } from '../lib/data/types';
+import { formatDate, formatNumber } from '../lib/format';
+import { official } from '../lib/official';
+
+interface Props { program: StateProgram | null; name: string }
+const { program, name } = Astro.props;
+const STATUS: Record<string, { label: string; cls: string }> = {
+  open: { label: 'Open', cls: 'good' },
+  closed: { label: 'Closed', cls: 'critical' },
+  paused: { label: 'Paused', cls: 'warn' },
+  'not-yet-open': { label: 'Not yet open', cls: 'warn' },
+  unknown: { label: 'Not confirmed yet', cls: '' },
+};
+const st = STATUS[program?.status ?? 'unknown'] ?? STATUS.unknown;
+const a = program?.allocations;
+const verified = Boolean(program?.lastVerified);
+const byVisa = Object.entries(program?.statusByVisa ?? {}) as [string, string][];
+const inv = program?.invitedSoFar;
+---
+<section class="panel program" aria-labelledby="program-title">
+  <h2 id="program-title">{program?.programYear ?? ''} nomination program</h2>
+  <p>
+    {byVisa.length ? byVisa.map(([v, s]) => <span class={`badge ${(STATUS[s] ?? STATUS.unknown).cls}`}>{v}: {(STATUS[s] ?? STATUS.unknown).label}</span>) : <span class={`badge ${st.cls}`}>{st.label}</span>}
+    {program?.opened && <span class="small muted"> Opened {formatDate(program.opened)}</span>}
+  </p>
+  <dl class="kv">
+    {program?.model && (<><dt>How it selects</dt><dd>{program.model}</dd></>)}
+    <dt>190 places</dt><dd>{a?.['190'] != null ? formatNumber(a['190']) : 'Not published yet'}</dd>
+    <dt>491 places</dt><dd>{a?.['491'] != null ? formatNumber(a['491']) : 'Not published yet'}</dd>
+    {inv && (<><dt>Invited so far</dt><dd>{formatNumber(inv.n)}{inv.byVisa && ` (190: ${formatNumber(inv.byVisa['190'] ?? 0)}, 491: ${formatNumber(inv.byVisa['491'] ?? 0)})`}. {inv.period}. As at {formatDate(inv.asAt)}, <a href={inv.sourceUrl} rel="noopener">{inv.source}</a>.</dd></>)}
+  </dl>
+  {a?.sourceUrl ? (
+    <p class="asat">Allocations as at {formatDate(a.asAt) || 'date not stated'}. Source: <a href={a.sourceUrl} rel="noopener">{a.source ?? 'official page'}</a>.</p>
+  ) : (
+    <p class="asat">We have not confirmed this year's figures yet. Home Affairs publishes <a href={official.allocations} rel="noopener">state and territory allocations</a>.</p>
+  )}
+  {verified && program?.notes && <p class="small notes">{program.notes}</p>}
+  <ul class="plain links small">
+    {program?.site && <li><a href={program.site} rel="noopener">{name} migration site</a></li>}
+    {program?.links.program && <li><a href={program.links.program} rel="noopener">Program details</a></li>}
+    {program?.links.occupationList && <li><a href={program.links.occupationList} rel="noopener">Occupation list</a></li>}
+    {program?.links.news && <li><a href={program.links.news} rel="noopener">Official news</a></li>}
+  </ul>
+  {verified && <p class="asat">Checked {formatDate(program!.lastVerified)}.</p>}
+</section>
+
+<style>
+  .links { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); margin-top: var(--s-3); }
+  .program h2 { margin-top: 0; }
+  .notes { margin-top: var(--s-3); color: var(--ink-2); }
+  .program .badge + .badge { margin-left: var(--s-2); }
+</style>

@@ -78,7 +78,7 @@ export default function OccupationTable({ rows }: { rows: OccRowLite[] }) {
               {shown.map((r) => {
                 const url = href(`/occupations/${r[0]}/`);
                 return (
-                  <tr key={r[0]} class="rowlink" onClick={(e) => (e.target as HTMLElement).tagName !== 'A' && (window.location.href = url)}>
+                  <tr key={r[0]} class="rowlink">
                     <td>{r[0]}</td>
                     <th scope="row"><a href={url}>{r[1]}</a></th>
                     <td class="num">{r[2] ? formatNumber(r[2]) : <span class="muted">0</span>}</td>

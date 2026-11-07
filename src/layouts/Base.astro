@@ -75,6 +75,15 @@ const current = (p: string) => path === p || path.startsWith(p);
         </ul>
       </div>
     </footer>
+    <script>
+      // Whole table rows with a link are clickable, without breaking links, text selection or keyboard use.
+      document.addEventListener('click', (e) => {
+        const t = e.target instanceof Element ? e.target : null;
+        const tr = t?.closest('tr.rowlink');
+        if (!tr || t?.closest('a, button, input, select') || window.getSelection()?.toString()) return;
+        tr.querySelector('a')?.click();
+      });
+    </script>
   </body>
 </html>
 
