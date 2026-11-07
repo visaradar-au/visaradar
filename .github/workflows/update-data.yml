@@ -80,9 +80,15 @@ jobs:
     needs: update
     if: needs.update.outputs.deploy == 'true'
     runs-on: ubuntu-latest
+    # Only one Pages deployment at a time; a newer build replaces a waiting one.
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 1200000
