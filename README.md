@@ -20,7 +20,8 @@ npm run preview        # serve dist/ on port 4391
 
 ```sh
 node pipeline/skillselect.mjs      # SkillSelect EOI dashboard; skips if it hasn't reloaded (--force to pull)
-npm run pipeline:news              # news from Home Affairs and the 8 states
+npm run pipeline:news              # news: Home Affairs, the 8 states, Federal Register of Legislation, PM media (migration items)
+npm run pipeline:datasets          # Home Affairs datasets on data.gov.au -> data/datasets.json
 npm run pipeline:states            # state programs, rounds, occupation lists (~70 s of crawl delays)
 npm run build:map                  # one-off: ABS state boundaries -> src/data/au-states.json
 ```
@@ -43,7 +44,8 @@ node scripts/prepublish-check.mjs # before any push: secrets, personal identifie
 | Path | What |
 |---|---|
 | `pipeline/lib/qlik.mjs` | Client for the public SkillSelect Qlik dashboard (anonymous session, masked counts only) |
-| `pipeline/skillselect.mjs` | Pulls the latest month by points plus 13 months of history |
+| `pipeline/skillselect.mjs` | Pulls the latest month by points plus 13 months of history (189, 190, 491, 491F), and national counts for every SkillSelect visa incl. 132 and the 188 streams (`data/eoi/pathways.json`) |
+| `pipeline/datasets.mjs` | data.gov.au CKAN API, organisation `immi`: dataset list, last update, licence, files |
 | `pipeline/news/`, `pipeline/news.mjs` | One fetcher per source, polite HTTP, tagging, change log |
 | `pipeline/states.mjs`, `pipeline/states/` | State programs, rounds, occupation lists; hand-checked values in `manual.json` |
 | `data/` | All published data (see `docs/DESIGN.md` for the contracts) |
@@ -59,5 +61,7 @@ node scripts/prepublish-check.mjs # before any push: secrets, personal identifie
 - No accounts, no tracking. A visitor's profile stays in their browser.
 - Never log in to SkillSelect or ImmiAccount for anyone, and never ask for credentials.
 - Respect each site's terms: titles, dates and links only for sites that forbid reuse (QLD, WA).
+- Federal Register of Legislation material (CC BY 4.0) carries the attribution its terms of use
+  require; it is shown on /about with the date we last read the register.
 - Sites that block automated requests (Home Affairs, VIC, NT, TAS at last check) are recorded as
   blocked, not worked around.

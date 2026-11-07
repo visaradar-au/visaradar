@@ -60,6 +60,11 @@ All dates ISO 8601. Every dataset carries its source URL and as-at/fetched date.
 - `occ/<code>.json`: `{asAt, code, name, rows:[[visa, state, status, score, count]]}`
   - `visa` ∈ `189 | 190 | 491 | 491F`; `state` ∈ `ACT ANY NSW NT QLD SA TAS VIC WA N/A AUSTRADE`;
   - `status` ∈ `SUBMITTED INVITED LODGED HOLD`; `count` is a number or the string `"<20"`.
+- `pathways.json`: `{asAt, months, visas, rows:[[month, visa, status, count]]}`: national distinct
+  counts for every SkillSelect visa, every status the dashboard has (incl. `CLOSED`).
+  - `visa` ∈ `189 190 491 491F 132 188BI 188EV 188INV 188SIG`. The business visas (132, 188) have
+    no occupation or points rows, so they appear only here and on `/pathways/`. Selectors on
+    occupation pages and `/me` keep `189 190 491 491F` (defaults 189/190/491).
 - `history/<code>.json`: `{code, rows:[[month "YYYY-MM", visa, state, status, count]]}` (13 months)
 - `summary.json`: `{months, rows:[[month, visa, state, status, count]]}` (distinct counts per state)
 
@@ -71,7 +76,14 @@ sum across states.
 ### `data/news/items.json` (owner: sources lane)
 `[{id, source, title, url, published, firstSeen, tags[], excerpt}]`, newest first.
 - `id` = sha1 of canonical URL (first 12 hex chars).
-- `source` ∈ `homeaffairs | qld | nsw | vic | sa | wa | tas | act | nt`.
+- `source` ∈ `homeaffairs | qld | nsw | vic | sa | wa | tas | act | nt | legislation | pm`.
+  - `legislation`: Federal Register of Legislation OData API, titles starting "Migration", newest
+    first by `asMadeRegisteredAt`, `$top=20`, 10 s crawl delay. `url` = `https://www.legislation.gov.au/<id>/asmade`,
+    `published` = registration date as written. Tagged `occupation-list` (title mentions occupations)
+    or `policy`, plus keyword tags. CC BY 4.0 with the terms-of-use attribution.
+  - `pm`: `https://www.pm.gov.au/rss.xml` (ETag), only items whose title or description matches the
+    fixed migration keyword rules in `pipeline/news/pm.mjs`. Title, date and link only.
+  - A source's first successful run only adds its last 30 days to `changes.json`.
 - `published`: date from the page, sitemap lastmod, or null. `firstSeen`: when we first saw it.
 - `tags` from a fixed set: `program-open program-closed allocation round invitations occupation-list
   points-test processing fees policy other` (keyword rules, deterministic, tested).
@@ -97,8 +109,16 @@ Only official sources count as `source`; third-party figures go in `notes` label
 `{lists: {MLTSSL:[codes], STSOL:[codes], ROL:[codes], CSOL:[codes]?, QLD:[...], SA:[...], ...},
   sources: {<list>: {url, asAt}}}`. Missing lists are absent, never guessed.
 
+### `data/datasets.json` (owner: live-data lane)
+`{source, sourceUrl, apiUrl, lastModified, datasets:[{name, title, summary, metadataModified,
+  licence:{id, title, url}, url, resources:[{name, format, lastModified, url}]}]}` from
+`https://data.gov.au/data/api/3/action/package_search?fq=organization:immi`, newest first. Times are
+UTC (`Z`). `summary` is the first line of the CKAN notes. The file has no fetch timestamp and is
+rewritten only when its content changes. A change entry (kind `dataset`, source `datagov`) is added
+when a dataset is new, its `metadata_modified` moves or its resource list changes.
+
 ### `data/changes.json` (written by every pipeline step)
-`[{at, kind: news|eoi-month|state-status|round|allocation, source, title, url}]`, newest first,
+`[{at, kind: news|eoi-month|state-status|round|allocation|dataset, source, title, url}]`, newest first,
 capped at 500. Powers "What changed" on the home page and `/changes.xml` RSS.
 
 ## Pages (owner: site lane)
@@ -113,6 +133,8 @@ capped at 500. Powers "What changed" on the home page and `/changes.xml` RSS.
 | `/news/` | Unified feed, filter by source/tag, search; RSS `/news.xml`, `/states/[code]/news.xml` |
 | `/rounds/` | 189/491F rounds and state rounds, cut-offs, verified flag |
 | `/eoi-check/` | "Has my EOI been invited?" honest guide |
+| `/pathways/` | One card per SkillSelect visa (189, 190, 491, 491F, 188 streams, 132): plain line, official page, latest national pool counts |
+| `/datasets/` | Home Affairs datasets on data.gov.au: last update, files, licence |
 | `/about/` | Sources, method, masking, disclaimer, licence attributions |
 
 UX bar: every number has "as at" + source link; dates formatted ("1 Nov 2026"); every table row
