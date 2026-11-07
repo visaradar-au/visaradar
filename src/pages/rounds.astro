@@ -46,7 +46,7 @@ const scopeLabel = (s: string) => (s === '189' ? 'Visa 189' : s === '491F' ? '49
       </table>
     </div>
   ) : (
-    <Empty title="Round records start soon">
+    <Empty title="Round records start soon" level={2}>
       <p class="small">We will list each round with its date, how many invitations went out, the lowest points invited per occupation where published, and a link to the official source. Rounds reported only by third parties will be marked unverified.</p>
       <p class="small">Until then, Home Affairs publishes <a href={official.invitationRounds} rel="noopener">SkillSelect invitation rounds</a>. State rounds are on each state's site:
         {STATES.map((s, i) => <>{i > 0 && ', '}<a href={href(`/states/${s.toLowerCase()}/`)}>{s}</a></>)}.</p>

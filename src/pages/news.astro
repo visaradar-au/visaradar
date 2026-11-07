@@ -31,7 +31,7 @@ const stale = Object.entries(fetchState).filter(([, s]) => s.lastError);
   {news.length ? (
     <NewsFeed client:idle items={news} sources={sources} tags={TAG_LABELS} />
   ) : (
-    <Empty title="The news feed starts soon">
+    <Empty title="The news feed starts soon" level={2}>
       <p class="small">We are connecting the official sources. Each item will show its publish date (or when we first saw it), its source and a topic such as program open, allocation or round. Until then, go straight to the source:</p>
       <ul class="small source-list">
         {Object.entries(NEWS_SOURCES).map(([, s]) => (

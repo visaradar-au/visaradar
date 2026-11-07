@@ -1,8 +1,9 @@
 ---
-interface Props { title: string }
-const { title } = Astro.props;
+interface Props { title: string; level?: 2 | 3 }
+const { title, level = 3 } = Astro.props;
+const H = `h${level}`;
 ---
 <div class="empty" role="status">
-  <h3>{title}</h3>
+  <H>{title}</H>
   <slot />
 </div>

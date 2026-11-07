@@ -29,8 +29,8 @@ const METRICS: { id: Metric; label: string; legend: string }[] = [
 
 const SEQ = ['var(--seq-1)', 'var(--seq-2)', 'var(--seq-3)', 'var(--seq-4)', 'var(--seq-5)', 'var(--seq-6)'];
 const DIV = ['var(--div-neg-2)', 'var(--div-neg-1)', 'var(--div-mid)', 'var(--div-pos-1)', 'var(--div-pos-2)'];
-// Fills dark enough to need white labels.
-const DARK = new Set([SEQ[3], SEQ[4], SEQ[5], DIV[0], DIV[4]]);
+// Fills dark enough for white labels at 4.5:1 or better.
+const DARK = new Set([SEQ[4], SEQ[5], DIV[0], DIV[4]]);
 
 const PAD_RIGHT = 110; // room for the ACT callout
 
@@ -177,7 +177,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
                 onClick={(e) => onClick(e as unknown as MouseEvent, 'ACT')}
               >
                 <line x1={act.centroid[0] + 3} y1={act.centroid[1]} x2={geo.width + 6} y2={act.centroid[1] + 30} class="leader" />
-                <rect x={geo.width + 6} y={act.centroid[1] + 8} width={PAD_RIGHT - 10} height="44" rx="4" fill={fill('ACT')} />
+                <rect x={geo.width + 6} y={act.centroid[1] + 4} width={PAD_RIGHT - 10} height="56" rx="4" fill={fill('ACT')} />
                 <text x={geo.width + 14} y={act.centroid[1] + 26} class={DARK.has(fill('ACT')) ? 'on-dark' : ''}>
                   <tspan class="abbr">ACT</tspan>
                   <tspan x={geo.width + 14} dy="1.2em" class="val">{cellText('ACT')}</tspan>
