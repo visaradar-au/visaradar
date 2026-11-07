@@ -19,8 +19,10 @@ import * as wa from './news/wa.mjs';
 import * as tas from './news/tas.mjs';
 import * as act from './news/act.mjs';
 import * as nt from './news/nt.mjs';
+import * as legislation from './news/legislation.mjs';
+import * as pm from './news/pm.mjs';
 
-export const SOURCES = [homeaffairs, qld, nsw, vic, sa, wa, tas, act, nt];
+export const SOURCES = [homeaffairs, qld, nsw, vic, sa, wa, tas, act, nt, legislation, pm];
 
 // Sources whose licence is CC BY 4.0 (checked 2026-11-07). SA's copyright page allows
 // reproduction but not alteration and doesn't say CC BY, so SA is left out.
@@ -33,6 +35,12 @@ const BOOTSTRAP_DAYS = 30;
 function sortItems(items) {
   const k = (i) => i.published ?? i.firstSeen?.slice(0, 10) ?? '';
   return items.sort((a, b) => k(b).localeCompare(k(a)) || String(b.firstSeen).localeCompare(String(a.firstSeen)));
+}
+
+/** A source's own tags plus the keyword tags; "other" only when nothing else applies. */
+export function mergeTags(own, keyword) {
+  const all = [...new Set([...own, ...keyword])];
+  return all.length > 1 ? all.filter((t) => t !== 'other') : all;
 }
 
 /** Merge freshly parsed items into the existing list. Returns {items, added}. */
@@ -146,7 +154,7 @@ export async function run(opts = {}) {
     }
     for (const it of items) {
       if (!EXCERPT_OK.has(src.id)) it.excerpt = null;
-      it.tags = tagItem(it);
+      it.tags = mergeTags(src.tags?.(it) ?? [], tagItem(it));
       fresh.push(it);
     }
     report.push({ source: src.id, parsed: items.length, statuses: ctx.log.map((r) => r.status ?? r.error) });
@@ -161,13 +169,13 @@ export async function run(opts = {}) {
     if (crash) Object.assign(state[src.id], { lastError: `parser error: ${crash.split('\n')[0]}`, lastErrorAt: nowIso });
   }
 
-  // First run: everything is "new", so only recent items go to the change feed.
-  const bootstrap = existing.length === 0;
+  // A source's first run: everything is "new", so only its recent items go to the change feed.
+  const known = new Set(existing.map((i) => i.source));
   const cutoff = new Date(now.getTime() - BOOTSTRAP_DAYS * 86400e3).toISOString().slice(0, 10);
   const changes = added
-    .filter((i) => !bootstrap || (i.published && i.published >= cutoff))
+    .filter((i) => known.has(i.source) || (i.published && i.published >= cutoff))
     .map((i) => ({
-      at: bootstrap ? i.published : i.firstSeen,
+      at: known.has(i.source) ? i.firstSeen : i.published,
       kind: 'news',
       source: i.source,
       title: i.title,

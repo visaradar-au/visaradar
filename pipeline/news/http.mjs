@@ -9,6 +9,7 @@ export const USER_AGENT = 'VisaRadar/0.1 (public data aggregator)';
 export const CRAWL_DELAY = {
   'www.act.gov.au': 20, // robots.txt Crawl-delay: 20
   'www.legislation.gov.au': 10, // robots.txt Crawl-delay: 10
+  'api.prod.legislation.gov.au': 10, // same register; its reuse page asks for crawl delays
 };
 const DEFAULT_DELAY = 2;
 const TIMEOUT_MS = 30_000;

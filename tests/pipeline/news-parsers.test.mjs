@@ -9,6 +9,8 @@ import * as act from '../../pipeline/news/act.mjs';
 import * as homeaffairs from '../../pipeline/news/homeaffairs.mjs';
 import * as vic from '../../pipeline/news/vic.mjs';
 import * as nt from '../../pipeline/news/nt.mjs';
+import * as legislation from '../../pipeline/news/legislation.mjs';
+import * as pm from '../../pipeline/news/pm.mjs';
 
 const fx = (f) => readFileSync(new URL(`./fixtures/news/${f}`, import.meta.url), 'utf8');
 
@@ -24,7 +26,7 @@ function checkShape(items, source) {
 }
 
 describe('every source module exports the contract', () => {
-  it.each([homeaffairs, qld, nsw, vic, sa, wa, tas, act, nt])('$id', (m) => {
+  it.each([homeaffairs, qld, nsw, vic, sa, wa, tas, act, nt, legislation, pm])('$id', (m) => {
     expect(typeof m.id).toBe('string');
     expect(typeof m.name).toBe('string');
     expect(m.urls).toBeTypeOf('object');
