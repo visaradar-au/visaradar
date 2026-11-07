@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 4391;
+// E2E_PORT lets parallel worktrees run their own preview without reusing another's server.
+const PORT = Number(process.env.E2E_PORT ?? 4391);
 
 // Smoke tests run against the built site: `npm run build && npm run test:e2e`.
 export default defineConfig({

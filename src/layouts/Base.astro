@@ -38,7 +38,9 @@ const current = (p: string) => path === p || path.startsWith(p);
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
-    <meta name="theme-color" content="#f7f6f2" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)" />
     <link rel="alternate" type="application/rss+xml" title={`${site.name} news`} href={href('/news.xml')} />
     <link rel="alternate" type="application/rss+xml" title={`${site.name}: what changed`} href={href('/changes.xml')} />
     {feed && <link rel="alternate" type="application/rss+xml" title={feed.title} href={href(feed.path)} />}

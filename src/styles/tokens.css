@@ -1,4 +1,4 @@
-/* Design tokens. Light theme only for now; colours checked for WCAG AA on --surface-page. */
+/* Design tokens. Light by default, dark under prefers-color-scheme; colours checked for WCAG AA in both. */
 :root {
   color-scheme: light;
 
@@ -20,6 +20,8 @@
   --accent-strong: #104281;
   --accent-soft: #e6effa;
   --focus: #2a78d6;
+  --selection: #9ec5f4;
+  --shadow-pop: 0 8px 24px rgba(26, 26, 24, 0.14), 0 1px 3px rgba(26, 26, 24, 0.1);
 
   /* Data: sequential blue ramp (dataviz reference palette) */
   --seq-1: #cde2fb;
@@ -39,6 +41,23 @@
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --masked: #8a887f;
+  /* Map labels: the ink that keeps 4.5:1 on each ramp step (and on the masked hatch) */
+  --on-light-fill: #1a1a18;
+  --on-dark-fill: #ffffff;
+  --seq-1-ink: var(--on-light-fill);
+  --seq-2-ink: var(--on-light-fill);
+  --seq-3-ink: var(--on-light-fill);
+  --seq-4-ink: var(--on-light-fill);
+  --seq-5-ink: var(--on-dark-fill);
+  --seq-6-ink: var(--on-dark-fill);
+  --seq-7-ink: var(--on-dark-fill);
+  --div-neg-2-ink: var(--on-dark-fill);
+  --div-neg-1-ink: var(--on-light-fill);
+  --div-mid-ink: var(--on-light-fill);
+  --div-pos-1-ink: var(--on-light-fill);
+  --div-pos-2-ink: var(--on-dark-fill);
+  --hatch-ink: var(--ink);
+  --map-stroke: var(--surface-card);
 
   /* Status (always with a label) */
   --good: #0a7a0a;
@@ -73,4 +92,68 @@
   --radius-sm: 4px;
   --page-max: 72rem;
   --prose-max: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --surface-page: #141413;
+    --surface-card: #1d1d1b;
+    --surface-sunk: #262624;
+    --line: #33322f;
+    --line-strong: #4a4945;
+
+    --ink: #ecebe6;
+    --ink-2: #c4c2bb;
+    --ink-3: #a3a19a;
+    --ink-inverse: #0d1b2e;
+
+    --accent: #8ab4f0;
+    --accent-strong: #b3cff7;
+    --accent-soft: #1b2a3d;
+    --focus: #6aa6f0;
+    --selection: #2d4a72;
+    --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+
+    /* Ramps run dark (fewer) to bright (more) on a dark page */
+    --seq-1: #1a2e4a;
+    --seq-2: #1f4675;
+    --seq-3: #255fa3;
+    --seq-4: #4a8fdc;
+    --seq-5: #6aa6ec;
+    --seq-6: #a8cdf7;
+    --seq-7: #d4e6fb;
+    --div-neg-2: #6aa6ec;
+    --div-neg-1: #2f5f9a;
+    --div-mid: #3a3936;
+    --div-pos-1: #9a3b3a;
+    --div-pos-2: #f08a88;
+    --series-1: #4fa0f0;
+    --series-2: #f08a5d;
+    --masked: #8a887f;
+
+    --on-light-fill: #141413;
+    --on-dark-fill: #ffffff;
+    --seq-1-ink: var(--on-dark-fill);
+    --seq-2-ink: var(--on-dark-fill);
+    --seq-3-ink: var(--on-dark-fill);
+    --seq-4-ink: var(--on-light-fill);
+    --seq-5-ink: var(--on-light-fill);
+    --seq-6-ink: var(--on-light-fill);
+    --seq-7-ink: var(--on-light-fill);
+    --div-neg-2-ink: var(--on-light-fill);
+    --div-neg-1-ink: var(--on-dark-fill);
+    --div-mid-ink: var(--ink);
+    --div-pos-1-ink: var(--on-dark-fill);
+    --div-pos-2-ink: var(--on-light-fill);
+    --map-stroke: #4a4945;
+
+    --good: #7fd17f;
+    --good-soft: #16301a;
+    --warn-ink: #e8c070;
+    --warn-soft: #3a2e10;
+    --critical: #f2948c;
+    --critical-soft: #3d1a17;
+  }
 }
