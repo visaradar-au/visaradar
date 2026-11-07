@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import geo from '../data/au-states.json';
+import { site } from '../site.config';
+import { getMeta } from '../lib/data/eoi';
+import { formatDate, formatMonth } from '../lib/format';
+import { href } from '../lib/href';
+import { official, NEWS_SOURCES } from '../lib/official';
+
+const meta = getMeta();
+---
+<Base title="Sources and method" description={`Where ${site.name}'s numbers come from, how we handle masked cells, and our disclaimer.`}>
+  <h1>Sources and method</h1>
+  <div class="callout disclaimer" role="note">
+    <p><strong>{site.disclaimer}</strong></p>
+  </div>
+
+  <h2>What {site.name} is</h2>
+  <p>A free, independent site that puts the official skilled migration numbers and news in one place. It is not a government site and is not linked to Home Affairs or any state. We do not predict anyone's chances and we do not give migration advice.</p>
+  <p>There are no accounts. Your "Where I stand" details stay in your own browser's local storage, and you can clear them at any time from <a href={href('/me/')}>Where I stand</a>. We don't run tracking analytics.</p>
+
+  <h2>Sources</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Data</th><th scope="col">Source</th><th scope="col">How often</th><th scope="col">Licence and terms</th></tr></thead>
+      <tbody>
+        <tr>
+          <th scope="row">EOI counts by occupation, visa, state, status and points</th>
+          <td><a href={official.eoiData} rel="noopener">SkillSelect EOI data</a>, published by the Department of Employment and Workplace Relations for Home Affairs</td>
+          <td>Monthly snapshot. Latest: {formatMonth(meta.latestMonth)}, published {formatDate(meta.lastReload)}. We read it {formatDate(meta.fetchedAt)}.</td>
+          <td>Government data, used with attribution. See the <a href={official.homeAffairsCopyright} rel="noopener">Home Affairs copyright notice</a>.</td>
+        </tr>
+        <tr>
+          <th scope="row">State and territory boundaries on the map</th>
+          <td><a href={official.abs} rel="noopener">ABS ASGS Edition 4 (2026)</a>, state and territory (STE) generalised layer</td>
+          <td>Downloaded once, {formatDate(geo.fetchedAt)}, simplified for the web.</td>
+          <td>{geo.attribution}. © Commonwealth of Australia (Australian Bureau of Statistics). <a href={official.ccBy} rel="noopener">CC BY 4.0</a>.</td>
+        </tr>
+        <tr>
+          <th scope="row">News</th>
+          <td>Official news pages of Home Affairs and each state and territory: {Object.values(NEWS_SOURCES).map((s, i) => <>{i > 0 && ', '}<a href={s.news ?? s.site} rel="noopener">{s.label}</a></>)}</td>
+          <td>Checked regularly with polite crawling.</td>
+          <td>We store the title, date and link, plus a short excerpt only where the source's licence allows reuse (CC BY). Read the full item on the official page.</td>
+        </tr>
+        <tr>
+          <th scope="row">Rounds, allocations and program status</th>
+          <td><a href={official.invitationRounds} rel="noopener">Home Affairs invitation rounds</a>, <a href={official.allocations} rel="noopener">state allocations</a> and each state's program page</td>
+          <td>When they change.</td>
+          <td>Each figure links to its own source. Third-party reports are labelled unverified.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How to read the EOI numbers</h2>
+  <ul>
+    {meta.notes.map((n) => <li>{n}</li>)}
+    <li><strong>Masked cells.</strong> The department shows "&lt;20" for any count from 1 to 19, to protect privacy. We never guess a number for them. Totals and positions count numeric cells only, and every view says how many masked cells it left out. Charts draw them as short hatched marks that are not to scale.</li>
+    <li><strong>Invited and lodged go together.</strong> Invited is how many EOIs were still in invited status at month end. When people lodge their visa application, they move to lodged, so invited can fall even in a busy month.</li>
+    <li><strong>No totals across states.</strong> One EOI can name several states and more than one visa, so adding states or visas together would count the same EOI more than once. We show one state and one visa at a time.</li>
+    <li><strong>"Any state".</strong> EOIs that said they would accept any state are shown as their own row, not added to any state.</li>
+    <li><strong>Month-end snapshots.</strong> Each month's figures describe the last day of that month. We label them with the month, not a made-up day, and never call them live.</li>
+  </ul>
+
+  <h2>Method</h2>
+  <p>A script reads the public SkillSelect dashboard and pulls a new month only when the department reloads it. The site is rebuilt from those files, so every page shows the same snapshot. Where I stand works out your position in your browser from the published counts: EOIs at higher scores, at your score and at lower scores, in each state, for your visa.</p>
+
+  <div class="next">
+    <p>Spotted a wrong number or a broken link? Check it against the linked source first, then tell us.</p>
+    <a class="btn btn-quiet" href={href('/')}>Back to the map</a>
+  </div>
+</Base>
+<style>
+  .disclaimer { background: var(--warn-soft); color: var(--ink); }
+  td, th { min-width: 9rem; }
+</style>

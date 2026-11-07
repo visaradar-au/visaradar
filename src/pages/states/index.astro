@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import AsAt from '../../components/AsAt.astro';
+import Term from '../../components/Term.astro';
+import StateMap from '../../islands/StateMap';
+import geo from '../../data/au-states.json';
+import { getMapMetrics, getMeta, getSummary } from '../../lib/data/eoi';
+import { getStates } from '../../lib/data/sources';
+import { STATES, STATE_NAMES } from '../../lib/eoi';
+import { formatCell, formatMonth } from '../../lib/format';
+import { href } from '../../lib/href';
+
+const meta = getMeta();
+const months = getSummary().months;
+const metrics = getMapMetrics();
+const programs = getStates();
+const stateHrefs = Object.fromEntries(STATES.map((s) => [s, href(`/states/${s.toLowerCase()}/`)]));
+const STATUS: Record<string, [string, string]> = {
+  open: ['Open', 'good'], closed: ['Closed', 'critical'], paused: ['Paused', 'warn'], 'not-yet-open': ['Not yet open', 'warn'], unknown: ['Not confirmed yet', ''],
+};
+---
+<Base title="States and territories" description="Each state's nomination program and SkillSelect EOIs for visas 190 and 491.">
+  <h1>States and territories</h1>
+  <p class="lede">Each state and territory runs its own nomination program for <Term k="190" /> and <Term k="491" />. Pick one for its program, pool and news.</p>
+  <StateMap client:load geo={geo} metrics={metrics} monthLabel={formatMonth(meta.latestMonth)} prevMonthLabel={months.length > 1 ? formatMonth(months[months.length - 2]) : ''} stateHrefs={stateHrefs} />
+  <AsAt />
+
+  <h2>Programs at a glance</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">State</th><th scope="col">Program</th><th scope="col" class="num">190 EOIs</th><th scope="col" class="num">491 EOIs</th></tr></thead>
+      <tbody>
+        {STATES.map((s) => {
+          const p = programs.find((x) => x.code === s);
+          const [label, cls] = STATUS[p?.status ?? 'unknown'] ?? STATUS.unknown;
+          return (
+            <tr class="rowlink">
+              <th scope="row"><a href={stateHrefs[s]}>{STATE_NAMES[s]}</a></th>
+              <td><span class={`badge ${cls}`}>{label}</span> <span class="muted small">{p?.programYear}</span></td>
+              <td class="num">{formatCell(metrics['190'][s]?.submitted.current)}</td>
+              <td class="num">{formatCell(metrics['491'][s]?.submitted.current)}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">EOIs submitted, {formatMonth(meta.latestMonth)}. Program status comes from each state's official site and shows "Not confirmed yet" until we have checked it.</p>
+</Base>

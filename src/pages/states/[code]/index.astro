@@ -1,0 +1,108 @@
+---
+import Base from '../../../layouts/Base.astro';
+import AsAt from '../../../components/AsAt.astro';
+import Term from '../../../components/Term.astro';
+import Empty from '../../../components/Empty.astro';
+import NewsList from '../../../components/NewsList.astro';
+import ProgramCard from '../../../components/ProgramCard.astro';
+import StateTrend from '../../../islands/StateTrend';
+import { getMeta, getSummary, topOccupationsForState } from '../../../lib/data/eoi';
+import { getNews, getRounds, getStateProgram } from '../../../lib/data/sources';
+import { STATES, STATE_NAMES, type StateCode } from '../../../lib/eoi';
+import { formatDate, formatMonth, formatNumber } from '../../../lib/format';
+import { href } from '../../../lib/href';
+import { NEWS_SOURCES } from '../../../lib/official';
+
+export function getStaticPaths() {
+  return STATES.map((s) => ({ params: { code: s.toLowerCase() } }));
+}
+
+const code = (Astro.params.code as string).toUpperCase() as StateCode;
+const name = STATE_NAMES[code];
+const meta = getMeta();
+const summary = getSummary();
+const rows = summary.rows.filter((r) => r[2] === code);
+const program = getStateProgram(code);
+const top190 = topOccupationsForState(code, '190');
+const top491 = topOccupationsForState(code, '491');
+const news = getNews().filter((n) => n.source === code.toLowerCase()).slice(0, 10);
+const rounds = getRounds().filter((r) => r.scope === code).slice(0, 10);
+const src = NEWS_SOURCES[code.toLowerCase()];
+const feedPath = `/states/${code.toLowerCase()}/news.xml`;
+---
+<Base title={name} description={`${name}: state nomination program, SkillSelect EOIs for 190 and 491, rounds and news.`} feed={{ title: `${name} migration news`, path: feedPath }}>
+  <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/states/')}>States</a> / {code}</nav>
+  <h1>{name}</h1>
+  <p class="lede">State nomination for visas <Term k="190" /> and <Term k="491" />, and the SkillSelect pool of <Term k="EOI" label="EOIs" /> naming {name}.</p>
+
+  <div class="grid-2">
+    <ProgramCard program={program} name={name} />
+    <section aria-labelledby="pool-title">
+      <h2 id="pool-title" class="tight">EOIs naming {name}</h2>
+      <StateTrend client:visible state={code} name={name} rows={rows} months={summary.months} />
+      <AsAt />
+    </section>
+  </div>
+
+  <h2>Occupations with the most EOIs naming {name}</h2>
+  <p class="small muted">Submitted EOIs, {formatMonth(meta.latestMonth)}. Numeric cells only; masked scores are not counted.</p>
+  <div class="grid-2">
+    {[{ visa: '190', list: top190 }, { visa: '491', list: top491 }].map(({ visa, list }) => (
+      <div class="table-wrap">
+        <table>
+          <caption>Visa {visa}, top {list.length}</caption>
+          <thead><tr><th scope="col">Occupation</th><th scope="col" class="num">EOIs</th></tr></thead>
+          <tbody>
+            {list.map((o) => (
+              <tr class="rowlink"><th scope="row"><a href={href(`/occupations/${o.code}/`)}>{o.name}</a> <span class="muted">{o.code}</span></th><td class="num">{formatNumber(o.counted)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ))}
+  </div>
+
+  <div class="grid-2">
+    <section aria-labelledby="rounds-title">
+      <h2 id="rounds-title">{name} rounds</h2>
+      {rounds.length ? (
+        <ul class="news-list">
+          {rounds.map((r) => (
+            <li>
+              <span class="meta"><time datetime={r.date}>{formatDate(r.date)}</time>{!r.verified && <span class="badge warn">Unverified report</span>}</span>
+              <a class="title" href={r.sourceUrl} rel="noopener">{r.title}</a>
+              {r.invitations != null && <span class="small">{formatNumber(r.invitations)} invitations</span>}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <Empty title="No rounds recorded yet">
+          <p class="small">When {name} publishes invitation round results we list them here with the date and source. See all <a href={href('/rounds/')}>rounds</a>.</p>
+        </Empty>
+      )}
+    </section>
+    <section aria-labelledby="news-title">
+      <h2 id="news-title">{name} news</h2>
+      {news.length ? <NewsList items={news} /> : (
+        <Empty title="No news collected yet">
+          <p class="small">We will collect dated updates from {name}'s official migration site.
+            {src?.news ? <>Until then, read <a href={src.news} rel="noopener">{name} migration news</a>.</> : src?.site ? <>Until then, check the <a href={src.site} rel="noopener">{name} migration site</a>.</> : null}</p>
+        </Empty>
+      )}
+      <p class="small"><a href={href(feedPath)}>{name} news RSS</a></p>
+    </section>
+  </div>
+
+  <div class="next">
+    <p>See how your points compare with other EOIs naming {name}.</p>
+    <a class="btn" href={href('/me/')}>Where I stand</a>
+  </div>
+</Base>
+
+<style>
+  .crumbs { margin-bottom: var(--s-3); color: var(--ink-3); }
+  .tight { margin-top: 0; }
+  @media (max-width: 55.99rem) { .tight { margin-top: var(--s-6); } }
+  :global(.big-num) { font-size: var(--text-xl); }
+  .grid-2 { margin-top: var(--s-4); align-items: start; }
+</style>

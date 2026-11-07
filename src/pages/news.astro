@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Empty from '../components/Empty.astro';
+import NewsFeed from '../islands/NewsFeed';
+import { getFetchState, getNews } from '../lib/data/sources';
+import { NEWS_SOURCES, TAG_LABELS } from '../lib/official';
+import { formatDate } from '../lib/format';
+import { href } from '../lib/href';
+
+const news = getNews();
+const fetchState = getFetchState();
+const sources = Object.fromEntries(Object.entries(NEWS_SOURCES).map(([k, v]) => [k, v.label]));
+const stale = Object.entries(fetchState).filter(([, s]) => s.lastError);
+---
+<Base title="News" description="One dated feed of skilled migration news from Home Affairs and every state and territory.">
+  <h1>News</h1>
+  <p class="lede">Dated updates from Home Affairs and all eight states and territories. Each item links to the official page. We store the title, date and link only.</p>
+  <p class="small"><a href={href('/news.xml')}>Subscribe by RSS</a> · Per-state feeds are on each <a href={href('/states/')}>state page</a>.</p>
+
+  {stale.length > 0 && (
+    <div class="callout" role="status">
+      <p><strong>Some sources could not be reached:</strong></p>
+      <ul>
+        {stale.map(([k, s]) => (
+          <li>{NEWS_SOURCES[k]?.label ?? k}: not reachable since {formatDate(s.lastError)}{s.lastOk && `, last read ${formatDate(s.lastOk)}`}.</li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {news.length ? (
+    <NewsFeed client:idle items={news} sources={sources} tags={TAG_LABELS} />
+  ) : (
+    <Empty title="The news feed starts soon">
+      <p class="small">We are connecting the official sources. Each item will show its publish date (or when we first saw it), its source and a topic such as program open, allocation or round. Until then, go straight to the source:</p>
+      <ul class="small source-list">
+        {Object.entries(NEWS_SOURCES).map(([, s]) => (
+          <li><a href={s.news ?? s.site} rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+      <p class="small">You can subscribe to the <a href={href('/news.xml')}>RSS feed</a> now; it fills as items arrive.</p>
+    </Empty>
+  )}
+
+  <div class="next">
+    <p>News is only half of it. See the numbers behind it.</p>
+    <a class="btn btn-quiet" href={href('/states/')}>States</a>
+  </div>
+</Base>
+
+<style>
+  .source-list { columns: 2 10rem; padding-left: var(--s-4); }
+  .callout { margin-bottom: var(--s-4); }
+</style>

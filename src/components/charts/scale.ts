@@ -1,3 +1,5 @@
+import { useLayoutEffect, useRef, useState } from 'preact/hooks';
+
 /** Tidy y-axis ticks from 0 to at least `max`. */
 export function ticks(max: number, count = 4): number[] {
   if (max <= 0) return [0, 20];
@@ -14,4 +16,18 @@ export function compact(n: number): string {
   if (n >= 10000) return `${Math.round(n / 1000)}k`;
   if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k`;
   return String(n);
+}
+
+/** Track a container's width so charts draw at 1 unit = 1 CSS pixel and text stays readable. */
+export function useWidth(initial = 640) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(initial);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(([entry]) => setWidth(Math.max(260, Math.round(entry.contentRect.width))));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return [ref, width] as const;
 }

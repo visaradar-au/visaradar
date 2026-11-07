@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import Empty from '../components/Empty.astro';
+import Term from '../components/Term.astro';
+import { getRounds } from '../lib/data/sources';
+import { STATES, STATE_NAMES, isStateCode } from '../lib/eoi';
+import { formatDate, formatNumber } from '../lib/format';
+import { href } from '../lib/href';
+import { official } from '../lib/official';
+
+const rounds = getRounds();
+const scopeLabel = (s: string) => (s === '189' ? 'Visa 189' : s === '491F' ? '491 family' : isStateCode(s) ? STATE_NAMES[s] : s);
+---
+<Base title="Invitation rounds" description="Visa 189 and 491 family rounds from Home Affairs, and state invitation rounds, with cut-offs and sources.">
+  <h1>Invitation rounds</h1>
+  <p class="lede">Home Affairs invites <Term k="189" /> and 491 family EOIs in national rounds. Some states (such as ACT, SA and WA) publish their own rounds. Each row shows where the figures came from.</p>
+
+  {rounds.length ? (
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Date</th><th scope="col">Round</th><th scope="col">Scope</th><th scope="col" class="num">Invitations</th><th scope="col">Cut-offs</th><th scope="col">Source</th></tr></thead>
+        <tbody>
+          {rounds.map((r) => (
+            <tr>
+              <td><time datetime={r.date}>{formatDate(r.date)}</time></td>
+              <th scope="row">{r.title}</th>
+              <td>{isStateCode(r.scope) ? <a href={href(`/states/${r.scope.toLowerCase()}/`)}>{scopeLabel(r.scope)}</a> : scopeLabel(r.scope)}</td>
+              <td class="num">{r.invitations != null ? formatNumber(r.invitations) : 'Not stated'}</td>
+              <td>
+                {r.cutoffs.length ? (
+                  <ul class="plain">
+                    {r.cutoffs.slice(0, 5).map((c) => (
+                      <li><a href={href(`/occupations/${c.code}/`)}>{c.occupation}</a>: {c.points ?? c.matrix ?? 'n/a'}{c.matrix != null && ' (matrix)'}</li>
+                    ))}
+                    {r.cutoffs.length > 5 && <li class="muted">and {r.cutoffs.length - 5} more at the source</li>}
+                  </ul>
+                ) : <span class="muted">Not published</span>}
+              </td>
+              <td>
+                <a href={r.sourceUrl} rel="noopener">{r.source}</a>
+                {!r.verified && <><br /><span class="badge warn">Unverified: third-party report</span></>}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <Empty title="Round records start soon">
+      <p class="small">We will list each round with its date, how many invitations went out, the lowest points invited per occupation where published, and a link to the official source. Rounds reported only by third parties will be marked unverified.</p>
+      <p class="small">Until then, Home Affairs publishes <a href={official.invitationRounds} rel="noopener">SkillSelect invitation rounds</a>. State rounds are on each state's site:
+        {STATES.map((s, i) => <>{i > 0 && ', '}<a href={href(`/states/${s.toLowerCase()}/`)}>{s}</a></>)}.</p>
+    </Empty>
+  )}
+
+  <div class="next">
+    <p>Rounds tell you who was invited. Your position in the pool tells you where you sit.</p>
+    <a class="btn" href={href('/me/')}>Where I stand</a>
+  </div>
+</Base>

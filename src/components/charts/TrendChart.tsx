@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import type { Cell } from '../../lib/eoi';
 import { isMasked } from '../../lib/eoi';
 import { formatCell, formatMonthShort } from '../../lib/format';
-import { compact, ticks } from './scale';
+import { compact, ticks, useWidth } from './scale';
 
 export interface Series {
   label: string;
@@ -15,13 +15,13 @@ interface Props {
   label: string;
 }
 
-const W = 640;
 const H = 220;
 const M = { top: 12, right: 12, bottom: 30, left: 44 };
 
 /** Monthly lines. Masked months sit as hollow markers on a "<20" band and break the line. */
 export default function TrendChart({ months, series, label }: Props) {
   const [hover, setHover] = useState<number | null>(null);
+  const [ref, W] = useWidth();
   const max = Math.max(20, ...series.flatMap((s) => s.values.map((v) => (isMasked(v) ? 0 : v))));
   const yTicks = ticks(max);
   const top = yTicks[yTicks.length - 1] || 1;
@@ -32,6 +32,8 @@ export default function TrendChart({ months, series, label }: Props) {
   const y = (v: number) => M.top + ih - (v / top) * ih;
   const bandTop = Math.min(y(20), y(0) - 8);
   const maskedY = (y(0) + bandTop) / 2;
+  // Leave about 56px per month label.
+  const labelEvery = Math.max(1, Math.ceil((months.length * 56) / iw));
   const anyMasked = series.some((s) => s.values.some(isMasked));
 
   const paths = series.map((s) => {
@@ -49,7 +51,7 @@ export default function TrendChart({ months, series, label }: Props) {
   });
 
   return (
-    <div>
+    <div ref={ref}>
       <ul class="chart-legend">
         {series.map((s, i) => (
           <li key={s.label}>
@@ -73,7 +75,7 @@ export default function TrendChart({ months, series, label }: Props) {
           </g>
         ))}
         {months.map((m, i) =>
-          i % 2 === 0 || i === months.length - 1 ? (
+          i % labelEvery === 0 ? (
             <text key={m} class="axis-label" x={x(i)} y={H - M.bottom + 16} text-anchor="middle">
               {formatMonthShort(m).replace(' 20', " '")}
             </text>
