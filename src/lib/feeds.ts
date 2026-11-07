@@ -1,6 +1,6 @@
 import type { RSSFeedItem } from '@astrojs/rss';
 import type { Change, NewsItem } from './data/types';
-import { NEWS_SOURCES, TAG_LABELS } from './official';
+import { NEWS_SOURCES, TAG_LABELS, sourceLabel } from './official';
 import { excerptToShow } from './news';
 
 export function newsItems(items: NewsItem[]): RSSFeedItem[] {
@@ -21,7 +21,7 @@ export function changeItems(items: Change[]): RSSFeedItem[] {
     title: c.title,
     link: c.url,
     pubDate: new Date(c.at),
-    description: `${c.kind} · ${NEWS_SOURCES[c.source]?.label ?? c.source}`,
+    description: `${c.kind} · ${sourceLabel(c.source)}`,
     categories: [c.kind],
   }));
 }

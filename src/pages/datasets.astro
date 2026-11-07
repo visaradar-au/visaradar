@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Empty from '../components/Empty.astro';
+import AsAt from '../components/AsAt.astro';
+import { getDatasets } from '../lib/data/sources';
+import { formatDate } from '../lib/format';
+import { href } from '../lib/href';
+import { official } from '../lib/official';
+
+const data = getDatasets();
+const datasets = data?.datasets ?? [];
+const formats = (d: (typeof datasets)[number]) => [...new Set(d.resources.map((r) => r.format.toUpperCase()).filter(Boolean))].join(', ');
+const licence = (d: (typeof datasets)[number]) => (d.licence.title ?? d.licence.id ?? 'Not stated').replace(/^Creative Commons Attribution/, 'CC BY');
+---
+<Base title="Home Affairs datasets" description="Department of Home Affairs datasets on data.gov.au, with when each was last updated and its licence.">
+  <h1>Home Affairs datasets</h1>
+  <p class="lede">The Department of Home Affairs publishes visa and migration statistics on data.gov.au. This list shows each dataset, when it was last updated and its licence. We check it every hour. Open a dataset to download its files from data.gov.au.</p>
+
+  {datasets.length ? (
+    <>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Dataset</th><th scope="col">Last updated</th><th scope="col">Files</th><th scope="col">Licence</th></tr></thead>
+          <tbody>
+            {datasets.map((d) => (
+              <tr>
+                <th scope="row">
+                  <a href={d.url} rel="noopener">{d.title}</a>
+                  {d.summary && <span class="summary">{d.summary}</span>}
+                </th>
+                <td>{d.metadataModified ? <time datetime={d.metadataModified}>{formatDate(d.metadataModified)}</time> : 'Not stated'}</td>
+                <td>{d.resources.length} {d.resources.length === 1 ? 'file' : 'files'}{formats(d) && <span class="summary">{formats(d)}</span>}</td>
+                <td>{d.licence.url ? <a href={d.licence.url} rel="noopener">{licence(d)}</a> : licence(d)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <AsAt date={data?.lastModified ?? null} source="Department of Home Affairs on data.gov.au" url={data?.sourceUrl ?? official.dataGovImmi} note="Dates are the dataset's last update on data.gov.au." />
+    </>
+  ) : (
+    <Empty title="Dataset list not loaded yet" level={2}>
+      <p class="small">See the <a href={official.dataGovImmi} rel="noopener">Department of Home Affairs on data.gov.au</a>.</p>
+    </Empty>
+  )}
+
+  <p class="small muted">Summaries are the first line of each dataset's description on data.gov.au. Reuse of the data follows each dataset's licence, with attribution to the Department of Home Affairs.</p>
+
+  <div class="next">
+    <p>For skilled visa EOIs by occupation, points and state, use the occupation explorer.</p>
+    <a class="btn" href={href('/occupations/')}>Browse occupations</a>
+  </div>
+</Base>
+
+<style>
+  .summary { display: block; font-weight: normal; font-size: var(--text-xs); color: var(--ink-3); margin-top: var(--s-1); }
+  td, th { min-width: 7rem; }
+</style>
