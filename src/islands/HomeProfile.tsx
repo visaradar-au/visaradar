@@ -6,7 +6,7 @@ import ProfileSetup from './ProfileSetup';
 import { PositionCard, SplitLegend, scopesForProfile, useOccupation } from './shared';
 
 /** Home page: the visitor's summary if they saved a profile, else a 3-field setup. */
-export default function HomeProfile({ monthLabel }: { monthLabel: string }) {
+export default function HomeProfile({ monthLabel, sourceUrl }: { monthLabel: string; sourceUrl: string }) {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [ready, setReady] = useState(false);
   useEffect(() => {
@@ -46,6 +46,9 @@ export default function HomeProfile({ monthLabel }: { monthLabel: string }) {
         )}
         <p class="small muted" style={{ marginTop: 'var(--s-3)' }}>
           These are positions in the pool, not a prediction. States pick people for many reasons besides points.
+        </p>
+        <p class="asat">
+          As at {monthLabel} (month-end snapshot). Source: <a href={sourceUrl} rel="noopener">SkillSelect EOI data</a>.
         </p>
         <div class="next" style={{ marginTop: 'var(--s-4)', paddingTop: 'var(--s-4)' }}>
           <a class="btn" href={href('/me/')}>

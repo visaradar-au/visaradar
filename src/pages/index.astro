@@ -37,7 +37,7 @@ const news = getNews().slice(0, 6);
     </p>
   </section>
 
-  <HomeProfile client:load monthLabel={monthLabel} />
+  <HomeProfile client:load monthLabel={monthLabel} sourceUrl={meta.sourceUrl} />
 
   <section aria-labelledby="map-title">
     <h2 id="map-title">States and territories, {monthLabel}</h2>

@@ -56,19 +56,26 @@ export interface NewsItem {
 export interface FetchState {
   url: string;
   lastOk: string | null;
+  /** Error message from the last failed fetch. */
   lastError: string | null;
+  /** When the last failure happened. */
+  lastErrorAt?: string | null;
   lastStatus: number | null;
   etag?: string | null;
   lastModified?: string | null;
   itemCount: number;
 }
 
+export type ProgramStatus = 'open' | 'closed' | 'paused' | 'not-yet-open' | 'unknown';
+
 export interface StateProgram {
   code: string;
   name: string;
   site: string;
   programYear: string;
-  status: 'open' | 'closed' | 'paused' | 'not-yet-open' | 'unknown';
+  status: ProgramStatus;
+  /** Per-visa status where the state runs 190 and 491 differently. */
+  statusByVisa?: Partial<Record<'190' | '491', ProgramStatus>> | null;
   model: string | null;
   opened: string | null;
   allocations: {
@@ -78,22 +85,42 @@ export interface StateProgram {
     sourceUrl: string | null;
     asAt: string | null;
   };
-  invitedSoFar: { n: number; period: string; source: string; sourceUrl: string; asAt: string } | null;
+  invitedSoFar: {
+    n: number;
+    byVisa?: Partial<Record<'190' | '491', number>>;
+    period: string;
+    source: string;
+    sourceUrl: string;
+    asAt: string;
+  } | null;
   links: { news: string | null; program: string | null; occupationList: string | null };
   lastVerified: string | null;
   notes: string | null;
 }
 
+export interface RoundCutoff {
+  occupation: string;
+  /** ANZSCO code: 6 digits for an occupation, 4 for a unit group. */
+  code: string;
+  points?: number | null;
+  /** A single score, or scores per stream (e.g. ACT "canberra-190"). */
+  matrix?: number | Record<string, { score: number | null; date: string | null } | null> | null;
+}
+
 export interface Round {
   id: string;
+  /** "YYYY-MM-DD", or "YYYY-MM" when the source gives only a month. */
   date: string;
   scope: string;
   title: string;
   invitations: number | null;
-  cutoffs: { occupation: string; code: string; points?: number | null; matrix?: number | null }[];
+  byVisa?: Partial<Record<string, number | null>> | null;
+  cutoffs?: RoundCutoff[] | null;
+  cutoffsSourceUrl?: string | null;
   source: string;
   sourceUrl: string;
   verified: boolean;
+  notes?: string | null;
 }
 
 export interface OccupationLists {

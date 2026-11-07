@@ -47,3 +47,9 @@ export function formatCell(c: number | '<20' | null | undefined): string {
   if (c === null || c === undefined) return '0';
   return nf.format(c);
 }
+
+/** A date that may be a full day ("2026-10-12") or only a month ("2026-10"). */
+export function formatWhen(value: string | null | undefined): string {
+  if (!value) return '';
+  return /^\d{4}-\d{2}$/.test(value) ? formatMonth(value) : formatDate(value);
+}

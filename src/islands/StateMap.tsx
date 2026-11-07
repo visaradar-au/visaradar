@@ -262,7 +262,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
                 const m = data[code];
                 if (!m) return null;
                 return (
-                  <tr key={code}>
+                  <tr key={code} class={stateHrefs[code] ? 'rowlink' : undefined}>
                     <th scope="row">
                       {stateHrefs[code] ? <a href={stateHrefs[code]}>{isStateCode(code) ? STATE_NAMES[code] : code}</a> : 'Any state'}
                     </th>

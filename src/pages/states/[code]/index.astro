@@ -9,7 +9,7 @@ import StateTrend from '../../../islands/StateTrend';
 import { getMeta, getSummary, topOccupationsForState } from '../../../lib/data/eoi';
 import { getNews, getRounds, getStateProgram } from '../../../lib/data/sources';
 import { STATES, STATE_NAMES, type StateCode } from '../../../lib/eoi';
-import { formatDate, formatMonth, formatNumber } from '../../../lib/format';
+import { formatMonth, formatNumber, formatWhen } from '../../../lib/format';
 import { href } from '../../../lib/href';
 import { NEWS_SOURCES } from '../../../lib/official';
 
@@ -61,6 +61,7 @@ const feedPath = `/states/${code.toLowerCase()}/news.xml`;
       </div>
     ))}
   </div>
+  <AsAt />
 
   <div class="grid-2">
     <section aria-labelledby="rounds-title">
@@ -69,7 +70,7 @@ const feedPath = `/states/${code.toLowerCase()}/news.xml`;
         <ul class="news-list">
           {rounds.map((r) => (
             <li>
-              <span class="meta"><time datetime={r.date}>{formatDate(r.date)}</time>{!r.verified && <span class="badge warn">Unverified report</span>}</span>
+              <span class="meta"><time datetime={r.date}>{formatWhen(r.date)}</time>{!r.verified && <span class="badge warn">Unverified report</span>}</span>
               <a class="title" href={r.sourceUrl} rel="noopener">{r.title}</a>
               {r.invitations != null && <span class="small">{formatNumber(r.invitations)} invitations</span>}
             </li>

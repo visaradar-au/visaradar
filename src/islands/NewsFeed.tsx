@@ -15,7 +15,7 @@ export default function NewsFeed({ items, sources, tags }: Props) {
   const shown = useMemo(() => {
     const t = q.trim().toLowerCase();
     return items.filter(
-      (n) => (!source || n.source === source) && (!tag || n.tags.includes(tag as never)) && (!t || n.title.toLowerCase().includes(t)),
+      (n) => (!source || n.source === source) && (!tag || (n.tags ?? []).includes(tag as never)) && (!t || n.title.toLowerCase().includes(t)),
     );
   }, [items, source, tag, q]);
 
@@ -49,7 +49,7 @@ export default function NewsFeed({ items, sources, tags }: Props) {
               <span class="meta">
                 <span class="badge plain">{sources[n.source] ?? n.source}</span>
                 {n.published ? <time dateTime={n.published}>{formatDate(n.published)}</time> : <span>First seen {formatDate(n.firstSeen)}</span>}
-                {n.tags.map((t) => <span key={t}>{tags[t] ?? t}</span>)}
+                {(n.tags ?? []).map((t) => <span key={t}>{tags[t] ?? t}</span>)}
               </span>
               <a class="title" href={n.url} rel="noopener">{n.title}</a>
               {n.excerpt && <p class="excerpt">{n.excerpt}</p>}

@@ -46,5 +46,10 @@ const STATUS: Record<string, [string, string]> = {
       </tbody>
     </table>
   </div>
-  <p class="small muted">EOIs submitted, {formatMonth(meta.latestMonth)}. Program status comes from each state's official site and shows "Not confirmed yet" until we have checked it.</p>
+  <p class="small muted">Program status comes from each state's official site and shows "Not confirmed yet" until we have checked it. Open a state for its sources.</p>
+  <AsAt note="EOI columns are submitted EOIs." />
+  <div class="next">
+    <p>Compare your own points with the pool in each state.</p>
+    <a class="btn" href={href('/me/')}>Where I stand</a>
+  </div>
 </Base>

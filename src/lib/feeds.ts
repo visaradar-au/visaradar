@@ -7,10 +7,10 @@ export function newsItems(items: NewsItem[]): RSSFeedItem[] {
     title: n.title,
     link: n.url,
     pubDate: new Date(n.published ?? n.firstSeen),
-    description: [NEWS_SOURCES[n.source]?.label ?? n.source, n.tags.map((t) => TAG_LABELS[t] ?? t).join(', '), n.excerpt]
+    description: [NEWS_SOURCES[n.source]?.label ?? n.source, (n.tags ?? []).map((t) => TAG_LABELS[t] ?? t).join(', '), n.excerpt]
       .filter(Boolean)
       .join(' · '),
-    categories: n.tags,
+    categories: n.tags ?? [],
     customData: `<guid isPermaLink="false">${n.id}</guid>`,
   }));
 }
@@ -20,7 +20,7 @@ export function changeItems(items: Change[]): RSSFeedItem[] {
     title: c.title,
     link: c.url,
     pubDate: new Date(c.at),
-    description: `${c.kind} · ${c.source}`,
+    description: `${c.kind} · ${NEWS_SOURCES[c.source]?.label ?? c.source}`,
     categories: [c.kind],
   }));
 }

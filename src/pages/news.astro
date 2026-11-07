@@ -10,7 +10,8 @@ import { href } from '../lib/href';
 const news = getNews();
 const fetchState = getFetchState();
 const sources = Object.fromEntries(Object.entries(NEWS_SOURCES).map(([k, v]) => [k, v.label]));
-const stale = Object.entries(fetchState).filter(([, s]) => s.lastError);
+// A source is stale when its latest attempt failed (error newer than the last success).
+const stale = Object.entries(fetchState).filter(([, s]) => s.lastError && (!s.lastOk || (s.lastErrorAt ?? '') > s.lastOk));
 ---
 <Base title="News" description="One dated feed of skilled migration news from Home Affairs and every state and territory.">
   <h1>News</h1>
@@ -22,7 +23,7 @@ const stale = Object.entries(fetchState).filter(([, s]) => s.lastError);
       <p><strong>Some sources could not be reached:</strong></p>
       <ul>
         {stale.map(([k, s]) => (
-          <li>{NEWS_SOURCES[k]?.label ?? k}: not reachable since {formatDate(s.lastError)}{s.lastOk && `, last read ${formatDate(s.lastOk)}`}.</li>
+          <li>{NEWS_SOURCES[k]?.label ?? k}: not reachable at our last check{s.lastErrorAt && ` (${formatDate(s.lastErrorAt)})`}. {s.lastOk ? `Last read ${formatDate(s.lastOk)}.` : 'Not read yet.'} <a href={s.url} rel="noopener">Open the source</a>.</li>
         ))}
       </ul>
     </div>
