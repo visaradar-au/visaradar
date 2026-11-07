@@ -16,7 +16,8 @@
     "preview": "astro preview --port 4391",
     "test:unit": "vitest run tests/unit",
     "test:e2e": "playwright test",
-    "build:map": "node pipeline/geo/build-map.mjs"
+    "build:map": "node pipeline/geo/build-map.mjs",
+    "check": "astro check"
   },
   "keywords": [],
   "author": "",
@@ -33,7 +34,9 @@
     "ws": "^8.22.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@playwright/test": "^1.65.0",
+    "@types/node": "^22.20.5",
     "typescript": "^5.9.3",
     "vitest": "^3.2.7"
   }
