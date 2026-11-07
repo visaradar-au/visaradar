@@ -1,0 +1,194 @@
+[
+  {
+    "code": "ACT",
+    "name": "Australian Capital Territory",
+    "site": "https://www.act.gov.au/migration",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "NSW",
+    "name": "New South Wales",
+    "site": "https://www.nsw.gov.au/visas-and-migration",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "NT",
+    "name": "Northern Territory",
+    "site": "https://theterritory.com.au/migrate",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "QLD",
+    "name": "Queensland",
+    "site": "https://migration.qld.gov.au",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "SA",
+    "name": "South Australia",
+    "site": "https://migration.sa.gov.au",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "TAS",
+    "name": "Tasmania",
+    "site": "https://www.migration.tas.gov.au",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "VIC",
+    "name": "Victoria",
+    "site": "https://liveinmelbourne.vic.gov.au",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  },
+  {
+    "code": "WA",
+    "name": "Western Australia",
+    "site": "https://migration.wa.gov.au",
+    "programYear": "2026-27",
+    "status": "unknown",
+    "model": null,
+    "opened": null,
+    "allocations": {
+      "190": null,
+      "491": null,
+      "source": null,
+      "sourceUrl": null,
+      "asAt": null
+    },
+    "invitedSoFar": null,
+    "links": {
+      "news": null,
+      "program": null,
+      "occupationList": null
+    },
+    "lastVerified": null,
+    "notes": "Seed record. Sources lane fills this in."
+  }
+]
