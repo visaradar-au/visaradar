@@ -89,6 +89,13 @@ const current = (p: string) => path === p || path.startsWith(p);
         if (!tr || t?.closest('a, button, input, select') || window.getSelection()?.toString()) return;
         tr.querySelector('a')?.click();
       });
+      // Print the chart and map tables open, then put them back as they were.
+      let opened: HTMLDetailsElement[] = [];
+      addEventListener('beforeprint', () => {
+        opened = [...document.querySelectorAll<HTMLDetailsElement>('details.vr-table:not([open])')];
+        opened.forEach((d) => (d.open = true));
+      });
+      addEventListener('afterprint', () => opened.forEach((d) => (d.open = false)));
     </script>
   </body>
 </html>

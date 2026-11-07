@@ -94,7 +94,7 @@
   --prose-max: 42rem;
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
 

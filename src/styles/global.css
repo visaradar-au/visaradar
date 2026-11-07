@@ -139,3 +139,27 @@ ul.plain { list-style: none; padding: 0; margin: 0; }
 .input[aria-invalid="true"] { border-color: var(--critical); }
 .check { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 2.75rem; font-size: var(--text-sm); cursor: pointer; }
 .check input { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); }
+
+/* Print: the figures and their table alternatives, without navigation or controls. Dark tokens are screen-only. */
+@media print {
+  @page { margin: 15mm 12mm; }
+  body { background: var(--surface-card); font-size: 10.5pt; }
+  .site-header nav, .skip, .controls, .next, .chart-tip, .vr-summary, .crumbs, button.term + .term-pop, .btn { display: none !important; }
+  .site-header, .site-footer, .panel, .table-wrap, .position-card { background: none; border-color: var(--line-strong); box-shadow: none; }
+  main { padding-block: var(--s-4); }
+  h2 { margin-top: var(--s-5); break-after: avoid; }
+  .panel, figure, table, tr, .position-card { break-inside: avoid; }
+  button.term { text-decoration: none; }
+  /* Charts and the map keep their colours. */
+  .chart, .vr-map svg, .legend-scale, .key, .badge, .bar-split { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .vr-map-figure svg { max-width: 34rem; }
+  .vr-map-body, .occ-charts, .grid-2 { display: block; }
+  .occ-charts > * + *, .grid-2 > * + * { margin-top: var(--s-4); }
+  /* Table alternatives print open, without the toggle. A beforeprint script opens them where ::details-content is unsupported. */
+  details.vr-table::details-content { content-visibility: visible; display: block; }
+  details.vr-table > summary { display: none; }
+  .table-wrap { overflow: visible; }
+  th, td { padding: 0.15rem var(--s-2); }
+  /* Source links show where they go. */
+  .asat a[href^="http"]::after { content: " (" attr(href) ")"; word-break: break-all; }
+}
