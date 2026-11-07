@@ -37,7 +37,7 @@ export interface EoiSummary {
   rows: MonthRow[];
 }
 
-export type NewsSource = 'homeaffairs' | 'qld' | 'nsw' | 'vic' | 'sa' | 'wa' | 'tas' | 'act' | 'nt';
+export type NewsSource = 'homeaffairs' | 'qld' | 'nsw' | 'vic' | 'sa' | 'wa' | 'tas' | 'act' | 'nt' | 'legislation' | 'pm';
 export const NEWS_TAGS = [
   'program-open', 'program-closed', 'allocation', 'round', 'invitations', 'occupation-list',
   'points-test', 'processing', 'fees', 'policy', 'other',
@@ -146,8 +146,34 @@ export interface OccupationLists {
 
 export interface Change {
   at: string;
-  kind: 'news' | 'eoi-month' | 'state-status' | 'round' | 'allocation';
+  kind: 'news' | 'eoi-month' | 'state-status' | 'round' | 'allocation' | 'dataset';
   source: string;
   title: string;
   url: string;
+}
+
+export interface DatasetResource {
+  name: string;
+  format: string;
+  lastModified: string | null;
+  url: string;
+}
+
+/** One Home Affairs dataset on data.gov.au (data/datasets.json). */
+export interface Dataset {
+  name: string;
+  title: string;
+  summary: string;
+  metadataModified: string | null;
+  licence: { id: string | null; title: string | null; url: string | null };
+  url: string;
+  resources: DatasetResource[];
+}
+
+export interface Datasets {
+  source: string;
+  sourceUrl: string;
+  apiUrl: string;
+  lastModified: string | null;
+  datasets: Dataset[];
 }

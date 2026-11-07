@@ -37,8 +37,8 @@ function fakeGet(routes) {
 const NOW = new Date('2026-11-07T10:00:00Z');
 
 describe('news orchestrator', () => {
-  it('registers all nine sources', () => {
-    expect(SOURCES.map((s) => s.id)).toEqual(['homeaffairs', 'qld', 'nsw', 'vic', 'sa', 'wa', 'tas', 'act', 'nt']);
+  it('registers all eleven sources', () => {
+    expect(SOURCES.map((s) => s.id)).toEqual(['homeaffairs', 'qld', 'nsw', 'vic', 'sa', 'wa', 'tas', 'act', 'nt', 'legislation', 'pm']);
   });
 
   it('writes items, records blocked sources, and bootstraps changes with recent items only', async () => {

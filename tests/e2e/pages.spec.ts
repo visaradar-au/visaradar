@@ -12,7 +12,7 @@ test('/news renders its empty state', async ({ page, errors }) => {
   void errors;
 });
 
-for (const path of ['/states/', '/states/qld/', '/states/act/', '/rounds/', '/eoi-check/', '/about/', '/occupations/121111/']) {
+for (const path of ['/states/', '/states/qld/', '/states/act/', '/rounds/', '/eoi-check/', '/about/', '/datasets/', '/occupations/121111/']) {
   test(`${path} renders without console errors`, async ({ page, errors }) => {
     await page.goto(path);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();

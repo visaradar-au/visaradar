@@ -5,8 +5,8 @@ import { site } from '../site.config';
 import { getMeta } from '../lib/data/eoi';
 import { formatDate, formatMonth } from '../lib/format';
 import { href } from '../lib/href';
-import { official, NEWS_SOURCES } from '../lib/official';
-import { getFetchState, getRounds, getStates } from '../lib/data/sources';
+import { official, NEWS_SOURCES, legislationAttribution } from '../lib/official';
+import { getDatasets, getFetchState, getRounds, getStates } from '../lib/data/sources';
 
 const meta = getMeta();
 const fetchState = getFetchState();
@@ -17,6 +17,9 @@ const rounds = getRounds();
 const has189 = rounds.some((r) => r.scope === '189' || r.scope === '491F');
 const allocations = getStates().filter((s) => s.allocations?.['190'] != null || s.allocations?.['491'] != null);
 const checked = getStates().filter((s) => s.lastVerified);
+const legislationRead = fetchState.legislation?.lastOk ?? null;
+const datasets = getDatasets();
+const newsSources = Object.entries(NEWS_SOURCES).filter(([k]) => k !== 'legislation' && k !== 'pm').map(([, s]) => s);
 ---
 <Base title="Sources and method" description={`Where ${site.name}'s numbers come from, how we handle masked cells, and our disclaimer.`}>
   <h1>Sources and method</h1>
@@ -47,9 +50,21 @@ const checked = getStates().filter((s) => s.lastVerified);
         </tr>
         <tr>
           <th scope="row">News</th>
-          <td>Official news pages of Home Affairs and each state and territory: {Object.values(NEWS_SOURCES).map((s, i) => <>{i > 0 && ', '}<a href={s.news ?? s.site} rel="noopener">{s.label}</a></>)}</td>
+          <td>Official news pages of Home Affairs and each state and territory: {newsSources.map((s, i) => <>{i > 0 && ', '}<a href={s.news ?? s.site} rel="noopener">{s.label}</a></>)}. Media releases of the <a href={NEWS_SOURCES.pm.news ?? NEWS_SOURCES.pm.site} rel="noopener">Prime Minister</a>, kept only when they mention migration, visas or international students (fixed keyword rules).</td>
           <td>Checked regularly with polite crawling.</td>
           <td>We store the title, date and link, plus a short excerpt only where the source's licence allows reuse (CC BY). Read the full item on the official page.</td>
+        </tr>
+        <tr>
+          <th scope="row">New migration regulations and instruments</th>
+          <td><a href={official.legislation} rel="noopener">Federal Register of Legislation</a>: titles starting "Migration", newest first, shown in the news feed</td>
+          <td>Checked every 30 minutes, one small request.</td>
+          <td>{legislationAttribution(legislationRead ? formatDate(legislationRead) : 'the date shown on each item')} <a href={official.ccBy} rel="noopener">CC BY 4.0</a>, see the <a href={official.legislationTerms} rel="noopener">terms of use</a>.</td>
+        </tr>
+        <tr>
+          <th scope="row">Home Affairs datasets</th>
+          <td><a href={official.dataGovImmi} rel="noopener">Department of Home Affairs on data.gov.au</a>. See <a href={href('/datasets/')}>Datasets</a>.</td>
+          <td>Checked hourly.{datasets?.lastModified && ` Last update ${formatDate(datasets.lastModified)}.`}</td>
+          <td>Licence set per dataset (CC BY 2.5 Australia or CC BY 4.0), shown on the Datasets page.</td>
         </tr>
         <tr>
           <th scope="row">Rounds, allocations and program status</th>

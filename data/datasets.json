@@ -1,0 +1,674 @@
+{
+  "source": "Department of Home Affairs datasets on data.gov.au",
+  "sourceUrl": "https://data.gov.au/data/organization/immi",
+  "apiUrl": "https://data.gov.au/data/api/3/action/package_search?fq=organization:immi&sort=metadata_modified%20desc&rows=100",
+  "lastModified": "2026-10-20T23:57:36.199772Z",
+  "datasets": [
+    {
+      "name": "visitor-visas-granted-pivot-table",
+      "title": "Visitor visa program",
+      "summary": "Statistical data is available on Visitor visas granted. The dimensions include the financial year, quarter and month of visa grant, the client location, citizenship country and visa sub class of the…",
+      "metadataModified": "2026-10-20T23:57:36.199772Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/visitor-visas-granted-pivot-table",
+      "resources": [
+        {
+          "name": "BP0018 Visitor Visas Granted (quarterly) report as at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:57:36.099664Z",
+          "url": "https://data.gov.au/data/dataset/903e4782-8d6d-438d-9c40-9883cf91606c/resource/11984af1-b748-46a1-aa22-5b783fe6ceb3/download/bp0018l-visitor-visas-granted-quarterly-report-as-at-2026-09-30-v100.xlsx"
+        },
+        {
+          "name": "Pivot Table User Guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:47:36.442042Z",
+          "url": "https://data.gov.au/data/dataset/903e4782-8d6d-438d-9c40-9883cf91606c/resource/68399714-f206-49fb-a7b5-c8ec7c11db9e/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Visitor visa program Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:47:20.490056Z",
+          "url": "https://data.gov.au/data/dataset/903e4782-8d6d-438d-9c40-9883cf91606c/resource/eae15212-6255-4db5-8206-4a7f86d2b9a0/download/visitor-visa-program-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "visa-temporary-work-skilled",
+      "title": "Temporary Work (skilled) visa program",
+      "summary": "Statistical data is available on the subclasses 457 and 482 and provides information on all visa grants and the number of visa holders in Australia.",
+      "metadataModified": "2026-10-20T23:55:47.288682Z",
+      "licence": {
+        "id": "cc-by",
+        "title": "Creative Commons Attribution 3.0 Australia",
+        "url": "http://creativecommons.org/licenses/by/3.0/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/visa-temporary-work-skilled",
+      "resources": [
+        {
+          "name": "BP0014 Temporary Resident (skilled) visas granted report as at 2026-09-30 ",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:54:49.089534Z",
+          "url": "https://data.gov.au/data/dataset/2515b21d-0dba-4810-afd4-ac8dd92e873e/resource/602c435f-5841-48e4-bfc9-31465a751210/download/bp0014ltemporary-resident-skilled-visas-granted-report-locked-at-2026-09-30.xlsx"
+        },
+        {
+          "name": "BP0014 Temporary Resident (skilled) Visa Holders report as at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:55:47.170534Z",
+          "url": "https://data.gov.au/data/dataset/2515b21d-0dba-4810-afd4-ac8dd92e873e/resource/00fb937b-cad4-4b0c-ad8e-e1deea96ba82/download/bp0014l-temporary-resident-skilled-visa-holders-report-locked-as-at-2026-09-30.xlsx"
+        },
+        {
+          "name": "Pivot Table User Guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:46:22.386078Z",
+          "url": "https://data.gov.au/data/dataset/2515b21d-0dba-4810-afd4-ac8dd92e873e/resource/6f9129db-2426-4547-8d16-31a9249835f5/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Temporary Work (skilled) visa program Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:46:00.202313Z",
+          "url": "https://data.gov.au/data/dataset/2515b21d-0dba-4810-afd4-ac8dd92e873e/resource/523068d9-e7ba-4753-bdcf-3f52d5123858/download/temporary-work-skilled-visa-program-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "visa-working-holiday-maker",
+      "title": "Working Holiday Maker visa program",
+      "summary": "Statistical data is available on the Working Holiday Maker visa program and provides information on visa grants recorded for the Working Holiday visa (subclass 417) and the Work and Holiday visa…",
+      "metadataModified": "2026-10-20T23:51:35.729478Z",
+      "licence": {
+        "id": "cc-by",
+        "title": "Creative Commons Attribution 3.0 Australia",
+        "url": "http://creativecommons.org/licenses/by/3.0/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/visa-working-holiday-maker",
+      "resources": [
+        {
+          "name": "BP0017 Working Holiday Maker visas granted report as at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:51:35.588307Z",
+          "url": "https://data.gov.au/data/dataset/602f74a0-a588-4dea-ae28-0fe123cbb182/resource/5c1d8ab0-6d3e-4667-bc63-dfd12dfa6055/download/bp0017l-working-holiday-maker-visas-granted-at-2026-09-30-v100.xlsx"
+        },
+        {
+          "name": "Pivot Table User Guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:48:43.092845Z",
+          "url": "https://data.gov.au/data/dataset/602f74a0-a588-4dea-ae28-0fe123cbb182/resource/947964b6-7a70-45cd-b542-7e99b5c8423a/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Working Holiday Maker visa program Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:48:28.275420Z",
+          "url": "https://data.gov.au/data/dataset/602f74a0-a588-4dea-ae28-0fe123cbb182/resource/61d25de6-e7c5-4fce-a955-a425e534e66e/download/working-holiday-maker-visa-program-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "temporary-graduate-visas",
+      "title": "Temporary Graduate visa program",
+      "summary": "The Temporary Graduate visas lodged and granted reports are based on lodgement and grant data recorded for visa subclass 485 in the current financial year and previous financial years.",
+      "metadataModified": "2026-10-20T23:49:35.494135Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/temporary-graduate-visas",
+      "resources": [
+        {
+          "name": "BP0016 Temporary Graduate visas lodged report at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:49:02.118275Z",
+          "url": "https://data.gov.au/data/dataset/c957d829-4f9b-4213-a0c2-8cbeb9a03ffb/resource/78b65fc4-5508-4279-94a8-ee0f723694ba/download/bp0016l-temporary-graduate-visas-lodged-report-locked-at-2026-09-30.xlsx"
+        },
+        {
+          "name": "BP0016 Temporary Graduate visas granted report at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:49:35.368140Z",
+          "url": "https://data.gov.au/data/dataset/c957d829-4f9b-4213-a0c2-8cbeb9a03ffb/resource/2f94d6b1-fd05-4a1e-b260-b58238677b28/download/bp0016l-temporary-graduate-visa-granted-report-locked-at-2026-09-30.xlsx"
+        },
+        {
+          "name": "Pivot table user guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:42:08.826909Z",
+          "url": "https://data.gov.au/data/dataset/c957d829-4f9b-4213-a0c2-8cbeb9a03ffb/resource/77e9eba2-6622-49bf-a0ee-9ceca677597f/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Temporary Graduate visa program Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:41:51.017913Z",
+          "url": "https://data.gov.au/data/dataset/c957d829-4f9b-4213-a0c2-8cbeb9a03ffb/resource/3e726222-5869-4682-b052-9617593c7da6/download/temporary-graduate-visa-program.csv"
+        }
+      ]
+    },
+    {
+      "name": "student-visas",
+      "title": "Student visa program",
+      "summary": "The Student visas lodged, granted and grant rate reports are based on lodgement and grant data recorded for visa subclass 500 and subclass 570 to 576 in the current financial year and previous…",
+      "metadataModified": "2026-10-20T23:36:35.818514Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/student-visas",
+      "resources": [
+        {
+          "name": "BP0015 Student visas lodged report at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:33:38.681071Z",
+          "url": "https://data.gov.au/data/dataset/324aa4f7-46bb-4d56-bc2d-772333a2317e/resource/ef31b2b4-a894-484b-99bc-e35d62ace777/download/bp0015l-student-visas-lodged-report-locked-at-2026-09-30-v100.xlsx"
+        },
+        {
+          "name": "BP0015 Student visas granted report at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:35:12.337319Z",
+          "url": "https://data.gov.au/data/dataset/324aa4f7-46bb-4d56-bc2d-772333a2317e/resource/dfc7a893-0523-4b8e-bc5a-829e35bec90f/download/bp0015l-student-visas-granted-report-locked-at-2026-09-30-v100.xlsx"
+        },
+        {
+          "name": "BP0015 Student visa grant rates at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:36:35.658161Z",
+          "url": "https://data.gov.au/data/dataset/324aa4f7-46bb-4d56-bc2d-772333a2317e/resource/b4775919-d0f5-4beb-8901-6384342774c6/download/bp0015l-student-visa-grant-rates-locked-at-2026-09-30-v100.xlsx"
+        },
+        {
+          "name": "Pivot table user guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:43:32.304716Z",
+          "url": "https://data.gov.au/data/dataset/324aa4f7-46bb-4d56-bc2d-772333a2317e/resource/39e7d9ba-ba9d-47e2-9d8f-3708444506a1/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Student visa program Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:43:18.566661Z",
+          "url": "https://data.gov.au/data/dataset/324aa4f7-46bb-4d56-bc2d-772333a2317e/resource/4c157925-d84f-4c9d-a95b-da8ce2580bc1/download/student-visa-program-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "temporary-entrants-visa-holders",
+      "title": "Temporary visa holders in Australia",
+      "summary": "This report of temporary entrants in Australia, also known as stock data, provide a quarterly snapshot of all temporary entrants and New Zealand citizens present in Australia at a particular date.",
+      "metadataModified": "2026-10-20T23:29:45.492577Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/temporary-entrants-visa-holders",
+      "resources": [
+        {
+          "name": "BP0019 Number of Temporary visa holders in Australia at 2026-09-30",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:29:45.336063Z",
+          "url": "https://data.gov.au/data/dataset/ab245863-4dea-4661-a334-71ee15937130/resource/5d7155e4-7715-464f-8870-842d510cefab/download/bp0019l-number-of-temporary-visa-holders-in-australia-at-2026-09-30-v100.xlsx"
+        },
+        {
+          "name": "Pivot Table User Guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:40:35.040095Z",
+          "url": "https://data.gov.au/data/dataset/ab245863-4dea-4661-a334-71ee15937130/resource/709d9b7f-b312-49e3-b97c-33d67d51a60b/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Temporary visa holders in Australia Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:40:16.800639Z",
+          "url": "https://data.gov.au/data/dataset/ab245863-4dea-4661-a334-71ee15937130/resource/3d29b7a6-6364-4152-8e3e-0986c555e056/download/temporary-visa-holders-in-australia-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "overseas-arrivals-and-departures",
+      "title": "Overseas Arrivals and Departures",
+      "summary": "Please Note: As announced by the Minister for Immigration and Border Protection on 25 June 2017, the Department of Immigration and Border Protection (DIBP) retired the paper-based Outgoing Passenger…",
+      "metadataModified": "2026-10-20T23:26:59.743631Z",
+      "licence": {
+        "id": "cc-by",
+        "title": "Creative Commons Attribution 3.0 Australia",
+        "url": "http://creativecommons.org/licenses/by/3.0/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/overseas-arrivals-and-departures",
+      "resources": [
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (locked) 2026-27 (to 31 August 2026)",
+          "format": "XLSX",
+          "lastModified": "2026-10-20T23:26:43.017192Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/a652e7b2-bdc5-43ec-88e9-4772595b5980/download/bp0022-overseas-arrivals-and-departures-locked-2025-26-to-august-2026.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2025-26",
+          "format": "XLSX",
+          "lastModified": "2026-08-26T22:36:53.206833Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/242a735c-230b-4e26-8ff7-9b42335866ca/download/bp0022-overseas-arrivals-and-departures-locked-2025-26-to-june-2026.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2024-25",
+          "format": "XLSX",
+          "lastModified": "2025-11-07T01:42:28.673951Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/51b2ac5e-4164-424b-b7be-e6915d986772/download/bp0022-overseas-arrivals-and-departures-locked-2024-25-to-june-2025.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2023-24",
+          "format": "XLSX",
+          "lastModified": "2024-10-22T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/86c2f3f3-af66-4964-ae78-2222b20c6c4c/download/bp0022-overseas-arrivals-and-departures-locked-2023-24-to-june-2024.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2022-23",
+          "format": "XLSX",
+          "lastModified": "2023-10-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/57843a97-0978-42ae-b612-4bf79b5daa36/download/bp0022-oad-pivot-2022-23.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2021-22",
+          "format": "XLSX",
+          "lastModified": "2022-08-25T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/9960fa61-8d5a-4f13-a0cc-8ed9f6b44917/download/bp0022-overseas-arrivals-and-departures-locked-2021-22-to-2022-06-30.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2020-21",
+          "format": "XLSX",
+          "lastModified": "2021-08-26T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/9e8be46d-6dd2-4315-8ef8-004360c013dc/download/bp0022-overseas-arrivals-and-departures-locked-at-2021-06-30.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2019-20",
+          "format": "XLSX",
+          "lastModified": "2020-09-27T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/10ae7245-3e9e-42eb-a328-6b181f91791e/download/bp0022-oad-pivot-2019-20.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2018-19",
+          "format": "XLSX",
+          "lastModified": "2019-08-29T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/ff6f8783-130a-4d21-8bea-113dce960229/download/bp0022-oad-pivot-2018-19.xlsx"
+        },
+        {
+          "name": "BP0022 Overseas Arrivals and Departures (OAD) pivot table 2017-18",
+          "format": "XLSX",
+          "lastModified": "2018-10-30T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/1d021cbb-47f2-4be3-b7d7-3268b200faac/download/bp0022-oad-pivot-2017-18-abs-revised-october-2018.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2016-17",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/968a84fb-e4f4-4c0b-8359-e60adb8329d5/download/bp0022-oad-abs-revised-pivot-2016-17.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2015-16",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/2e5bf94b-0dd5-42e0-8257-c48e31b28cf3/download/bp0022-oad-abs-revised-pivot-2015-16.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2014-15",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/a3856cff-6807-4636-bd3e-ff1fa74d78d4/download/bp0022-oad-abs-revised-pivot-2014-15.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2013-14",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/ad9a87d6-e7bf-4f9f-bf99-f34cdbfb5e60/download/bp0022-oad-abs-revised-pivot-2013-14.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2012-13",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/538fe876-d593-43af-a694-3b1aba884755/download/bp0022-oad-abs-revised-pivot-2012-13.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2011-12",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/ba39c0ca-798e-4098-93d7-ee80b0eae791/download/bp0022-oad-abs-revised-pivot-2011-12.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2010-11",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/550effb5-d6b1-4629-bdc6-3ed293c7125c/download/bp0022-oad-abs-revised-pivot-2010-11.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2009-10",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/f6547f73-8c3b-4df0-be7d-a801c602d076/download/bp0022-oad-abs-revised-pivot-2009-10.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2008-09",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/2001e411-bbd6-423f-8612-1e40f7220b48/download/bp0022-oad-abs-revised-pivot-2008-09.xlsx"
+        },
+        {
+          "name": "BP0022 OAD ABS Revised Pivot 2007-08",
+          "format": "XLSX",
+          "lastModified": "2017-09-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/f7823d99-d111-470a-bdac-b044a3abb4ed/download/bp0022-oad-abs-revised-pivot-2007-08.xlsx"
+        },
+        {
+          "name": "Pivot Table User Guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:39:06.414386Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/87dc52cd-24ef-4b24-bf82-5f931c458ee9/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Outgoing Passenger Card Review",
+          "format": "DOC",
+          "lastModified": "2015-12-10T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/36c72e09-75a0-41ed-b38e-5e4b302768ee/download/outgoing-passenger-card-review-information-sheet.docx"
+        },
+        {
+          "name": "OAD Explanatory Notes and Definitions",
+          "format": "HTML",
+          "lastModified": "2022-01-17T00:00:00Z",
+          "url": "http://www.abs.gov.au/ausstats/abs@.nsf/mf/3401.0"
+        },
+        {
+          "name": "3401.0 - Overseas Arrivals and Departures, Australia, Aug 2014 - Changes in this issue",
+          "format": "DOCX",
+          "lastModified": "2022-01-17T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/b9ee7a8d-3d5f-431b-bbb7-a4c49b5912c7/download/3401.0overseasarrivalsanddeparturesaustraliaaug2014changesinthisissue.docx"
+        },
+        {
+          "name": "Department Website",
+          "format": "audio/basic",
+          "lastModified": "2022-01-17T00:00:00Z",
+          "url": "https://www.homeaffairs.gov.au/"
+        },
+        {
+          "name": "Overseas Arrivals and Departures Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:38:33.811855Z",
+          "url": "https://data.gov.au/data/dataset/5a0ab398-c897-4ae3-986d-f94452a165d7/resource/9ed87eb5-02b7-4f4b-bfc3-ab53fd21e362/download/overseas-arrivals-and-departures-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "settlement-reports",
+      "title": "Settlement Reports",
+      "summary": "The data contained in the Excel datasets is drawn from the Settlement Database (SDB). This database contains records of people who have been granted a permanent or provisional visa going back to…",
+      "metadataModified": "2026-08-05T04:18:24.991644Z",
+      "licence": {
+        "id": "cc-by",
+        "title": "Creative Commons Attribution 3.0 Australia",
+        "url": "http://creativecommons.org/licenses/by/3.0/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/settlement-reports",
+      "resources": [
+        {
+          "name": "Historical Settlement Reports ",
+          "format": "ZIP",
+          "lastModified": "2026-07-23T00:54:35.378819Z",
+          "url": "https://data.gov.au/data/dataset/8d1b90a9-a4d7-4b10-ad6a-8273722c8628/resource/27adc111-5296-4dc4-884f-3cfbc33b02f3/download/historical-settlement-reports.zip"
+        },
+        {
+          "name": "settlement-data-reports-Jan-2016-to-Dec-2025 (last 10 Calendar Years by Migration Streams)",
+          "format": "XLSX",
+          "lastModified": "2026-02-04T01:15:17.736139Z",
+          "url": "https://data.gov.au/data/dataset/8d1b90a9-a4d7-4b10-ad6a-8273722c8628/resource/139fd77f-b9b4-4521-a914-6eced4b96354/download/settlement-data-reports-jan-2016-to-dec-2025-last-10-cy-by-migration-streams.xlsx"
+        },
+        {
+          "name": "settlement-data-reports-Calendar Year 2025 by Migration Stream",
+          "format": "XLSX",
+          "lastModified": "2026-02-04T01:16:47.407384Z",
+          "url": "https://data.gov.au/data/dataset/8d1b90a9-a4d7-4b10-ad6a-8273722c8628/resource/17623307-0b0c-4a38-b325-6934aec6a6c5/download/settlement-data-reports-calendar-year-2025-by-migration-streams.xlsx"
+        },
+        {
+          "name": "settlement-data-reports-Jul-2016-to-Jun-2026 (last 10 FY by Migration Streams).xlsx",
+          "format": "XLSX",
+          "lastModified": "2026-07-23T00:57:12.675389Z",
+          "url": "https://data.gov.au/data/dataset/8d1b90a9-a4d7-4b10-ad6a-8273722c8628/resource/f9669dbd-ea7e-4c93-a23c-ef1e3d9e0493/download/settlement-data-reports-jul-2016-to-jun-2026-last-10-fy-by-migration-streams.xlsx"
+        },
+        {
+          "name": "settlement-data-reports- Financial Year 2025/26 by Migration Streams.xlsx",
+          "format": "XLSX",
+          "lastModified": "2026-07-23T00:58:34.585678Z",
+          "url": "https://data.gov.au/data/dataset/8d1b90a9-a4d7-4b10-ad6a-8273722c8628/resource/1e724f46-26c0-48d3-ada7-721394820d26/download/settlement-data-reports-financial-year-2025-26-by-migration-streams.xlsx"
+        }
+      ]
+    },
+    {
+      "name": "permanent-migration-program-skilled-family",
+      "title": "Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics",
+      "summary": "A report that provides an overview of the previous 10 years of Migration Program outcomes.",
+      "metadataModified": "2026-04-23T22:56:08.477917Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/permanent-migration-program-skilled-family",
+      "resources": [
+        {
+          "name": "BP0068 Permanent Migration Program (Skilled & Family) Outcome Snapshot Annual Statistics 2015-16 to 2025-06-30 v100",
+          "format": "XLSX",
+          "lastModified": "2025-12-22T02:03:50.893223Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/832fe752-f672-4ce7-a5bc-bada2270496c/download/bp0068-migration-and-child-outcome-since-2015-16-to-2025-06-30-masked-v100.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2014-15 to 2023-24 v100.xlsx",
+          "format": "XLSX",
+          "lastModified": "2024-11-15T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/4e9559a4-a37f-414b-a716-24abff9d8e9a/download/bp0068l-migration-and-child-outcome-since-2014-15-to-2024-06-30-masked-v100.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2013-14 to 2022-23 v100",
+          "format": "XLSX",
+          "lastModified": "2023-10-26T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/f0d43822-512e-4687-8bc3-fa59926306a7/download/bp0068-migration-and-child-outcome-since-2013-14-to-2023-06-30-masked-v100.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2012-13 to 2021-22 v100",
+          "format": "XLSX",
+          "lastModified": "2023-08-28T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/6799abc0-db57-4e47-ad28-083262f31943/download/bp0068l-permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-2012-13-.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2011-12 to 2020-21 v100.xlsx",
+          "format": "XLSX",
+          "lastModified": "2023-08-28T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/c69d7522-d613-43ff-98e7-00a7a936f0d8/download/bp0068l-permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-2011-12-.xlsx"
+        },
+        {
+          "name": "pivot-table-user-guide-pdf",
+          "format": "PDF",
+          "lastModified": "2025-07-04T03:48:37.730030Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/52bf8db4-db4c-42fd-a3cd-cc5ecd3d459e/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-04T03:48:13.774920Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/2cd02db1-977d-4ba2-9198-38999bf308c2/download/permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-resources.csv"
+        }
+      ]
+    },
+    {
+      "name": "australian-migration-statistics",
+      "title": "Australian Migration Statistics",
+      "summary": "Australian Migration Statistics is a statistical package provided as an accompaniment to the annual publication Australia’s Migration Trends published on the Department of Home Affairs website. The…",
+      "metadataModified": "2025-11-11T23:48:29.195982Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/australian-migration-statistics",
+      "resources": [
+        {
+          "name": "Australian Migration Statistics, 2024-25",
+          "format": "XLSX",
+          "lastModified": "2025-11-11T23:43:05.042885Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/242e6794-9b6a-4d34-a67f-d940e96e6a37/download/migration_trends_statistical_package_2024_25.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2023–24",
+          "format": "XLSX",
+          "lastModified": "2025-10-28T03:52:19.624308Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/2a5f6c20-6924-48fe-a83b-c240b46f0ffa/download/migration_trends_statistical_package_2023_24.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2022-23",
+          "format": "XLSX",
+          "lastModified": "2025-03-13T23:53:08.979819Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/75c392f9-5d38-4669-b6e8-ff1a5f76c6a8/download/migration_trends_statistical_package_2022_23.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2021-22",
+          "format": "XLSX",
+          "lastModified": "2023-01-25T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/1133d1f9-68e7-4d2f-96fb-45104769b7dc/download/migration_trends_statistical_package_2021_22.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2020-21",
+          "format": "XLSX",
+          "lastModified": "2022-01-18T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/25c2e1be-a8d5-4d1c-a2fb-a0ced90640b1/download/migration_trends_statistical_package_2020_21.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2019-20",
+          "format": "XLSX",
+          "lastModified": "2020-11-30T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/6037fa73-849d-4aa7-9cd4-f1f151300aa2/download/migration_trends_statistical_package_2019_20.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2018-19",
+          "format": "XLSX",
+          "lastModified": "2019-11-27T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/afbf44d6-080b-48d1-bffb-093887ce9a65/download/migration_trends_statistical_package_2018_19.xlsx"
+        },
+        {
+          "name": "Australian Migration Statistics, 2017-18",
+          "format": "XLS",
+          "lastModified": "2019-08-05T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/530596b1-4137-4fed-8cf8-498b45a7b1ba/download/migration_trends_-statistical_package_2017_18.xls"
+        },
+        {
+          "name": "Australian Migration Statistics, 2016-17",
+          "format": "XLSX",
+          "lastModified": "2018-12-11T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/dba45e7c-81f4-44aa-9d82-1b9a0a121017/resource/9e5ffab9-81dd-4e34-81b4-71a920da4d98/download/migration_trends_statistical_package_2016_17.xls"
+        }
+      ]
+    },
+    {
+      "name": "historical-migration-statistics",
+      "title": "Historical Migration Statistics",
+      "summary": "Historical Migration Statistics brings together migration statistics from 1945 through to the present day.",
+      "metadataModified": "2025-11-10T03:47:05.089221Z",
+      "licence": {
+        "id": "cc-by",
+        "title": "Creative Commons Attribution 3.0 Australia",
+        "url": "http://creativecommons.org/licenses/by/3.0/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/historical-migration-statistics",
+      "resources": [
+        {
+          "name": "Historical Migration Statistics ",
+          "format": "XLSX",
+          "lastModified": "2025-11-10T03:45:38.113386Z",
+          "url": "https://data.gov.au/data/dataset/2fe5e2a9-8a3d-4dcf-baec-c5147d953150/resource/b59a15df-86ea-4c4c-95be-4dd9fc9f8ac4/download/2024-25-historical-migration-statistics.xlsx"
+        }
+      ]
+    },
+    {
+      "name": "permanent-additions-to-australia-s-resident-population",
+      "title": "Permanent additions to Australia’s resident population",
+      "summary": "Permanent additions consists of two components:",
+      "metadataModified": "2025-07-03T06:44:51.766485Z",
+      "licence": {
+        "id": "cc-by",
+        "title": "Creative Commons Attribution 3.0 Australia",
+        "url": "http://creativecommons.org/licenses/by/3.0/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/permanent-additions-to-australia-s-resident-population",
+      "resources": [
+        {
+          "name": "BP0024 Permanent additions to Australia's resident population 2022-23",
+          "format": "XLSX",
+          "lastModified": "2024-12-02T04:00:41.210733Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/1a627f37-7f5c-4068-aa4f-e6deafd60e2f/download/bp0024l-permanent-additions-2022-23-v100.xlsx"
+        },
+        {
+          "name": "BP0024 Permanent additions to Australia's resident population 2021-22.xlsx",
+          "format": "XLSX",
+          "lastModified": "2023-05-30T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/bdfe7779-b799-4f9c-a432-3feb32dedc9b/download/bp0024l-permanent-additions-2021-22-v100.xlsx"
+        },
+        {
+          "name": "BP0024 Permanent additions to Australia's resident population 2020-21.xlsx",
+          "format": "XLSX",
+          "lastModified": "2021-11-23T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/9d17d567-8737-42c5-9540-a6721fecfaac/download/bp0024l-permanent-additions-2020-21-v100.xlsx"
+        },
+        {
+          "name": "BP0024 Permanent additions to Australia's resident population 2019-20",
+          "format": "XLSX",
+          "lastModified": "2020-10-15T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/76da234d-c136-4b77-a983-e52dbb1d134b/download/bp0024l-permanent-additions-2019-20-v200.xlsx"
+        },
+        {
+          "name": "BP0024 Permanent additions to Australia's resident population 2018-19",
+          "format": "XLSX",
+          "lastModified": "2020-10-15T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/be9fc685-2cc0-4cea-af43-50871b24b40a/download/bp0024l-permanent-additions-2018-19-v300.xlsx"
+        },
+        {
+          "name": "BP0024 Permanent additions to Australia's resident population 2017-18",
+          "format": "XLSX",
+          "lastModified": "2020-10-15T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/1fd696cd-0929-4006-8033-9e5ccd96ef55/download/bp0024l-permanent-additions-2017-18-v300.xlsx"
+        },
+        {
+          "name": "2016-17 Permanent Additions",
+          "format": "excel (.xlsx)",
+          "lastModified": "2017-12-05T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/52ed0c6c-59c1-4fe5-b158-66a94d1b1f4f/download/2016-17-permanent-additions.xlsb"
+        },
+        {
+          "name": "2015 -16 Permanent Additions.xlsx",
+          "format": "XLSX",
+          "lastModified": "2018-06-20T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/991cd2b8-ff3c-4b69-b609-955da56f1b2b/download/2015-16-permanent-additions.xlsx"
+        },
+        {
+          "name": "2014 -15 Permanent Additions.xlsx",
+          "format": "XLSX",
+          "lastModified": "2018-06-20T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/17a7ebab-2895-41cd-b7e9-d8de6367999e/download/2014-15-permanent-additions.xlsx"
+        },
+        {
+          "name": "2013 -14 Permanent Additions.xlsx",
+          "format": "XLSX",
+          "lastModified": "2018-06-20T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/17efc16b-30c6-46fe-807b-6baef3e45960/download/2013-14-permanent-additions.xlsx"
+        },
+        {
+          "name": "2012 -13 Permanent Additions.xlsx",
+          "format": "XLSX",
+          "lastModified": "2018-06-20T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/04a427e5-aa32-4e9e-8890-ee851aad4f12/download/2012-13-permanent-additions.xlsx"
+        },
+        {
+          "name": "Pivot Table User Guide",
+          "format": "PDF",
+          "lastModified": "2025-07-03T06:44:51.590816Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/700bf2bc-e7db-4da4-afb8-d11c9b052cfd/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Permanent additions to Australia’s resident population Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-03T06:44:33.629393Z",
+          "url": "https://data.gov.au/data/dataset/e87976fd-c545-4ec0-ab5b-034080868624/resource/cbc6274c-0300-40cc-8874-d3014966aa01/download/permanent-additions-to-australias-resident-population-resources.csv"
+        }
+      ]
+    }
+  ]
+}

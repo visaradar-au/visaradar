@@ -1,5 +1,5 @@
 import { readData } from './read';
-import type { Change, FetchState, ListSource, NewsItem, OccupationLists, Round, StateProgram } from './types';
+import type { Change, Datasets, FetchState, ListSource, NewsItem, OccupationLists, Round, StateProgram } from './types';
 
 export function getNews(): NewsItem[] {
   return readData<NewsItem[]>('news/items.json', []);
@@ -7,6 +7,10 @@ export function getNews(): NewsItem[] {
 
 export function getFetchState(): Record<string, FetchState> {
   return readData<Record<string, FetchState>>('news/fetch-state.json', {});
+}
+
+export function getDatasets(): Datasets | null {
+  return readData<Datasets | null>('datasets.json', null);
 }
 
 export function getStates(): StateProgram[] {

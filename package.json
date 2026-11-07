@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "pipeline:news": "node pipeline/news.mjs",
     "pipeline:states": "node pipeline/states.mjs",
+    "pipeline:datasets": "node pipeline/datasets.mjs",
     "test:pipeline": "vitest run tests/pipeline",
     "dev": "astro dev",
     "build": "astro build",

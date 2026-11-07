@@ -12,6 +12,9 @@ export const official = {
   marn: 'https://portal.mara.gov.au/search-the-register-of-migration-agents/',
   abs: 'https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-4-july-2026-june-2031/access-and-downloads/digital-boundary-files',
   ccBy: 'https://creativecommons.org/licenses/by/4.0/',
+  legislation: 'https://www.legislation.gov.au',
+  legislationTerms: 'https://www.legislation.gov.au/terms-of-use',
+  dataGovImmi: 'https://data.gov.au/data/organization/immi',
 };
 
 export const NEWS_SOURCES: Record<string, { label: string; site: string; news: string | null }> = {
@@ -24,7 +27,21 @@ export const NEWS_SOURCES: Record<string, { label: string; site: string; news: s
   tas: { label: 'Tasmania', site: 'https://www.migration.tas.gov.au', news: 'https://www.migration.tas.gov.au/news' },
   vic: { label: 'Victoria', site: 'https://liveinmelbourne.vic.gov.au', news: 'https://liveinmelbourne.vic.gov.au/news-events/news' },
   wa: { label: 'WA', site: 'https://migration.wa.gov.au', news: 'https://migration.wa.gov.au/news' },
+  legislation: { label: 'Legislation', site: official.legislation, news: null },
+  pm: { label: 'Prime Minister', site: 'https://www.pm.gov.au', news: 'https://www.pm.gov.au/media' },
 };
+
+// Sources in data/changes.json that aren't news sites.
+export const OTHER_SOURCES: Record<string, { label: string; site: string }> = {
+  skillselect: { label: 'SkillSelect', site: official.eoiData },
+  datagov: { label: 'data.gov.au', site: official.dataGovImmi },
+};
+
+export const sourceLabel = (id: string): string => NEWS_SOURCES[id]?.label ?? OTHER_SOURCES[id]?.label ?? id;
+
+/** Wording the Federal Register of Legislation's terms of use ask for, with the download date. */
+export const legislationAttribution = (date: string): string =>
+  `Sourced from the Federal Register of Legislation at ${date}. For the latest information on Australian Government law please go to https://www.legislation.gov.au.`;
 
 export const TAG_LABELS: Record<string, string> = {
   'program-open': 'Program open',
