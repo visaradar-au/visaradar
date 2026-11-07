@@ -2,16 +2,10 @@
 import type { StateProgram } from '../lib/data/types';
 import { formatDate, formatNumber } from '../lib/format';
 import { official } from '../lib/official';
+import { PROGRAM_STATUS as STATUS } from '../lib/status';
 
 interface Props { program: StateProgram | null; name: string }
 const { program, name } = Astro.props;
-const STATUS: Record<string, { label: string; cls: string }> = {
-  open: { label: 'Open', cls: 'good' },
-  closed: { label: 'Closed', cls: 'critical' },
-  paused: { label: 'Paused', cls: 'warn' },
-  'not-yet-open': { label: 'Not yet open', cls: 'warn' },
-  unknown: { label: 'Not confirmed yet', cls: '' },
-};
 const st = STATUS[program?.status ?? 'unknown'] ?? STATUS.unknown;
 const a = program?.allocations;
 const verified = Boolean(program?.lastVerified);

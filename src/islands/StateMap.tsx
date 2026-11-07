@@ -160,6 +160,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
                 <line x1="0" y1="0" x2="0" y2="6" stroke="var(--masked)" stroke-width="1.5" />
               </pattern>
             </defs>
+            <g class="vr-land">
             {geo.states.map((s) => (
               <a
                 key={s.code}
@@ -180,6 +181,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
                 )}
               </a>
             ))}
+            </g>
             {act && (
               <a
                 href={stateHrefs.ACT}
@@ -189,8 +191,9 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
                 onMouseEnter={() => setActive('ACT')}
                 onClick={(e) => onClick(e as unknown as MouseEvent, 'ACT')}
               >
-                <line x1={act.centroid[0] + 3} y1={act.centroid[1]} x2={geo.width + 6} y2={act.centroid[1] + 30} class="leader" />
-                <rect x={geo.width + 6} y={act.centroid[1] + 4} width={PAD_RIGHT - 10} height="56" rx="4" fill={fill('ACT')} />
+                <circle cx={act.centroid[0]} cy={act.centroid[1]} r="7" class="act-ring" />
+                <line x1={act.centroid[0] + 7} y1={act.centroid[1] + 1} x2={geo.width + 6} y2={act.centroid[1] + 30} class="leader" />
+                <rect x={geo.width + 6} y={act.centroid[1] + 4} width={PAD_RIGHT - 10} height="56" rx="8" fill={fill('ACT')} />
                 <text x={geo.width + 14} y={act.centroid[1] + 26} style={{ fill: inkFor(fill('ACT')) }}>
                   <tspan class="abbr">ACT</tspan>{' '}
                   <tspan x={geo.width + 14} dy="1.2em" class="val">{cellText('ACT')}</tspan>

@@ -9,9 +9,10 @@ import StateTrend from '../../../islands/StateTrend';
 import { getMeta, getSummary, topOccupationsForState } from '../../../lib/data/eoi';
 import { getNews, getRounds, getStateProgram } from '../../../lib/data/sources';
 import { STATES, STATE_NAMES, type StateCode } from '../../../lib/eoi';
-import { formatMonth, formatNumber, formatWhen } from '../../../lib/format';
+import { formatDate, formatMonth, formatNumber, formatWhen } from '../../../lib/format';
 import { href } from '../../../lib/href';
 import { NEWS_SOURCES } from '../../../lib/official';
+import { statusOf } from '../../../lib/status';
 
 export function getStaticPaths() {
   return STATES.map((s) => ({ params: { code: s.toLowerCase() } }));
@@ -29,11 +30,23 @@ const news = getNews().filter((n) => n.source === code.toLowerCase()).slice(0, 1
 const rounds = getRounds().filter((r) => r.scope === code).slice(0, 10);
 const src = NEWS_SOURCES[code.toLowerCase()];
 const feedPath = `/states/${code.toLowerCase()}/news.xml`;
+const byVisa = Object.entries(program?.statusByVisa ?? {}) as [string, string][];
+const pills = byVisa.length ? byVisa.map(([v, s]) => ({ text: `${v}: ${statusOf(s).label}`, cls: statusOf(s).cls })) : [{ text: statusOf(program?.status).label, cls: statusOf(program?.status).cls }];
 ---
 <Base title={name} description={`${name}: state nomination program, SkillSelect EOIs for 190 and 491, rounds and news.`} feed={{ title: `${name} migration news`, path: feedPath }}>
-  <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/states/')}>States</a> / {code}</nav>
-  <h1>{name}</h1>
-  <p class="lede">State nomination for visas <Term k="190" /> and <Term k="491" />, and the SkillSelect pool of <Term k="EOI" label="EOIs" /> naming {name}.</p>
+  <header class="band state-band" style={`--state: var(--state-${code.toLowerCase()})`}>
+    <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/states/')}>States</a> / {code}</nav>
+    <div class="state-title">
+      <span class="mono state-mono" aria-hidden="true">{code}</span>
+      <h1>{name}</h1>
+    </div>
+    <p class="lede">State nomination for visas <Term k="190" /> and <Term k="491" />, and the SkillSelect pool of <Term k="EOI" label="EOIs" /> naming {name}.</p>
+    <p class="state-status">
+      <span class="small muted">{program?.programYear ? `${program.programYear} program` : 'Program'}</span>
+      {pills.map((p) => <span class={`pill ${p.cls}`}>{p.text}</span>)}
+      {program?.lastVerified && <span class="small muted">Checked {formatDate(program.lastVerified)}</span>}
+    </p>
+  </header>
 
   <div class="grid-2">
     <ProgramCard program={program} name={name} />
@@ -101,8 +114,17 @@ const feedPath = `/states/${code.toLowerCase()}/news.xml`;
 </Base>
 
 <style>
-  .crumbs { margin-bottom: var(--s-2); color: var(--ink-3); }
-  .crumbs a { display: inline-block; padding-block: var(--s-1); }
+  /* A wash and a stripe in the state's accent; text stays on a near-neutral surface. */
+  .state-band { --band-bg: color-mix(in srgb, var(--state) 9%, var(--surface-page)); margin-bottom: var(--s-2); }
+  .state-band::before { content: ''; position: absolute; inset: 0 auto auto calc(50% - 50vw); width: 100vw; height: 4px; background: var(--state); }
+  .state-band::after {
+    content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw) 0 auto; width: min(36rem, 70vw); pointer-events: none;
+    background: radial-gradient(circle at 90% 20%, color-mix(in srgb, var(--state) 22%, transparent), transparent 65%);
+  }
+  .state-title { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-2); }
+  .state-title h1 { margin: 0; }
+  .state-mono { height: 2rem; min-width: 3rem; font-family: var(--font-sans); font-size: var(--text-sm); border-color: var(--state); border-width: 2px; background: var(--surface-card); }
+  .state-status { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); margin: var(--s-4) 0 0; }
   .tight { margin-top: 0; }
   @media (max-width: 55.99rem) { .tight { margin-top: var(--s-6); } }
   :global(.big-num) { font-size: var(--text-xl); }

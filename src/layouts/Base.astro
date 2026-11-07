@@ -166,8 +166,7 @@ const current = (p: string) => path === p || path.startsWith(p);
   .tabbar a[aria-current='page'] svg { background: var(--accent-soft); border-radius: 999px; box-sizing: content-box; padding: 2px 12px; margin-block: -2px; }
   @media (min-width: 48rem) { .tabbar { display: none; } }
   @media (max-width: 47.99rem) { :global(body) { padding-bottom: calc(3.75rem + env(safe-area-inset-bottom)); } }
-  /* clip, not hidden: full-bleed bands can't cause sideways scroll, and sticky still works. */
-  main { padding-block: var(--s-5) var(--s-7); overflow-x: clip; }
+  main { padding-block: var(--s-5) var(--s-7); }
   @media (min-width: 48rem) { main { padding-block: var(--s-6) var(--s-8); } }
   .site-footer { border-top: 1px solid var(--line); background: var(--surface-card); padding-block: var(--s-6); color: var(--ink-2); }
   .foot-brand { margin-bottom: var(--s-3); font-size: var(--text-md); }

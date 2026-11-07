@@ -14,3 +14,8 @@ export function excerptToShow(title: string, excerpt: string | null | undefined)
   if (!e || e === t || e.startsWith(t) || t.startsWith(e)) return null;
   return excerpt;
 }
+
+/** A neutral text monogram for a news source ("HA", "NSW"), shown instead of any government logo. */
+export function monogram(source: string): string {
+  return source === 'homeaffairs' ? 'HA' : source.slice(0, 3).toUpperCase();
+}

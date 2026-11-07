@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import type { NewsItem } from '../lib/data/types';
 import { formatDate } from '../lib/format';
-import { excerptToShow } from '../lib/news';
+import { excerptToShow, monogram } from '../lib/news';
 
 interface Props {
   items: NewsItem[];
@@ -42,15 +42,28 @@ export default function NewsFeed({ items, sources, tags }: Props) {
           </select>
         </div>
       </div>
-      <p class="small muted" role="status">{shown.length} of {items.length} items</p>
+      <p class="small muted" role="status">
+        {shown.length} of {items.length} items
+        {tag && (
+          <>
+            {' '}· topic <strong>{tags[tag] ?? tag}</strong>{' '}
+            <button type="button" class="chip chip-btn" onClick={() => setTag('')}>Clear topic</button>
+          </>
+        )}
+      </p>
       {shown.length ? (
         <ul class="news-list">
           {shown.map((n) => (
             <li key={n.id}>
               <span class="meta">
-                <span class="badge plain">{sources[n.source] ?? n.source}</span>
+                <span class="mono" aria-hidden="true" title={sources[n.source] ?? n.source}>{monogram(n.source)}</span>
+                <span class="visually-hidden">{sources[n.source] ?? n.source}.</span>
                 {n.published ? <time dateTime={n.published}>{formatDate(n.published)}</time> : <span>First seen {formatDate(n.firstSeen)}</span>}
-                {(n.tags ?? []).map((t) => <span key={t}>{tags[t] ?? t}</span>)}
+                {(n.tags ?? []).map((t) => (
+                  <button key={t} type="button" class="chip chip-btn" aria-pressed={tag === t} onClick={() => setTag(tag === t ? '' : t)}>
+                    {tags[t] ?? t}
+                  </button>
+                ))}
               </span>
               <a class="title" href={n.url} rel="noopener">{n.title}</a>
               {excerptToShow(n.title, n.excerpt) && <p class="excerpt">{excerptToShow(n.title, n.excerpt)}</p>}

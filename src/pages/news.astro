@@ -14,8 +14,10 @@ const sources = Object.fromEntries(Object.entries(NEWS_SOURCES).map(([k, v]) => 
 const stale = Object.entries(fetchState).filter(([, s]) => s.lastError && (!s.lastOk || (s.lastErrorAt ?? '') > s.lastOk));
 ---
 <Base title="News" description="One dated feed of skilled migration news from Home Affairs and every state and territory.">
-  <h1>News</h1>
-  <p class="lede">Dated updates from Home Affairs and all eight states and territories. Each item links to the official page. We store the title, date and link only.</p>
+  <header class="band">
+    <h1>News</h1>
+    <p class="lede">Dated updates from Home Affairs and all eight states and territories. Each item links to the official page. We store the title, date and link only.</p>
+  </header>
   <p class="small"><a href={href('/news.xml')}>Subscribe by RSS</a> · Per-state feeds are on each <a href={href('/states/')}>state page</a>.</p>
 
   {stale.length > 0 && (

@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useId, useState } from 'preact/hooks';
 import type { Cell } from '../../lib/eoi';
 import { isMasked } from '../../lib/eoi';
 import { formatCell, formatMonthShort } from '../../lib/format';
@@ -22,6 +22,7 @@ const M = { top: 12, right: 12, bottom: 30, left: 44 };
 export default function TrendChart({ months, series, label }: Props) {
   const [hover, setHover] = useState<number | null>(null);
   const [ref, W] = useWidth();
+  const gid = `vr-area-${useId()}`;
   const max = Math.max(20, ...series.flatMap((s) => s.values.map((v) => (isMasked(v) ? 0 : v))));
   const yTicks = ticks(max);
   const top = yTicks[yTicks.length - 1] || 1;
@@ -36,19 +37,28 @@ export default function TrendChart({ months, series, label }: Props) {
   const labelEvery = Math.max(1, Math.ceil((months.length * 56) / iw));
   const anyMasked = series.some((s) => s.values.some(isMasked));
 
-  const paths = series.map((s) => {
-    let d = '';
-    let pen = false;
+  // Each unbroken run of numeric months is one line and one area down to zero.
+  const runs = series.map((s) => {
+    const out: number[][] = [];
     s.values.forEach((v, i) => {
-      if (isMasked(v)) {
-        pen = false;
-        return;
-      }
-      d += `${pen ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`;
-      pen = true;
+      if (isMasked(v)) return;
+      const last = out[out.length - 1];
+      if (last && last[last.length - 1] === i - 1) last.push(i);
+      else out.push([i]);
     });
-    return d;
+    return out;
   });
+  const pt = (s: Series, i: number) => `${x(i).toFixed(1)},${y(s.values[i] as number).toFixed(1)}`;
+  const paths = runs.map((rs, si) => rs.map((r) => r.map((i, k) => `${k ? 'L' : 'M'}${pt(series[si], i)}`).join('')).join(''));
+  const areas = runs.map((rs, si) =>
+    rs.filter((r) => r.length > 1).map((r) => `M${x(r[0]).toFixed(1)},${y(0)}${r.map((i) => `L${pt(series[si], i)}`).join('')}L${x(r[r.length - 1]).toFixed(1)},${y(0)}Z`).join(''),
+  );
+
+  // Hover callout: a small card beside the crosshair, flipped to the left near the right edge.
+  const calloutLines = hover === null ? [] : series.map((s) => `${s.label} ${formatCell(s.values[hover])}`);
+  const calloutW = Math.max(70, ...calloutLines.map((l) => l.length * 6.1)) + 16;
+  const calloutH = 20 + calloutLines.length * 15;
+  const calloutX = hover === null ? 0 : x(hover) + 10 + calloutW > W - M.right ? x(hover) - 10 - calloutW : x(hover) + 10;
 
   function onKeyDown(e: KeyboardEvent) {
     const i = stepKey(e.key, hover, months.length);
@@ -80,6 +90,14 @@ export default function TrendChart({ months, series, label }: Props) {
         onBlur={() => setHover(null)}
       >
       <svg class="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
+        <defs>
+          {series.map((_, i) => (
+            <linearGradient key={i} id={`${gid}-${i + 1}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style={{ stopColor: `var(--series-${i + 1})`, stopOpacity: 0.22 }} />
+              <stop offset="1" style={{ stopColor: `var(--series-${i + 1})`, stopOpacity: 0 }} />
+            </linearGradient>
+          ))}
+        </defs>
         {anyMasked && <rect class="masked-band" x={M.left} width={iw} y={bandTop} height={y(0) - bandTop} />}
         {yTicks.map((t) => (
           <g key={t}>
@@ -97,6 +115,7 @@ export default function TrendChart({ months, series, label }: Props) {
           ) : null,
         )}
         {hover !== null && <line class="crosshair" x1={x(hover)} x2={x(hover)} y1={M.top} y2={y(0)} />}
+        {areas.map((d, i) => (d ? <path key={`a${i}`} class="area-fill" d={d} fill={`url(#${gid}-${i + 1})`} /> : null))}
         {paths.map((d, i) => (
           <path key={i} class={`line-${i + 1}`} d={d} />
         ))}
@@ -108,6 +127,15 @@ export default function TrendChart({ months, series, label }: Props) {
               <circle key={`${si}-${i}`} class={`dot-${si + 1}`} cx={x(i)} cy={y(v)} r="4.5" />
             ) : null,
           ),
+        )}
+        {hover !== null && (
+          <g class="callout" aria-hidden="true" transform={`translate(${calloutX.toFixed(1)},${M.top + 2})`}>
+            <rect width={calloutW} height={calloutH} rx="6" />
+            <text x="8" y="15" class="callout-month">{formatMonthShort(months[hover])}</text>
+            {calloutLines.map((l, i) => (
+              <text key={l} x="8" y={30 + i * 15}>{l}</text>
+            ))}
+          </g>
         )}
         {months.map((m, i) => (
           <rect

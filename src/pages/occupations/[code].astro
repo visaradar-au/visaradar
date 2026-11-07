@@ -29,22 +29,23 @@ const partLabel = (p: string) => p.replace(/491F/, '491 family');
 const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
 ---
 <Base title={`${name} (${code})`} description={`SkillSelect EOIs for ${name} (ANZSCO ${code}) by points, state and visa, ${formatMonth(meta.latestMonth)}.`}>
-  <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/occupations/')}>Occupations</a> / {code}</nav>
-  <h1>{name}</h1>
-  <p class="lede"><Term k="ANZSCO" /> {code}. <Term k="EOI" label="EOIs" /> in SkillSelect for this occupation, {formatMonth(meta.latestMonth)}.</p>
+  <header class="band">
+    <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/occupations/')}>Occupations</a> / {code}</nav>
+    <h1>{name}</h1>
+    <p class="lede"><Term k="ANZSCO" /> {code}. <Term k="EOI" label="EOIs" /> in SkillSelect for this occupation, {formatMonth(meta.latestMonth)}.</p>
 
-  {stat && (
-    <dl class="kv facts">
-      <dt>EOIs submitted</dt>
-      <dd>189: <strong>{formatCell(stat.submitted['189'])}</strong> · 190: <strong>{formatCell(stat.submitted['190'])}</strong> · 491: <strong>{formatCell(stat.submitted['491'])}</strong> · 491 family: <strong>{formatCell(stat.submitted['491F'])}</strong></dd>
-      <dt>Most-named state</dt>
-      <dd>
-        {stat.top190 ? `190: ${stateName(stat.top190.state)} (${formatNumber(stat.top190.counted)})` : '190: none counted'}
-        {' · '}
-        {stat.top491 ? `491: ${stateName(stat.top491.state)} (${formatNumber(stat.top491.counted)})` : '491: none counted'}
-      </dd>
-    </dl>
-  )}
+    {stat && (
+      <dl class="snapshot" aria-label={`EOIs submitted, ${formatMonth(meta.latestMonth)}`}>
+        <div><dt>Visa 189 EOIs</dt><dd>{formatCell(stat.submitted['189'])}</dd></div>
+        <div><dt>Visa 190 EOIs</dt><dd>{formatCell(stat.submitted['190'])}</dd></div>
+        <div><dt>Visa 491 EOIs</dt><dd>{formatCell(stat.submitted['491'])}</dd></div>
+        <div><dt>491 family EOIs</dt><dd>{formatCell(stat.submitted['491F'])}</dd></div>
+        <div><dt>Most-named state, 190</dt><dd>{stat.top190 ? <>{stat.top190.state} <small>{stateName(stat.top190.state)}, {formatNumber(stat.top190.counted)} EOIs</small></> : <small>None counted</small>}</dd></div>
+        <div><dt>Most-named state, 491</dt><dd>{stat.top491 ? <>{stat.top491.state} <small>{stateName(stat.top491.state)}, {formatNumber(stat.top491.counted)} EOIs</small></> : <small>None counted</small>}</dd></div>
+      </dl>
+    )}
+    <p class="asat">Submitted EOIs, as at {formatMonth(meta.latestMonth)} (month-end snapshot). Source: {meta.sourceUrl ? <a href={meta.sourceUrl} rel="noopener">SkillSelect EOI data</a> : 'SkillSelect EOI data'}.</p>
+  </header>
   <p class="small muted">Per-visa counts are distinct EOIs: one that names several states counts once. EOIs can name more than one visa, so the visas are not added together. State figures leave out <Term k="masked" label="masked cells (<20)" />.</p>
 
   <h2 class="visually-hidden">Pool by points and trend</h2>
@@ -98,8 +99,5 @@ const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
 </Base>
 
 <style>
-  .crumbs { margin-bottom: var(--s-2); color: var(--ink-3); }
-  .crumbs a { display: inline-block; padding-block: var(--s-1); }
-  .facts { margin-bottom: var(--s-3); font-size: var(--text-md); }
   .lists th[scope='row'] { min-width: 12rem; }
 </style>
