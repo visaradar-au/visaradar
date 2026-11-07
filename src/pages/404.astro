@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { href } from '../lib/href';
+import Logo from '../components/Logo.astro';
 ---
 <Base title="Page not found">
+  <div class="lost" aria-hidden="true"><Logo id="lost" size={72} /></div>
   <h1>We can't find that page</h1>
   <p class="lede">The link may be old, or the occupation code may be wrong. Occupation pages use the 6-digit ANZSCO code, such as /occupations/261313/.</p>
   <div class="next">
@@ -11,3 +13,7 @@ import { href } from '../lib/href';
     <a class="btn btn-quiet" href={href('/')}>Home</a>
   </div>
 </Base>
+
+<style>
+  .lost { margin-bottom: var(--s-4); opacity: 0.9; }
+</style>

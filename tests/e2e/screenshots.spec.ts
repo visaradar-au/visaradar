@@ -39,6 +39,11 @@ for (const size of SIZES) {
     await expect(page.getByTestId('me-points')).toHaveText(String(PERSONA.points));
     await shot('me');
 
+    await page.goto(`/states/${PERSONA.state.toLowerCase()}/`);
+    await expect(page.locator('svg.chart').first()).toBeVisible();
+    await page.waitForLoadState('networkidle');
+    await shot('state');
+
     // The occupation page set to the persona's visa and state, so the "your points" bar shows.
     await page.goto(`/occupations/${PERSONA.code}/`);
     await page.locator(`input[name="occ-visa"][value="${PERSONA.visa}"]`).check({ force: true });

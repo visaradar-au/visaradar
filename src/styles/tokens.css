@@ -15,13 +15,27 @@
   --ink-3: #64635e;
   --ink-inverse: #ffffff;
 
-  /* Accent: one blue, used for links, the primary action and selection */
-  --accent: #1c5cab;
-  --accent-strong: #104281;
-  --accent-soft: #e6effa;
-  --focus: #2a78d6;
-  --selection: #9ec5f4;
+  /* Brand accent: a deep radar teal for links, the primary action and selection */
+  --accent: #0e6b63;
+  --accent-strong: #094c46;
+  --accent-soft: #e2f1ee;
+  --focus: #0f7d73;
+  --selection: #b9e3dc;
+  /* "Invited" moments: amber, always next to a label */
+  --invite: #b86e00;
+  --invite-ink: #8a4a00;
+  --invite-soft: #fcefd5;
+  /* Brand surfaces: the hero band, its radar rings, the logo on a dark tile */
+  --surface-hero: #eaf2ef;
+  --hero-ring: rgba(14, 107, 99, 0.13);
+  --logo-tile: #0c3b38;
+  --logo-ring: #9be5da;
+
+  /* Elevation: soft, offset, neutral */
+  --shadow-1: 0 1px 2px rgba(26, 26, 24, 0.06), 0 1px 1px rgba(26, 26, 24, 0.04);
+  --shadow-2: 0 6px 16px -4px rgba(26, 26, 24, 0.1), 0 2px 4px rgba(26, 26, 24, 0.05);
   --shadow-pop: 0 8px 24px rgba(26, 26, 24, 0.14), 0 1px 3px rgba(26, 26, 24, 0.1);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   /* Data: sequential blue ramp (dataviz reference palette) */
   --seq-1: #cde2fb;
@@ -88,8 +102,9 @@
   --s-7: 3rem;
   --s-8: 4rem;
 
-  --radius: 6px;
-  --radius-sm: 4px;
+  --radius-lg: 12px;
+  --radius: 8px;
+  --radius-sm: 5px;
   --page-max: 72rem;
   --prose-max: 42rem;
 }
@@ -107,13 +122,22 @@
     --ink: #ecebe6;
     --ink-2: #c4c2bb;
     --ink-3: #a3a19a;
-    --ink-inverse: #0d1b2e;
+    --ink-inverse: #062421;
 
-    --accent: #8ab4f0;
-    --accent-strong: #b3cff7;
-    --accent-soft: #1b2a3d;
-    --focus: #6aa6f0;
-    --selection: #2d4a72;
+    --accent: #5fd0c2;
+    --accent-strong: #9be5da;
+    --accent-soft: #12302d;
+    --focus: #6fe0d2;
+    --selection: #1f4a45;
+    --invite: #f0b44c;
+    --invite-ink: #f3c46e;
+    --invite-soft: #3a2b10;
+    --surface-hero: #10201f;
+    --hero-ring: rgba(95, 208, 194, 0.12);
+    --logo-tile: #0c3b38;
+    --logo-ring: #9be5da;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 6px 16px -4px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.3);
     --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
 
     /* Ramps run dark (fewer) to bright (more) on a dark page */

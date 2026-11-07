@@ -25,3 +25,10 @@ export function changeItems(items: Change[]): RSSFeedItem[] {
     categories: [c.kind],
   }));
 }
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/** The channel logo. RSS wants its title and link to match the channel's own. */
+export function channelImage(title: string, link: URL, image: URL): string {
+  return `<image><url>${esc(image.href)}</url><title>${esc(title)}</title><link>${esc(link.href)}</link><width>144</width><height>144</height></image>`;
+}

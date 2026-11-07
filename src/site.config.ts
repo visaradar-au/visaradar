@@ -2,8 +2,8 @@
 export const site = {
   name: 'VisaRadar',
   tagline: 'Official Australian skilled migration numbers and news, in one place.',
-  // Placeholder until hosting is decided.
-  url: 'https://visaradar.example',
+  // The GitHub Pages origin; the deploy adds the /visaradar/ base path (SITE_BASE).
+  url: 'https://visaradar-au.github.io',
   disclaimer:
     'General information, not migration advice. Talk to a registered migration agent (MARN) or lawyer about your case.',
 };

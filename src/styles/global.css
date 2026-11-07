@@ -2,7 +2,7 @@
 @import './islands.css';
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 4.5rem; scroll-padding-bottom: 4.5rem; }
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -144,9 +144,11 @@ ul.plain { list-style: none; padding: 0; margin: 0; }
 @media print {
   @page { margin: 15mm 12mm; }
   body { background: var(--surface-card); font-size: 10.5pt; }
-  .site-header nav, .skip, .controls, .next, .chart-tip, .vr-summary, .crumbs, button.term + .term-pop, .btn { display: none !important; }
+  .site-header nav, .tabbar, .skip, .controls, .next, .chart-tip, .vr-summary, .crumbs, button.term + .term-pop, .btn { display: none !important; }
   .site-header, .site-footer, .panel, .table-wrap, .position-card { background: none; border-color: var(--line-strong); box-shadow: none; }
   main { padding-block: var(--s-4); }
+  .site-header { position: static; backdrop-filter: none; }
+  body { padding-bottom: 0 !important; }
   h2 { margin-top: var(--s-5); break-after: avoid; }
   .panel, figure, table, tr, .position-card { break-inside: avoid; }
   button.term { text-decoration: none; }

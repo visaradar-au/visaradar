@@ -11,10 +11,10 @@ import geo from '../data/au-states.json';
 import { site } from '../site.config';
 import { getMapMetrics, getMeta, getSummary } from '../lib/data/eoi';
 import { getChanges, getNews, getRounds } from '../lib/data/sources';
-import { STATES, monthSeries, lastChange } from '../lib/eoi';
-import { formatCell, formatDelta, formatMonth, formatWhen } from '../lib/format';
+import { STATES, STATE_NAMES, monthSeries, lastChange, numeric } from '../lib/eoi';
+import { formatCell, formatDate, formatDelta, formatMonth, formatNumber, formatWhen } from '../lib/format';
 import { href } from '../lib/href';
-import { official } from '../lib/official';
+import { NEWS_SOURCES, official } from '../lib/official';
 
 const meta = getMeta();
 const summary = getSummary();
@@ -29,27 +29,84 @@ const changes = getChanges().slice(0, 8);
 // Latest 189 round in or before the EOI month, if we have one.
 const round189 = getRounds().find((r) => r.scope === '189' && r.date.slice(0, 7) <= meta.latestMonth) ?? null;
 const news = getNews().slice(0, 6);
+
+// Hero tiles. Every figure is read from data/ and shown with its own date and source.
+const mapMetrics = getMapMetrics();
+// The state with the most EOIs in invited status for 190. Not a "jump": last month is masked (<20) for most states.
+const topInvited190 = STATES.map((code) => ({ code, m: mapMetrics['190'][code] }))
+  .filter((s) => s.m && numeric(s.m.invited.current) !== null)
+  .sort((a, b) => (numeric(b.m.invited.current) ?? 0) - (numeric(a.m.invited.current) ?? 0))[0] ?? null;
+// Round dates mix "YYYY-MM-DD" and "YYYY-MM", so sort explicitly rather than trusting file order.
+const latestRound = [...getRounds()].sort((a, b) => b.date.localeCompare(a.date))[0] ?? null;
+const latestNews = [...getNews()].sort((a, b) => (b.published ?? b.firstSeen).localeCompare(a.published ?? a.firstSeen))[0] ?? null;
+const published = meta.lastReload ? formatDate(meta.lastReload) : '';
 ---
 <Base title={site.name}>
-  <section class="hero">
-    <h1>Australian skilled migration, by the official numbers</h1>
-    <p class="lede">
-      The SkillSelect <Term k="EOI" /> pool for every state and occupation, with dated news from Home Affairs and the states.
-      Every figure links to its source. No accounts, no ads.
-    </p>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">Australian skilled migration, by the official numbers</h1>
+      <p class="lede">
+        The SkillSelect <Term k="EOI" /> pool for every state and occupation, with dated news from Home Affairs and the states.
+        Every figure links to its source. No accounts, no ads.
+      </p>
+      {meta.latestMonth && (
+        <p class="stamp">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M8 4.5V8l2.5 1.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+          <span>EOI figures: {monthLabel} month-end snapshot{published && `, published ${published}`}</span>
+        </p>
+      )}
+    </div>
+    <ul class="tiles plain" aria-label="Headline figures">
+      <li class="tile tile-invite">
+        <h2 class="tile-label"><span class="blip" aria-hidden="true"></span>Visa 189 EOIs in invited status</h2>
+        <p class="tile-value">{formatCell(i189.current)}</p>
+        <p class="tile-context">
+          {i189.delta !== null && <><Term k="stock" label={formatDelta(i189.delta)} /> since {prevMonthLabel}. </>}
+          {l189.delta !== null && <>Lodged after invite {formatDelta(l189.delta)}.</>}
+        </p>
+        <p class="tile-meta">End of {monthLabel}. <a href={meta.sourceUrl} rel="noopener">SkillSelect</a></p>
+      </li>
+      {topInvited190 && (
+        <li class="tile">
+          <h2 class="tile-label">Visa 190: most in invited status</h2>
+          <p class="tile-value"><a href={stateHrefs[topInvited190.code]}>{topInvited190.code}</a> {formatCell(topInvited190.m.invited.current)}</p>
+          <p class="tile-context">
+            {STATE_NAMES[topInvited190.code]}.
+            {topInvited190.m.lodged.delta !== null && <> Lodged after invite {formatDelta(topInvited190.m.lodged.delta)} since {prevMonthLabel}.</>}
+          </p>
+          <p class="tile-meta">End of {monthLabel}. <a href={meta.sourceUrl} rel="noopener">SkillSelect</a></p>
+        </li>
+      )}
+      {latestRound && (
+        <li class="tile">
+          <h2 class="tile-label">Latest invitation round we have</h2>
+          <p class="tile-value">{latestRound.invitations !== null ? <>{formatNumber(latestRound.invitations)} <span class="unit">invited</span></> : <span class="unit">Count not published</span>}</p>
+          <p class="tile-context"><a href={href('/rounds/')}>{latestRound.title}</a>{!latestRound.verified && ' (not yet confirmed by an official source)'}</p>
+          <p class="tile-meta">{formatWhen(latestRound.date)}. <a href={latestRound.sourceUrl} rel="noopener">{latestRound.source}</a></p>
+        </li>
+      )}
+      {latestNews && (
+        <li class="tile">
+          <h2 class="tile-label">Latest news</h2>
+          <p class="tile-value tile-date">{latestNews.published ? formatDate(latestNews.published) : formatDate(latestNews.firstSeen)}</p>
+          <p class="tile-context"><a href={latestNews.url} rel="noopener">{latestNews.title}</a></p>
+          <p class="tile-meta">{latestNews.published ? 'Published' : 'First seen'} by {NEWS_SOURCES[latestNews.source]?.label ?? latestNews.source}. <a href={href('/news/')}>All news</a></p>
+        </li>
+      )}
+    </ul>
   </section>
 
-  <HomeProfile client:load monthLabel={monthLabel} sourceUrl={meta.sourceUrl} />
-
-  <section aria-labelledby="map-title">
+  <section aria-labelledby="map-title" class="map-hero">
     <h2 id="map-title">States and territories, {monthLabel}</h2>
     <p class="muted small">
       Visa <Term k="190" /> needs a state nomination; <Term k="491" /> is regional. One EOI can name several states, so the
       states are never added up.
     </p>
-    <StateMap client:load geo={geo} metrics={getMapMetrics()} monthLabel={monthLabel} prevMonthLabel={prevMonthLabel} stateHrefs={stateHrefs} />
+    <StateMap client:load geo={geo} metrics={mapMetrics} monthLabel={monthLabel} prevMonthLabel={prevMonthLabel} stateHrefs={stateHrefs} />
     <AsAt />
   </section>
+
+  <HomeProfile client:load monthLabel={monthLabel} sourceUrl={meta.sourceUrl} />
 
   <section aria-labelledby="n189-title">
     <h2 id="n189-title">Visa 189, national pool</h2>
@@ -110,8 +167,45 @@ const news = getNews().slice(0, 6);
 </Base>
 
 <style>
-  .hero { margin-bottom: var(--s-5); }
-  .hero h1 { max-width: 40rem; }
+  /* Full-bleed band without overflow: the border-image paints past the wrap. */
+  .hero {
+    position: relative; isolation: isolate; margin-top: calc(-1 * var(--s-5)); padding-block: var(--s-6) var(--s-5);
+    border-image: conic-gradient(var(--surface-hero) 0 0) fill 0 / 0 / 0 100vw;
+  }
+  @media (min-width: 48rem) { .hero { margin-top: calc(-1 * var(--s-6)); padding-block: var(--s-7) var(--s-6); } }
+  /* Range rings off the right edge: the radar motif, drawn once, decorative only. */
+  .hero::before {
+    content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw) 0 auto; width: min(52rem, 80vw); pointer-events: none;
+    background: repeating-radial-gradient(circle at 85% 30%, transparent 0 4.5rem, var(--hero-ring) 4.5rem calc(4.5rem + 1.5px));
+    mask-image: linear-gradient(to left, #000 30%, transparent); -webkit-mask-image: linear-gradient(to left, #000 30%, transparent);
+  }
+  .hero h1 { max-width: 40rem; font-size: clamp(1.875rem, 1.2rem + 2.6vw, 3rem); letter-spacing: -0.02em; margin-bottom: var(--s-4); }
+  .hero .lede { margin-bottom: var(--s-3); }
+  .stamp { display: inline-flex; align-items: center; gap: var(--s-2); margin: 0; padding: var(--s-1) var(--s-3); border-radius: 999px; background: var(--surface-card); border: 1px solid var(--line); font-size: var(--text-sm); color: var(--ink-2); box-shadow: var(--shadow-1); }
+  .stamp svg { color: var(--accent); flex: none; }
+
+  .tiles { display: grid; gap: var(--s-3); margin-top: var(--s-5); }
+  @media (min-width: 36rem) { .tiles { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 64rem) { .tiles { grid-template-columns: repeat(4, 1fr); gap: var(--s-4); } }
+  .tile { display: flex; flex-direction: column; gap: var(--s-1); min-width: 0; padding: var(--s-4); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-2); }
+  .tile p { margin: 0; }
+  .tile-label { display: flex; align-items: center; gap: var(--s-2); margin: 0; font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); letter-spacing: 0; }
+  .tile-value { font-size: clamp(1.625rem, 1.3rem + 1vw, 2rem); font-weight: 750; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+  .tile-value a { color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 0.12em; }
+  .tile-value a:hover { color: var(--accent-strong); }
+  .tile-value .unit { font-size: var(--text-md); font-weight: 600; color: var(--ink-2); letter-spacing: 0; }
+  .tile-date { font-family: var(--font-serif); font-weight: 600; }
+  .tile-context { font-size: var(--text-sm); color: var(--ink-2); flex: 1 1 auto; }
+  .tile-context a { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tile-meta { margin-top: var(--s-2) !important; padding-top: var(--s-2); border-top: 1px solid var(--line); font-size: var(--text-xs); color: var(--ink-3); }
+  .tile-meta a { color: var(--ink-2); }
+  .tile-invite { background: linear-gradient(180deg, var(--invite-soft), var(--surface-card) 70%); border-color: color-mix(in srgb, var(--invite) 35%, var(--line)); }
+  .blip { position: relative; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--invite); flex: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .blip::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--invite); opacity: 0; animation: vr-ping 2.8s var(--ease) 0.6s 3; }
+  }
+  @keyframes vr-ping { 0% { transform: scale(0.5); opacity: 0.8; } 100% { transform: scale(1.8); opacity: 0; } }
+  .map-hero h2 { margin-top: var(--s-6); }
   .stat-row { font-size: var(--text-md); }
   .stat-row strong { font-size: var(--text-lg); }
 </style>
