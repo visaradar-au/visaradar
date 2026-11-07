@@ -87,12 +87,19 @@ try {
   for (const [code, r] of history) await writeJson(path.join(OUT, 'history', `${code}.json`), { code, rows: r });
   await writeJson(path.join(OUT, 'summary.json'), { months: wanted.map(monthKey), rows: summary });
 
-  // 3. Occupation index for search.
-  const index = [...occs.values()].map((o) => {
-    const sub = o.rows.filter((r) => r[2] === 'SUBMITTED' && typeof r[4] === 'number').reduce((a, r) => a + r[4], 0);
-    const inv = o.rows.filter((r) => r[2] === 'INVITED' && typeof r[4] === 'number').reduce((a, r) => a + r[4], 0);
-    return { code: o.code, name: o.name, submitted: sub, invited: inv };
-  }).sort((a, b) => a.code.localeCompare(b.code));
+  // 3. Occupation index for search. Distinct EOI counts per visa straight from the engine,
+  // so an EOI naming several states is counted once. Never sum across visas or states.
+  await base(latest);
+  const ir = await app.cube(['Occupation', 'Visa Type', 'EOI Status']);
+  const idx = new Map();
+  for (const [o, v, st, c] of ir) {
+    const [code, name] = splitOcc(o);
+    if (!code) continue;
+    if (!idx.has(code)) idx.set(code, { code, name, byVisa: {} });
+    const bv = (idx.get(code).byVisa[VISAS[v]] ??= {});
+    bv[st] = count(c);
+  }
+  const index = [...idx.values()].sort((a, b) => a.code.localeCompare(b.code));
   await writeJson(path.join(OUT, 'occupations.json'), index);
 
   await writeJson(path.join(OUT, 'meta.json'), {
