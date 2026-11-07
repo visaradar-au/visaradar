@@ -1,0 +1,26 @@
+---
+// A visible RSS link with a one-line explainer, for pages that have their own feed.
+import { href } from '../lib/href';
+
+interface Props {
+  path: string;
+  /** What the feed carries, e.g. "this occupation's monthly changes". */
+  what: string;
+}
+const { path, what } = Astro.props;
+---
+<div class="feedlink">
+  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5a14 14 0 0 1 14 14 M5 11a8 8 0 0 1 8 8" /><circle cx="6" cy="18" r="1.5" fill="currentColor" stroke="none" /></svg>
+  <p>
+    <a href={href(path)}>Get updates for this by RSS</a><span class="visually-hidden"> ({what})</span>
+    <span class="why">RSS is a free, standard feed that a feed reader app checks for you. Prefer email? Paste the link into any RSS-to-email service.</span>
+  </p>
+</div>
+
+<style>
+  .feedlink { display: flex; gap: var(--s-2); align-items: flex-start; margin: var(--s-3) 0; padding: var(--s-2) var(--s-3); border-radius: var(--radius); background: var(--surface-sunk); font-size: var(--text-sm); color: var(--ink-2); }
+  .feedlink svg { flex: none; margin-top: 0.15rem; color: var(--accent); }
+  .feedlink p { margin: 0; }
+  .feedlink a { font-weight: 600; }
+  .why { display: block; font-size: var(--text-xs); color: var(--ink-3); margin-top: 2px; }
+</style>

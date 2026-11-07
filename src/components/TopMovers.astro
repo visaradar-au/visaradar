@@ -1,0 +1,52 @@
+---
+// Home teaser: the five biggest moves from /movers/.
+import AsAt from './AsAt.astro';
+import Term from './Term.astro';
+import { getMovers } from '../lib/data/movers';
+import { STATE_NAMES, isStateCode } from '../lib/eoi';
+import { formatDelta, formatMonth } from '../lib/format';
+import { href } from '../lib/href';
+import type { Move } from '../lib/movers';
+
+const { month, previous, rows } = getMovers();
+const top = rows.slice(0, 5);
+const where = (scope: string) => (scope === 'N/A' ? 'national' : isStateCode(scope) ? STATE_NAMES[scope] : scope);
+const delta = (m: Move) => (m.delta === null ? 'masked' : formatDelta(m.delta));
+---
+{top.length > 0 && (
+  <section aria-labelledby="movers-title">
+    <h2 id="movers-title">Top movers, {formatMonth(month)}</h2>
+    <p class="muted small">
+      Biggest changes since the end of {formatMonth(previous)} in EOIs in <Term k="INVITED" label="invited status" /> at month end and in EOIs lodged.
+      Not invitations issued.
+    </p>
+    <ol class="plain movers-list">
+      {top.map((r) => (
+        <li>
+          <a href={href(`/occupations/${r.code}/`)}>{r.name}</a>
+          <span class="where">Visa {r.visa}, {where(r.scope)}</span>
+          <span class="nums">Invited status <strong>{delta(r.invited)}</strong> · Lodged <strong>{delta(r.lodged)}</strong></span>
+        </li>
+      ))}
+    </ol>
+    <p class="small"><a href={href('/movers/')}>All top movers, with filters by state and visa</a></p>
+    <AsAt />
+  </section>
+)}
+
+<style>
+  .movers-list { display: grid; gap: var(--s-2); margin: var(--s-3) 0; padding: 0; counter-reset: mv; }
+  .movers-list li {
+    counter-increment: mv; display: grid; grid-template-columns: 2rem 1fr; gap: 0 var(--s-2); align-items: baseline;
+    padding: var(--s-3); background: var(--surface-card); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-1);
+  }
+  .movers-list li::before { content: counter(mv); grid-row: span 3; font-weight: 750; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .movers-list a { font-weight: 650; }
+  .where, .nums { font-size: var(--text-sm); color: var(--ink-2); }
+  .nums { font-variant-numeric: tabular-nums; }
+  .nums strong { color: var(--ink); }
+  @media (min-width: 48rem) {
+    .movers-list li { grid-template-columns: 2rem minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr); }
+    .movers-list li::before { grid-row: auto; }
+  }
+</style>

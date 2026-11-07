@@ -1,0 +1,174 @@
+---
+import Base from '../layouts/Base.astro';
+import AsAt from '../components/AsAt.astro';
+import Empty from '../components/Empty.astro';
+import Term from '../components/Term.astro';
+import { getMovers, MOVERS_PER_SCOPE } from '../lib/data/movers';
+import { STATES, STATE_NAMES, isStateCode } from '../lib/eoi';
+import { formatCell, formatDelta, formatMonth, formatNumber } from '../lib/format';
+import { href } from '../lib/href';
+import type { Move } from '../lib/movers';
+
+const { month, previous, rows, maskedSkipped } = getMovers();
+const monthLabel = formatMonth(month);
+const prevLabel = formatMonth(previous);
+const where = (scope: string) => (scope === 'N/A' ? 'National' : scope);
+const whereLong = (scope: string) => (scope === 'N/A' ? 'National' : isStateCode(scope) ? STATE_NAMES[scope] : scope);
+const SHOW = 50;
+---
+<Base title="Top movers" description={`Occupations with the biggest month-on-month changes in SkillSelect EOIs in invited status and lodged, ${monthLabel} against ${prevLabel}.`}>
+  <header class="band">
+    <h1>Top movers</h1>
+    <p class="lede">
+      The occupations whose SkillSelect <Term k="EOI" label="EOI" /> counts moved most from the end of {prevLabel} to the end of {monthLabel}:
+      EOIs in invited status at month end, and EOIs lodged. Visa 190 and 491 are per state; 189 is national.
+    </p>
+  </header>
+
+  {rows.length ? (
+    <>
+      <p class="small muted">
+        <Term k="INVITED" label="Invited" /> counts EOIs still in invited status at month end. It is not the number of invitations issued, and it
+        falls as people lodge, so read it next to lodged. Both months must be numbers to compare: {formatNumber(maskedSkipped)} comparisons were
+        left out because one month was <Term k="masked" label="masked (<20)" />. An EOI can name several states, so states are never added up.
+      </p>
+
+      <form class="controls" data-movers-controls aria-label="Filter movers">
+        <div class="field">
+          <label for="mv-visa">Visa</label>
+          <select id="mv-visa" class="select" name="visa">
+            <option value="">All (189, 190, 491)</option>
+            <option value="189">189 (national)</option>
+            <option value="190">190</option>
+            <option value="491">491</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mv-state">State</label>
+          <select id="mv-state" class="select" name="state">
+            <option value="">All states and national</option>
+            {STATES.map((s) => <option value={s}>{STATE_NAMES[s]}</option>)}
+          </select>
+        </div>
+        <div class="field">
+          <label for="mv-sort">Biggest change in</label>
+          <select id="mv-sort" class="select" name="sort">
+            <option value="either">Invited or lodged</option>
+            <option value="inv">Invited status</option>
+            <option value="lod">Lodged</option>
+          </select>
+        </div>
+      </form>
+
+      <p class="small" id="mv-count" role="status" data-movers-count>{formatNumber(rows.length)} moves.</p>
+      <div class="table-wrap">
+        <table class="movers">
+          <caption>
+            Up to {MOVERS_PER_SCOPE} biggest moves per visa and state, {monthLabel} against {prevLabel}. Numbers are EOIs, not people.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Occupation</th>
+              <th scope="col">Visa</th>
+              <th scope="col">Where</th>
+              <th scope="col" class="num">In invited status</th>
+              <th scope="col" class="num">Lodged</th>
+            </tr>
+          </thead>
+          <tbody data-movers-rows>
+            {rows.map((r, i) => (
+              <tr
+                class="rowlink"
+                data-visa={r.visa}
+                data-state={r.scope}
+                data-inv={Math.abs(r.invited.delta ?? 0)}
+                data-lod={Math.abs(r.lodged.delta ?? 0)}
+                data-i={i}
+                hidden={i >= SHOW ? true : undefined}
+              >
+                <th scope="row"><a href={href(`/occupations/${r.code}/`)}>{r.name}</a> <span class="muted">{r.code}</span></th>
+                <td>{r.visa}</td>
+                <td><abbr title={whereLong(r.scope)}>{where(r.scope)}</abbr></td>
+                {[r.invited, r.lodged].map((m: Move) => (
+                  <td class="num">
+                    {m.delta === null ? (
+                      <span class="muted">{formatCell(m.previous)} → {formatCell(m.current)}<span class="visually-hidden">, masked, not compared</span></span>
+                    ) : (
+                      <><strong>{formatDelta(m.delta)}</strong> <span class="muted">{formatCell(m.previous)} → {formatCell(m.current)}</span></>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p><button type="button" class="btn btn-quiet" data-movers-more hidden={rows.length <= SHOW ? true : undefined}>Show more</button></p>
+      <AsAt />
+    </>
+  ) : (
+    <Empty title="Not enough months yet" level={2}>
+      <p class="small">Movers compare the latest SkillSelect month with the one before. They will appear once two months are loaded.</p>
+    </Empty>
+  )}
+
+  <div class="next">
+    <p>Follow one occupation: every occupation page has its own RSS feed of these monthly changes.</p>
+    <a class="btn btn-quiet" href={href('/occupations/')}>Find an occupation</a>
+  </div>
+</Base>
+
+<script>
+  // Filters and re-sorts the server-rendered rows; shows them 50 at a time.
+  const form = document.querySelector<HTMLFormElement>('[data-movers-controls]');
+  const body = document.querySelector<HTMLElement>('[data-movers-rows]');
+  const count = document.querySelector<HTMLElement>('[data-movers-count]');
+  const more = document.querySelector<HTMLButtonElement>('[data-movers-more]');
+  if (form && body && count && more) {
+    const all = [...body.querySelectorAll<HTMLTableRowElement>('tr')];
+    const nf = new Intl.NumberFormat('en-AU');
+    let limit = 50;
+    const apply = () => {
+      const visa = (form.elements.namedItem('visa') as HTMLSelectElement).value;
+      const state = (form.elements.namedItem('state') as HTMLSelectElement).value;
+      const sort = (form.elements.namedItem('sort') as HTMLSelectElement).value;
+      const size = (tr: HTMLTableRowElement) => {
+        const i = Number(tr.dataset.inv);
+        const l = Number(tr.dataset.lod);
+        return sort === 'inv' ? i : sort === 'lod' ? l : Math.max(i, l);
+      };
+      const match = all.filter(
+        (tr) => (!visa || tr.dataset.visa === visa) && (!state || tr.dataset.state === state) && size(tr) > 0,
+      );
+      match.sort((a, b) => size(b) - size(a) || Number(a.dataset.i) - Number(b.dataset.i));
+      all.forEach((tr) => (tr.hidden = true));
+      match.forEach((tr, n) => {
+        body.append(tr);
+        tr.hidden = n >= limit;
+      });
+      const shown = Math.min(limit, match.length);
+      count.textContent = match.length
+        ? `Showing ${nf.format(shown)} of ${nf.format(match.length)} moves.`
+        : visa === '189' && state
+          ? 'Visa 189 is national, so it has no state rows. Choose "All states and national".'
+          : 'No numeric moves for this choice.';
+      more.hidden = shown >= match.length;
+    };
+    form.addEventListener('change', () => {
+      limit = 50;
+      apply();
+    });
+    form.addEventListener('submit', (e) => e.preventDefault());
+    more.addEventListener('click', () => {
+      limit += 50;
+      apply();
+    });
+    apply();
+  }
+</script>
+
+<style>
+  .controls .field { min-width: 11rem; }
+  .movers td.num strong { font-weight: 700; color: var(--ink); }
+  .movers abbr { text-decoration: none; }
+</style>

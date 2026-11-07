@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import AsAt from '../../../components/AsAt.astro';
+import FeedLink from '../../../components/FeedLink.astro';
 import Term from '../../../components/Term.astro';
 import Empty from '../../../components/Empty.astro';
 import NewsList from '../../../components/NewsList.astro';
@@ -103,7 +104,7 @@ const pills = byVisa.length ? byVisa.map(([v, s]) => ({ text: `${v}: ${statusOf(
             {src?.news ? <>Until then, read <a href={src.news} rel="noopener">{name} migration news</a>.</> : src?.site ? <>Until then, check the <a href={src.site} rel="noopener">{name} migration site</a>.</> : null}</p>
         </Empty>
       )}
-      <p class="small"><a href={href(feedPath)}>{name} news RSS</a></p>
+      <FeedLink path={feedPath} what={`${name} news and monthly SkillSelect changes`} />
     </section>
   </div>
 

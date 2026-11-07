@@ -1,0 +1,105 @@
+---
+// Header search: a button that opens the search palette (also "/" or Ctrl/Cmd+K).
+// The palette code and the index load on first open only.
+import { href } from '../lib/href';
+---
+<button type="button" class="search-trigger" data-search-open aria-haspopup="dialog" aria-keyshortcuts="/ Control+K Meta+K">
+  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+  <span class="trigger-label">Search</span>
+  <kbd aria-hidden="true">/</kbd>
+</button>
+<dialog class="palette" aria-labelledby="vr-search-title" data-search-dialog data-index={href('/search-index.json')}>
+  <div class="palette-head" role="search">
+    <h2 id="vr-search-title" class="visually-hidden">Search the site</h2>
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4.5 4.5" /></svg>
+    <label class="visually-hidden" for="vr-search-input">Search the whole site: occupations, states, visas, pages and news</label>
+    <input
+      id="vr-search-input"
+      type="text"
+      role="combobox"
+      aria-expanded="false"
+      aria-controls="vr-search-list"
+      aria-autocomplete="list"
+      aria-describedby="vr-search-status"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      enterkeyhint="go"
+      placeholder="Occupation, code, state, visa or page"
+    />
+    <button type="button" class="palette-close" data-search-close>Close<span class="visually-hidden"> search</span></button>
+  </div>
+  <p id="vr-search-status" class="palette-status" data-search-status role="status"></p>
+  <ul id="vr-search-list" class="palette-list" role="listbox" aria-label="Search results"></ul>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-search-dialog]');
+  let open: ((from?: HTMLElement | null) => void) | null = null;
+  async function show(from?: HTMLElement | null) {
+    if (!dialog) return;
+    open ??= (await import('../lib/palette')).setup(dialog);
+    open(from);
+  }
+  document.querySelectorAll<HTMLElement>('[data-search-open]').forEach((b) => b.addEventListener('click', () => show(b)));
+  document.addEventListener('keydown', (e) => {
+    if (dialog?.open) return;
+    const t = e.target as HTMLElement | null;
+    const typing = !!t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      show();
+    } else if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      show();
+    }
+  });
+</script>
+
+<style>
+  .search-trigger {
+    flex: none; display: inline-flex; align-items: center; gap: var(--s-2); min-height: 2.75rem; min-width: 2.75rem; justify-content: center;
+    padding: 0 var(--s-3); border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface-card);
+    color: var(--ink-2); font: inherit; font-size: var(--text-sm); font-weight: 600; cursor: pointer;
+  }
+  .search-trigger:hover { color: var(--ink); background: var(--surface-sunk); }
+  .search-trigger kbd { font: inherit; font-size: var(--text-xs); line-height: 1; padding: 0.15rem 0.4rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); color: var(--ink-3); }
+  /* Phones and small tablets: icon only. */
+  @media (max-width: 63.99rem) {
+    .search-trigger { padding: 0; }
+    .search-trigger kbd { display: none; }
+    .trigger-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  }
+
+  .palette {
+    width: min(40rem, calc(100vw - 2 * var(--s-3))); max-height: min(34rem, calc(100dvh - 2 * var(--s-5)));
+    margin: max(var(--s-5), 10vh) auto auto; padding: 0; border: 1px solid var(--line-strong); border-radius: var(--radius-lg);
+    background: var(--surface-card); color: var(--ink); box-shadow: var(--shadow-pop); overflow: hidden;
+  }
+  .palette[open] { display: flex; flex-direction: column; }
+  .palette::backdrop { background: rgb(0 0 0 / 0.45); }
+  .palette-head { display: flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); color: var(--ink-3); }
+  .palette-head input {
+    flex: 1 1 auto; min-width: 0; min-height: 2.75rem; border: 0; background: transparent; color: var(--ink);
+    font: inherit; font-size: var(--text-md);
+  }
+  .palette-head input:focus-visible { outline: none; }
+  .palette-head:focus-within { box-shadow: inset 0 -2px 0 var(--focus); }
+  .palette-close { flex: none; min-height: 2.75rem; padding: 0 var(--s-3); border: 1px solid var(--line-strong); border-radius: 999px; background: var(--surface-card); color: var(--ink-2); font: inherit; font-size: var(--text-sm); font-weight: 600; cursor: pointer; }
+  .palette-close:hover { color: var(--ink); background: var(--surface-sunk); }
+  .palette-status { margin: 0; padding: var(--s-2) var(--s-4) 0; font-size: var(--text-xs); color: var(--ink-3); }
+  .palette-list { list-style: none; margin: 0; padding: var(--s-2); overflow-y: auto; overscroll-behavior: contain; }
+  .palette-list :global([role='option']) {
+    display: grid; grid-template-columns: 6.5rem 1fr; gap: 0 var(--s-3); align-items: baseline;
+    padding: var(--s-2) var(--s-3); border-radius: var(--radius); cursor: pointer; min-height: 2.75rem;
+  }
+  .palette-list :global([aria-selected='true']) { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+  .palette-list :global(.kind) { grid-row: span 2; font-size: var(--text-xs); font-weight: 650; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; }
+  .palette-list :global(.label) { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+  .palette-list :global(.detail) { grid-column: 2; font-size: var(--text-sm); color: var(--ink-2); }
+  @media (max-width: 35.99rem) {
+    .palette-list :global([role='option']) { grid-template-columns: 1fr; }
+    .palette-list :global(.kind) { grid-row: auto; }
+    .palette-list :global(.detail) { grid-column: 1; }
+  }
+</style>

@@ -16,6 +16,19 @@ export function newsItems(items: NewsItem[]): RSSFeedItem[] {
   }));
 }
 
+/** Short stable hash (djb2, hex) for guids. */
+function hash(s: string): string {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(16);
+}
+
+/** A stable guid per change. Every SkillSelect change links the same dashboard, so the link can't identify it. */
+export function changeGuid(c: Change): string {
+  if (c.kind === 'eoi-month' && c.visa) return `eoi-${c.at}-${c.visa}-${c.state ?? 'national'}`;
+  return `${c.kind}-${c.at}-${hash(c.title)}`;
+}
+
 export function changeItems(items: Change[]): RSSFeedItem[] {
   return items.slice(0, 100).map((c) => ({
     title: c.title,
@@ -23,6 +36,7 @@ export function changeItems(items: Change[]): RSSFeedItem[] {
     pubDate: new Date(c.at),
     description: `${c.kind} · ${sourceLabel(c.source)}`,
     categories: [c.kind],
+    customData: `<guid isPermaLink="false">${esc(changeGuid(c))}</guid>`,
   }));
 }
 

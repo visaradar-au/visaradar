@@ -1,0 +1,36 @@
+---
+// One line saying when each source was last read, in Brisbane time.
+import { getMeta } from '../lib/data/eoi';
+import { getDatasets, getFetchState } from '../lib/data/sources';
+import { NEWS_GROUP, STATE_GROUP, formatCheck, groupFreshness, type Unreachable } from '../lib/freshness';
+import { formatDate } from '../lib/format';
+import { href } from '../lib/href';
+import { sourceLabel } from '../lib/official';
+
+const state = getFetchState();
+const meta = getMeta();
+const datasets = getDatasets();
+const news = groupFreshness(state, NEWS_GROUP);
+const states = groupFreshness(state, STATE_GROUP);
+const parts = [
+  news.checked && `news ${formatCheck(news.checked)}`,
+  states.checked && `states ${formatCheck(states.checked)}`,
+  meta.fetchedAt && `SkillSelect ${formatCheck(meta.fetchedAt)}${meta.lastReload ? ` (published ${formatDate(meta.lastReload)})` : ''}`,
+  datasets?.lastModified && `Home Affairs datasets last updated ${formatDate(datasets.lastModified)}`,
+].filter(Boolean);
+const down: Unreachable[] = [...news.unreachable, ...states.unreachable];
+const never = down.filter((d) => !d.since).map((d) => sourceLabel(d.source));
+const lapsed = down.filter((d) => d.since).map((d) => `${sourceLabel(d.source)} not reachable since ${formatCheck(d.since)}`);
+---
+{parts.length > 0 && (
+  <p class="freshness" data-testid="freshness">
+    <span>Data checked (Brisbane time): {parts.join(' · ')}.</span>
+    {lapsed.length > 0 && <span> {lapsed.join('; ')}.</span>}
+    {never.length > 0 && <span> Not reachable yet: {never.join(', ')} (<a href={href('/about/')}>why</a>).</span>}
+  </p>
+)}
+
+<style>
+  .freshness { margin: var(--s-3) 0; font-size: var(--text-xs); color: var(--ink-3); }
+  .freshness a { color: var(--ink-2); }
+</style>

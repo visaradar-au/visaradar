@@ -5,6 +5,8 @@ import { href } from '../lib/href';
 import { getMeta } from '../lib/data/eoi';
 import { formatMonth } from '../lib/format';
 import Logo from '../components/Logo.astro';
+import SiteSearch from '../components/SiteSearch.astro';
+import Freshness from '../components/Freshness.astro';
 
 interface Props {
   title: string;
@@ -81,6 +83,7 @@ const current = (p: string) => path === p || path.startsWith(p);
             ))}
           </ul>
         </nav>
+        <SiteSearch />
       </div>
     </header>
     <main id="main" class="wrap">
@@ -109,9 +112,11 @@ const current = (p: string) => path === p || path.startsWith(p);
           EOI figures: SkillSelect, as at {meta.latestMonth ? formatMonth(meta.latestMonth) : 'not yet loaded'} (month-end snapshot).
           {site.name} is independent and not a government site. No accounts, no ads, no tracking.
         </p>
+        <Freshness />
         <ul class="plain foot-links small">
           <li><a href={href('/about/')}>Sources and method</a></li>
           <li><a href={href('/datasets/')}>Home Affairs datasets</a></li>
+          <li><a href={href('/movers/')}>Top movers</a></li>
           <li><a href={href('/news.xml')}>News RSS</a></li>
           <li><a href={href('/changes.xml')}>Changes RSS</a></li>
         </ul>

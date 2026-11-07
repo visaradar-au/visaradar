@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import AsAt from '../../components/AsAt.astro';
+import FeedLink from '../../components/FeedLink.astro';
 import Term from '../../components/Term.astro';
 import OccupationExplorer from '../../islands/OccupationExplorer';
 import SetOccupation from '../../islands/SetOccupation';
@@ -28,7 +29,7 @@ const WA_SEARCH = 'https://migration.wa.gov.au/v2_occupation_search/occupation-s
 const partLabel = (p: string) => p.replace(/491F/, '491 family');
 const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
 ---
-<Base title={`${name} (${code})`} description={`SkillSelect EOIs for ${name} (ANZSCO ${code}) by points, state and visa, ${formatMonth(meta.latestMonth)}.`}>
+<Base title={`${name} (${code})`} description={`SkillSelect EOIs for ${name} (ANZSCO ${code}) by points, state and visa, ${formatMonth(meta.latestMonth)}.`} feed={{ title: `${name} (${code}) monthly changes`, path: `/occupations/${code}/feed.xml` }}>
   <header class="band">
     <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/occupations/')}>Occupations</a> / {code}</nav>
     <h1>{name}</h1>
@@ -51,6 +52,7 @@ const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
   <h2 class="visually-hidden">Pool by points and trend</h2>
   <OccupationExplorer client:visible code={code} name={name} rows={rows} history={history} months={meta.months} />
   <AsAt />
+  <FeedLink path={`/occupations/${code}/feed.xml`} what={`monthly invited and lodged changes for ${name}`} />
 
   <h2>Occupation lists</h2>
   {lists.length ? (

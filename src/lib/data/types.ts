@@ -159,6 +159,10 @@ export interface Change {
   source: string;
   title: string;
   url: string;
+  /** eoi-month changes: the state compared (upper case), or null for national 189. */
+  state?: string | null;
+  /** eoi-month changes: the visa compared. */
+  visa?: string | null;
 }
 
 export interface DatasetResource {

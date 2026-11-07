@@ -5,6 +5,7 @@ import Term from '../components/Term.astro';
 import Empty from '../components/Empty.astro';
 import ChangeList from '../components/ChangeList.astro';
 import NewsList from '../components/NewsList.astro';
+import TopMovers from '../components/TopMovers.astro';
 import StateMap from '../islands/StateMap';
 import HomeProfile from '../islands/HomeProfile';
 import geo from '../data/au-states.json';
@@ -123,6 +124,8 @@ const published = meta.lastReload ? formatDate(meta.lastReload) : '';
     )}
     <AsAt />
   </section>
+
+  <TopMovers />
 
   <div class="grid-2">
     <section aria-labelledby="changes-title">
