@@ -1,7 +1,9 @@
 /* Styles for Preact islands (rendered outside Astro's scoped styles). */
 
 /* Map */
-.vr-map fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.controls fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.occ-charts { display: grid; gap: var(--s-4); }
+@media (min-width: 64rem) { .occ-charts { grid-template-columns: 1fr 1fr; align-items: start; } }
 .vr-map-body { display: grid; gap: var(--s-4); }
 @media (min-width: 60rem) { .vr-map-body { grid-template-columns: minmax(0, 1fr) 18rem; align-items: start; } }
 .vr-map-figure { margin: 0; }
@@ -108,3 +110,6 @@
 .news-list a.title { font-weight: 600; text-decoration: none; color: var(--ink); }
 .news-list a.title:hover { color: var(--accent); text-decoration: underline; }
 .news-list .excerpt { font-size: var(--text-sm); color: var(--ink-2); margin: 0; }
+.key.split-above { background: var(--seq-6); }
+.key.split-below { background: var(--seq-2); }
+.split-legend { font-size: var(--text-xs); margin-top: var(--s-3); }

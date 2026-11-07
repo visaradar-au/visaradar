@@ -3,7 +3,7 @@ import { VISA_NAMES } from '../lib/eoi';
 import { href } from '../lib/href';
 import { PROFILE_EVENT, loadProfile, type Profile } from '../lib/profile';
 import ProfileSetup from './ProfileSetup';
-import { PositionCard, scopesForProfile, useOccupation } from './shared';
+import { PositionCard, SplitLegend, scopesForProfile, useOccupation } from './shared';
 
 /** Home page: the visitor's summary if they saved a profile, else a 3-field setup. */
 export default function HomeProfile({ monthLabel }: { monthLabel: string }) {
@@ -31,11 +31,14 @@ export default function HomeProfile({ monthLabel }: { monthLabel: string }) {
           {profile.name} ({profile.code}), {VISA_NAMES[profile.visa]}, {profile.points} points. EOIs submitted, {monthLabel}.
         </p>
         {load.state === 'ok' ? (
-          <div class="position-list">
-            {scopes.map((s) => (
-              <PositionCard key={s} rows={load.data.rows} profile={profile} scope={s} mine={s === profile.state} />
-            ))}
-          </div>
+          <>
+            <SplitLegend />
+            <div class="position-list">
+              {scopes.map((s) => (
+                <PositionCard key={s} rows={load.data.rows} profile={profile} scope={s} mine={s === profile.state} />
+              ))}
+            </div>
+          </>
         ) : load.state === 'error' ? (
           <p role="alert">Could not load the numbers for this occupation ({load.message}). Try reloading the page.</p>
         ) : (

@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import AsAt from '../../components/AsAt.astro';
+import Term from '../../components/Term.astro';
+import OccupationTable, { type OccRowLite } from '../../islands/OccupationTable';
+import { getMeta, getOccupationStats } from '../../lib/data/eoi';
+import { formatMonth } from '../../lib/format';
+import { href } from '../../lib/href';
+
+const meta = getMeta();
+const rows: OccRowLite[] = getOccupationStats().map((s) => [
+  s.code, s.name, s.pool189, s.pool190?.counted ?? 0, s.pool190?.state ?? '', s.pool491?.counted ?? 0, s.pool491?.state ?? '',
+]);
+---
+<Base title="Occupations" description={`All ${rows.length} occupations in SkillSelect with EOI pools by visa, ${formatMonth(meta.latestMonth)}.`}>
+  <h1>Occupations</h1>
+  <p class="lede">Every occupation in SkillSelect, by <Term k="ANZSCO" /> code. Open one to see its pool by points for each state and visa.</p>
+  <p class="small muted">
+    Pools count <Term k="SUBMITTED" label="submitted" /> EOIs with numeric cells only. For 190 and 491 we show the one state with
+    the most EOIs, because one EOI can name several states.
+  </p>
+  <OccupationTable client:idle rows={rows} />
+  <AsAt />
+  <div class="next">
+    <p>Save your occupation and points to see your position in each state.</p>
+    <a class="btn" href={href('/me/')}>Where I stand</a>
+  </div>
+</Base>

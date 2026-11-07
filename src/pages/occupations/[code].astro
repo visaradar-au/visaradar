@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import AsAt from '../../components/AsAt.astro';
+import Term from '../../components/Term.astro';
+import OccupationExplorer from '../../islands/OccupationExplorer';
+import SetOccupation from '../../islands/SetOccupation';
+import { getHistory, getMeta, getOccupation, getOccupationStats, getOccupations } from '../../lib/data/eoi';
+import { getOccupationLists, listsFor } from '../../lib/data/sources';
+import { STATE_NAMES, isStateCode } from '../../lib/eoi';
+import { formatDate, formatMonth, formatNumber } from '../../lib/format';
+import { href } from '../../lib/href';
+import { official } from '../../lib/official';
+
+export function getStaticPaths() {
+  return getOccupations().map((o) => ({ params: { code: o.code } }));
+}
+
+const { code } = Astro.params as { code: string };
+const meta = getMeta();
+const occ = getOccupation(code);
+const name = occ?.name ?? getOccupations().find((o) => o.code === code)?.name ?? code;
+const rows = occ?.rows ?? [];
+const history = getHistory(code).rows;
+const stat = getOccupationStats().find((s) => s.code === code);
+const lists = listsFor(code);
+const { sources: listSources, lists: allLists } = getOccupationLists();
+const knownLists = Object.keys(allLists);
+const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
+---
+<Base title={`${name} (${code})`} description={`SkillSelect EOIs for ${name} (ANZSCO ${code}) by points, state and visa, ${formatMonth(meta.latestMonth)}.`}>
+  <nav class="crumbs small" aria-label="Breadcrumb"><a href={href('/occupations/')}>Occupations</a> / {code}</nav>
+  <h1>{name}</h1>
+  <p class="lede"><Term k="ANZSCO" /> {code}. <Term k="EOI" label="EOIs" /> in SkillSelect for this occupation, {formatMonth(meta.latestMonth)}.</p>
+
+  {stat && (
+    <dl class="kv facts">
+      <dt>Visa 189 pool</dt><dd>{formatNumber(stat.pool189)} EOIs submitted (national)</dd>
+      <dt>Visa 190, largest state</dt><dd>{stat.pool190 ? `${formatNumber(stat.pool190.counted)} naming ${stateName(stat.pool190.state)}` : 'None counted'}</dd>
+      <dt>Visa 491, largest state</dt><dd>{stat.pool491 ? `${formatNumber(stat.pool491.counted)} naming ${stateName(stat.pool491.state)}` : 'None counted'}</dd>
+    </dl>
+  )}
+  <p class="small muted">Counts leave out <Term k="masked" label="masked cells (<20)" />. One EOI can name several states and visas, so these are never added together.</p>
+
+  <OccupationExplorer client:visible code={code} name={name} rows={rows} history={history} months={meta.months} />
+  <AsAt />
+
+  <h2>Occupation lists</h2>
+  {knownLists.length ? (
+    lists.length ? (
+      <ul>
+        {lists.map((l) => (
+          <li>{l}{listSources[l] && <> (<a href={listSources[l].url} rel="noopener">official list</a>, as at {formatDate(listSources[l].asAt)})</>}</li>
+        ))}
+      </ul>
+    ) : (
+      <p>Not on any list we track ({knownLists.join(', ')}). Check the official lists before relying on this.</p>
+    )
+  ) : (
+    <div class="empty" role="status">
+      <h3>List data is on its way</h3>
+      <p class="small">We will show which national and state lists include {code}, each linked to the official list. Until then, check
+        the <a href={official.occupationInstruments} rel="noopener">Home Affairs legislative instruments</a> that set the national lists
+        and your <a href={href('/states/')}>state's occupation list</a>.</p>
+    </div>
+  )}
+
+  <SetOccupation client:idle code={code} name={name} />
+</Base>
+
+<style>
+  .crumbs { margin-bottom: var(--s-3); color: var(--ink-3); }
+  .facts { margin-bottom: var(--s-3); font-size: var(--text-md); }
+</style>
