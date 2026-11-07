@@ -8,7 +8,7 @@
 @media (min-width: 60rem) { .vr-map-body { grid-template-columns: minmax(0, 1fr) 18rem; align-items: start; } }
 .vr-map-figure { margin: 0; }
 .vr-map svg { display: block; width: 100%; height: auto; touch-action: manipulation; }
-.vr-state path { stroke: var(--surface-card); stroke-width: 1.25; stroke-linejoin: round; transition: opacity 120ms ease; }
+.vr-state path { stroke: var(--map-stroke); stroke-width: 1.25; stroke-linejoin: round; transition: opacity 120ms ease; }
 .vr-state:hover path, .vr-state.is-active path { stroke: var(--ink); stroke-width: 2; }
 .vr-state:focus { outline: none; }
 .vr-state:focus-visible path { stroke: var(--focus); stroke-width: 3; }
@@ -16,10 +16,11 @@
 .vr-inset text { text-anchor: start; }
 .vr-state text .abbr { font-weight: 700; }
 .vr-state text .val { font-size: 12px; font-variant-numeric: tabular-nums; }
-.vr-state text.on-dark { fill: #ffffff; }
-.vr-inset rect { stroke: var(--surface-card); stroke-width: 1.25; }
+.vr-inset rect { stroke: var(--map-stroke); stroke-width: 1.25; }
 .vr-inset:hover rect, .vr-inset.is-active rect { stroke: var(--ink); stroke-width: 2; }
 .vr-inset .leader { stroke: var(--ink-3); stroke-width: 1; }
+/* The ACT outline is a sliver at map scale, so its focus ring shows on the inset too. */
+.vr-map svg:has(a[data-state="ACT"]:focus-visible) .vr-inset rect { stroke: var(--focus); stroke-width: 3; }
 @media (max-width: 40rem) { .vr-state text { font-size: 24px; } .vr-state text .val { display: none; }  }
 
 .vr-legend { display: grid; gap: var(--s-1); margin-top: var(--s-3); font-size: var(--text-sm); color: var(--ink-2); max-width: 26rem; }
@@ -50,6 +51,7 @@
 .chart .bar.you { fill: var(--series-2); }
 .chart .bar-masked { fill: url(#vr-chart-hatch); stroke: var(--masked); stroke-width: 1; }
 .chart .hit { fill: transparent; cursor: default; }
+.chart .hit.is-hover { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 2; }
 .chart .hit:hover + .hover-outline, .chart .hit:focus + .hover-outline { opacity: 1; }
 .chart .marker-you { stroke: var(--series-2); stroke-width: 2; stroke-dasharray: 3 3; }
 .chart .line-1 { stroke: var(--series-1); stroke-width: 2; fill: none; }
@@ -59,6 +61,9 @@
 .chart .dot-masked { fill: var(--surface-card); stroke-width: 1.5; }
 .chart .masked-band { fill: var(--surface-sunk); }
 .chart .crosshair { stroke: var(--ink-3); stroke-width: 1; }
+/* Keyboard: the chart wrapper takes focus and arrow keys step through bars or months. */
+.chart-focus { border-radius: var(--radius-sm); }
+.chart-focus:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
 .chart-tip { font-size: var(--text-sm); min-height: 1.6em; color: var(--ink-2); margin: var(--s-2) 0 0; }
 .chart-tip strong { color: var(--ink); }
 .chart-legend { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); font-size: var(--text-sm); color: var(--ink-2); margin: 0 0 var(--s-2); padding: 0; list-style: none; }

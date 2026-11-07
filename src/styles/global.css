@@ -13,7 +13,7 @@ body {
   font-variant-numeric: tabular-nums;
   text-rendering: optimizeLegibility;
 }
-::selection { background: var(--seq-2); color: var(--ink); }
+::selection { background: var(--selection); color: var(--ink); }
 
 h1, h2, h3 { line-height: 1.2; margin: 0 0 var(--s-3); text-wrap: balance; }
 h1 { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-2xl); letter-spacing: -0.01em; }
@@ -108,7 +108,7 @@ button.term:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px
   position: fixed; inset: auto var(--s-4) var(--s-4) var(--s-4); margin: 0 auto; max-width: 30rem;
   padding: var(--s-3) var(--s-4); border: 1px solid var(--line-strong); border-radius: var(--radius);
   background: var(--surface-card); color: var(--ink-2); font-size: var(--text-sm); line-height: 1.5; font-weight: 400;
-  box-shadow: 0 8px 24px rgba(26, 26, 24, 0.14), 0 1px 3px rgba(26, 26, 24, 0.1);
+  box-shadow: var(--shadow-pop);
 }
 .term-pop strong { color: var(--ink); margin-right: 0.25em; }
 
@@ -139,3 +139,27 @@ ul.plain { list-style: none; padding: 0; margin: 0; }
 .input[aria-invalid="true"] { border-color: var(--critical); }
 .check { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 2.75rem; font-size: var(--text-sm); cursor: pointer; }
 .check input { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); }
+
+/* Print: the figures and their table alternatives, without navigation or controls. Dark tokens are screen-only. */
+@media print {
+  @page { margin: 15mm 12mm; }
+  body { background: var(--surface-card); font-size: 10.5pt; }
+  .site-header nav, .skip, .controls, .next, .chart-tip, .vr-summary, .crumbs, button.term + .term-pop, .btn { display: none !important; }
+  .site-header, .site-footer, .panel, .table-wrap, .position-card { background: none; border-color: var(--line-strong); box-shadow: none; }
+  main { padding-block: var(--s-4); }
+  h2 { margin-top: var(--s-5); break-after: avoid; }
+  .panel, figure, table, tr, .position-card { break-inside: avoid; }
+  button.term { text-decoration: none; }
+  /* Charts and the map keep their colours. */
+  .chart, .vr-map svg, .legend-scale, .key, .badge, .bar-split { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .vr-map-figure svg { max-width: 34rem; }
+  .vr-map-body, .occ-charts, .grid-2 { display: block; }
+  .occ-charts > * + *, .grid-2 > * + * { margin-top: var(--s-4); }
+  /* Table alternatives print open, without the toggle. A beforeprint script opens them where ::details-content is unsupported. */
+  details.vr-table::details-content { content-visibility: visible; display: block; }
+  details.vr-table > summary { display: none; }
+  .table-wrap { overflow: visible; }
+  th, td { padding: 0.15rem var(--s-2); }
+  /* Source links show where they go. */
+  .asat a[href^="http"]::after { content: " (" attr(href) ")"; word-break: break-all; }
+}

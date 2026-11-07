@@ -29,8 +29,9 @@ const METRICS: { id: Metric; label: string; legend: string }[] = [
 
 const SEQ = ['var(--seq-1)', 'var(--seq-2)', 'var(--seq-3)', 'var(--seq-4)', 'var(--seq-5)', 'var(--seq-6)'];
 const DIV = ['var(--div-neg-2)', 'var(--div-neg-1)', 'var(--div-mid)', 'var(--div-pos-1)', 'var(--div-pos-2)'];
-// Fills dark enough for white labels at 4.5:1 or better.
-const DARK = new Set([SEQ[4], SEQ[5], DIV[0], DIV[4]]);
+const HATCH = 'url(#vr-hatch)';
+/** Each fill token has a matching label token (`--seq-3` -> `--seq-3-ink`) that keeps 4.5:1 in both themes. */
+const inkFor = (fill: string) => (fill === HATCH ? 'var(--hatch-ink)' : fill.replace(')', '-ink)'));
 
 const PAD_RIGHT = 110; // room for the ACT callout
 
@@ -87,12 +88,24 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
 
   function fill(code: string): string {
     const v = valueOf(data[code], metric);
-    if (v === null || isMasked(v)) return 'url(#vr-hatch)';
+    if (v === null || isMasked(v)) return HATCH;
     return fillFor(v);
   }
 
+  // Starts with the visible label ("NSW 1,234") so voice control users can say what they see.
   function ariaLabel(s: GeoState): string {
-    return `${s.name}: ${cellText(s.code)} ${metricInfo.label.toLowerCase()}, visa ${visa}. Open state page.`;
+    return `${s.code} ${cellText(s.code)}, ${s.name}: ${metricInfo.label.toLowerCase()}, visa ${visa}. Open state page.`;
+  }
+
+  // Arrow keys move between states; Tab still visits each one in turn.
+  function onKeyDown(e: KeyboardEvent) {
+    const step = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+    const svg = e.currentTarget as SVGSVGElement;
+    const links = [...svg.querySelectorAll<SVGAElement>('a[data-state]')];
+    const i = links.indexOf(document.activeElement as SVGAElement);
+    if (!step || i < 0) return;
+    e.preventDefault();
+    links[(i + step + links.length) % links.length].focus();
   }
 
   function onClick(e: MouseEvent, code: string) {
@@ -139,6 +152,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
             role="group"
             aria-label={`Map of Australia's states and territories coloured by ${metricInfo.label.toLowerCase()}, visa ${visa}, ${monthLabel}`}
             onPointerDown={(e) => (pointerType.current = (e as PointerEvent).pointerType)}
+            onKeyDown={onKeyDown}
           >
             <defs>
               <pattern id="vr-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -159,8 +173,8 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
               >
                 <path d={s.d} fill={fill(s.code)} />
                 {s.code !== 'ACT' && (
-                  <text x={labelX(s)} y={s.centroid[1]} class={DARK.has(fill(s.code)) ? 'on-dark' : ''} aria-hidden="true">
-                    <tspan x={labelX(s)} class="abbr">{s.code}</tspan>
+                  <text x={labelX(s)} y={s.centroid[1]} style={{ fill: inkFor(fill(s.code)) }} aria-hidden="true">
+                    <tspan x={labelX(s)} class="abbr">{s.code}</tspan>{' '}
                     <tspan x={labelX(s)} dy="1.2em" class="val">{cellText(s.code)}</tspan>
                   </text>
                 )}
@@ -177,8 +191,8 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
               >
                 <line x1={act.centroid[0] + 3} y1={act.centroid[1]} x2={geo.width + 6} y2={act.centroid[1] + 30} class="leader" />
                 <rect x={geo.width + 6} y={act.centroid[1] + 4} width={PAD_RIGHT - 10} height="56" rx="4" fill={fill('ACT')} />
-                <text x={geo.width + 14} y={act.centroid[1] + 26} class={DARK.has(fill('ACT')) ? 'on-dark' : ''}>
-                  <tspan class="abbr">ACT</tspan>
+                <text x={geo.width + 14} y={act.centroid[1] + 26} style={{ fill: inkFor(fill('ACT')) }}>
+                  <tspan class="abbr">ACT</tspan>{' '}
                   <tspan x={geo.width + 14} dy="1.2em" class="val">{cellText('ACT')}</tspan>
                 </text>
               </a>
@@ -227,7 +241,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
             <div>
               <h3>Pick a state</h3>
               <p class="small muted">
-                Hover, tap or tab to a state to see its numbers for {monthLabel}. Tap again, or use the link, to open its page.
+                Hover, tap or tab to a state (arrow keys move between states) to see its numbers for {monthLabel}. Tap again, or use the link, to open its page.
               </p>
               {data.ANY && (
                 <p class="small">

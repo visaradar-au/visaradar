@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import type { Cell } from '../../lib/eoi';
 import { isMasked } from '../../lib/eoi';
 import { formatCell, formatMonthShort } from '../../lib/format';
-import { compact, ticks, useWidth } from './scale';
+import { compact, stepKey, ticks, useWidth } from './scale';
 
 export interface Series {
   label: string;
@@ -50,6 +50,13 @@ export default function TrendChart({ months, series, label }: Props) {
     return d;
   });
 
+  function onKeyDown(e: KeyboardEvent) {
+    const i = stepKey(e.key, hover, months.length);
+    if (i === undefined) return;
+    e.preventDefault();
+    setHover(i);
+  }
+
   return (
     <div ref={ref}>
       <ul class="chart-legend">
@@ -64,6 +71,14 @@ export default function TrendChart({ months, series, label }: Props) {
           </li>
         )}
       </ul>
+      <div
+        class="chart-focus"
+        tabIndex={0}
+        role="group"
+        aria-label={`${label}. Use the arrow keys to read each month.`}
+        onKeyDown={onKeyDown}
+        onBlur={() => setHover(null)}
+      >
       <svg class="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
         {anyMasked && <rect class="masked-band" x={M.left} width={iw} y={bandTop} height={y(0) - bandTop} />}
         {yTicks.map((t) => (
@@ -108,6 +123,7 @@ export default function TrendChart({ months, series, label }: Props) {
           />
         ))}
       </svg>
+      </div>
       <p class="chart-tip" aria-live="polite">
         {hover !== null ? (
           <>
@@ -115,7 +131,7 @@ export default function TrendChart({ months, series, label }: Props) {
             {series.map((s) => `${s.label} ${formatCell(s.values[hover])}`).join(' · ')}
           </>
         ) : (
-          <span class="muted">Hover or tap a month for its numbers.</span>
+          <span class="muted">Hover or tap a month, or focus the chart and use the arrow keys, for its numbers.</span>
         )}
       </p>
     </div>

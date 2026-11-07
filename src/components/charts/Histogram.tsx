@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import type { PoolCell } from '../../lib/eoi';
 import { isMasked } from '../../lib/eoi';
 import { formatCell } from '../../lib/format';
-import { compact, ticks, useWidth } from './scale';
+import { compact, stepKey, ticks, useWidth } from './scale';
 
 interface Props {
   axis: number[];
@@ -32,8 +32,23 @@ export default function Histogram({ axis, pool, you, label }: Props) {
   const labelEvery = Math.max(1, Math.ceil((axis.length * 28) / iw));
   const hovered = hover === null ? null : { score: hover, count: byScore.get(hover) ?? 0 };
 
+  function onKeyDown(e: KeyboardEvent) {
+    const i = stepKey(e.key, hover === null ? null : axis.indexOf(hover), axis.length);
+    if (i === undefined) return;
+    e.preventDefault();
+    setHover(i === null ? null : axis[i]);
+  }
+
   return (
     <div ref={ref}>
+      <div
+        class="chart-focus"
+        tabIndex={0}
+        role="group"
+        aria-label={`${label}. Use the arrow keys to read each score.`}
+        onKeyDown={onKeyDown}
+        onBlur={() => setHover(null)}
+      >
       <svg class="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label}>
         <defs>
           <pattern id="vr-chart-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -70,7 +85,7 @@ export default function Histogram({ axis, pool, you, label }: Props) {
                 </text>
               )}
               <rect
-                class="hit"
+                class={`hit${hover === score ? ' is-hover' : ''}`}
                 x={M.left + i * band}
                 y={M.top}
                 width={band}
@@ -87,6 +102,7 @@ export default function Histogram({ axis, pool, you, label }: Props) {
           Points score
         </text>
       </svg>
+      </div>
       <p class="chart-tip" aria-live="polite">
         {hovered ? (
           <>
@@ -94,7 +110,7 @@ export default function Histogram({ axis, pool, you, label }: Props) {
             {isMasked(hovered.count) && ' (masked, fewer than 20)'}
           </>
         ) : (
-          <span class="muted">Hover or tap a bar for its count.</span>
+          <span class="muted">Hover or tap a bar, or focus the chart and use the arrow keys, for its count.</span>
         )}
       </p>
     </div>

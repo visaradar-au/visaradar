@@ -18,6 +18,17 @@ export function compact(n: number): string {
   return String(n);
 }
 
+/** Arrow keys, Home and End step through `count` items; Escape clears. Returns the new index, or undefined if the key is not ours. */
+export function stepKey(key: string, current: number | null, count: number): number | null | undefined {
+  if (!count) return undefined;
+  if (key === 'ArrowRight' || key === 'ArrowDown') return current === null ? 0 : Math.min(count - 1, current + 1);
+  if (key === 'ArrowLeft' || key === 'ArrowUp') return current === null ? count - 1 : Math.max(0, current - 1);
+  if (key === 'Home') return 0;
+  if (key === 'End') return count - 1;
+  if (key === 'Escape') return null;
+  return undefined;
+}
+
 /** Track a container's width so charts draw at 1 unit = 1 CSS pixel and text stays readable. */
 export function useWidth(initial = 640) {
   const ref = useRef<HTMLDivElement>(null);
