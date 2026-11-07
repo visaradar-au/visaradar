@@ -2,7 +2,9 @@ name: Update data and deploy
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # news + state pages (polite: ETag, sitemaps, crawl delays)
+    - cron: '*/30 * * * *'   # news (polite: ETag, sitemaps, crawl delays)
+    - cron: '7 * * * *'      # state program pages, rounds, lists (~70 s of crawl delays)
+    - cron: '23 */6 * * *'   # SkillSelect reload check (pulls only when the dashboard reloads)
   workflow_dispatch:
   push:
     branches: [main]
@@ -27,10 +29,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: News and state pages
-        run: npm run pipeline:news && npm run pipeline:states
+      # One source group per scheduled run, so crawl delays are never squeezed together.
+      - name: News
+        if: github.event.schedule == '*/30 * * * *' || github.event_name != 'schedule'
+        run: npm run pipeline:news
         continue-on-error: true
-      - name: SkillSelect EOI data (pulls only when the dashboard reloads)
+      - name: State programs, rounds, occupation lists
+        if: github.event.schedule == '7 * * * *' || github.event_name == 'workflow_dispatch'
+        run: npm run pipeline:states
+        continue-on-error: true
+      - name: SkillSelect EOI data
+        if: github.event.schedule == '23 */6 * * *' || github.event_name == 'workflow_dispatch'
         run: node pipeline/skillselect.mjs
         continue-on-error: true
       - name: Commit data changes
