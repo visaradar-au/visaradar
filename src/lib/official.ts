@@ -9,7 +9,7 @@ export const official = {
   planningLevels: 'https://immi.homeaffairs.gov.au/what-we-do/migration-program-planning-levels',
   homeAffairsNews: 'https://immi.homeaffairs.gov.au/news-media/archive',
   homeAffairsCopyright: 'https://www.homeaffairs.gov.au/access-and-accountability/using-our-website/copyright-and-disclaimer',
-  marn: 'https://www.mara.gov.au/',
+  marn: 'https://portal.mara.gov.au/search-the-register-of-migration-agents/',
   abs: 'https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-4-july-2026-june-2031/access-and-downloads/digital-boundary-files',
   ccBy: 'https://creativecommons.org/licenses/by/4.0/',
 };

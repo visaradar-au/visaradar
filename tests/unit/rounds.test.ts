@@ -24,3 +24,20 @@ describe('round helpers', () => {
     expect(formatWhen(null)).toBe('');
   });
 });
+
+import { excerptToShow } from '../../src/lib/news';
+
+describe('excerptToShow', () => {
+  it('hides an excerpt that repeats the title', () => {
+    expect(excerptToShow('Program open', 'Program open')).toBeNull();
+    expect(excerptToShow('Program open', 'Program open for 2026-27 applicants.')).toBeNull();
+    expect(excerptToShow('Program open for…', 'Program open')).toBeNull();
+  });
+  it('keeps a continuation or a different summary', () => {
+    expect(excerptToShow('The ACT portal is now open…', '…for RCB support.')).toBe('…for RCB support.');
+    expect(excerptToShow('Round results', 'The ACT invited 261 people.')).toBe('The ACT invited 261 people.');
+  });
+  it('handles a missing excerpt', () => {
+    expect(excerptToShow('Title', null)).toBeNull();
+  });
+});

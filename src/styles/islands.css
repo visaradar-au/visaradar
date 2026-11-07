@@ -81,7 +81,7 @@
 
 /* Profile / position */
 .profile-form { display: grid; gap: var(--s-4); }
-@media (min-width: 48rem) { .profile-form { grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); align-items: start; } .profile-form .field:first-child { grid-column: span 2; } .profile-form .actions { grid-column: 1 / -1; } }
+@media (min-width: 48rem) { .profile-form { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); align-items: start; } .profile-form .field:first-child { grid-column: span 2; } .profile-form .actions { grid-column: 1 / -1; } }
 .profile-form .actions { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
 .profile-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .position-list { display: grid; gap: var(--s-3); }
@@ -114,3 +114,8 @@
 .key.split-below { background: var(--seq-2); }
 .split-legend { font-size: var(--text-xs); margin-top: var(--s-3); }
 .vr-map-figure svg { max-width: 46rem; }
+.legend-note { color: var(--ink-2); font-size: var(--text-xs); margin-top: var(--s-1); }
+/* Returning visitors: hide the setup form until the island renders their summary. */
+.home-wait { display: none; min-height: 16rem; }
+.has-profile .home-wait { display: block; }
+.has-profile .home-setup { display: none; }

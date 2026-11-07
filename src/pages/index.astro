@@ -10,9 +10,9 @@ import HomeProfile from '../islands/HomeProfile';
 import geo from '../data/au-states.json';
 import { site } from '../site.config';
 import { getMapMetrics, getMeta, getSummary } from '../lib/data/eoi';
-import { getChanges, getNews } from '../lib/data/sources';
+import { getChanges, getNews, getRounds } from '../lib/data/sources';
 import { STATES, monthSeries, lastChange } from '../lib/eoi';
-import { formatCell, formatDelta, formatMonth } from '../lib/format';
+import { formatCell, formatDelta, formatMonth, formatWhen } from '../lib/format';
 import { href } from '../lib/href';
 import { official } from '../lib/official';
 
@@ -26,6 +26,8 @@ const s189 = lastChange(monthSeries(summary.rows, months, '189', 'N/A', 'SUBMITT
 const i189 = lastChange(monthSeries(summary.rows, months, '189', 'N/A', 'INVITED'));
 const l189 = lastChange(monthSeries(summary.rows, months, '189', 'N/A', 'LODGED'));
 const changes = getChanges().slice(0, 8);
+// Latest 189 round in or before the EOI month, if we have one.
+const round189 = getRounds().find((r) => r.scope === '189' && r.date.slice(0, 7) <= meta.latestMonth) ?? null;
 const news = getNews().slice(0, 6);
 ---
 <Base title={site.name}>
@@ -53,10 +55,15 @@ const news = getNews().slice(0, 6);
     <h2 id="n189-title">Visa 189, national pool</h2>
     <p class="muted small">Visa <Term k="189" /> has no state, so it is not on the map.</p>
     <dl class="kv stat-row">
-      <dt>EOIs submitted</dt><dd><strong>{formatCell(s189.current)}</strong> {s189.delta !== null && <span class="muted">{formatDelta(s189.delta)} since {prevMonthLabel}</span>}</dd>
-      <dt>In <Term k="INVITED" label="invited status" /></dt><dd><strong>{formatCell(i189.current)}</strong> {i189.delta !== null && <span class="muted">{formatDelta(i189.delta)}</span>}</dd>
-      <dt>Lodged after invite</dt><dd><strong>{formatCell(l189.current)}</strong> {l189.delta !== null && <span class="muted">{formatDelta(l189.delta)}</span>}</dd>
+      <dt>EOIs submitted</dt><dd><strong>{formatCell(s189.current)}</strong> {s189.delta !== null && <span class="muted"><Term k="stock" label={formatDelta(s189.delta)} /> since {prevMonthLabel}</span>}</dd>
+      <dt>In <Term k="INVITED" label="invited status" /></dt><dd><strong>{formatCell(i189.current)}</strong> {i189.delta !== null && <span class="muted"><Term k="stock" label={formatDelta(i189.delta)} /></span>}</dd>
+      <dt>Lodged after invite</dt><dd><strong>{formatCell(l189.current)}</strong> {l189.delta !== null && <span class="muted"><Term k="stock" label={formatDelta(l189.delta)} /></span>}</dd>
     </dl>
+    {round189 ? (
+      <p class="small">Latest 189 round: <a href={round189.sourceUrl} rel="noopener">{round189.title}</a> ({formatWhen(round189.date)}).</p>
+    ) : (
+      <p class="small muted">We don't have the 189 round results yet. Home Affairs publishes them on its <a href={official.invitationRounds} rel="noopener">invitation rounds page</a>.</p>
+    )}
     <AsAt />
   </section>
 

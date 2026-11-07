@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import type { NewsItem } from '../lib/data/types';
 import { formatDate } from '../lib/format';
+import { excerptToShow } from '../lib/news';
 
 interface Props {
   items: NewsItem[];
@@ -52,7 +53,7 @@ export default function NewsFeed({ items, sources, tags }: Props) {
                 {(n.tags ?? []).map((t) => <span key={t}>{tags[t] ?? t}</span>)}
               </span>
               <a class="title" href={n.url} rel="noopener">{n.title}</a>
-              {n.excerpt && <p class="excerpt">{n.excerpt}</p>}
+              {excerptToShow(n.title, n.excerpt) && <p class="excerpt">{excerptToShow(n.title, n.excerpt)}</p>}
             </li>
           ))}
         </ul>

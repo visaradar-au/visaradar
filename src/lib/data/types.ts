@@ -11,11 +11,13 @@ export interface EoiMeta {
   notes: string[];
 }
 
+export type StatusCounts = Partial<Record<'SUBMITTED' | 'INVITED' | 'LODGED' | 'HOLD', number | '<20'>>;
+
 export interface OccupationSummary {
   code: string;
   name: string;
-  submitted: number;
-  invited: number;
+  /** Distinct EOIs per visa (an EOI naming several states counts once). A missing status means none. */
+  byVisa?: Partial<Record<'189' | '190' | '491' | '491F', StatusCounts>>;
 }
 
 export interface OccupationDetail {
@@ -123,9 +125,23 @@ export interface Round {
   notes?: string | null;
 }
 
+export interface ListSource {
+  url: string;
+  page?: string;
+  parts?: Record<string, string>;
+  asAt?: string | null;
+  checked?: string | null;
+  /** "unit-group" when the list holds 4-digit ANZSCO unit groups. */
+  level?: string;
+  note?: string;
+  instrument?: string;
+}
+
 export interface OccupationLists {
   lists: Record<string, string[]>;
-  sources: Record<string, { url: string; asAt: string }>;
+  /** Per list, codes split by part (e.g. QLD onshore/offshore) and visa, or by visa only. */
+  byVisa?: Record<string, Record<string, string[] | Record<string, string[]>>>;
+  sources: Record<string, ListSource>;
 }
 
 export interface Change {

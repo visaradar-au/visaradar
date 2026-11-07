@@ -41,12 +41,11 @@ function valueOf(m: StateMetric | undefined, metric: Metric): number | '<20' | n
   return m.submitted.delta;
 }
 
-/** Round up to a tidy number for legend ends. */
-function nice(n: number): number {
-  if (n <= 0) return 1;
-  const p = 10 ** Math.floor(Math.log10(n));
-  const f = n / p;
-  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p;
+/** Round to 2 significant figures for legend ticks, e.g. 96,332 -> 96,000. */
+function tick(n: number): number {
+  if (n === 0) return 0;
+  const p = 10 ** Math.max(0, Math.floor(Math.log10(Math.abs(n))) - 1);
+  return Math.round(n / p) * p;
 }
 
 export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, stateHrefs }: Props) {
@@ -59,7 +58,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
   const { scaleMax, fillFor } = useMemo(() => {
     const values = geo.states.map((s) => numeric(valueOf(data[s.code], metric))).filter((v): v is number => v !== null);
     if (metric === 'change') {
-      const max = nice(Math.max(1, ...values.map(Math.abs)));
+      const max = Math.max(1, ...values.map(Math.abs));
       return {
         scaleMax: max,
         fillFor: (v: number) => {
@@ -68,7 +67,7 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
         },
       };
     }
-    const max = nice(Math.max(1, ...values));
+    const max = Math.max(1, ...values);
     return {
       scaleMax: max,
       fillFor: (v: number) => SEQ[Math.min(SEQ.length - 1, Math.floor((v / max) * SEQ.length))],
@@ -195,17 +194,19 @@ export default function StateMap({ geo, metrics, monthLabel, prevMonthLabel, sta
             <span class="legend-ends">
               {metric === 'change' ? (
                 <>
-                  <span>{formatDelta(-scaleMax)} fewer</span>
+                  <span>{formatDelta(-tick(scaleMax))} fewer</span>
                   <span>no change</span>
-                  <span>{formatDelta(scaleMax)} more</span>
+                  <span>{formatDelta(tick(scaleMax))} more</span>
                 </>
               ) : (
                 <>
                   <span>0</span>
+                  <span>{formatNumber(tick(scaleMax / 2))}</span>
                   <span>{formatNumber(scaleMax)}</span>
                 </>
               )}
             </span>
+            <span class="legend-note">EOIs that list this state. Many people list several states, so the states overlap.</span>
             <span class="legend-masked">
               <span class="swatch-hatch" aria-hidden="true" /> {metric === 'change' ? 'Not comparable (a month is <20)' : '<20 (masked by the department)'}
             </span>

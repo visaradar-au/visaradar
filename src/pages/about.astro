@@ -6,8 +6,17 @@ import { getMeta } from '../lib/data/eoi';
 import { formatDate, formatMonth } from '../lib/format';
 import { href } from '../lib/href';
 import { official, NEWS_SOURCES } from '../lib/official';
+import { getFetchState, getRounds, getStates } from '../lib/data/sources';
 
 const meta = getMeta();
+const fetchState = getFetchState();
+const blocked = Object.entries(fetchState)
+  .filter(([, s]) => s.lastError && (!s.lastOk || (s.lastErrorAt ?? '') > s.lastOk))
+  .map(([k, s]) => ({ label: NEWS_SOURCES[k]?.label ?? k, status: s.lastStatus, at: s.lastErrorAt ?? null, url: s.url }));
+const rounds = getRounds();
+const has189 = rounds.some((r) => r.scope === '189' || r.scope === '491F');
+const allocations = getStates().filter((s) => s.allocations?.['190'] != null || s.allocations?.['491'] != null);
+const checked = getStates().filter((s) => s.lastVerified);
 ---
 <Base title="Sources and method" description={`Where ${site.name}'s numbers come from, how we handle masked cells, and our disclaimer.`}>
   <h1>Sources and method</h1>
@@ -60,6 +69,22 @@ const meta = getMeta();
     <li><strong>No totals across states.</strong> One EOI can name several states and more than one visa, so adding states or visas together would count the same EOI more than once. We show one state and one visa at a time.</li>
     <li><strong>"Any state".</strong> EOIs that said they would accept any state are shown as their own row, not added to any state.</li>
     <li><strong>Month-end snapshots.</strong> Each month's figures describe the last day of that month. We label them with the month, not a made-up day, and never call them live.</li>
+  </ul>
+
+  <h2>Known gaps</h2>
+  <ul>
+    <li>
+      <strong>Sources that block automated reading.</strong>
+      {blocked.length ? (
+        <> At our last check these refused our requests, so their news is missing here: {blocked.map((b, i) => <>{i > 0 && ', '}<a href={b.url} rel="noopener">{b.label}</a>{b.status && ` (HTTP ${b.status}`}{b.at && `${b.status ? ', ' : ' ('}${formatDate(b.at)}`}{(b.status || b.at) && ')'}</>)}. Read them directly.</>
+      ) : (
+        <> None at our last check.</>
+      )}
+    </li>
+    {!has189 && <li><strong>Visa 189 and 491 family rounds.</strong> Not collected yet, because the Home Affairs site blocks us. See the official <a href={official.invitationRounds} rel="noopener">invitation rounds page</a>.</li>}
+    {allocations.length === 0 && <li><strong>2026-27 state allocations.</strong> Not yet published officially. Figures from third parties are only shown as labelled notes. See <a href={official.allocations} rel="noopener">state and territory allocations</a>.</li>}
+    <li><strong>Hand-checked program status.</strong> Some states don't publish a machine-readable status, so we check their pages by hand. Each state page shows the date it was checked{checked.length ? ` (${checked.map((s) => s.code).join(', ')} so far)` : ''}.</li>
+    <li><strong>WA occupation list.</strong> Not stored, as Migration WA's terms don't allow reuse. Occupation pages link to WA's own search.</li>
   </ul>
 
   <h2>Method</h2>

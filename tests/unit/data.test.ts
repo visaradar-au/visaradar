@@ -15,7 +15,9 @@ describe('data layer against committed data', () => {
   });
   it('occupation stats pick one state, never a cross-state sum', () => {
     const se = getOccupationStats().find((o) => o.code === '261313');
-    expect(se?.pool190?.state).toMatch(/^(ACT|NSW|NT|QLD|SA|TAS|VIC|WA)$/);
+    expect(se?.top190?.state).toMatch(/^(ACT|NSW|NT|QLD|SA|TAS|VIC|WA)$/);
+    // Distinct per-visa counts come straight from occupations.json byVisa.
+    expect(typeof se?.submitted['190'] === 'number' || se?.submitted['190'] === '<20').toBe(true);
   });
   it('seed files that may be empty still load', () => {
     expect(Array.isArray(getNews())).toBe(true);

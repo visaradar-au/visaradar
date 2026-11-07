@@ -112,7 +112,7 @@ export default function TrendChart({ months, series, label }: Props) {
         {hover !== null ? (
           <>
             <strong>{formatMonthShort(months[hover])}:</strong>{' '}
-            {series.map((s, i) => `${s.label} ${formatCell(s.values[hover])}`).join(' · ')}
+            {series.map((s) => `${s.label} ${formatCell(s.values[hover])}`).join(' · ')}
           </>
         ) : (
           <span class="muted">Hover or tap a month for its numbers.</span>

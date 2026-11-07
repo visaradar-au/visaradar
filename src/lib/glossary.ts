@@ -11,6 +11,7 @@ export const glossary = {
   INVITED: 'EOIs still in invited status at month end. It falls when people lodge, so read it next to LODGED.',
   LODGED: 'EOIs whose owner lodged a visa application after being invited.',
   HOLD: 'EOIs put on hold, for example while a state assesses them.',
+  stock: 'Change in the month-end count since the month before. These are stocks, not flows: invited rises when invitations go out and falls as people lodge or invitations lapse. It is not the number of invitations issued.',
 } as const;
 
 export type GlossaryKey = keyof typeof glossary;

@@ -2,6 +2,7 @@
 import type { NewsItem } from '../lib/data/types';
 import { NEWS_SOURCES, TAG_LABELS } from '../lib/official';
 import { formatDate } from '../lib/format';
+import { excerptToShow } from '../lib/news';
 
 interface Props { items: NewsItem[] }
 const { items } = Astro.props;
@@ -15,7 +16,7 @@ const { items } = Astro.props;
         {(n.tags ?? []).map((t) => <span>{TAG_LABELS[t] ?? t}</span>)}
       </span>
       <a class="title" href={n.url} rel="noopener">{n.title}</a>
-      {n.excerpt && <p class="excerpt">{n.excerpt}</p>}
+      {excerptToShow(n.title, n.excerpt) && <p class="excerpt">{excerptToShow(n.title, n.excerpt)}</p>}
     </li>
   ))}
 </ul>

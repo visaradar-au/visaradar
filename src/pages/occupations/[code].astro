@@ -5,9 +5,9 @@ import Term from '../../components/Term.astro';
 import OccupationExplorer from '../../islands/OccupationExplorer';
 import SetOccupation from '../../islands/SetOccupation';
 import { getHistory, getMeta, getOccupation, getOccupationStats, getOccupations } from '../../lib/data/eoi';
-import { getOccupationLists, listsFor } from '../../lib/data/sources';
+import { listMatches } from '../../lib/data/sources';
 import { STATE_NAMES, isStateCode } from '../../lib/eoi';
-import { formatDate, formatMonth, formatNumber } from '../../lib/format';
+import { formatCell, formatDate, formatMonth, formatNumber } from '../../lib/format';
 import { href } from '../../lib/href';
 import { official } from '../../lib/official';
 
@@ -23,9 +23,9 @@ const name = occ?.name ?? getOccupations().find((o) => o.code === code)?.name ??
 const rows = (occ?.rows ?? []).filter((r) => r[2] === 'SUBMITTED');
 const history = getHistory(code).rows.filter((r) => r[3] !== 'HOLD');
 const stat = getOccupationStats().find((s) => s.code === code);
-const lists = listsFor(code);
-const { sources: listSources, lists: allLists } = getOccupationLists();
-const knownLists = Object.keys(allLists);
+const lists = listMatches(code);
+const WA_SEARCH = 'https://migration.wa.gov.au/v2_occupation_search/occupation-search';
+const partLabel = (p: string) => p.replace(/491F/, '491 family');
 const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
 ---
 <Base title={`${name} (${code})`} description={`SkillSelect EOIs for ${name} (ANZSCO ${code}) by points, state and visa, ${formatMonth(meta.latestMonth)}.`}>
@@ -35,34 +35,62 @@ const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
 
   {stat && (
     <dl class="kv facts">
-      <dt>Visa 189 pool</dt><dd>{formatNumber(stat.pool189)} EOIs submitted (national)</dd>
-      <dt>Visa 190, largest state</dt><dd>{stat.pool190 ? `${formatNumber(stat.pool190.counted)} naming ${stateName(stat.pool190.state)}` : 'None counted'}</dd>
-      <dt>Visa 491, largest state</dt><dd>{stat.pool491 ? `${formatNumber(stat.pool491.counted)} naming ${stateName(stat.pool491.state)}` : 'None counted'}</dd>
+      <dt>EOIs submitted</dt>
+      <dd>189: <strong>{formatCell(stat.submitted['189'])}</strong> · 190: <strong>{formatCell(stat.submitted['190'])}</strong> · 491: <strong>{formatCell(stat.submitted['491'])}</strong> · 491 family: <strong>{formatCell(stat.submitted['491F'])}</strong></dd>
+      <dt>Most-named state</dt>
+      <dd>
+        {stat.top190 ? `190: ${stateName(stat.top190.state)} (${formatNumber(stat.top190.counted)})` : '190: none counted'}
+        {' · '}
+        {stat.top491 ? `491: ${stateName(stat.top491.state)} (${formatNumber(stat.top491.counted)})` : '491: none counted'}
+      </dd>
     </dl>
   )}
-  <p class="small muted">Counts leave out <Term k="masked" label="masked cells (<20)" />. One EOI can name several states and visas, so these are never added together.</p>
+  <p class="small muted">Per-visa counts are distinct EOIs: one that names several states counts once. EOIs can name more than one visa, so the visas are not added together. State figures leave out <Term k="masked" label="masked cells (<20)" />.</p>
 
   <h2 class="visually-hidden">Pool by points and trend</h2>
   <OccupationExplorer client:visible code={code} name={name} rows={rows} history={history} months={meta.months} />
   <AsAt />
 
   <h2>Occupation lists</h2>
-  {knownLists.length ? (
-    lists.length ? (
-      <ul>
-        {lists.map((l) => (
-          <li>{l}{listSources[l] && <> (<a href={listSources[l].url} rel="noopener">official list</a>, as at {formatDate(listSources[l].asAt)})</>}</li>
-        ))}
-      </ul>
-    ) : (
-      <p>Not on any list we track ({knownLists.join(', ')}). Check the official lists before relying on this.</p>
-    )
+  {lists.length ? (
+    <>
+      <p class="small muted">Whether {code} appears on each list we track. Being on a list is one requirement among many; read the official list for conditions.</p>
+      <div class="table-wrap">
+        <table class="lists">
+          <thead><tr><th scope="col">List</th><th scope="col">Includes {code}?</th><th scope="col">Official source</th></tr></thead>
+          <tbody>
+            {lists.map((l) => (
+              <tr>
+                <th scope="row">{l.name}</th>
+                <td>
+                  {!l.stored ? (
+                    <span class="muted">Not stored here. <a href={l.key === 'WA' ? WA_SEARCH : l.source?.url} rel="noopener">Search the official list</a>.</span>
+                  ) : l.included ? (
+                    <>
+                      <span class="badge good">Yes</span>
+                      {l.unitGroup && <span class="small"> by unit group {l.unitGroup}</span>}
+                      {l.parts.length > 0 && <span class="small muted"> ({l.parts.map(partLabel).join(', ')})</span>}
+                    </>
+                  ) : (
+                    <span class="badge plain">Not listed</span>
+                  )}
+                  {l.stored && l.unitGroup && !l.included && <span class="small muted"> (checked unit group {l.unitGroup})</span>}
+                </td>
+                <td class="small">
+                  {l.source ? <a href={l.source.page ?? l.source.url} rel="noopener">{l.source.instrument ?? 'Official list'}</a> : <span class="muted">No source recorded</span>}{l.source?.asAt ? <span class="muted">, as at {formatDate(l.source.asAt) || l.source.asAt}</span> : l.source?.checked ? <span class="muted">, checked {formatDate(l.source.checked)}</span> : null}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Lists change. Unit-group lists (such as NSW) name 4-digit ANZSCO groups, so a match covers every occupation in that group. Always confirm on the official page.</p>
+    </>
   ) : (
     <div class="empty" role="status">
       <h3>List data is on its way</h3>
       <p class="small">We will show which national and state lists include {code}, each linked to the official list. Until then, check
-        the <a href={official.occupationInstruments} rel="noopener">Home Affairs legislative instruments</a> that set the national lists
-        and your <a href={href('/states/')}>state's occupation list</a>.</p>
+        the <a href={official.occupationInstruments} rel="noopener">Home Affairs legislative instruments</a> that set the national lists and your <a href={href('/states/')}>state's occupation list</a>.</p>
     </div>
   )}
 
@@ -73,4 +101,5 @@ const stateName = (s: string) => (isStateCode(s) ? STATE_NAMES[s] : s);
   .crumbs { margin-bottom: var(--s-2); color: var(--ink-3); }
   .crumbs a { display: inline-block; padding-block: var(--s-1); }
   .facts { margin-bottom: var(--s-3); font-size: var(--text-md); }
+  .lists th[scope='row'] { min-width: 12rem; }
 </style>

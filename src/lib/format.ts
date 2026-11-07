@@ -22,7 +22,8 @@ export function formatMonthShort(month: string): string {
 
 /** ISO date or datetime -> "2 Nov 2026" (Brisbane time). Returns "" for null or invalid input. */
 export function formatDate(iso: string | null | undefined): string {
-  if (!iso) return '';
+  // ISO only: never turn "October 2025" into a made-up day.
+  if (!iso || !/^\d{4}-\d{2}-\d{2}/.test(iso)) return '';
   const d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T00:00:00+10:00` : iso);
   if (Number.isNaN(d.getTime())) return '';
   return new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: TZ })

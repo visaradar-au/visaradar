@@ -1,6 +1,6 @@
 import { readData } from './read';
 import type { EoiMeta, EoiSummary, OccupationDetail, OccupationHistory, OccupationSummary } from './types';
-import { STATES, poolByPoints, poolTotal, stateMetrics, type StateMetric, type Visa } from '../eoi';
+import { STATES, poolByPoints, poolTotal, stateMetrics, type Cell, type StateMetric, type Visa } from '../eoi';
 
 export function getMeta(): EoiMeta {
   return readData<EoiMeta>('eoi/meta.json', {
@@ -40,11 +40,11 @@ export function getMapMetrics(): MapMetrics {
 export interface OccupationStat {
   code: string;
   name: string;
-  /** 189 pool: numeric SUBMITTED cells only. */
-  pool189: number;
-  /** Largest single-state 190 pool and which state. Never a sum across states. */
-  pool190: { state: string; counted: number } | null;
-  pool491: { state: string; counted: number } | null;
+  /** Distinct SUBMITTED EOIs per visa, from occupations.json byVisa. 0 when absent. */
+  submitted: Record<'189' | '190' | '491' | '491F', Cell>;
+  /** Most-named state for 190 and 491 (numeric cells only). Never a sum across states. */
+  top190: { state: string; counted: number } | null;
+  top491: { state: string; counted: number } | null;
 }
 
 function largestStatePool(rows: OccupationDetail['rows'], visa: Visa) {
@@ -59,14 +59,15 @@ function largestStatePool(rows: OccupationDetail['rows'], visa: Visa) {
 let stats: OccupationStat[] | null = null;
 export function getOccupationStats(): OccupationStat[] {
   if (stats) return stats;
-  stats = getOccupations().map(({ code, name }) => {
+  stats = getOccupations().map(({ code, name, byVisa }) => {
     const rows = getOccupation(code)?.rows ?? [];
+    const sub = (v: '189' | '190' | '491' | '491F'): Cell => byVisa?.[v]?.SUBMITTED ?? 0;
     return {
       code,
       name,
-      pool189: poolTotal(poolByPoints(rows, '189', 'N/A')).counted,
-      pool190: largestStatePool(rows, '190'),
-      pool491: largestStatePool(rows, '491'),
+      submitted: { '189': sub('189'), '190': sub('190'), '491': sub('491'), '491F': sub('491F') },
+      top190: largestStatePool(rows, '190'),
+      top491: largestStatePool(rows, '491'),
     };
   });
   return stats;

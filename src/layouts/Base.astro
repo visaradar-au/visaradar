@@ -29,6 +29,10 @@ const current = (p: string) => path === p || path.startsWith(p);
 <html lang="en-AU">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Before first paint: mark returning visitors so the home page can skip the setup form.
+      try { if (localStorage.getItem('visaradar.profile.v1')) document.documentElement.classList.add('has-profile'); } catch (e) {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />

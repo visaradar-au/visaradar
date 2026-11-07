@@ -20,3 +20,12 @@ test('occupation search filters the list', async ({ page, errors }) => {
   await expect(page.locator('tbody tr a')).toHaveText('Software Engineer');
   void errors;
 });
+
+test('occupation lists show matches with official sources', async ({ page, errors }) => {
+  await page.goto('/occupations/261313/');
+  const lists = page.locator('table.lists');
+  await expect(lists).toBeVisible();
+  await expect(lists.locator('tr', { hasText: 'WA State Nominated' })).toContainText('Search the official list');
+  await expect(lists.locator('tbody tr').first().locator('a')).toHaveAttribute('href', /^https:\/\//);
+  void errors;
+});

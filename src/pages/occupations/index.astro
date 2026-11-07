@@ -9,15 +9,15 @@ import { href } from '../../lib/href';
 
 const meta = getMeta();
 const rows: OccRowLite[] = getOccupationStats().map((s) => [
-  s.code, s.name, s.pool189, s.pool190?.counted ?? 0, s.pool190?.state ?? '', s.pool491?.counted ?? 0, s.pool491?.state ?? '',
+  s.code, s.name, s.submitted['189'], s.submitted['190'], s.submitted['491'], s.submitted['491F'],
 ]);
 ---
 <Base title="Occupations" description={`All ${rows.length} occupations in SkillSelect with EOI pools by visa, ${formatMonth(meta.latestMonth)}.`}>
   <h1>Occupations</h1>
   <p class="lede">Every occupation in SkillSelect, by <Term k="ANZSCO" /> code. Open one to see its pool by points for each state and visa.</p>
   <p class="small muted">
-    Pools count <Term k="SUBMITTED" label="submitted" /> EOIs with numeric cells only. For 190 and 491 we show the one state with
-    the most EOIs, because one EOI can name several states.
+    Each column is the number of <Term k="SUBMITTED" label="submitted" /> EOIs for that visa. An EOI that names several states
+    counts once here. EOIs can name more than one visa, so don't add the columns together. "&lt;20" is masked.
   </p>
   <OccupationTable client:idle rows={rows} />
   <AsAt />

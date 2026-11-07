@@ -11,6 +11,7 @@ describe('format', () => {
     expect(formatDate('2026-11-07')).toBe('7 Nov 2026');
     expect(formatDate(null)).toBe('');
     expect(formatDate('not a date')).toBe('');
+    expect(formatDate('October 2025')).toBe('');
   });
   it('formats numbers, deltas and masked cells', () => {
     expect(formatNumber(96332)).toBe('96,332');

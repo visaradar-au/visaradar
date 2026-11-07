@@ -10,7 +10,12 @@ export default function HomeProfile({ monthLabel, sourceUrl }: { monthLabel: str
   const [profile, setProfile] = useState<Profile | null>(null);
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    const sync = () => setProfile(loadProfile());
+    const sync = () => {
+      const p = loadProfile();
+      setProfile(p);
+      // An unreadable saved profile must not keep the setup form hidden.
+      document.documentElement.classList.toggle('has-profile', Boolean(p));
+    };
     sync();
     setReady(true);
     window.addEventListener(PROFILE_EVENT, sync);
@@ -63,12 +68,16 @@ export default function HomeProfile({ monthLabel, sourceUrl }: { monthLabel: str
   }
 
   return (
-    <section class="panel home-profile" aria-labelledby="hp-title">
+    <>
+    {/* Shown instead of the form, before hydration, to visitors with a saved profile. */}
+    {!ready && <div class="skeleton home-wait" aria-hidden="true" />}
+    <section class="panel home-profile home-setup" aria-labelledby="hp-title">
       <h2 id="hp-title">Where do you stand?</h2>
       <p class="small muted">
         Enter three things to see how many EOIs sit above and below your points in each state. It stays in your browser.
       </p>
       <ProfileSetup idPrefix="home" />
     </section>
+    </>
   );
 }
