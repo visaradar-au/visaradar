@@ -35,7 +35,7 @@ no ads, no accounts.
 - Government logos or anything that looks like an official government site.
 - Showing a monthly snapshot as "live". Every figure shows "as at" + source link.
 
-## Stack (decided by Claude; Laxman delegated the call)
+## Stack
 
 - **Astro 5** static site, TypeScript, **Preact** islands for interactive parts.
 - Plain CSS with design tokens (`src/styles/tokens.css`). No CSS framework.
@@ -45,7 +45,7 @@ no ads, no accounts.
 - Data pipeline: Node 22 scripts in `pipeline/` (ESM `.mjs`), output committed JSON in `data/`.
 - Tests: **vitest** for parsers/pipeline (offline fixtures only), **Playwright** smoke tests
   against the built site.
-- Hosting (not yet created; needs Laxman's OK): GitHub Pages, GitHub Actions cron.
+- Hosting: GitHub Pages, GitHub Actions cron.
   - news + state pages: every 30 minutes (polite: ETag/Last-Modified, sitemaps, crawl delays);
   - SkillSelect dashboard: daily check of `qLastReloadTime`, pull only when it changes;
   - rebuild + deploy when `data/` changes.
@@ -129,6 +129,6 @@ a table alternative). Visual style: calm, data-dense, trustworthy; not a governm
 | site | `lane/site` in `.worktrees/site` | `src/**`, `public/**`, `astro.config.*`, `tests/e2e/**`, `pipeline/geo/**` |
 
 Shared rules: don't edit files another lane owns; `package.json` changes go in small separate
-commits so merges are easy; commit as `Laxman Khatri <laxmankhatri.ai@gmail.com>`; never push;
+commits so merges are easy; use the repo's commit identity; never push from a lane;
 no personal data (use a made-up persona in fixtures); hand back a tested checkpoint per finished
 area.

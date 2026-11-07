@@ -1,6 +1,6 @@
 # Visual design lane brief (queued 2026-11-07)
 
-Laxman: "make ui attractive too". Today the site is clean and trustworthy, but plain: a
+Request: "make ui attractive too". Today the site is clean and trustworthy, but plain: a
 default-looking blue, a light grey page, flat cards. Goal: a distinctive, polished product
 people want to share, without losing the calm, data-first trust.
 

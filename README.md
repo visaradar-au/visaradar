@@ -35,6 +35,7 @@ npm run test:unit       # site helpers
 npm run test:e2e        # Playwright against the built site (desktop + mobile)
 npm run check           # astro check (types)
 node pipeline/qlik-validate.mjs   # live check: reproduces hand-verified SkillSelect totals
+node scripts/prepublish-check.mjs # before any push: secrets, personal identifiers, home paths
 ```
 
 ## Where things are
