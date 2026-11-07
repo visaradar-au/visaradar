@@ -31,6 +31,16 @@
   --logo-tile: #0c3b38;
   --logo-ring: #9be5da;
 
+  /* State accents: decorative stripes and washes on state headers only, never behind text at full strength */
+  --state-act: #2f6db3;
+  --state-nsw: #2a8fd0;
+  --state-nt: #c2581b;
+  --state-qld: #8a1f3d;
+  --state-sa: #b8323a;
+  --state-tas: #1f7a4a;
+  --state-vic: #1d3a78;
+  --state-wa: #b88a00;
+
   /* Elevation: soft, offset, neutral */
   --shadow-1: 0 1px 2px rgba(26, 26, 24, 0.06), 0 1px 1px rgba(26, 26, 24, 0.04);
   --shadow-2: 0 6px 16px -4px rgba(26, 26, 24, 0.1), 0 2px 4px rgba(26, 26, 24, 0.05);
@@ -72,6 +82,7 @@
   --div-pos-2-ink: var(--on-dark-fill);
   --hatch-ink: var(--ink);
   --map-stroke: var(--surface-card);
+  --map-shadow: rgba(26, 26, 24, 0.12);
 
   /* Status (always with a label) */
   --good: #0a7a0a;
@@ -136,6 +147,14 @@
     --hero-ring: rgba(95, 208, 194, 0.12);
     --logo-tile: #0c3b38;
     --logo-ring: #9be5da;
+    --state-act: #7fb0ee;
+    --state-nsw: #79c0ee;
+    --state-nt: #f0a070;
+    --state-qld: #e58aa5;
+    --state-sa: #f08a90;
+    --state-tas: #7fd1a2;
+    --state-vic: #8aa8e8;
+    --state-wa: #f0c850;
     --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow-2: 0 6px 16px -4px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.3);
     --shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -172,6 +191,7 @@
     --div-pos-1-ink: var(--on-dark-fill);
     --div-pos-2-ink: var(--on-light-fill);
     --map-stroke: #4a4945;
+    --map-shadow: rgba(0, 0, 0, 0.45);
 
     --good: #7fd17f;
     --good-soft: #16301a;

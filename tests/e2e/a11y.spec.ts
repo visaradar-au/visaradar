@@ -143,6 +143,8 @@ for (const scheme of SCHEMES) {
       await page.locator(`input[name="map-visa"][value="${visa}"]`).check({ force: true });
       for (const metric of ['submitted', 'invited', 'change']) {
         await page.locator(`input[name="map-metric"][value="${metric}"]`).check({ force: true });
+        // The map eases to its new colours; read them once the transitions finish.
+        await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== 'running' || a.effect?.getTiming().iterations === Infinity));
         expect(await svgContrast(page), `${visa} ${metric}`).toEqual([]);
       }
     }

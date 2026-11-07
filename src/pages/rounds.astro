@@ -15,8 +15,10 @@ const cutoffsOf = (r: (typeof rounds)[number]) => (r.cutoffs ?? []).filter((c) =
 const scopeLabel = (s: string) => (s === '189' ? 'Visa 189' : s === '491F' ? '491 family' : isStateCode(s) ? STATE_NAMES[s] : s);
 ---
 <Base title="Invitation rounds" description="Visa 189 and 491 family rounds from Home Affairs, and state invitation rounds, with cut-offs and sources.">
-  <h1>Invitation rounds</h1>
-  <p class="lede">Home Affairs invites <Term k="189" /> and 491 family EOIs in national rounds. Some states (such as ACT, SA and WA) publish their own rounds. Each row shows where the figures came from.</p>
+  <header class="band">
+    <h1>Invitation rounds</h1>
+    <p class="lede">Home Affairs invites <Term k="189" /> and 491 family EOIs in national rounds. Some states (such as ACT, SA and WA) publish their own rounds. Each row shows where the figures came from.</p>
+  </header>
 
   {rounds.length ? (
     <div class="table-wrap">

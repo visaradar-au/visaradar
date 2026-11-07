@@ -10,11 +10,13 @@ import { href } from '../lib/href';
 const meta = getMeta();
 ---
 <Base title="Where I stand" description="See how many EOIs sit above and below your points in each state. Kept in your browser only.">
-  <h1>Where I stand</h1>
-  <p class="lede">
-    Enter your occupation, visa, state and points once. We show how many <Term k="EOI" label="EOIs" /> sit above, at and below your
-    score in each state. Your details stay in this browser. We have no accounts and no server that could store them.
-  </p>
+  <header class="band">
+    <h1>Where I stand</h1>
+    <p class="lede">
+      Enter your occupation, visa, state and points once. We show how many <Term k="EOI" label="EOIs" /> sit above, at and below your
+      score in each state. Your details stay in this browser. We have no accounts and no server that could store them.
+    </p>
+  </header>
   <p class="small muted">Need your points score? Home Affairs explains the points test on each visa page. This page only takes the number you already have.</p>
   <MeProfile client:load monthLabel={formatMonth(meta.latestMonth)} />
   <AsAt />

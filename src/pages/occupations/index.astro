@@ -13,8 +13,10 @@ const rows: OccRowLite[] = getOccupationStats().map((s) => [
 ]);
 ---
 <Base title="Occupations" description={`All ${rows.length} occupations in SkillSelect with EOI pools by visa, ${formatMonth(meta.latestMonth)}.`}>
-  <h1>Occupations</h1>
-  <p class="lede">Every occupation in SkillSelect, by <Term k="ANZSCO" /> code. Open one to see its pool by points for each state and visa.</p>
+  <header class="band">
+    <h1>Occupations</h1>
+    <p class="lede">Every occupation in SkillSelect, by <Term k="ANZSCO" /> code. Open one to see its pool by points for each state and visa.</p>
+  </header>
   <p class="small muted">
     Each column is the number of <Term k="SUBMITTED" label="submitted" /> EOIs for that visa. An EOI that names several states
     counts once here. EOIs can name more than one visa, so don't add the columns together. "&lt;20" is masked.
