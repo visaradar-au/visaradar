@@ -7,6 +7,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { openApp, DASHBOARD_URL } from './lib/qlik.mjs';
+import { eoiMonthChanges } from './eoi-changes.mjs';
+import { appendChanges } from './news/changes.mjs';
 
 const OUT = path.resolve('data/eoi');
 const VISAS = {
@@ -102,7 +104,8 @@ try {
   const index = [...idx.values()].sort((a, b) => a.code.localeCompare(b.code));
   await writeJson(path.join(OUT, 'occupations.json'), index);
 
-  await writeJson(path.join(OUT, 'meta.json'), {
+  const newMonth = meta.latestMonth !== monthKey(latest);
+  const metaOut = {
     source: 'SkillSelect EOI data, Department of Employment and Workplace Relations / Home Affairs',
     sourceUrl: DASHBOARD_URL,
     lastReload: reload,
@@ -115,7 +118,12 @@ try {
       'Status is a month-end snapshot. INVITED counts EOIs still in invited status at month end.',
       'An EOI can name more than one state, so state totals overlap.',
     ],
-  });
+  };
+  await writeJson(path.join(OUT, 'meta.json'), metaOut);
+  if (newMonth) {
+    const n = await appendChanges(path.resolve('data/changes.json'), eoiMonthChanges({ months: wanted.map(monthKey), rows: summary }, metaOut));
+    console.log(`changes +${n}`);
+  }
   console.log('Done.');
 } finally {
   app.close();

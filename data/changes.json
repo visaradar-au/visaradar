@@ -21,6 +21,76 @@
     "url": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program"
   },
   {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": null,
+    "visa": "189",
+    "title": "Visa 189: EOIs in invited status 36 → 15,369, lodged 6,665 → 9,028 (October 2026 month end)"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "title": "SkillSelect EOI data for October 2026 is out"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": "NT",
+    "visa": "190",
+    "title": "NT, visa 190: EOIs in invited status 83 → 257, lodged 1,041 → 979 (October 2026 month end)"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": "TAS",
+    "visa": "190",
+    "title": "Tasmania, visa 190: EOIs in invited status 44 → 404, lodged 1,227 → 1,130 (October 2026 month end)"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": "WA",
+    "visa": "190",
+    "title": "WA, visa 190: EOIs in invited status 24 → 1,928, lodged 2,341 → 2,266 (October 2026 month end)"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": "NT",
+    "visa": "491",
+    "title": "NT, visa 491: EOIs in invited status 173 → 316, lodged 1,413 → 1,493 (October 2026 month end)"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": "TAS",
+    "visa": "491",
+    "title": "Tasmania, visa 491: EOIs in invited status 29 → 263, lodged 1,206 → 1,202 (October 2026 month end)"
+  },
+  {
+    "at": "2026-11-01T23:30:13.952Z",
+    "kind": "eoi-month",
+    "source": "skillselect",
+    "url": "https://api.dynamic.reports.employment.gov.au/anonap/extensions/hSKLS02_SkillSelect_EOI_Data/hSKLS02_SkillSelect_EOI_Data.html",
+    "state": "WA",
+    "visa": "491",
+    "title": "WA, visa 491: EOIs in invited status 38 → 945, lodged 2,202 → 2,168 (October 2026 month end)"
+  },
+  {
     "at": "2026-10-31",
     "kind": "news",
     "source": "qld",
