@@ -4,14 +4,14 @@ import AsAt from './AsAt.astro';
 import Term from './Term.astro';
 import { getMovers } from '../lib/data/movers';
 import { STATE_NAMES, isStateCode } from '../lib/eoi';
-import { formatDelta, formatMonth } from '../lib/format';
+import { formatCell, formatDelta, formatMonth } from '../lib/format';
 import { href } from '../lib/href';
 import type { Move } from '../lib/movers';
 
 const { month, previous, rows } = getMovers();
 const top = rows.slice(0, 5);
 const where = (scope: string) => (scope === 'N/A' ? 'national' : isStateCode(scope) ? STATE_NAMES[scope] : scope);
-const delta = (m: Move) => (m.delta === null ? 'masked' : formatDelta(m.delta));
+const delta = (m: Move) => (m.delta === null ? `${formatCell(m.previous)} → ${formatCell(m.current)} (not compared)` : formatDelta(m.delta));
 ---
 {top.length > 0 && (
   <section aria-labelledby="movers-title">

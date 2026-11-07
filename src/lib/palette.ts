@@ -88,7 +88,9 @@ export function setup(dialog: HTMLDialogElement): (from?: HTMLElement | null) =>
     else if (e.key === 'ArrowUp') setActive(active - 1);
     else if (e.key === 'Home' && results.length && e.ctrlKey) setActive(0);
     else if (e.key === 'End' && results.length && e.ctrlKey) setActive(results.length - 1);
-    else if (e.key === 'Enter') go(active >= 0 ? active : 0);
+    else if (e.key === 'Enter') {
+      if (active >= 0) go(active);
+    }
     else return;
     e.preventDefault();
   });
