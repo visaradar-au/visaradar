@@ -16,7 +16,16 @@ const VISAS = {
   '190SAS Skilled Australian Sponsored': '190',
   '491SNR State or Territory Nominated - Regional': '491',
   '491FSR Family Sponsored - Regional': '491F',
+  '132SBH Significant Business History': '132',
+  '188BI Business Innovation': '188BI',
+  '188EV Entrepreneur': '188EV',
+  '188INV Investor': '188INV',
+  '188SIG Significant Investor': '188SIG',
 };
+// Occupation, points and state pulls cover the points-tested visas. The business visas
+// (132, 188) have no occupation or points rows (occupation "N/A", checked Nov 2026), so
+// they only appear in pathways.json.
+const SKILLED = Object.keys(VISAS).filter((v) => /^(189|190|491)/.test(v));
 const STATUSES = ['SUBMITTED', 'INVITED', 'LODGED', 'HOLD'];
 const args = process.argv.slice(2);
 const force = args.includes('--force');
@@ -49,7 +58,7 @@ try {
   const base = async (month) => {
     await app.clearAll();
     await app.select('As At Month', [month]);
-    await app.select('Visa Type', Object.keys(VISAS));
+    await app.select('Visa Type', SKILLED);
     await app.select('EOI Status', STATUSES);
   };
 
@@ -103,6 +112,22 @@ try {
   }
   const index = [...idx.values()].sort((a, b) => a.code.localeCompare(b.code));
   await writeJson(path.join(OUT, 'occupations.json'), index);
+
+  // 4. Every SkillSelect pathway: national distinct counts per visa and status, every status
+  // the dashboard has (business visas are mostly CLOSED). Never summed across states.
+  await app.clearAll();
+  const pr = await app.cube(['As At Month', 'Visa Type', 'EOI Status']);
+  const pathways = pr
+    .filter(([m, v]) => wanted.includes(m) && VISAS[v])
+    .map(([m, v, st, c]) => [monthKey(m), VISAS[v], st, count(c)])
+    .sort((a, b) => b[0].localeCompare(a[0]) || a[1].localeCompare(b[1]) || a[2].localeCompare(b[2]));
+  await writeJson(path.join(OUT, 'pathways.json'), {
+    asAt: monthKey(latest),
+    months: wanted.map(monthKey),
+    visas: Object.values(VISAS),
+    rows: pathways,
+  });
+  console.log(`Pathways: ${pathways.length} rows`);
 
   const newMonth = meta.latestMonth !== monthKey(latest);
   const metaOut = {
