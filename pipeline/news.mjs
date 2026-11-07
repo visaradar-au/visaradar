@@ -22,9 +22,10 @@ import * as nt from './news/nt.mjs';
 
 export const SOURCES = [homeaffairs, qld, nsw, vic, sa, wa, tas, act, nt];
 
-// Sources whose licence allows reuse of text (CC BY 4.0, checked 2026-11-07).
+// Sources whose licence is CC BY 4.0 (checked 2026-11-07). SA's copyright page allows
+// reproduction but not alteration and doesn't say CC BY, so SA is left out.
 // Everything else keeps title, date, link and tags only.
-export const EXCERPT_OK = new Set(['nsw', 'act', 'sa']);
+export const EXCERPT_OK = new Set(['nsw', 'act']);
 
 const BOOTSTRAP_DAYS = 30;
 
