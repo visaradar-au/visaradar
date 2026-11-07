@@ -2,7 +2,7 @@ name: Update data and deploy
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # news (polite: ETag, sitemaps, crawl delays)
+    - cron: '13,43 * * * *'  # news, twice an hour at off-peak minutes (polite: ETag, sitemaps, crawl delays)
     - cron: '7 * * * *'      # state program pages, rounds, lists (~70 s of crawl delays), data.gov.au datasets
     - cron: '23 */6 * * *'   # SkillSelect reload check (pulls only when the dashboard reloads)
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
       # One source group per scheduled run, so crawl delays are never squeezed together.
       - name: News
-        if: github.event.schedule == '*/30 * * * *' || github.event_name != 'schedule'
+        if: github.event.schedule == '13,43 * * * *' || github.event_name != 'schedule'
         run: npm run pipeline:news
         continue-on-error: true
       - name: State programs, rounds, occupation lists
