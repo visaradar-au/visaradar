@@ -1,5 +1,5 @@
 // Typed views of the data contracts in docs/DESIGN.md.
-import type { MonthRow, OccRow } from '../eoi';
+import type { MonthRow, OccRow, PathwayVisa } from '../eoi';
 
 export interface EoiMeta {
   source: string;
@@ -30,6 +30,15 @@ export interface OccupationDetail {
 export interface OccupationHistory {
   code: string;
   rows: MonthRow[];
+}
+
+/** data/eoi/pathways.json: national distinct EOI counts per visa and status, every status SkillSelect has. */
+export interface Pathways {
+  asAt: string;
+  months: string[];
+  visas: PathwayVisa[];
+  /** [month "YYYY-MM", visa, status, count]; a missing row means none. */
+  rows: [string, PathwayVisa, string, number | '<20'][];
 }
 
 export interface EoiSummary {

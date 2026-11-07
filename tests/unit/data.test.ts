@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { getMapMetrics, getMeta, getOccupationStats } from '../../src/lib/data/eoi';
+import { getMapMetrics, getMeta, getOccupationStats, getPathways } from '../../src/lib/data/eoi';
+import { getDatasets } from '../../src/lib/data/sources';
+import { PATHWAY_NAMES, PATHWAY_VISAS } from '../../src/lib/eoi';
 import { getChanges, getNews, getRounds, listsFor } from '../../src/lib/data/sources';
 import geo from '../../src/data/au-states.json';
 
@@ -18,6 +20,26 @@ describe('data layer against committed data', () => {
     expect(se?.top190?.state).toMatch(/^(ACT|NSW|NT|QLD|SA|TAS|VIC|WA)$/);
     // Distinct per-visa counts come straight from occupations.json byVisa.
     expect(typeof se?.submitted['190'] === 'number' || se?.submitted['190'] === '<20').toBe(true);
+  });
+  it('pathways cover every SkillSelect visa with masked counts only', () => {
+    const p = getPathways();
+    expect(p).not.toBeNull();
+    expect([...p!.visas].sort()).toEqual([...PATHWAY_VISAS].sort());
+    expect(PATHWAY_VISAS.every((v) => PATHWAY_NAMES[v])).toBe(true);
+    expect(p!.months).toContain(p!.asAt);
+    for (const [m, v, , c] of p!.rows) {
+      expect(p!.months).toContain(m);
+      expect(PATHWAY_VISAS).toContain(v);
+      expect(c === '<20' || (Number.isInteger(c) && (c as number) >= 20)).toBe(true);
+    }
+  });
+  it('datasets link to data.gov.au with a licence each', () => {
+    const d = getDatasets();
+    expect(d?.datasets.length).toBeGreaterThan(0);
+    for (const ds of d!.datasets) {
+      expect(ds.url).toMatch(/^https:\/\/data\.gov\.au\/data\/dataset\//);
+      expect(ds.licence.id ?? ds.licence.title).toBeTruthy();
+    }
   });
   it('seed files that may be empty still load', () => {
     expect(Array.isArray(getNews())).toBe(true);
