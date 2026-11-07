@@ -11,6 +11,7 @@ import { official } from '../lib/official';
 const visaPage = (slug: string) => `https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/${slug}`;
 const biip = 'https://immi.homeaffairs.gov.au/visas/getting-a-visa/biip-closure-and-refunds';
 const v188 = visaPage('business-innovation-and-investment-188');
+const priorities = 'https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-processing-times/visa-processing-priorities/skilled-visa';
 
 // One plain line per visa, from the Home Affairs visa pages. No eligibility judgments.
 const CARDS: Record<PathwayVisa, { line: string; url: string; links?: { label: string; url: string }[] }> = {
@@ -60,8 +61,8 @@ const show = (c: number | '<20') => (c === '<20' ? '<20' : formatNumber(c));
           </li>
         ))}
       </ul>
-      <AsAt note="Counts are EOIs, not people, for the whole country. Counts under 20 are masked and shown as <20. Closed means the EOI is no longer active." />
-      <p class="small muted">Home Affairs says the Business Innovation and Investment (subclass 188) program closed to new applications on 31 July 2024. See its <a href={biip} rel="noopener">closure page</a>. The business visas have no occupation or points data in SkillSelect, so they don't appear on occupation pages or in Where I stand.</p>
+      <AsAt note="Counts are EOIs, not people, for the whole country. Counts under 20 are masked and shown as <20. Statuses are SkillSelect's own labels." />
+      <p class="small muted">Home Affairs says the Business Innovation and Investment (subclass 188) program closed to new applications on 31 July 2024. See its <a href={biip} rel="noopener">closure page</a>. Its <a href={priorities} rel="noopener">skilled visa processing priorities</a> page lists the Business Talent (subclass 132) visa as closed July 2021. The business visas have no occupation or points data in SkillSelect, so they don't appear on occupation pages or in Where I stand.</p>
     </>
   ) : (
     <Empty title="Pathway numbers not loaded yet" level={2}>
