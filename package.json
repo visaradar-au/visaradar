@@ -17,7 +17,8 @@
     "test:unit": "vitest run tests/unit",
     "test:e2e": "playwright test",
     "build:map": "node pipeline/geo/build-map.mjs",
-    "check": "astro check"
+    "check": "astro check",
+    "screenshots": "SCREENSHOTS=1 playwright test tests/e2e/screenshots.spec.ts --project=desktop"
   },
   "keywords": [],
   "author": "",
