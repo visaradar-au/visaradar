@@ -31,7 +31,6 @@ jobs:
         run: npm run pipeline:news && npm run pipeline:states
         continue-on-error: true
       - name: SkillSelect EOI data (pulls only when the dashboard reloads)
-        if: github.event_name != 'schedule' || github.event.schedule == '*/30 * * * *'
         run: node pipeline/skillselect.mjs
         continue-on-error: true
       - name: Commit data changes
