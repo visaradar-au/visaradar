@@ -2568,7 +2568,7 @@
       "instrument": "LIN 19/051 (F2019L00278)",
       "compilation": "F2026C00265",
       "asAt": "2026-03-28",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     "STSOL": {
       "url": "https://www.legislation.gov.au/F2019L00278/2026-03-28/2026-03-28/text/original/epub/OEBPS/document_1/document_1.html",
@@ -2576,7 +2576,7 @@
       "instrument": "LIN 19/051 (F2019L00278)",
       "compilation": "F2026C00265",
       "asAt": "2026-03-28",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     "ROL": {
       "url": "https://www.legislation.gov.au/F2019L00278/2026-03-28/2026-03-28/text/original/epub/OEBPS/document_1/document_1.html",
@@ -2584,7 +2584,7 @@
       "instrument": "LIN 19/051 (F2019L00278)",
       "compilation": "F2026C00265",
       "asAt": "2026-03-28",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     "QLD": {
       "url": "https://migration.qld.gov.au/occupation-lists",
@@ -2593,13 +2593,13 @@
         "offshore": "https://migration.qld.gov.au/occupation-lists/offshore-queensland-skilled-occupation-lists-(qsol)"
       },
       "asAt": null,
-      "checked": "2026-11-10",
+      "checked": "2026-11-11",
       "note": "Union of the onshore list and the offshore QSOL. Pages carry no date. byVisa.QLD splits by list and visa."
     },
     "SA": {
       "url": "https://migration.sa.gov.au/before-applying/work-in-sa/occupation-lists/occupations-list",
       "asAt": null,
-      "checked": "2026-11-10",
+      "checked": "2026-11-11",
       "note": "Every occupation on the SA list page. Availability differs by stream (offshore, graduates, working in SA); see the page."
     },
     "ACT": {
@@ -2611,14 +2611,14 @@
     "NSW": {
       "url": "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists",
       "asAt": null,
-      "checked": "2026-11-10",
+      "checked": "2026-11-11",
       "level": "unit-group",
       "note": "4-digit ANZSCO unit groups, not 6-digit occupations. The page says it has been updated for 190; the 491 list is pending."
     },
     "WA": {
       "url": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
       "asAt": null,
-      "checked": "2026-11-10",
+      "checked": "2026-11-11",
       "note": "Not stored: the CSV export returned no data and Migration WA copyright forbids reuse. Use the official occupation search."
     }
   }
