@@ -65,3 +65,7 @@ node scripts/prepublish-check.mjs # before any push: secrets, personal identifie
   require; it is shown on /about with the date we last read the register.
 - Sites that block automated requests (Home Affairs, VIC, NT, TAS at last check) are recorded as
   blocked, not worked around.
+
+## More from Lax Society
+
+Part of [Lax Society](https://laxsociety.github.io): open-source apps, built in public.
