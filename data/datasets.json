@@ -2,8 +2,64 @@
   "source": "Department of Home Affairs datasets on data.gov.au",
   "sourceUrl": "https://data.gov.au/data/organization/immi",
   "apiUrl": "https://data.gov.au/data/api/3/action/package_search?fq=organization:immi&sort=metadata_modified%20desc&rows=100",
-  "lastModified": "2026-10-20T23:57:36.199772Z",
+  "lastModified": "2026-11-16T23:05:07.229338Z",
   "datasets": [
+    {
+      "name": "permanent-migration-program-skilled-family",
+      "title": "Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics",
+      "summary": "A report that provides an overview of the previous 10 years of Migration Program outcomes.",
+      "metadataModified": "2026-11-16T23:05:07.229338Z",
+      "licence": {
+        "id": "cc-by-2.5",
+        "title": "Creative Commons Attribution 2.5 Australia",
+        "url": "http://creativecommons.org/licenses/by/2.5/au/"
+      },
+      "url": "https://data.gov.au/data/dataset/permanent-migration-program-skilled-family",
+      "resources": [
+        {
+          "name": "BP0068L Permanent Migration (Skilled & Family) Outcome snapshot - Annual Statistics 2017-18 to 2026-06-30 Masked v100",
+          "format": "XLSX",
+          "lastModified": "2026-11-16T22:45:21.580389Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/832fe752-f672-4ce7-a5bc-bada2270496c/download/bp0068-migration-and-child-outcome-since-2017-18-to-2026-06-30-masked-v100.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2014-15 to 2023-24 v100.xlsx",
+          "format": "XLSX",
+          "lastModified": "2024-11-15T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/4e9559a4-a37f-414b-a716-24abff9d8e9a/download/bp0068l-migration-and-child-outcome-since-2014-15-to-2024-06-30-masked-v100.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2013-14 to 2022-23 v100",
+          "format": "XLSX",
+          "lastModified": "2023-10-26T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/f0d43822-512e-4687-8bc3-fa59926306a7/download/bp0068-migration-and-child-outcome-since-2013-14-to-2023-06-30-masked-v100.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2012-13 to 2021-22 v100",
+          "format": "XLSX",
+          "lastModified": "2023-08-28T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/6799abc0-db57-4e47-ad28-083262f31943/download/bp0068l-permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-2012-13-.xlsx"
+        },
+        {
+          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2011-12 to 2020-21 v100.xlsx",
+          "format": "XLSX",
+          "lastModified": "2023-08-28T00:00:00Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/c69d7522-d613-43ff-98e7-00a7a936f0d8/download/bp0068l-permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-2011-12-.xlsx"
+        },
+        {
+          "name": "pivot-table-user-guide-pdf",
+          "format": "PDF",
+          "lastModified": "2025-07-04T03:48:37.730030Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/52bf8db4-db4c-42fd-a3cd-cc5ecd3d459e/download/pivot-table-user-guide-v400.pdf"
+        },
+        {
+          "name": "Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics Resources",
+          "format": "CSV",
+          "lastModified": "2025-07-04T03:48:13.774920Z",
+          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/2cd02db1-977d-4ba2-9198-38999bf308c2/download/permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-resources.csv"
+        }
+      ]
+    },
     {
       "name": "visitor-visas-granted-pivot-table",
       "title": "Visitor visa program",
@@ -431,62 +487,6 @@
           "format": "XLSX",
           "lastModified": "2026-07-23T00:58:34.585678Z",
           "url": "https://data.gov.au/data/dataset/8d1b90a9-a4d7-4b10-ad6a-8273722c8628/resource/1e724f46-26c0-48d3-ada7-721394820d26/download/settlement-data-reports-financial-year-2025-26-by-migration-streams.xlsx"
-        }
-      ]
-    },
-    {
-      "name": "permanent-migration-program-skilled-family",
-      "title": "Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics",
-      "summary": "A report that provides an overview of the previous 10 years of Migration Program outcomes.",
-      "metadataModified": "2026-04-23T22:56:08.477917Z",
-      "licence": {
-        "id": "cc-by-2.5",
-        "title": "Creative Commons Attribution 2.5 Australia",
-        "url": "http://creativecommons.org/licenses/by/2.5/au/"
-      },
-      "url": "https://data.gov.au/data/dataset/permanent-migration-program-skilled-family",
-      "resources": [
-        {
-          "name": "BP0068 Permanent Migration Program (Skilled & Family) Outcome Snapshot Annual Statistics 2015-16 to 2025-06-30 v100",
-          "format": "XLSX",
-          "lastModified": "2025-12-22T02:03:50.893223Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/832fe752-f672-4ce7-a5bc-bada2270496c/download/bp0068-migration-and-child-outcome-since-2015-16-to-2025-06-30-masked-v100.xlsx"
-        },
-        {
-          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2014-15 to 2023-24 v100.xlsx",
-          "format": "XLSX",
-          "lastModified": "2024-11-15T00:00:00Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/4e9559a4-a37f-414b-a716-24abff9d8e9a/download/bp0068l-migration-and-child-outcome-since-2014-15-to-2024-06-30-masked-v100.xlsx"
-        },
-        {
-          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2013-14 to 2022-23 v100",
-          "format": "XLSX",
-          "lastModified": "2023-10-26T00:00:00Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/f0d43822-512e-4687-8bc3-fa59926306a7/download/bp0068-migration-and-child-outcome-since-2013-14-to-2023-06-30-masked-v100.xlsx"
-        },
-        {
-          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2012-13 to 2021-22 v100",
-          "format": "XLSX",
-          "lastModified": "2023-08-28T00:00:00Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/6799abc0-db57-4e47-ad28-083262f31943/download/bp0068l-permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-2012-13-.xlsx"
-        },
-        {
-          "name": "BP0068L Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics 2011-12 to 2020-21 v100.xlsx",
-          "format": "XLSX",
-          "lastModified": "2023-08-28T00:00:00Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/c69d7522-d613-43ff-98e7-00a7a936f0d8/download/bp0068l-permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-2011-12-.xlsx"
-        },
-        {
-          "name": "pivot-table-user-guide-pdf",
-          "format": "PDF",
-          "lastModified": "2025-07-04T03:48:37.730030Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/52bf8db4-db4c-42fd-a3cd-cc5ecd3d459e/download/pivot-table-user-guide-v400.pdf"
-        },
-        {
-          "name": "Permanent Migration Program (Skilled & Family) Outcomes Snapshot – Annual Statistics Resources",
-          "format": "CSV",
-          "lastModified": "2025-07-04T03:48:13.774920Z",
-          "url": "https://data.gov.au/data/dataset/096fd157-807c-4ba0-8c63-0754cae4ba35/resource/2cd02db1-977d-4ba2-9198-38999bf308c2/download/permanent-migration-program-skilled-family-outcomes-snapshot-annual-statistics-resources.csv"
         }
       ]
     },
