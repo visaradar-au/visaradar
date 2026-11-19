@@ -1,5 +1,130 @@
 [
   {
+    "id": "36c1020a2853",
+    "source": "qld",
+    "title": "2024–25 State Nominated Migration Program Opening",
+    "url": "https://migration.qld.gov.au/news/2024-25-state-nominated-migration-program-opening",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "program-open",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "427f504ea3e9",
+    "source": "qld",
+    "title": "Business Innovation and Investment Program – ClosedBusiness Innovation and Investment Program – Closed",
+    "url": "https://migration.qld.gov.au/news/business-innovation-and-investment-program-closed",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "b01c16f2a498",
+    "source": "qld",
+    "title": "Skilled Work Regional (Provisional) visa (subclass 491) priority processing campaign",
+    "url": "https://migration.qld.gov.au/news/skilled-work-regional-provisional-visa-subclass",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "processing"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "3efff2b6b886",
+    "source": "qld",
+    "title": "2024–25 State Nominated Migration Program Allocation2024–25 State Nominated Migration Program Allocation Confirmation",
+    "url": "https://migration.qld.gov.au/news/24-25-state-nominated-migration-program-allocation",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "allocation",
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "31533cb8c79d",
+    "source": "qld",
+    "title": "Migration Queensland Program UpdateThe Migration Queensland skilled program is currently closed. We are awaiting nomination allocation from the Department of Home Affairs, and final approval for criteria changes for the 2022-23 financial year.",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-program-update",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "program-closed",
+      "allocation"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "8640f0911f95",
+    "source": "qld",
+    "title": "MQ Business Program (BIIP) interim quota filledMigration Queensland advises that the interim nomination allocation (quota) for the business program (BIIP) has now been filled.",
+    "url": "https://migration.qld.gov.au/news/mq-business-program-biip-interim-quota-filled",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "allocation"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "a7e6b8371fc8",
+    "source": "qld",
+    "title": "IMPORTANT NEWS: Proof of English now required as part of MQ nomination applicationMigration Queensland now requires evidence of English language to be uploaded to your document portal if you receive an invitation.",
+    "url": "https://migration.qld.gov.au/news/important-news-proof-of-english-now-required",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "invitations"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "055c372f1509",
+    "source": "qld",
+    "title": "Not Processing Offshore Skilled Applications - Migration Queensland UpdateDue to the current high number of applications for Queensland State Nomination from temporary migrants onshore who are living and working in Queensland, it is unlikely that Migration Queensland will open to offshore to skilled applicants this financial year.",
+    "url": "https://migration.qld.gov.au/news/not-processing-offshore-applications-migration-queensland-update",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "program-open",
+      "processing"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "42c32b9212cc",
+    "source": "qld",
+    "title": "Migration Queensland Christmas Closure PeriodMigration Queensland will close over the festive season from Saturday 25 December 2021 – Monday 3 January 2022. We open again on Tuesday 4 January 2022.",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-christmas-closure-period",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "program-closed",
+      "program-open"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "97b5df5ce432",
+    "source": "qld",
+    "title": "Welcome to 2022 - Year of the Water Tiger!Hello and welcome to 2022. We hope you had a refreshing holiday period and had an opportunity to catch up with loved ones as domestic borders were relaxed.",
+    "url": "https://migration.qld.gov.au/news/welcome-to-2022-year-of-the-water-tiger",
+    "published": null,
+    "firstSeen": "2026-11-19T04:29:45.654Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
     "id": "7925d86ad836",
     "source": "wa",
     "title": "Defence industry stream now available under the State Nominated Migration Program",
@@ -844,7 +969,7 @@
   {
     "id": "feaccf352b96",
     "source": "qld",
-    "title": "Important announcement: Migration Queensland program opening for 2023 - 24",
+    "title": "Important announcement: Migration Queensland program opening for 2023 - 24Important update: Migration Queensland program opens for 2023 - 24",
     "url": "https://migration.qld.gov.au/news/important-announcement-migration-queensland-program-opening-for-2023-24",
     "published": "2024-07-31",
     "firstSeen": "2026-11-07T10:20:18.483Z",
@@ -917,7 +1042,7 @@
   {
     "id": "a68808290286",
     "source": "qld",
-    "title": "Migration Queensland welcomes business migrants from Southeast Asia",
+    "title": "Migration Queensland welcomes business migrants from Southeast AsiaMigration Queensland welcomes business migrants from Southeast Asia",
     "url": "https://migration.qld.gov.au/news/migration-queensland-welcomes-southeast-asia-business-migrants",
     "published": "2023-11-04",
     "firstSeen": "2026-11-07T10:20:18.483Z",
@@ -953,7 +1078,7 @@
   {
     "id": "3646097b2905",
     "source": "qld",
-    "title": "2022-23 Program closed - Thank You",
+    "title": "2022-23 Program closed - Thank YouThe 2022-2023 State nominated program has closed.",
     "url": "https://migration.qld.gov.au/news/2022-23-program-closing-thank-you",
     "published": "2023-09-15",
     "firstSeen": "2026-11-07T10:20:18.483Z",
@@ -989,19 +1114,19 @@
   {
     "id": "d8cc85daab91",
     "source": "qld",
-    "title": "MQ Business Migrants Attend 'Taste of Queensland' 2022",
+    "title": "MQ Business Migrants Attend 'Taste of Queensland' 2022Migration Queensland's (MQ) business migrants from mainland China, Hong Kong, Vietnam, and Europe were invited to attend the Taste of Queensland showcase event, a three-day food and beverage expo from 2 - 4 November 2022 organised by Trade and Investment Queensland (TIQ) in Brisbane, the Gold Coast, and the Sunshine Coast.",
     "url": "https://migration.qld.gov.au/news/mq-business-migrants-attend-taste-of-queensland-2022",
     "published": "2022-11-17",
     "firstSeen": "2026-11-07T10:20:18.483Z",
     "tags": [
-      "other"
+      "invitations"
     ],
     "excerpt": null
   },
   {
     "id": "68fc4238f889",
     "source": "qld",
-    "title": "Migration Queensland Events – 2021 and Upcoming Events 2022",
+    "title": "Migration Queensland Events – 2021 and Upcoming Events 2022Migration Queensland staff supported over 20 business migration webinars hosted by onshore and offshore migration agencies since 1 July 2021.",
     "url": "https://migration.qld.gov.au/news/migration-queensland-events-2021-and-upcoming-events-2022",
     "published": "2022-02-11",
     "firstSeen": "2026-11-07T10:20:18.483Z",
@@ -1013,7 +1138,7 @@
   {
     "id": "82bc8e95f8e0",
     "source": "qld",
-    "title": "Migration Queensland Website Navigation and Special Features",
+    "title": "Migration Queensland Website Navigation and Special FeaturesMigration Queensland launched a brand-new website in October last year, which we hope you have had an opportunity to explore.",
     "url": "https://migration.qld.gov.au/news/migration-queensland-website-navigation-and-special-features",
     "published": "2022-02-11",
     "firstSeen": "2026-11-07T10:20:18.483Z",
@@ -1025,8 +1150,20 @@
   {
     "id": "c326b9876cbf",
     "source": "qld",
-    "title": "Visa Updates from the Department of Home Affairs",
+    "title": "Visa Updates from the Department of Home AffairsThere have been some exciting announcements made over the last couple of months by the Department of Home Affairs to address skill shortages as a result of COVID-19 and closed borders over the past two years.",
     "url": "https://migration.qld.gov.au/news/visa-updates-from-the-department-of-home-affairs",
+    "published": "2022-02-11",
+    "firstSeen": "2026-11-07T10:20:18.483Z",
+    "tags": [
+      "program-closed"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "990526fa968c",
+    "source": "qld",
+    "title": "Migration Queensland – No Gift PolicyAs Migration Queensland is part of the Queensland Government, we are unable to accept gifts of any kind during the festive season",
+    "url": "https://migration.qld.gov.au/news/migration-queensland-no-gift-policy",
     "published": "2022-02-11",
     "firstSeen": "2026-11-07T10:20:18.483Z",
     "tags": [
@@ -1035,21 +1172,9 @@
     "excerpt": null
   },
   {
-    "id": "990526fa968c",
-    "source": "qld",
-    "title": "Migration Queensland – No Gift Policy",
-    "url": "https://migration.qld.gov.au/news/migration-queensland-no-gift-policy",
-    "published": "2022-02-11",
-    "firstSeen": "2026-11-07T10:20:18.483Z",
-    "tags": [
-      "policy"
-    ],
-    "excerpt": null
-  },
-  {
     "id": "9b4e716b27ef",
     "source": "qld",
-    "title": "Migration Queensland showcases Burdekin and Townsville opportunities for migrant investment",
+    "title": "Migration Queensland showcases Burdekin and Townsville opportunities for migrant investmentLeading a group of 29 delegates, Migration Queensland headed North in mid-June, successfully hosting in partnership with the Burdekin and Townsville City Councils, a regional roadshow to promote investment opportunities in the Burdekin and Townsville regions.",
     "url": "https://migration.qld.gov.au/news/migration-queensland-showcases-burdekin-and-townsville-opportunities-for-migrant-investment",
     "published": "2022-02-11",
     "firstSeen": "2026-11-07T10:20:18.483Z",
