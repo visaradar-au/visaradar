@@ -3,7 +3,7 @@
     "url": "https://immi.homeaffairs.gov.au/news-media/archive",
     "lastOk": null,
     "lastError": "https://immi.homeaffairs.gov.au/news-media/archive: HTTP 403",
-    "lastErrorAt": "2026-11-19T04:29:45.654Z",
+    "lastErrorAt": "2026-11-20T11:25:37.574Z",
     "lastStatus": 403,
     "etag": null,
     "lastModified": null,
@@ -19,13 +19,13 @@
   },
   "qld": {
     "url": "https://www.migration.qld.gov.au/news",
-    "lastOk": "2026-11-19T04:29:45.654Z",
+    "lastOk": "2026-11-20T11:25:37.574Z",
     "lastError": null,
     "lastErrorAt": null,
     "lastStatus": 200,
     "etag": null,
     "lastModified": null,
-    "itemCount": 33,
+    "itemCount": 34,
     "urls": {
       "https://www.migration.qld.gov.au/news": {
         "lastStatus": 200,
@@ -35,44 +35,44 @@
       },
       "https://www.migration.qld.gov.au/sitemap.xml": {
         "lastStatus": 200,
-        "etag": "W/\"f6d798a798c5e32d169c8ce1eeea25ec\"",
-        "lastModified": "Thu, 19 Nov 2026 04:19:03 GMT",
+        "etag": "W/\"9ec6ab66c3e49f941140dc9307bfebb6\"",
+        "lastModified": "Fri, 20 Nov 2026 11:25:39 GMT",
         "lastError": null
       }
     }
   },
   "nsw": {
     "url": "https://www.nsw.gov.au/visas-and-migration/news-and-updates",
-    "lastOk": "2026-11-19T04:29:45.654Z",
+    "lastOk": "2026-11-20T11:25:37.574Z",
     "lastError": null,
     "lastErrorAt": null,
     "lastStatus": 200,
-    "etag": "W/\"1795058386\"",
-    "lastModified": "Thu, 19 Nov 2026 03:19:46 GMT",
+    "etag": "W/\"1795173940\"",
+    "lastModified": "Fri, 20 Nov 2026 11:25:40 GMT",
     "itemCount": 6,
     "urls": {
       "https://www.nsw.gov.au/visas-and-migration/news-and-updates": {
         "lastStatus": 200,
-        "etag": "W/\"1795058386\"",
-        "lastModified": "Thu, 19 Nov 2026 03:19:46 GMT",
+        "etag": "W/\"1795173940\"",
+        "lastModified": "Fri, 20 Nov 2026 11:25:40 GMT",
         "lastError": null
       },
       "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-nominated-visa-subclass-190": {
         "lastStatus": 200,
-        "etag": "W/\"1795031249\"",
-        "lastModified": "Wed, 18 Nov 2026 19:47:29 GMT",
+        "etag": "W/\"1795098070\"",
+        "lastModified": "Thu, 19 Nov 2026 14:21:10 GMT",
         "lastError": null
       },
       "https://www.nsw.gov.au/visas-and-migration/skilled-visas/skilled-work-regional-visa-subclass-491": {
         "lastStatus": 200,
-        "etag": "W/\"1795025214\"",
-        "lastModified": "Wed, 18 Nov 2026 18:06:54 GMT",
+        "etag": "W/\"1795099383\"",
+        "lastModified": "Thu, 19 Nov 2026 14:43:03 GMT",
         "lastError": null
       },
       "https://www.nsw.gov.au/visas-and-migration/skilled-visas/nsw-skills-lists": {
         "lastStatus": 200,
-        "etag": "W/\"1795008086\"",
-        "lastModified": "Wed, 18 Nov 2026 13:21:26 GMT",
+        "etag": "W/\"1795100295\"",
+        "lastModified": "Thu, 19 Nov 2026 14:58:15 GMT",
         "lastError": null
       }
     }
@@ -81,7 +81,7 @@
     "url": "https://liveinmelbourne.vic.gov.au/news-events/news",
     "lastOk": null,
     "lastError": "https://liveinmelbourne.vic.gov.au/news-events/news: HTTP 403",
-    "lastErrorAt": "2026-11-19T04:29:45.654Z",
+    "lastErrorAt": "2026-11-20T11:25:37.574Z",
     "lastStatus": 403,
     "etag": null,
     "lastModified": null,
@@ -97,36 +97,36 @@
   },
   "sa": {
     "url": "https://migration.sa.gov.au/news",
-    "lastOk": "2026-11-19T04:29:45.654Z",
+    "lastOk": "2026-11-20T11:25:37.574Z",
     "lastError": null,
     "lastErrorAt": null,
     "lastStatus": 200,
     "etag": "W/\"6af6b067-382dc\"",
-    "lastModified": "Tue, 17 Nov 2026 04:06:26 GMT",
-    "itemCount": 18,
+    "lastModified": "Fri, 20 Nov 2026 05:04:34 GMT",
+    "itemCount": 19,
     "urls": {
       "https://migration.sa.gov.au/news": {
         "lastStatus": 200,
         "etag": null,
-        "lastModified": "Tue, 17 Nov 2026 04:06:26 GMT",
+        "lastModified": "Fri, 20 Nov 2026 05:04:34 GMT",
         "lastError": null
       }
     }
   },
   "wa": {
     "url": "https://migration.wa.gov.au/news",
-    "lastOk": "2026-11-19T04:29:45.654Z",
+    "lastOk": "2026-11-20T11:25:37.574Z",
     "lastError": null,
     "lastErrorAt": null,
     "lastStatus": 200,
-    "etag": "W/\"1795057202\"",
-    "lastModified": "Thu, 19 Nov 2026 03:00:02 GMT",
+    "etag": "W/\"1795135285\"",
+    "lastModified": "Fri, 20 Nov 2026 00:41:25 GMT",
     "itemCount": 11,
     "urls": {
       "https://migration.wa.gov.au/news": {
         "lastStatus": 200,
-        "etag": "W/\"1795057202\"",
-        "lastModified": "Thu, 19 Nov 2026 03:00:02 GMT",
+        "etag": "W/\"1795135285\"",
+        "lastModified": "Fri, 20 Nov 2026 00:41:25 GMT",
         "lastError": null
       }
     }
@@ -135,7 +135,7 @@
     "url": "https://www.migration.tas.gov.au/news",
     "lastOk": null,
     "lastError": "https://www.migration.tas.gov.au/news: HTTP 403",
-    "lastErrorAt": "2026-11-19T04:29:45.654Z",
+    "lastErrorAt": "2026-11-20T11:25:37.574Z",
     "lastStatus": 403,
     "etag": null,
     "lastModified": null,
@@ -153,7 +153,7 @@
     "url": "https://www.act.gov.au/migration",
     "lastOk": "2026-11-07T10:40:51.021Z",
     "lastError": "https://www.act.gov.au/migration: HTTP 403; https://www.act.gov.au/migration/resources/canberra-matrix-invitation-round: HTTP 403",
-    "lastErrorAt": "2026-11-19T04:29:45.654Z",
+    "lastErrorAt": "2026-11-20T11:25:37.574Z",
     "lastStatus": 403,
     "etag": null,
     "lastModified": null,
@@ -177,7 +177,7 @@
     "url": "https://theterritory.com.au/",
     "lastOk": null,
     "lastError": "https://theterritory.com.au/: HTTP 403",
-    "lastErrorAt": "2026-11-19T04:29:45.654Z",
+    "lastErrorAt": "2026-11-20T11:25:37.574Z",
     "lastStatus": 403,
     "etag": null,
     "lastModified": null,
@@ -193,7 +193,7 @@
   },
   "legislation": {
     "url": "https://api.prod.legislation.gov.au/v1/titles?$filter=startswith(name,%27Migration%27)&$orderby=asMadeRegisteredAt%20desc&$top=20&$select=id,name,collection,asMadeRegisteredAt",
-    "lastOk": "2026-11-19T04:29:45.654Z",
+    "lastOk": "2026-11-20T11:25:37.574Z",
     "lastError": null,
     "lastErrorAt": null,
     "lastStatus": 200,
@@ -211,18 +211,18 @@
   },
   "pm": {
     "url": "https://www.pm.gov.au/rss.xml",
-    "lastOk": "2026-11-19T04:29:45.654Z",
+    "lastOk": "2026-11-20T11:25:37.574Z",
     "lastError": null,
     "lastErrorAt": null,
     "lastStatus": 200,
-    "etag": "\"1795046306\"",
-    "lastModified": "Wed, 18 Nov 2026 23:58:26 GMT",
+    "etag": "\"1795166772\"",
+    "lastModified": "Fri, 20 Nov 2026 09:26:12 GMT",
     "itemCount": 1,
     "urls": {
       "https://www.pm.gov.au/rss.xml": {
         "lastStatus": 200,
-        "etag": "\"1795046306\"",
-        "lastModified": "Wed, 18 Nov 2026 23:58:26 GMT",
+        "etag": "\"1795166772\"",
+        "lastModified": "Fri, 20 Nov 2026 09:26:12 GMT",
         "lastError": null
       }
     }

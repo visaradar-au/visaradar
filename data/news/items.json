@@ -1,5 +1,29 @@
 [
   {
+    "id": "99814e242a8e",
+    "source": "qld",
+    "title": "News",
+    "url": "https://migration.qld.gov.au/news",
+    "published": null,
+    "firstSeen": "2026-11-20T11:25:37.574Z",
+    "tags": [
+      "other"
+    ],
+    "excerpt": null
+  },
+  {
+    "id": "2b3e0f39bcc8",
+    "source": "sa",
+    "title": "South Australia’s General Skilled Migration Program Update - November",
+    "url": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update-20-11",
+    "published": "2026-11-20",
+    "firstSeen": "2026-11-20T11:25:37.574Z",
+    "tags": [
+      "policy"
+    ],
+    "excerpt": null
+  },
+  {
     "id": "36c1020a2853",
     "source": "qld",
     "title": "2024–25 State Nominated Migration Program Opening",
@@ -286,7 +310,7 @@
   {
     "id": "780ccf055401",
     "source": "sa",
-    "title": "South Australia’s General Skilled Migration Program Update",
+    "title": "South Australia’s General Skilled Migration Program Update - October",
     "url": "https://migration.sa.gov.au/news/south-australias-general-skilled-migration-program-update",
     "published": "2026-10-22",
     "firstSeen": "2026-11-07T10:20:18.483Z",
