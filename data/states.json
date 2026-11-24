@@ -284,12 +284,12 @@
       "asAt": null
     },
     "invitedSoFar": {
-      "n": 2327,
+      "n": 4505,
       "byVisa": {
-        "190": 1620,
-        "491": 707
+        "190": 3220,
+        "491": 1161
       },
-      "period": "2026-27 to date (2026-09 to 2026-10)",
+      "period": "2026-27 to date (2026-09 to 2026-11)",
       "source": "Migration WA",
       "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
       "asAt": "2026-11-24"
