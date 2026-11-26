@@ -1,5 +1,33 @@
 [
   {
+    "at": "2026-11-26T23:45:02.087Z",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Overseas Arrivals and Departures: updated 2026-11-27",
+    "url": "https://data.gov.au/data/dataset/overseas-arrivals-and-departures"
+  },
+  {
+    "at": "2026-11-26T23:45:02.087Z",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Student visa program: updated 2026-11-27",
+    "url": "https://data.gov.au/data/dataset/student-visas"
+  },
+  {
+    "at": "2026-11-26T23:45:02.087Z",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Temporary Graduate visa program: updated 2026-11-27",
+    "url": "https://data.gov.au/data/dataset/temporary-graduate-visas"
+  },
+  {
+    "at": "2026-11-26T23:45:02.087Z",
+    "kind": "dataset",
+    "source": "datagov",
+    "title": "Historical Migration Statistics: updated 2026-11-27",
+    "url": "https://data.gov.au/data/dataset/historical-migration-statistics"
+  },
+  {
     "at": "2026-11-24T05:55:34.594Z",
     "kind": "round",
     "source": "wa",
