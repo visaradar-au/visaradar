@@ -6,15 +6,15 @@
     "title": "WA State Nominated Migration Program invitations, November 2026",
     "invitations": 2178,
     "byVisa": {
-      "190": 1600,
-      "491": 454
+      "190": 1674,
+      "491": 504
     },
     "cutoffs": [],
     "source": "Migration WA",
     "sourceUrl": "https://migration.wa.gov.au/our-services-support/state-nominated-migration-program",
     "verified": true,
     "notes": "Monthly total from the WA SNMP \"Invitations issued\" table; WA does not publish exact round dates in that table.",
-    "issuedOn": "2026-11-20"
+    "issuedOn": "2026-11-23"
   },
   {
     "id": "ACT-2026-10-12",
